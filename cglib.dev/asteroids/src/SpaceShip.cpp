@@ -49,24 +49,29 @@ namespace asteroids {
 		}
 	}
 	void SpaceShip::draw() {
-		cg::Vector2d tip = cg::Vector2d(_size[0], 0)/2.0;
-		cg::Vector2d leftCorner = cg::Vector2d(-_size[0], -_size[1])/2.0;
-		cg::Vector2d rightCorner = cg::Vector2d(-_size[0], _size[1])/2.0;
-		glTranslated(_position[0], _position[1], 0);
-		glMatrixMode(GL_MODELVIEW);
-		glLoadIdentity();
-		glRotated(getRotation(true), 0, 0, 1);
-		glColor3d(0.5,0.9,0.5);
-		glLineWidth(1.5);
-		glBegin(GL_LINE_LOOP);
-			glVertex3d(tip[0],tip[1], 0);
-			glVertex3d(leftCorner[0],leftCorner[1], 0);
-			glVertex3d(rightCorner[0],rightCorner[1], 0);
-			glVertex3d(tip[0],tip[1], 0);
-		glEnd();
+		cg::Vector3d tip = cg::Vector3d(_size[0], 0, 0)/2.0;
+		cg::Vector3d backTip = cg::Vector3d(-_size[0], 0, 0) / 1.5;
+		cg::Vector3d topLeftCorner = cg::Vector3d(-_size[0], -_size[1], _size[1])/2.0;
+		cg::Vector3d topRightCorner = cg::Vector3d(-_size[0], _size[1], _size[1])/2.0;
+		cg::Vector3d bottomLeftCorner = cg::Vector3d(-_size[0], -_size[1], -_size[1])/2.0;
+		cg::Vector3d bottomRightCorner = cg::Vector3d(-_size[0], _size[1], -_size[1])/2.0;
+		
+		glPushMatrix();
+			glTranslated(_position[0], _position[1], 0);
+			glMatrixMode(GL_MODELVIEW);
+			glLoadIdentity();
+			glRotated(getRotation(true), 0, 0, 1);
+			glColor3d(0.5,0.9,0.5);
+			glLineWidth(1.5);
+			glBegin(GL_POLYGON);
+				glVertex3d(tip[0], tip[1], tip[2]);
+				glVertex3d(topLeftCorner[0], topLeftCorner[1], topLeftCorner[2]);
+				glVertex3d(topRightCorner[0], topRightCorner[1], topRightCorner[2]);
+				glVertex3d(bottomLeftCorner[0], bottomLeftCorner[1], bottomLeftCorner[2]);
+				glVertex3d(bottomRightCorner[0], bottomRightCorner[1], bottomRightCorner[2]);
+			glEnd();
+			glPopMatrix();
 		glFlush();
-		glMatrixMode(GL_MODELVIEW);
-		glLoadIdentity();
 	}
 	void SpaceShip::onReshape(int width, int height) {
 		_winWidth = width;

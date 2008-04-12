@@ -12,8 +12,8 @@ namespace asteroids {
 		_winHeight = win.height;
     }
     void MyCamera::draw() {
-        glMatrixMode(GL_PROJECTION);
-        glLoadIdentity();
+		glMatrixMode(GL_PROJECTION);
+		glLoadIdentity();
         glOrtho(0,_winWidth,0,_winHeight,0,-100);
     }
 	void MyCamera::onReshape(int width, int height) {

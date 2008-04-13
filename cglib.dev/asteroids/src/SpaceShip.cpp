@@ -141,8 +141,6 @@ namespace asteroids {
 		_accelerator->stop();
 	}
 
-
-
 	void SpaceShip::startRotation(double factor) {
 		_rotator->start(factor);
 	}

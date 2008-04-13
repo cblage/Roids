@@ -185,6 +185,18 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath="..\src\Asteroid.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\AsteroidAccelerator.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\AsteroidRotator.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\main.cpp"
 				>
 			</File>
@@ -238,6 +250,22 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath="..\src\Asteroid.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\AsteroidAccelerator.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\AsteroidEngine.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\AsteroidRotator.h"
+				>
+			</File>
 			<File
 				RelativePath="..\src\MyApp.h"
 				>

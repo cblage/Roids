@@ -228,6 +228,10 @@
 				RelativePath="..\src\SpaceShipRotator.cpp"
 				>
 			</File>
+			<File
+				RelativePath="..\src\StarSphere.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -276,6 +280,10 @@
 			</File>
 			<File
 				RelativePath="..\src\SpaceShipRotator.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\StarSphere.h"
 				>
 			</File>
 		</Filter>

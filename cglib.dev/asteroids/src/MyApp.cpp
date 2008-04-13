@@ -13,6 +13,7 @@ namespace asteroids {
 		SpaceShip *ship = new SpaceShip("Le Ship");
 
 		addEntity(new MyCamera());
+		addEntity(new StarSphere());
 		addEntity(ship);
 		addEntity(new SpaceShipController(ship));
 	}

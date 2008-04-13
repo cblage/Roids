@@ -57,20 +57,64 @@ namespace asteroids {
 		cg::Vector3d bottomRightCorner = cg::Vector3d(-_size[0], _size[1], -_size[1])/2.0;
 		
 		glPushMatrix();
-			glTranslated(_position[0], _position[1], 0);
+		{
 			glMatrixMode(GL_MODELVIEW);
 			glLoadIdentity();
+			glTranslated(_position[0], _position[1], 0);
 			glRotated(getRotation(true), 0, 0, 1);
 			glColor3d(0.5,0.9,0.5);
-			glLineWidth(1.5);
+			//top face
 			glBegin(GL_POLYGON);
+			{
+				//glColor3d(1,0, 0);
 				glVertex3d(tip[0], tip[1], tip[2]);
+				glVertex3d(topLeftCorner[0], topLeftCorner[1], topLeftCorner[2]);
+				glVertex3d(topRightCorner[0], topRightCorner[1], topRightCorner[2]);
+			}
+			glEnd();
+
+			//bottom face
+			glBegin(GL_POLYGON);
+			{
+				//glColor3d(0, 1, 0);
+				glVertex3d(tip[0], tip[1], tip[2]);
+				glVertex3d(bottomLeftCorner[0], bottomLeftCorner[1], bottomLeftCorner[2]);
+				glVertex3d(bottomRightCorner[0], bottomRightCorner[1], bottomRightCorner[2]);
+			}
+			glEnd();
+
+			//right face
+			glBegin(GL_POLYGON);
+			{
+				//glColor3d(0 ,0, 1);
+				glVertex3d(tip[0], tip[1], tip[2]);
+				glVertex3d(topRightCorner[0], topRightCorner[1], topRightCorner[2]);
+				glVertex3d(bottomRightCorner[0], bottomRightCorner[1], bottomRightCorner[2]);
+			}
+			glEnd();
+			
+			//left face
+			glBegin(GL_POLYGON);
+			{
+				//glColor3d(1,1, 0);
+				glVertex3d(tip[0], tip[1], tip[2]);
+				glVertex3d(topLeftCorner[0], topLeftCorner[1], topLeftCorner[2]);
+				glVertex3d(bottomLeftCorner[0], bottomLeftCorner[1], bottomLeftCorner[2]);				
+			}
+			glEnd();
+
+			//bottom
+			glBegin(GL_POLYGON);
+			{
+				//glColor3d(0,1, 1);
 				glVertex3d(topLeftCorner[0], topLeftCorner[1], topLeftCorner[2]);
 				glVertex3d(topRightCorner[0], topRightCorner[1], topRightCorner[2]);
 				glVertex3d(bottomLeftCorner[0], bottomLeftCorner[1], bottomLeftCorner[2]);
 				glVertex3d(bottomRightCorner[0], bottomRightCorner[1], bottomRightCorner[2]);
+			}
 			glEnd();
-			glPopMatrix();
+		}
+		glPopMatrix();
 		glFlush();
 	}
 	void SpaceShip::onReshape(int width, int height) {

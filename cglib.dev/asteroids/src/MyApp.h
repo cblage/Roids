@@ -7,6 +7,7 @@
 #include "MyCamera.h"
 #include "SpaceShipController.h"
 #include "SpaceShip.h"
+#include "StarSphere.h"
 
 namespace asteroids {
 

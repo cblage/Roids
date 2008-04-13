@@ -42,7 +42,7 @@ namespace asteroids {
 				accelerate(_factor, _withRotation);
 			}
 		} else {
-			accelerate(-5, false, cg::Vector2d(0, 0));
+			accelerate(-1, false, cg::Vector2d(0, 0));
 		}
 	}
 

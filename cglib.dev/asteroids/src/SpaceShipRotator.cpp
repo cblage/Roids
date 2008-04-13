@@ -28,12 +28,7 @@ namespace asteroids {
 	}
 
 	void SpaceShipRotator::rotate(double factor) {
-		_rotationDeg = _rotationDeg + factor;
-		if(_rotationDeg > 360) {
-			_rotationDeg = 360 - _rotationDeg;
-		} else if(_rotationDeg < 0) {
-			_rotationDeg = 360 + _rotationDeg;
-		}
+		_rotationDeg = fmod(_rotationDeg + factor, 360);
 		_rotationRad = _rotationDeg * PI / 180;
 	}
 

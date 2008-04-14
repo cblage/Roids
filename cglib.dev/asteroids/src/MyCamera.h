@@ -2,6 +2,7 @@
 #define MY_CAMERA_H
 
 #include <string>
+#include <cmath>
 #include "cg/cg.h"
 
 namespace asteroids {
@@ -12,6 +13,7 @@ namespace asteroids {
 	{
     private:
 		double _winWidth, _winHeight;
+		float _ang;
 
     public:
         MyCamera();

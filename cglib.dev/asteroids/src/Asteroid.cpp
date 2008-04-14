@@ -60,8 +60,6 @@ namespace asteroids {
 	void Asteroid::draw() {
 		glPushMatrix();
 		{
-			glMatrixMode(GL_MODELVIEW);
-			glLoadIdentity();
 			glTranslated(_position[0], _position[1], 0);
 			glRotated(getRotation(true), 0, 0, 1);
 			glColor3d(0.5,0.9,0.5);

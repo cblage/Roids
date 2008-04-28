@@ -10,14 +10,12 @@ namespace asteroids {
 	MyApp::~MyApp() {
 	}
 	void MyApp::createEntities() {
-		SpaceShip *ship = new SpaceShip("Le Ship");
-	
 		addEntity(new MyCamera());
 		addEntity(new StarSphere());
+		
+		SpaceShip *ship = new SpaceShip("Le Ship");
 		addEntity(ship);
 		addEntity(new SpaceShipController(ship));
-		addEntity(new Asteroid("ast1", 2));
-		addEntity(new Asteroid("ast2", 1));
-		addEntity(new Asteroid("ast3", 3));
+		addEntity(new AsteroidManager("Asteroid Manager", ship));
 	}
 }

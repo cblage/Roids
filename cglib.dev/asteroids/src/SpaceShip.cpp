@@ -23,8 +23,10 @@ namespace asteroids {
 		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
 		_winWidth = win.width;
 		_winHeight = win.height;
+		setCollisionRadius(_size[0]);
 		_velocity = cg::Vector2d(0, 0);
 		_position = cg::Vector2d(_winWidth/2, _winHeight/2);
+		setCollisionCenter(_position);
 	}
 	void SpaceShip::update(unsigned long elapsed_millis) {
 		double elapsed_seconds = elapsed_millis / 1000.0;
@@ -47,6 +49,7 @@ namespace asteroids {
 		if(_position[1] > _winHeight) { 
 			_position[1] = 0;
 		}
+		setCollisionCenter(_position);
 	}
 	void SpaceShip::draw() {
 		cg::Vector3d tip = cg::Vector3d(_size[0], 0, 0)/2.0;

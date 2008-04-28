@@ -193,7 +193,15 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\AsteroidManager.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\AsteroidRotator.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\CollidableObject.cpp"
 				>
 			</File>
 			<File
@@ -263,7 +271,15 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\AsteroidManager.h"
+				>
+			</File>
+			<File
 				RelativePath="..\src\AsteroidRotator.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\CollidableObject.h"
 				>
 			</File>
 			<File

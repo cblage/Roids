@@ -2,10 +2,27 @@
 
 namespace asteroids {
 
-	Asteroid::Asteroid(std::string id, double scaleFactor) : cg::Entity(id), _scaleFactor(scaleFactor) {
+	Asteroid::Asteroid(std::string id, double scaleFactor, SpaceShip * ship) : cg::Entity(id), _scaleFactor(scaleFactor), _asteroidManager(NULL), _ship(ship) {
 		_accelerator = new AsteroidAccelerator(this);
 		_rotator = new AsteroidRotator(this);
 	}
+	
+	Asteroid::Asteroid(std::string id, SpaceShip * ship) : cg::Entity(id), _scaleFactor(randomBetween(1, 3)), _asteroidManager(NULL), _ship(ship) {
+		_accelerator = new AsteroidAccelerator(this);
+		_rotator = new AsteroidRotator(this);
+	}
+
+	Asteroid::Asteroid(std::string id, double scaleFactor, AsteroidManager *  asteroidManager, SpaceShip * ship) : cg::Entity(id), _scaleFactor(scaleFactor), _asteroidManager(asteroidManager), _ship(ship) {
+		_accelerator = new AsteroidAccelerator(this);
+		_rotator = new AsteroidRotator(this);
+	}
+
+	Asteroid::Asteroid(std::string id, AsteroidManager * asteroidManager, SpaceShip * ship) : cg::Entity(id), _scaleFactor(randomBetween(1, 3)), _asteroidManager(asteroidManager), _ship(ship) {
+		_accelerator = new AsteroidAccelerator(this);
+		_rotator = new AsteroidRotator(this);
+	}
+
+
 
 	Asteroid::~Asteroid() {
 		delete(_accelerator);
@@ -19,12 +36,16 @@ namespace asteroids {
 		_winHeight = win.height;
 		_velocity = cg::Vector2d(randomBetween(-100, 100), randomBetween(-100, 100));
 		_position = cg::Vector2d((_winWidth*randomBetween(0.2,1))/2,(_winHeight*randomBetween(0.2,1)/2));
-		
+		setCollisionCenter(_position);
+		_destroyed = false;
+
 		cg::Vector3d t;
 		int i;
 		double x, y, angle, baseAsteroidSize;
 		
 		baseAsteroidSize = cg::Properties::instance()->getDouble("BASE_ASTEROID_SIZE");
+		_radius = baseAsteroidSize * _scaleFactor;
+		setCollisionRadius(_radius);
 
 		for (i = 0; i < 12; i++) {
 			angle = 2*(3.14)*i/12;
@@ -36,6 +57,9 @@ namespace asteroids {
 	}
 
 	void Asteroid::update(unsigned long elapsed_millis) {
+		if(_destroyed == true)
+			return;
+		
 		double elapsed_seconds = elapsed_millis / 1000.0;
 		
 		_rotator->update(elapsed_seconds);
@@ -55,9 +79,31 @@ namespace asteroids {
 		if(_position[1] > _winHeight) { 
 			_position[1] = 0;
 		}
+		setCollisionCenter(_position);
+
+		if(collidesWith(_ship)) {
+				_destroyed = true;
+				if(_asteroidManager != NULL) {
+					int newAsteroids = abs(int(_scaleFactor/2 + 0.5));
+					double newScaleFactor = 0;
+					
+					if(newAsteroids > 1) {
+						newScaleFactor = _scaleFactor * (1/(double)newAsteroids);
+					} else if(newAsteroids == 1) {
+						newScaleFactor = 0.5 * _scaleFactor;
+						newAsteroids = 2;
+					}
+					_asteroidManager->createAsteroids(newAsteroids, newScaleFactor, _position);
+					_asteroidManager->destroyAsteroid(_id);
+				}
+		}	
+
 	}
 
 	void Asteroid::draw() {
+		if(_destroyed == true)
+			return;
+
 		glPushMatrix();
 		{
 			glTranslated(_position[0], _position[1], 0);
@@ -140,5 +186,29 @@ namespace asteroids {
 	
 	double Asteroid::randomBetween(double min, double max) {
 		return (rand() / (double)RAND_MAX * (max - min)) + min;
+	}
+	void Asteroid::onMouse(int button, int state, int x, int y) {
+		if(button == GLUT_LEFT_BUTTON && state == GLUT_DOWN && _destroyed == false){
+			if(length(cg::Vector2d(x, _winHeight - y) - _position) < _radius) {
+				_destroyed = true;
+				if(_asteroidManager != NULL) {
+					int newAsteroids = abs(int(_scaleFactor/2 + 0.5));
+					double newScaleFactor = 0;
+					
+					if(newAsteroids > 1) {
+						newScaleFactor = _scaleFactor * (1/(double)newAsteroids);
+					} else if(newAsteroids == 1) {
+						newScaleFactor = 0.5 * _scaleFactor;
+						newAsteroids = 2;
+					}
+					_asteroidManager->createAsteroids(newAsteroids, newScaleFactor, _position);
+					_asteroidManager->destroyAsteroid(_id);
+				}
+			}	
+		}
+	}
+	void Asteroid::onMouseMotion(int x, int y) {
+	}
+	void Asteroid::onMousePassiveMotion(int x, int y) {
 	}
 }

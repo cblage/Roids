@@ -7,13 +7,18 @@
 #include <cmath>
 #include "AsteroidAccelerator.h"
 #include "AsteroidRotator.h"
-
+#include "AsteroidManager.h"
+#include "SpaceShip.h"
+#include "CollidableObject.h"
 
 namespace asteroids {
+	class AsteroidManager;
 	class Asteroid : public cg::Entity,
 		public cg::IDrawListener,
 		public cg::IUpdateListener,
-		public cg::IReshapeEventListener
+		public cg::IReshapeEventListener,
+		public cg::IMouseEventListener,
+		public CollidableObject
 	{
 	private:
 		std::vector<cg::Vector3d> _asteroid_vector;
@@ -22,9 +27,16 @@ namespace asteroids {
 		double _winWidth, _winHeight, _scaleFactor;		
 		AsteroidAccelerator *_accelerator;
 		AsteroidRotator * _rotator;
-		
+		double _radius;
+		bool _destroyed;
+		AsteroidManager * _asteroidManager;
+		SpaceShip * _ship;
+
 	public:
-		Asteroid(std::string id, double scaleFactor);
+		Asteroid(std::string id, double scaleFactor, SpaceShip * ship);
+		Asteroid(std::string id, AsteroidManager * asteroidManager, SpaceShip * ship);
+		Asteroid(std::string id, SpaceShip * ship);
+		Asteroid(std::string id, double scaleFactor, AsteroidManager * asteroidManager, SpaceShip * ship);
 		~Asteroid();
 		void init();
 		void update(unsigned long elapsed_millis);
@@ -45,7 +57,10 @@ namespace asteroids {
 		double getRotation(bool inDegrees) const;
 		cg::Vector2d getUniverseDimensions(void);
 		void setPosition(cg::Vector2d position);
-double randomBetween(double min, double max);
+		double randomBetween(double min, double max);
+		void onMouse(int button, int state, int x, int y);
+        void onMouseMotion(int x, int y);
+        void onMousePassiveMotion(int x, int y);
 	};
 }
 

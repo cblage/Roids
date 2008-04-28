@@ -9,6 +9,7 @@
 #include "SpaceShip.h"
 #include "Asteroid.h"
 #include "StarSphere.h"
+#include "AsteroidManager.h"
 
 namespace asteroids {
 

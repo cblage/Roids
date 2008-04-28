@@ -7,13 +7,15 @@
 #include "SpaceShipAccelerator.h"
 #include "SpaceShipRotator.h"
 #include "SpaceShipHyperAccelerator.h"
+#include "CollidableObject.h"
 
 namespace asteroids {
 	class SpaceShip : public cg::Entity,
 		public cg::IDrawListener,
 		public cg::IUpdateListener,
 		public cg::IReshapeEventListener,
-		public cg::IDrawOverlayListener
+		public cg::IDrawOverlayListener,
+		public CollidableObject
 	{
 	private:
 		cg::Vector2d _position, _size;

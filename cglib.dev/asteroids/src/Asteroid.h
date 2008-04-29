@@ -19,18 +19,15 @@ namespace asteroids {
 		public cg::IUpdateListener,
 		public cg::IReshapeEventListener,
 		public cg::IMouseEventListener,
-		public CollidableObject
+		public PhysicsObject
 	{
 	private:
 		std::vector<cg::Vector3d> _asteroid_vector;
 		cg::Vector2d _size;
-		double _winWidth, _winHeight, _scaleFactor;		
-		double _radius;
+		double _scaleFactor, _radius;		
 		bool _destroyed;
 		AsteroidManager * _asteroidManager;
 		SpaceShip * _ship;
-		PhysicsEngine * _physics;
-
 	public:
 		Asteroid(std::string id, double scaleFactor, SpaceShip * ship);
 		Asteroid(std::string id, AsteroidManager * asteroidManager, SpaceShip * ship);
@@ -41,22 +38,6 @@ namespace asteroids {
 		void update(unsigned long elapsed_millis);
 		void draw();
         void onReshape(int width, int height);
-		void accelerate(double factor, bool withRotation);
-		void accelerate(double factor, bool withRotation, cg::Vector2d minVelocity);
-		void rotate(double factor);
-		void startRotation(double factor);
-		void stopRotation();
-		void startAcceleration(double factor, bool withRotation);
-		void startAcceleration(double factor, bool withRotation, cg::Vector2d minVelocity);
-		void stopAcceleration();
-		void setVelocity(cg::Vector2d velocity);
-		cg::Vector2d getNormalizedVelocity() const;
-		cg::Vector2d getVelocity() const;
-		cg::Vector2d getPosition() const;
-		double getRotation() const;
-		double getRotation(bool inDegrees) const;
-		cg::Vector2d getUniverseDimensions(void);
-		void setPosition(cg::Vector2d position);
 		double randomBetween(double min, double max);
 		void onMouse(int button, int state, int x, int y);
         void onMouseMotion(int x, int y);

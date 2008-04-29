@@ -7,8 +7,7 @@
 #include "SpaceShipAccelerator.h"
 #include "SpaceShipRotator.h"
 #include "SpaceShipHyperAccelerator.h"
-#include "CollidableObject.h"
-#include "PhysicsEngine.h"
+#include "PhysicsObject.h"
 
 namespace asteroids {
 	class SpaceShip : public cg::Entity,
@@ -16,12 +15,11 @@ namespace asteroids {
 		public cg::IUpdateListener,
 		public cg::IReshapeEventListener,
 		public cg::IDrawOverlayListener,
-		public CollidableObject
+		public PhysicsObject
 	{
 	private:
 		cg::Vector2d _size;
 		double _winWidth, _winHeight;		
-		PhysicsEngine *_physics;
 		SpaceShipHyperAccelerator * _hyperAccelerator;
 
 	public:
@@ -32,24 +30,7 @@ namespace asteroids {
 		void draw();
 		void drawOverlay();
         void onReshape(int width, int height);
-		void accelerate(double factor, bool withRotation);
-		void accelerate(double factor, bool withRotation, cg::Vector2d minVelocity);
-		void rotate(double factor);
-		void startRotation(double factor);
-		void stopRotation();
-		void startAcceleration(double factor, bool withRotation);
-		void startAcceleration(double factor, bool withRotation, cg::Vector2d minVelocity);
-		void stopAcceleration();
-		void setVelocity(cg::Vector2d velocity);
-		cg::Vector2d getNormalizedVelocity() const;
-		cg::Vector2d getVelocity() const;
-		double getRotation() const;
-		double getRotation(bool inDegrees) const;
-		cg::Vector2d getUniverseDimensions(void);
-		void setPosition(cg::Vector2d position);
 		void hyperAccelerate(void);
-		cg::Vector2d getPosition() const;
-		cg::Vector2d getAcceleration() const; 
 	};
 }
 

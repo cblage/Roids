@@ -15,6 +15,10 @@ namespace asteroids {
 		_rotationDeg = 0;
 		_rotationRad = 0;
 		_rotating = false;
+		_collisionCenter = cg::Vector2d(0,0);
+		_collisionRadius = 0;
+		_universeWidth = 0;
+		_universeHeight = 0;
 	}
 	PhysicsEngine::PhysicsEngine(cg::Vector2d velocity,cg::Vector2d position){
 		_velocity = velocity;
@@ -29,6 +33,10 @@ namespace asteroids {
 		_rotationDeg = 0;
 		_rotationRad = 0;
 		_rotating = false;
+		_collisionCenter = cg::Vector2d(0,0);
+		_collisionRadius = 0;
+		_universeWidth = 0;
+		_universeHeight = 0;
 	}
 
 	PhysicsEngine::~PhysicsEngine(){
@@ -47,14 +55,13 @@ namespace asteroids {
 		_position = position;
 	}
 	
-
+	cg::Vector2d PhysicsEngine::getUniverseDimensions(void) {
+		return cg::Vector2d(_universeWidth, _universeHeight);
+	}
 
 
 	cg::Vector2d PhysicsEngine::getNormalizedVelocity() const {
-		if(_velocity == cg::Vector2d(0,0)) 
-			return cg::Vector2d(0,0);
-
-		return _velocity / sqrt(pow(_velocity[0], 2) + pow(_velocity[1], 2));
+		return normalize(_velocity);
 	}
 
 	void PhysicsEngine::startAcceleration(double factor, bool withRotation) {
@@ -78,19 +85,19 @@ namespace asteroids {
 
 	void PhysicsEngine::update(double elapsed_millis) {
 		double elapsed_seconds = elapsed_millis / 1000.0;
-		
+		setCollisionCenter(getPosition());
+
 		//ROTATION UPDATE
-		if(_rotating == true) //cant be ran more often than each 0.1 seconds, nor if it's not rotating
+		if(_rotating == true)
 			rotate(_rotFactor*elapsed_seconds);
 		
 		if(_accelerating == true) {
 			if(_withMinVelocity == true) {
-				accelerate(_acelFactor, _withRotation, _minVelocity);
+				accelerate(_acelFactor*elapsed_seconds, _withRotation, _minVelocity);
 			} else {
-				accelerate(_acelFactor, _withRotation);
+				accelerate(_acelFactor*elapsed_seconds, _withRotation);
 			}
 		}
-		//accelerate(-1, false, cg::Vector2d(0, 0)); para nave
 		// update dos objectos
 		_position += _velocity * elapsed_seconds;
 
@@ -178,6 +185,23 @@ namespace asteroids {
 	double PhysicsEngine::getRotation(bool inDegrees) const {
 		return (inDegrees == true) ? _rotationDeg : _rotationRad;
 	}
+
+	double PhysicsEngine::getCollisionRadius() { 
+		return _collisionRadius;
+	}
+	cg::Vector2d PhysicsEngine::getCollisionCenter() { 
+		return _collisionCenter;
+	}
+	void PhysicsEngine::setCollisionRadius(double collisionRadius) { 
+		_collisionRadius = collisionRadius;
+	}
+	void PhysicsEngine::setCollisionCenter(cg::Vector2d collisionCenter) {
+		_collisionCenter = collisionCenter;
+	}
+	bool PhysicsEngine::collidesWith(PhysicsObject *pobject) {
+		return (length(pobject->getCollisionCenter() - getCollisionCenter()) <= pobject->getCollisionRadius() + getCollisionRadius());
+	}
+
 
 }
 	

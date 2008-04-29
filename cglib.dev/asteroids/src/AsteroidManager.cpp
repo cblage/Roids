@@ -50,7 +50,7 @@ namespace asteroids {
 			os << "Asteroid" << _currIdNum++;
 			Asteroid * createdAsteroid = new Asteroid(os.str(), scaleFactor, this, _ship);
 			createdAsteroid->init();
-			createdAsteroid->accelerate(randomBetween(30, 80), false);
+			createdAsteroid->accelerate(randomBetween(200, 400), false);
 			createdAsteroid->setPosition(position);
 			_newAsteroids.push_back(createdAsteroid);
 		}
@@ -59,10 +59,4 @@ namespace asteroids {
 	double AsteroidManager::randomBetween(double min, double max) {
 		return (rand() / (double)RAND_MAX * (max - min)) + min;
 	}
-	/*void AsteroidManager::preOnMouse(int button, int state, int x, int y) {}
-	void AsteroidManager::postOnMouse(int button, int state, int x, int y) {}
-	void AsteroidManager::preOnMouseMotion(int x, int y){}
-	void AsteroidManager::postOnMouseMotion(int x, int y) {}
-	void AsteroidManager::preOnMousePassiveMotion(int x, int y){}
-	void AsteroidManager::postOnMousePassiveMotion(int x, int y) {}*/
 }

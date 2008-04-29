@@ -189,19 +189,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\src\AsteroidAccelerator.cpp"
-				>
-			</File>
-			<File
 				RelativePath="..\src\AsteroidManager.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\src\AsteroidRotator.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\src\CollidableObject.cpp"
 				>
 			</File>
 			<File
@@ -233,11 +221,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\src\SpaceShip.cpp"
+				RelativePath="..\src\PhysicsObject.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\SpaceShipAccelerator.cpp"
+				RelativePath="..\src\SpaceShip.cpp"
 				>
 			</File>
 			<File
@@ -246,10 +234,6 @@
 			</File>
 			<File
 				RelativePath="..\src\SpaceShipHyperAccelerator.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\src\SpaceShipRotator.cpp"
 				>
 			</File>
 			<File
@@ -267,23 +251,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\src\AsteroidAccelerator.h"
-				>
-			</File>
-			<File
-				RelativePath="..\src\AsteroidEngine.h"
-				>
-			</File>
-			<File
 				RelativePath="..\src\AsteroidManager.h"
-				>
-			</File>
-			<File
-				RelativePath="..\src\AsteroidRotator.h"
-				>
-			</File>
-			<File
-				RelativePath="..\src\CollidableObject.h"
 				>
 			</File>
 			<File
@@ -311,11 +279,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\src\SpaceShip.h"
+				RelativePath="..\src\PhysicsObject.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\SpaceShipAccelerator.h"
+				RelativePath="..\src\SpaceShip.h"
 				>
 			</File>
 			<File
@@ -328,10 +296,6 @@
 			</File>
 			<File
 				RelativePath="..\src\SpaceShipHyperAccelerator.h"
-				>
-			</File>
-			<File
-				RelativePath="..\src\SpaceShipRotator.h"
 				>
 			</File>
 			<File

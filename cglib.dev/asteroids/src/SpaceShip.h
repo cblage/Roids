@@ -8,6 +8,7 @@
 #include "SpaceShipRotator.h"
 #include "SpaceShipHyperAccelerator.h"
 #include "CollidableObject.h"
+#include "PhysicsEngine.h"
 
 namespace asteroids {
 	class SpaceShip : public cg::Entity,
@@ -18,12 +19,11 @@ namespace asteroids {
 		public CollidableObject
 	{
 	private:
-		cg::Vector2d _position, _size;
-		cg::Vector2d _velocity;
+		cg::Vector2d _size;
 		double _winWidth, _winHeight;		
-		SpaceShipAccelerator *_accelerator;
-		SpaceShipRotator * _rotator;
+		PhysicsEngine *_physics;
 		SpaceShipHyperAccelerator * _hyperAccelerator;
+
 	public:
 		SpaceShip(std::string id);
 		~SpaceShip();
@@ -48,6 +48,8 @@ namespace asteroids {
 		cg::Vector2d getUniverseDimensions(void);
 		void setPosition(cg::Vector2d position);
 		void hyperAccelerate(void);
+		cg::Vector2d getPosition() const;
+		cg::Vector2d getAcceleration() const; 
 	};
 }
 

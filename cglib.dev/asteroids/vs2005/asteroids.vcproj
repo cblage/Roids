@@ -229,6 +229,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\PhysicsEngine.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\SpaceShip.cpp"
 				>
 			</File>
@@ -300,6 +304,10 @@
 			</File>
 			<File
 				RelativePath="..\src\MyCamera.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\PhysicsEngine.h"
 				>
 			</File>
 			<File

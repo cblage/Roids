@@ -10,6 +10,7 @@
 #include "AsteroidManager.h"
 #include "SpaceShip.h"
 #include "CollidableObject.h"
+#include "PhysicsEngine.h"
 
 namespace asteroids {
 	class AsteroidManager;
@@ -22,15 +23,13 @@ namespace asteroids {
 	{
 	private:
 		std::vector<cg::Vector3d> _asteroid_vector;
-		cg::Vector2d _position, _size;
-		cg::Vector2d _velocity;
+		cg::Vector2d _size;
 		double _winWidth, _winHeight, _scaleFactor;		
-		AsteroidAccelerator *_accelerator;
-		AsteroidRotator * _rotator;
 		double _radius;
 		bool _destroyed;
 		AsteroidManager * _asteroidManager;
 		SpaceShip * _ship;
+		PhysicsEngine * _physics;
 
 	public:
 		Asteroid(std::string id, double scaleFactor, SpaceShip * ship);
@@ -53,6 +52,7 @@ namespace asteroids {
 		void setVelocity(cg::Vector2d velocity);
 		cg::Vector2d getNormalizedVelocity() const;
 		cg::Vector2d getVelocity() const;
+		cg::Vector2d getPosition() const;
 		double getRotation() const;
 		double getRotation(bool inDegrees) const;
 		cg::Vector2d getUniverseDimensions(void);

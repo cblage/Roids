@@ -3,13 +3,11 @@
 namespace asteroids {
 
 	SpaceShip::SpaceShip(std::string id) : cg::Entity(id) {
-		_accelerator = new SpaceShipAccelerator(this);
-		_rotator = new SpaceShipRotator(this);
+		_physics = new PhysicsEngine();
 		_hyperAccelerator = new SpaceShipHyperAccelerator(this);
 	}
 	SpaceShip::~SpaceShip() {
-		delete(_accelerator);
-		delete(_rotator);
+		delete(_physics);
 		delete(_hyperAccelerator);
 	}
 
@@ -21,35 +19,23 @@ namespace asteroids {
 							);
 
 		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
-		_winWidth = win.width;
-		_winHeight = win.height;
+		_winWidth=win.width;
+		_winHeight=win.height;
+		
+		//DESCOMENTAR LINHA ABAIXO
+		
+		_physics->setUniverseDimensions(win.width,win.height);
 		setCollisionRadius(_size[0]);
-		_velocity = cg::Vector2d(0, 0);
-		_position = cg::Vector2d(_winWidth/2, _winHeight/2);
-		setCollisionCenter(_position);
+		_physics->setVelocity(cg::Vector2d(0, 0));
+		_physics->setPosition(cg::Vector2d(_winWidth/2, _winHeight/2));
+		setCollisionCenter(getPosition());
 	}
 	void SpaceShip::update(unsigned long elapsed_millis) {
 		double elapsed_seconds = elapsed_millis / 1000.0;
 		
 		_hyperAccelerator->update(elapsed_seconds);
-		_rotator->update(elapsed_seconds);
-		_accelerator->update(elapsed_seconds);
-
-		_position += _velocity * elapsed_seconds;
-
-		if(_position[0] < 0) { 
-			_position[0] = _winWidth;
-		}
-		if(_position[0] > _winWidth) { 
-			_position[0] = 0;
-			}
-		if(_position[1] < 0) { 
-			_position[1] = _winHeight;
-		}
-		if(_position[1] > _winHeight) { 
-			_position[1] = 0;
-		}
-		setCollisionCenter(_position);
+		_physics->update(elapsed_millis);
+		setCollisionCenter(getPosition());
 	}
 	void SpaceShip::draw() {
 		cg::Vector3d tip = cg::Vector3d(_size[0], 0, 0)/2.0;
@@ -59,9 +45,11 @@ namespace asteroids {
 		cg::Vector3d bottomLeftCorner = cg::Vector3d(-_size[0], -_size[1], -_size[1])/2.0;
 		cg::Vector3d bottomRightCorner = cg::Vector3d(-_size[0], _size[1], -_size[1])/2.0;
 		
+		cg::Vector2d position = getPosition();
+		
 		glPushMatrix();
 		{
-			glTranslated(_position[0], _position[1], 0);
+			glTranslated(position[0], position[1], 0);
 			glRotated(getRotation(true), 0, 0, 1);
 			glColor3d(0.5,0.9,0.5);
 			//top face
@@ -119,74 +107,83 @@ namespace asteroids {
 		glFlush();
 	}
 	void SpaceShip::onReshape(int width, int height) {
+
+		//DESCOMENTAR LINHA ABAIXO
+		
 		_winWidth = width;
 		_winHeight = height;
+		_physics->setUniverseDimensions(width,height);
 	}
 
 	void SpaceShip::accelerate(double factor, bool withRotation) {	
-		_accelerator->accelerate(factor, withRotation);
+		_physics->accelerate(factor, withRotation);
 	}
 
 	void SpaceShip::accelerate(double factor, bool withRotation, cg::Vector2d minVelocity) {	
-		_accelerator->accelerate(factor, withRotation, minVelocity);
+		_physics->accelerate(factor, withRotation, minVelocity);
 	}
 	
 	void SpaceShip::startAcceleration(double factor, bool withRotation) {
-		_accelerator->start(factor, withRotation);
+		_physics->startAcceleration(factor, withRotation);
 	}
 	void SpaceShip::startAcceleration(double factor, bool withRotation, cg::Vector2d minVelocity) {
-		_accelerator->start(factor, withRotation, minVelocity);
+		_physics->startAcceleration(factor, withRotation, minVelocity);
 	}
 
 	void SpaceShip::stopAcceleration() {
-		_accelerator->stop();
+		_physics->stopAcceleration();
 	}
 
 	void SpaceShip::startRotation(double factor) {
-		_rotator->start(factor);
+		_physics->startRotator(factor);
 	}
 
 	void SpaceShip::stopRotation() {
-		_rotator->stop();
+		_physics->stopRotator();
 	}
 	
 	
 	void SpaceShip::setVelocity(cg::Vector2d velocity) {
-		_velocity = velocity;
+		_physics->setVelocity(velocity);
 	}
 
 	cg::Vector2d SpaceShip::getVelocity() const {
-		return _velocity;
+		return _physics->getVelocity();
 	}
 
 
 	cg::Vector2d SpaceShip::getNormalizedVelocity() const {
-		if(_velocity == cg::Vector2d(0,0)) 
-			return cg::Vector2d(0,0);
-
-		return _velocity / sqrt(pow(_velocity[0], 2) + pow(_velocity[1], 2));
+		return _physics->getNormalizedVelocity();
 	}
 
 	void SpaceShip::drawOverlay() {
 		glColor3d(0.9,0.1,0.1);
 		std::ostringstream os;
-		os << "acceleration: " << _accelerator->getAcceleration() << " velocity: " << _velocity  << " rotation angle: " << _rotator->getRotation(true) << " or " << _rotator->getRotation() << " sin(): " << sin( _rotator->getRotation()) << " cos(): " << cos(_rotator->getRotation());
+		os << "acceleration: " << getAcceleration() << " velocity: " << getVelocity()  << " rotation angle: " << getRotation(true) << " or " << getRotation() << " position: " << getPosition();
 		cg::Util::instance()->drawBitmapString(os.str(), 10,10);
 	}
 
-	double SpaceShip::getRotation() const {
-		return _rotator->getRotation();
+	cg::Vector2d SpaceShip::getAcceleration() const {
+		return _physics->getAcceleration();
 	}
+
+	double SpaceShip::getRotation() const {
+		return _physics->getRotation();
+	}
+
 	double SpaceShip::getRotation(bool inDegrees) const{
-		return _rotator->getRotation(inDegrees);
+		return _physics->getRotation(inDegrees);
 	}
 	cg::Vector2d SpaceShip::getUniverseDimensions(void) {
 		return cg::Vector2d(_winWidth, _winHeight);
 	}
 	void SpaceShip::setPosition(cg::Vector2d position) {
-		_position = position;
+		_physics->setPosition(position);
 	}
 	void SpaceShip::hyperAccelerate(void) {
 		_hyperAccelerator->hyperAccelerate();
+	}
+	cg::Vector2d SpaceShip::getPosition() const {
+		return _physics->getPosition();
 	}
 }

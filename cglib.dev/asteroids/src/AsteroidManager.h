@@ -9,6 +9,7 @@
 #include "SpaceShip.h"
 
 namespace asteroids {
+	class Asteroid;
 
 	class AsteroidManager : public cg::Group,
 		public cg::GroupDraw,

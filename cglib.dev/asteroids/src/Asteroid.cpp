@@ -46,12 +46,12 @@ namespace asteroids {
 		
 		baseAsteroidSize = cg::Properties::instance()->getDouble("BASE_ASTEROID_SIZE");
 		_radius = baseAsteroidSize * _scaleFactor;
-		setCollisionRadius(_radius);
+		setCollisionRadius(0.7*_radius);
 
 		for (i = 0; i < 12; i++) {
 			angle = 2*(3.14)*i/12;
-			x = cos(angle)*randomBetween(0.5,0.9)*baseAsteroidSize*_scaleFactor;
-			y = sin(angle)*randomBetween(0.5,0.9)*baseAsteroidSize*_scaleFactor;
+			x = cos(angle)*randomBetween(0.5,0.9)*_radius;
+			y = sin(angle)*randomBetween(0.5,0.9)*_radius;
 			t = cg::Vector3d( x, y , 0);
 			_asteroid_vector.push_back(t); 
 		} 

@@ -4,8 +4,6 @@
 #include <string>
 #include "cg/cg.h"
 #include <cmath>
-#include "SpaceShipAccelerator.h"
-#include "SpaceShipRotator.h"
 #include "SpaceShipHyperAccelerator.h"
 #include "PhysicsObject.h"
 

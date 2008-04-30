@@ -5,11 +5,8 @@
 #include <vector>
 #include "cg/cg.h"
 #include <cmath>
-#include "AsteroidAccelerator.h"
-#include "AsteroidRotator.h"
 #include "AsteroidManager.h"
 #include "SpaceShip.h"
-#include "CollidableObject.h"
 #include "PhysicsEngine.h"
 
 namespace asteroids {

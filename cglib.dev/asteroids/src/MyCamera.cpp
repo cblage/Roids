@@ -19,7 +19,7 @@ namespace asteroids {
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 		//gluLookAt(sqrt(pow(_winWidth, 2) + pow(_winHeight, 2)), sqrt(pow(_winWidth, 2) + pow(_winHeight, 2)), sqrt(pow(_winWidth, 2) + pow(_winHeight, 2)), 0, 0, 0, 0, 0, 1);
-		//glRotatef(_ang++,0,0,1);
+		//glRotatef(-35,1,1,1);
 
 	}
 	void MyCamera::onReshape(int width, int height) {

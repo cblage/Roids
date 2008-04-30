@@ -46,14 +46,20 @@ namespace asteroids {
 		
 		baseAsteroidSize = cg::Properties::instance()->getDouble("BASE_ASTEROID_SIZE");
 		_radius = baseAsteroidSize * _scaleFactor;
-		setCollisionRadius(0.7*_radius);
+		setCollisionRadius(_radius);
 
 		for (i = 0; i < 12; i++) {
 			angle = 2*(3.14)*i/12;
-			x = cos(angle)*randomBetween(0.5,0.9)*_radius;
-			y = sin(angle)*randomBetween(0.5,0.9)*_radius;
+			x = cos(angle)*randomBetween(0.5,0.9)*baseAsteroidSize*_scaleFactor;
+			y = sin(angle)*randomBetween(0.5,0.9)*baseAsteroidSize*_scaleFactor;
 			t = cg::Vector3d( x, y , 0);
-			_asteroid_vector.push_back(t); 
+			_asteroid_vector.push_back(t);
+			x = cos(angle)*randomBetween(0.5,0.9)*(baseAsteroidSize/2)*_scaleFactor;
+			y = sin(angle)*randomBetween(0.5,0.9)*(baseAsteroidSize/2)*_scaleFactor;
+			t = cg::Vector3d( x, y, 10);
+			_asteroid_vector2.push_back(t);
+
+
 		} 
 	}
 
@@ -83,7 +89,7 @@ namespace asteroids {
 	}
 
 	void Asteroid::draw() {
-		if(_destroyed == true)
+		cg::Vector3d t;
 			return;
 		cg::Vector2d position = getPosition();
 
@@ -91,18 +97,54 @@ namespace asteroids {
 		{
 			glTranslated(position[0], position[1], 0);
 			glRotated(getRotation(true), 0, 0, 1);
-			glColor3d(0.5,0.9,0.5);
-			glLineWidth(1.5);
-			glBegin(GL_LINE_LOOP);
-			{
-				for (std::vector<cg::Vector3d>::iterator p = _asteroid_vector.begin( );p != _asteroid_vector.end( ); ++p) {
-					glVertex3f((*p)[0],(*p)[1],(*p)[2]);
-				}
+			glRotated(180,0,1,0);
+			
+			std::vector<cg::Vector3d>::iterator q = _asteroid_vector2.begin( );
+			std::vector<cg::Vector3d>::iterator pBegin = _asteroid_vector.begin( );
+			std::vector<cg::Vector3d>::iterator qBegin = _asteroid_vector2.begin( );
+			
+			glBegin(GL_QUAD_STRIP);{
+				
+glColor3d(0.9,0.9,0.9);
+			for (std::vector<cg::Vector3d>::iterator p = _asteroid_vector.begin( );p != _asteroid_vector.end();p++) {
+				 
+				   glVertex3f((*p)[0],(*p)[1],(*p)[2]);
+					glColor3d(0.4,0.4,0.4);
+				   glVertex3f((*q)[0],(*q)[1],(*q)[2]);
+				   glColor3d(0.9,0.9,0.9);
+				   q++;
 			}
+			glVertex3f((*pBegin)[0],(*pBegin)[1],(*pBegin)[2]);
+			glColor3d(0.4,0.4,0.4);
+			glVertex3f((*qBegin)[0],(*qBegin)[1],(*qBegin)[2]);
+			
+			
 			glEnd();
-		}
+			}
+			
+			glBegin(GL_TRIANGLE_STRIP);{
+		
+			
+			
+			
+
+			for (std::vector<cg::Vector3d>::iterator q = _asteroid_vector2.begin( );q != _asteroid_vector2.end();q++) {
+				 glColor3d(0.4,0.4,0.4);
+				   glVertex3f((*q)[0],(*q)[1],(*q)[2]);
+glColor3d(0.8,0.8,0.8);
+				   glVertex3f(1,1,20);
+			}
+			
+			glVertex3f((*qBegin)[0],(*qBegin)[1],(*qBegin)[2]);
+		
+			
+			glEnd();
+
+			}
+
 		glFlush();
 		glPopMatrix();
+		}
 	}
 
 	void Asteroid::onReshape(int width, int height) {

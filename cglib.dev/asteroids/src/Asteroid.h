@@ -5,8 +5,11 @@
 #include <vector>
 #include "cg/cg.h"
 #include <cmath>
+#include "AsteroidAccelerator.h"
+#include "AsteroidRotator.h"
 #include "AsteroidManager.h"
 #include "SpaceShip.h"
+#include "CollidableObject.h"
 #include "PhysicsEngine.h"
 
 namespace asteroids {
@@ -21,10 +24,12 @@ namespace asteroids {
 	private:
 		std::vector<cg::Vector3d> _asteroid_vector;
 		cg::Vector2d _size;
-		double _scaleFactor, _radius;		
-		bool _destroyed;
-		AsteroidManager * _asteroidManager;
-		SpaceShip * _ship;
+		cg::Vector2d _position, _size;
+		cg::Vector2d _velocity;
+		double _winWidth, _winHeight, _scaleFactor;		
+		AsteroidAccelerator *_accelerator;
+		AsteroidRotator * _rotator;
+		
 	public:
 		Asteroid(std::string id, double scaleFactor, SpaceShip * ship);
 		Asteroid(std::string id, AsteroidManager * asteroidManager, SpaceShip * ship);

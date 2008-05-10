@@ -90,7 +90,6 @@ namespace asteroids {
 
 	void Asteroid::draw() {
 		cg::Vector3d t;
-			return;
 		cg::Vector2d position = getPosition();
 
 		glPushMatrix();

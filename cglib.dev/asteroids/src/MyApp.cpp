@@ -10,15 +10,17 @@ namespace asteroids {
 	MyApp::~MyApp() {
 	}
 	void MyApp::createEntities() {
-		addEntity(new MyCamera());
-		addEntity(new StarSphere());
+		//addEntity(new MyCamera());
 		
+		MyCamera *camera = new MyCamera();
+		addEntity (camera);
+		addEntity(new StarSphere());
 		SpaceShip *ship = new SpaceShip("Le Ship");
 		ParticleManager *particleManager = new ParticleManager("Particle Manager", ship);
 		ship->setParticleManager(particleManager);
 
 		addEntity(ship);
-		addEntity(new SpaceShipController(ship));
+		addEntity(new GameController(ship,camera));
 		addEntity(particleManager);
 	}
 }

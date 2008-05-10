@@ -5,7 +5,7 @@
 #include "MyBat.h"
 #include "MyBoxManager.h"
 #include "MyCamera.h"
-#include "SpaceShipController.h"
+#include "GameController.h"
 #include "SpaceShip.h"
 #include "Asteroid.h"
 #include "StarSphere.h"

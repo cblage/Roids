@@ -61,6 +61,10 @@ namespace asteroids {
 	double PhysicsObject::getRotation(bool inDegrees) const{
 		return _physics->getRotation(inDegrees);
 	}
+	void PhysicsObject::setRotation(double radiansRotation) {
+		_physics->setRotation(radiansRotation);
+	}	
+	
 	cg::Vector2d PhysicsObject::getUniverseDimensions(void) {
 		return _physics->getUniverseDimensions();
 	}

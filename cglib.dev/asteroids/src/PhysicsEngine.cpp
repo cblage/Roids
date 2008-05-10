@@ -185,6 +185,13 @@ namespace asteroids {
 	double PhysicsEngine::getRotation(bool inDegrees) const {
 		return (inDegrees == true) ? _rotationDeg : _rotationRad;
 	}
+	void PhysicsEngine::setRotation(double radiansRotation){
+		if(_rotating == true)
+			throw "cant set rotation to rotating object!";
+
+		_rotationRad = fmod(radiansRotation, PI4);
+		_rotationDeg = _rotationRad * 180/PI4;
+	}
 
 	double PhysicsEngine::getCollisionRadius() { 
 		return _collisionRadius;

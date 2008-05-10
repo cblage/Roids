@@ -114,4 +114,7 @@ namespace asteroids {
 	void SpaceShip::hyperAccelerate(void) {
 		_hyperAccelerator->hyperAccelerate();
 	}
+	void SpaceShip::setParticleManager(ParticleManager *particleManager) {
+		_particleManager = particleManager;
+	}
 }

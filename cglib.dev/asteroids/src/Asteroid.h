@@ -5,43 +5,37 @@
 #include <vector>
 #include "cg/cg.h"
 #include <cmath>
-#include "AsteroidManager.h"
+#include "Particle.h"
+#include "ParticleManager.h"
 #include "SpaceShip.h"
 #include "PhysicsObject.h"
 #include "PhysicsEngine.h"
 
 namespace asteroids {
-	class AsteroidManager;
-	class Asteroid : public cg::Entity,
-		public cg::IDrawListener,
+	class ParticleManager;
+
+	class Asteroid : public cg::IDrawListener,
 		public cg::IUpdateListener,
 		public cg::IReshapeEventListener,
-		public cg::IMouseEventListener,
+		public Particle,
 		public PhysicsObject
 	{
 	private:
 		std::vector<cg::Vector3d> _asteroid_vector, _asteroid_vector2;
 		cg::Vector2d _size;
-		SpaceShip * _ship;
-		AsteroidManager * _asteroidManager;
 		double _scaleFactor, _radius;
-		bool _destroyed;
 
 		
 	public:
-		Asteroid(std::string id, double scaleFactor, SpaceShip * ship);
-		Asteroid(std::string id, AsteroidManager * asteroidManager, SpaceShip * ship);
-		Asteroid(std::string id, SpaceShip * ship);
-		Asteroid(std::string id, double scaleFactor, AsteroidManager * asteroidManager, SpaceShip * ship);
+		Asteroid(std::string id, ParticleManager * particleManager);
+		Asteroid(std::string id, double scaleFactor, ParticleManager * particleManager);
 		~Asteroid();
 		void init();
 		void update(unsigned long elapsed_millis);
 		void draw();
-        void onReshape(int width, int height);
+		void onReshape(int width, int height);
 		double randomBetween(double min, double max);
-		void onMouse(int button, int state, int x, int y);
-        void onMouseMotion(int x, int y);
-        void onMousePassiveMotion(int x, int y);
+		bool collidesWith(PhysicsObject *pobject);
 	};
 }
 

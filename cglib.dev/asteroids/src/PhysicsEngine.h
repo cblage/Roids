@@ -43,6 +43,7 @@ namespace  asteroids{
 		void stopRotator();
 		double getRotation() const;
 		double getRotation(bool inDegrees) const;
+		void setRotation(double radiansRotation);
 		void rotate(double factor);
 		void update(double elapsed_millis);
 		cg::Vector2d getUniverseDimensions(void);

@@ -26,6 +26,7 @@ namespace asteroids {
 		virtual cg::Vector2d getVelocity() const;
 		virtual double getRotation() const;
 		virtual double getRotation(bool inDegrees) const;
+		virtual void setRotation(double radiansRotation);
 		virtual cg::Vector2d getUniverseDimensions(void);
 		virtual void setPosition(cg::Vector2d position);
 		virtual cg::Vector2d getPosition() const;

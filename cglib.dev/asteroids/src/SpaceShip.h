@@ -7,7 +7,10 @@
 #include "SpaceShipHyperAccelerator.h"
 #include "PhysicsObject.h"
 
+
 namespace asteroids {
+	class ParticleManager;
+
 	class SpaceShip : public cg::Entity,
 		public cg::IDrawListener,
 		public cg::IUpdateListener,
@@ -19,7 +22,7 @@ namespace asteroids {
 		cg::Vector2d _size;
 		double _winWidth, _winHeight;		
 		SpaceShipHyperAccelerator * _hyperAccelerator;
-
+		ParticleManager * _particleManager;
 	public:
 		SpaceShip(std::string id);
 		~SpaceShip();
@@ -29,6 +32,7 @@ namespace asteroids {
 		void drawOverlay();
         void onReshape(int width, int height);
 		void hyperAccelerate(void);
+		void setParticleManager(ParticleManager *particleManager);
 	};
 }
 

@@ -14,8 +14,11 @@ namespace asteroids {
 		addEntity(new StarSphere());
 		
 		SpaceShip *ship = new SpaceShip("Le Ship");
+		ParticleManager *particleManager = new ParticleManager("Particle Manager", ship);
+		ship->setParticleManager(particleManager);
+
 		addEntity(ship);
 		addEntity(new SpaceShipController(ship));
-		addEntity(new AsteroidManager("Asteroid Manager", ship));
+		addEntity(particleManager);
 	}
 }

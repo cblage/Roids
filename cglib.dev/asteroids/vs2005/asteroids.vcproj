@@ -189,10 +189,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\src\AsteroidManager.cpp"
-				>
-			</File>
-			<File
 				RelativePath="..\src\main.cpp"
 				>
 			</File>
@@ -214,6 +210,14 @@
 			</File>
 			<File
 				RelativePath="..\src\MyCamera.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\Particle.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\ParticleManager.cpp"
 				>
 			</File>
 			<File
@@ -251,10 +255,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\src\AsteroidManager.h"
-				>
-			</File>
-			<File
 				RelativePath="..\src\MyApp.h"
 				>
 			</File>
@@ -272,6 +272,14 @@
 			</File>
 			<File
 				RelativePath="..\src\MyCamera.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\Particle.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\ParticleManager.h"
 				>
 			</File>
 			<File

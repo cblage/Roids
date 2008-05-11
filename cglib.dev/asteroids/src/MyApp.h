@@ -10,7 +10,7 @@
 #include "Asteroid.h"
 #include "StarSphere.h"
 #include "ParticleManager.h"
-
+#include "Lights.h"
 namespace asteroids {
 
 	class MyApp : public cg::Application {

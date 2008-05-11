@@ -22,5 +22,6 @@ namespace asteroids {
 		addEntity(ship);
 		addEntity(new GameController(ship,camera));
 		addEntity(particleManager);
+		addEntity(new Lights());
 	}
 }

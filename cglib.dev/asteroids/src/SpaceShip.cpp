@@ -28,6 +28,9 @@ namespace asteroids {
 		double elapsed_seconds = elapsed_millis / 1000.0;	
 		accelerate(-50*elapsed_seconds, false, cg::Vector2d(0, 0));
 		_hyperAccelerator->update(elapsed_seconds);
+		cg::Vector2d position = getPosition();
+
+		
 	}
 	void SpaceShip::draw() {
 		cg::Vector3d tip = cg::Vector3d(_size[0], 0, 0)/2.0;
@@ -37,6 +40,8 @@ namespace asteroids {
 		cg::Vector3d bottomLeftCorner = cg::Vector3d(-_size[0], -_size[1], -_size[1])/2.0;
 		cg::Vector3d bottomRightCorner = cg::Vector3d(-_size[0], _size[1], -_size[1])/2.0;
 		
+		GLfloat positionLight[]={tip[0],tip[1],tip[2],1};
+		GLfloat directionLight[]={1,0,0};
 		cg::Vector2d position = getPosition();
 		
 		glPushMatrix();
@@ -44,6 +49,11 @@ namespace asteroids {
 			glTranslated(position[0], position[1], 0);
 			glRotated(getRotation(true), 0, 0, 1);
 			glColor3d(0.5,0.9,0.5);
+			
+			glLightfv(GL_LIGHT1, GL_POSITION,positionLight);
+			glLightfv(GL_LIGHT1,GL_SPOT_DIRECTION,directionLight);//falta definir a direcçao
+
+
 			//top face
 			glBegin(GL_POLYGON);
 			{

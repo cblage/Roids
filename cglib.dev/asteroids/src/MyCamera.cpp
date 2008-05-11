@@ -17,6 +17,10 @@ namespace asteroids {
 		_rotateL = false;
 		_rotateR = false;
 
+
+	
+
+
     }
 	
 	void MyCamera::update(unsigned long elapsed_millis) {

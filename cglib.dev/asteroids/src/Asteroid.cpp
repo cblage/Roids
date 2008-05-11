@@ -21,7 +21,7 @@ namespace asteroids {
 		// Read from property file
 		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
 		setUniverseDimensions(win.width, win.height); 
-		setVelocity(cg::Vector2d(randomBetween(-1000, 1000), randomBetween(-1000, 1000)));
+		setVelocity(cg::Vector2d(randomBetween(-100, 100), randomBetween(-100, 100)));
 		setPosition(cg::Vector2d((win.width*randomBetween(0.2,1))/2,(win.width*randomBetween(0.2,1)/2)));
 		setCollisionCenter(getPosition());
 
@@ -31,7 +31,7 @@ namespace asteroids {
 		
 		baseAsteroidSize = cg::Properties::instance()->getDouble("BASE_ASTEROID_SIZE");
 		_radius = baseAsteroidSize * _scaleFactor;
-		setCollisionRadius(_radius);
+		setCollisionRadius(_radius*0.8);
 
 		for (i = 0; i < 12; i++) {
 			angle = 2*(3.14)*i/12;
@@ -54,7 +54,7 @@ namespace asteroids {
 		
 		PhysicsObject::update(elapsed_millis);
 
-		if(collidesWith(getParticleManager()->getSpaceShip())) {
+		if(false && collidesWith(getParticleManager()->getSpaceShip())) {
 			setDestroyed(true);
 			int newAsteroids = abs(int(_scaleFactor/2 + 0.5));
 			double newScaleFactor = 0;

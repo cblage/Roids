@@ -23,7 +23,7 @@ namespace  asteroids{
 		double _universeWidth, _universeHeight;
 		double _collisionRadius;
 		double _mass;
-		cg::Vector2d _collisionCenter;
+		cg::Vector2d _collisionCenter, _previousCollisionCenter;
 		double _previousElapsedMillis;
 		bool _hasUpdated;
 	public:
@@ -67,6 +67,9 @@ namespace  asteroids{
 		void calculateCollision(PhysicsObject *pobject);
 		void stepBack(void);
 		bool penetrates(PhysicsObject *pobject);
+		cg::Vector2d constrainVector(cg::Vector2d vector);
+		double getDistance(cg::Vector2d vectorA, cg::Vector2d vectorB);
+		double realMod(double x, double y); 
 	};
 }
 

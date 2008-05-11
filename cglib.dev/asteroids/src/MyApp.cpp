@@ -4,8 +4,8 @@ namespace asteroids {
 
 	MyApp::MyApp() : cg::Application("config.ini") {
 		_window.caption = "Les Asteroids";
-		_window.width = 800;
-		_window.height = 600;
+		_window.width = 1000;
+		_window.height = 400;
 	}
 	MyApp::~MyApp() {
 	}

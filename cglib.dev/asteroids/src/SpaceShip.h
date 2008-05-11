@@ -24,9 +24,10 @@ namespace asteroids {
 	{
 	private:
 		cg::Vector2d _size;
-		double _winWidth, _winHeight;		
+		double _winWidth, _winHeight, _charlesBronsonKilledSecondsAgo;		
 		SpaceShipHyperAccelerator * _hyperAccelerator;
 		ParticleManager * _particleManager;
+		int _charlesBronsonStyle;
 	public:
 		SpaceShip(std::string id);
 		~SpaceShip();

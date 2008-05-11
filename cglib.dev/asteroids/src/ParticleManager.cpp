@@ -76,7 +76,10 @@ namespace asteroids {
 		newLaserShot->init();
 		newLaserShot->setPosition(position);
 		newLaserShot->setRotation(radiansRotation);
-		newLaserShot->accelerate(500, true);
+		if (radiansRotation > 3.14 && radiansRotation <6.28)
+			newLaserShot->accelerate(-500, true);
+		else 
+			newLaserShot->accelerate(500, true);
 		_newParticles.push_back(newLaserShot);
 	}
 

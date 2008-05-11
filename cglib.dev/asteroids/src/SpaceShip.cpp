@@ -22,6 +22,8 @@ namespace asteroids {
 		setVelocity(cg::Vector2d(0, 0));
 		setPosition(cg::Vector2d(win.width/2, win.height/2));
 		setCollisionCenter(getPosition());
+		_charlesBronsonStyle = 10;
+		_charlesBronsonKilledSecondsAgo = 0;
 	}
 	void SpaceShip::update(unsigned long elapsed_millis) {
 		PhysicsObject::update(elapsed_millis);
@@ -29,6 +31,15 @@ namespace asteroids {
 		accelerate(-50*elapsed_seconds, false, cg::Vector2d(0, 0));
 		_hyperAccelerator->update(elapsed_seconds);
 		cg::Vector2d position = getPosition();
+		_charlesBronsonKilledSecondsAgo = _charlesBronsonKilledSecondsAgo + elapsed_seconds;
+		if (_charlesBronsonKilledSecondsAgo >= 1) {
+			if (_charlesBronsonStyle >= 10){
+				return;
+			}else {
+				_charlesBronsonStyle++;
+				_charlesBronsonKilledSecondsAgo--;
+			}
+		}
 
 		
 	}
@@ -128,6 +139,9 @@ namespace asteroids {
 		_particleManager = particleManager;
 	}
 	void SpaceShip::shootLaser(void) {
-		_particleManager->createLaserShot(getPosition(), getRotation());
-	}
+		if (_charlesBronsonStyle > 0) {
+			_charlesBronsonStyle--;
+			_particleManager->createLaserShot(getPosition(), getRotation());
+		}
+	}	
 }

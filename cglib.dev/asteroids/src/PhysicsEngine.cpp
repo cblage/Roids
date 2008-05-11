@@ -258,6 +258,9 @@ namespace asteroids {
 
 	void PhysicsEngine::rotate(double factor) {
 		_rotationDeg = fmod(_rotationDeg + factor/_mass, 360);
+		if(_rotationDeg < 0) {
+			_rotationDeg += 360;
+		}
 		_rotationRad = _rotationDeg * PI4 / 180;
 	}
 

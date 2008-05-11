@@ -15,9 +15,9 @@ namespace asteroids {
 		}
 	}
 	void ParticleManager::postInit() {
-        //std::ostringstream os;
-        //os << size() << " particles on screen.";
-		//_numParticlesMessage = os.str();
+		std::ostringstream os;
+		os << size() << " particles on screen.";
+		_numParticlesMessage = os.str();
 	}
 	void ParticleManager::drawOverlay() {
 		glColor3d(0.9,0.1,0.1);
@@ -38,9 +38,10 @@ namespace asteroids {
 		}
 		_newParticles.clear();
 
-		//std::ostringstream os;
-       // os << size() << " particles on screen.";
-		//_numParticlesMessage = os.str();
+
+		std::ostringstream os;
+		os << size() << " particles on screen.";
+		_numParticlesMessage = os.str();
 	}
 
 	std::vector<Particle*> ParticleManager::getParticles() {
@@ -50,34 +51,10 @@ namespace asteroids {
 			particles.push_back(dynamic_cast<Particle*>(*p));
 		}
 		return particles;
-
-		//return new std::vector<Particle*>(*(cg::Group::getEntities())); 
 	}
 
 	void ParticleManager::postUpdate(unsigned long elapsed_millis) {
-		std::vector<Particle*> particles = getParticles();
 
-		double momentum = 0;
-		for(std::vector<Particle*>::size_type i = 0; i < particles.size(); i++) {
-			momentum += length(particles[i]->getVelocity()) * particles[i]->getMass();
-			for(std::vector<Particle*>::size_type j = 0; j < particles.size(); j++) {
-				if(i == j) continue;
-				if(particles[i]->collidesWith(particles[j])) {
-					if((particles[i]->getStrength() != particles[j]->getStrength())) {
-						particles[i]->setDestroyed(true);
-						destroyParticle(particles[i]->getId());
-						particles[j]->setDestroyed(true);
-						destroyParticle(particles[j]->getId());
-					} else {
-						particles[i]->calculateCollision(particles[j]);
-					}
-				}
-			}
-		}
-
-		std::ostringstream os;
-		os << momentum << " momentum.";
-		_numParticlesMessage = os.str();
 	}
 
 	void ParticleManager::createAsteroids(unsigned int numAsteroids, double scaleFactor, cg::Vector2d position) {

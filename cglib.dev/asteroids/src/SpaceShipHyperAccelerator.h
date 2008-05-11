@@ -1,8 +1,11 @@
+#pragma once
 #ifndef SPACE_SHIP_HYPERACCELERATOR_H
 #define SPACE_SHIP_HYPERACCELERATOR_H
+#pragma message("SpaceShipHyperAccelerator is included")
 
 #include "cg/cg.h"
 #include "SpaceShipEngine.h"
+
 
 namespace asteroids {
 	class SpaceShip;

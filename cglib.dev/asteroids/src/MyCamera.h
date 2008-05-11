@@ -1,6 +1,7 @@
+#pragma once
 #ifndef MY_CAMERA_H
 #define MY_CAMERA_H
-
+#pragma message("MyCamera is included")
 #include <string>
 #include <cmath>
 #include "cg/cg.h"

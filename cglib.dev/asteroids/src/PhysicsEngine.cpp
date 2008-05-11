@@ -182,24 +182,7 @@ namespace asteroids {
 		}
 		// update dos objectos
 		_position += _velocity * elapsed_seconds;
-
 		_position = constrainVector(_position);
-		
-
-
-
-		/*if(_position[0] < 0) { 
-			_position[0] = _universeWidth;
-		}
-		if(_position[0] > _universeWidth) { 
-			_position[0] = 0;
-			}
-		if(_position[1] < 0) { 
-			_position[1] = _universeHeight;
-		}
-		if(_position[1] > _universeHeight) { 
-			_position[1] = 0;
-		}*/
 		setCollisionCenter(getPosition());
 	}
 	
@@ -305,38 +288,29 @@ namespace asteroids {
 		_collisionCenter = constrainVector(collisionCenter);
 	}
 	bool PhysicsEngine::collidesWith(PhysicsObject *pobject) {
-		return (getDistance(pobject->getCollisionCenter(),getCollisionCenter()) <= pobject->getCollisionRadius() + getCollisionRadius());
-	}
-	
+		return (getDistance(getCollisionCenter(), pobject->getCollisionCenter()) <= (pobject->getCollisionRadius() + getCollisionRadius()-5));
+	}	
 	bool PhysicsEngine::penetrates(PhysicsObject *pobject) {
-		return (getDistance(pobject->getCollisionCenter(),getCollisionCenter()) < pobject->getCollisionRadius() + getCollisionRadius());
+		return (getDistance(getCollisionCenter(), pobject->getCollisionCenter()) < (pobject->getCollisionRadius() + getCollisionRadius()-5));
 	}
+
+
 	void PhysicsEngine::calculateCollision(PhysicsObject *pobject) {
 		if(!collidesWith(pobject))
 			return;
 		
 		double originalElapsedMillis = _previousElapsedMillis;
 		double newElapsedMillis = _previousElapsedMillis/2;
-		while( newElapsedMillis > 0.0000001 && penetrates(pobject)) {
+		
+		while( newElapsedMillis > 0.00005 && penetrates(pobject)) {
 			stepBack();
 			update(newElapsedMillis);
-			newElapsedMillis = _previousElapsedMillis/2;
-		}
-
-		if(penetrates(pobject)) {
-			double distance = getDistance(getCollisionCenter(), pobject->getCollisionCenter());
-			double factor = (pobject->getCollisionRadius() + getCollisionRadius())/(2*distance);
-			
-			setPosition(getPosition()-factor*normalize(constrainVector(pobject->getCollisionCenter() + getCollisionCenter())));
-			setCollisionCenter(getPosition());
-			pobject->setPosition(pobject->getPosition()+factor*normalize(constrainVector(pobject->getCollisionCenter() + getCollisionCenter())));
-			pobject->setCollisionCenter(pobject->getPosition());
-			
+			newElapsedMillis /=2; 
 		}
 
 		cg::Vector2d normalVelocity = normalize(constrainVector(getCollisionCenter() - pobject->getCollisionCenter()));
 		cg::Vector2d relativeVelocity = getVelocity() - pobject->getVelocity();
-		double restitutionFactor = 0.9;
+		double restitutionFactor = 1;
 		
 		double j = (-(1+restitutionFactor) * dot(relativeVelocity,normalVelocity))/(dot(normalVelocity, normalVelocity)*(1/getMass() + 1/pobject->getMass()));
 		setVelocity(getVelocity() + (j*normalVelocity)/getMass());

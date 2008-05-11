@@ -1,11 +1,14 @@
+#pragma once
 #ifndef PHYSICS_ENGINE_H
 #define PHYSICS_ENGINE_H
+#pragma message("PhysicsEngine is included")
 
 #include <string>
 #include <vector>
 #include "cg/cg.h"
 #include <cmath>
 #include "PhysicsObject.h"
+
 
 namespace  asteroids{
 	const double PI4  = 4.0*atan(1.0);

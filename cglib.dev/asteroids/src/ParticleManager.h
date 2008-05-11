@@ -1,19 +1,19 @@
+#pragma once
 #ifndef PARTICLE_MANAGER_H
 #define PARTICLE_MANAGER_H
-
+#pragma message("ParticleManager is included")
 #include <sstream>
 #include <string>
 #include <vector>
 #include "cg/cg.h"
 #include "Asteroid.h"
-#include "SpaceShip.h"
-#include "Particle.h"
 #include "LaserShot.h"
+#include "Particle.h"
+
+
 
 namespace asteroids {
-	class Asteroid;
-	class Particle;
-
+	
 	class ParticleManager : public cg::Group,
 		public cg::GroupDraw,
 		public cg::GroupUpdate,

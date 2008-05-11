@@ -1,7 +1,10 @@
+#pragma once
 #ifndef SPACE_SHIP_ENGINE_H
 #define SPACE_SHIP_ENGINE_H
+#pragma message("SpaceShipEngine is included")
 
 #include "cg/cg.h"
+
 
 namespace asteroids {
 	class SpaceShip;

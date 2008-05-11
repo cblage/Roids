@@ -25,6 +25,8 @@ namespace asteroids {
 		setPosition(cg::Vector2d((win.width*randomBetween(0.2,1))/2,(win.width*randomBetween(0.2,1)/2)));
 		setCollisionCenter(getPosition());
 
+		_invulSeconds = cg::Properties::instance()->getDouble("ASTEROID_INVUL_SECONDS");
+
 		cg::Vector3d t;
 		int i;
 		double x, y, angle, baseAsteroidSize;
@@ -50,24 +52,16 @@ namespace asteroids {
 
 	void Asteroid::update(unsigned long elapsed_millis) {
 		if(isDestroyed() == true)
-			return;		
+			return;
 		
-		PhysicsObject::update(elapsed_millis);
-
-		if(false && collidesWith(getParticleManager()->getSpaceShip())) {
-			setDestroyed(true);
-			int newAsteroids = abs(int(_scaleFactor/2 + 0.5));
-			double newScaleFactor = 0;
-			
-			if(newAsteroids > 1) {
-				newScaleFactor = _scaleFactor * (1/(double)newAsteroids);
-			} else if(newAsteroids == 1) {
-				newScaleFactor = 0.5 * _scaleFactor;
-				newAsteroids = 2;
-			}
-			getParticleManager()->createAsteroids(newAsteroids, newScaleFactor, getPosition());
-			getParticleManager()->destroyParticle(_id);
+		if((_invulSeconds - elapsed_millis/1000.0)< 0) {
+			_invulSeconds = 0;
+		} else {
+			_invulSeconds -= elapsed_millis/1000.0;
 		}
+
+		PhysicsObject::update(elapsed_millis);
+		checkCollisions(elapsed_millis);
 	}
 
 	void Asteroid::draw() {
@@ -118,6 +112,21 @@ namespace asteroids {
 		}
 		glPopMatrix();
 		glFlush();
+
+		/*//cg::Vector2d position = getPosition();
+		glPushMatrix();
+		{
+			glTranslated(position[0], position[1], 0);
+			//glRotated(getRotation(true), 0, 0, 1);
+			glColor3d(1, 0, 0);
+			glutSolidSphere(getCollisionRadius(), 30, 30);
+			//glColor3d(0, 1, 0);
+			//glutWireSphere(getCollisionRadius()-5, 30, 30);
+			glColor3d(0, 0, 1);
+			glutWireSphere(getCollisionRadius()-5, 30, 30);
+		}
+		glPopMatrix();
+		glFlush();*/
 	}
 
 	void Asteroid::onReshape(int width, int height) {
@@ -131,9 +140,31 @@ namespace asteroids {
 	}
 
 	bool Asteroid::collidesWith(PhysicsObject *pobject) {
-		if(isDestroyed() == true)
+		if(isDestroyed() == true || _invulSeconds > 0)
 			return false;
 		//else
 		return PhysicsObject::collidesWith(pobject);
+	}
+
+	void Asteroid::checkCollisions(double long elapsed_millis) {
+		if(_invulSeconds > 0)
+			return;
+
+		Particle::checkCollisions(elapsed_millis);
+	}
+
+	void Asteroid::destroy(void) {
+		int newAsteroids = abs(int(_scaleFactor/2 + 0.5));
+		double newScaleFactor = 0;
+		
+		if(newAsteroids > 1) {
+			newScaleFactor = _scaleFactor * (1/(double)newAsteroids);
+		} else if(newAsteroids == 1) {
+			newScaleFactor = 0.5 * _scaleFactor;
+			newAsteroids = 2;
+		}
+		getParticleManager()->createAsteroids(newAsteroids, newScaleFactor, getPosition());
+
+		Particle::destroy();
 	}
 }

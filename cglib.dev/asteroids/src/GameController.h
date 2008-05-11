@@ -1,11 +1,17 @@
-#ifndef MY_CONTROLLER_H
-#define MY_CONTROLLER_H
+#pragma once
+#ifndef GAME_CONTROLLER_H
+#define GAME_CONTROLLER_H
+#pragma message("GameController is included")
 
 #include "cg/cg.h"
 #include "SpaceShip.h"
 #include "MyCamera.h"
 
+
+
 namespace asteroids {
+	class SpaceShip;
+	class MyCamera;
 
 	class GameController : public cg::Entity,
 		public cg::IKeyboardEventListener
@@ -23,6 +29,8 @@ namespace asteroids {
 		SpaceShip * _ship;
 		MyCamera * _camera;
 	};
+
+
 }
 
 #endif

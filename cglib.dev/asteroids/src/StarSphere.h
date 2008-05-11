@@ -1,5 +1,7 @@
+#pragma once
 #ifndef STAR_SPHERE_H
 #define STAR_SPHERE_H
+#pragma message("StarSphere is included")
 
 #include <string>
 #include <vector>

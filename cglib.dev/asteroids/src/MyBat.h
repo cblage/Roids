@@ -1,3 +1,4 @@
+#pragma once
 #ifndef MY_BAT_H
 #define MY_BAT_H
 

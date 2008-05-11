@@ -1,3 +1,4 @@
+#pragma once
 #ifndef MY_BOX_MANAGER_H
 #define MY_BOX_MANAGER_H
 

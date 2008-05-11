@@ -1,17 +1,22 @@
+#pragma once
 #ifndef MY_APP_H
 #define MY_APP_H
+#pragma message("MyApp is included")
 
 #include "cg/cg.h"
-#include "MyBat.h"
-#include "MyBoxManager.h"
 #include "MyCamera.h"
-#include "GameController.h"
 #include "SpaceShip.h"
-#include "Asteroid.h"
+#include "GameController.h"
 #include "StarSphere.h"
 #include "ParticleManager.h"
 #include "Lights.h"
+
 namespace asteroids {
+	class StarSphere;
+	class GameController;
+	class MyCamera;
+	class ParticleManager;
+	class SpaceShip;
 
 	class MyApp : public cg::Application {
 	public:

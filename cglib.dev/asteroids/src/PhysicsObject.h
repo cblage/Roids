@@ -1,8 +1,10 @@
+#pragma once
 #ifndef PHYSICS_OBJ_H
 #define PHYSICS_OBJ_H
-
+#pragma message("PhysicsObject is included")
 #include "cg/cg.h"
 #include "PhysicsEngine.h"
+
 
 namespace asteroids {
 	class PhysicsEngine;
@@ -42,6 +44,8 @@ namespace asteroids {
 		virtual double getMass(void);
 		virtual void setMass(double mass);
 		virtual void calculateCollision(PhysicsObject *pobject);
+		virtual void stepBack(void);
+		virtual bool penetrates(PhysicsObject *pobject);
 		
 	private:
 		PhysicsEngine * _physics;

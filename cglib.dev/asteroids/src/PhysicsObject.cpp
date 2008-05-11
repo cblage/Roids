@@ -116,4 +116,11 @@ namespace asteroids {
 	void PhysicsObject::update(double elapsed_millis) {
 		_physics->update(elapsed_millis);
 	}
+	
+	bool PhysicsObject::penetrates(PhysicsObject *pobject) {
+		return _physics->penetrates(pobject);
+	}
+	void PhysicsObject::stepBack(void) {
+		_physics->stepBack();
+	}
 }

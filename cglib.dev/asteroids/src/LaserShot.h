@@ -1,5 +1,5 @@
-#ifndef ASTEROID_H
-#define ASTEROID_H
+#ifndef LASERSHOT_H
+#define LASERSHOT_H
 
 #include <string>
 #include <vector>
@@ -10,30 +10,24 @@
 #include "SpaceShip.h"
 
 
-
 namespace asteroids {
 	class ParticleManager;
 
-	class Asteroid : public cg::IDrawListener,
+	class LaserShot : public cg::IDrawListener,
 		public cg::IUpdateListener,
 		public cg::IReshapeEventListener,
 		public Particle
 	{
 	private:
-		std::vector<cg::Vector3d> _asteroid_vector, _asteroid_vector2;
-		cg::Vector2d _size;
-		double _scaleFactor, _radius;
-
+		double _secondsToLive, _radius;
 		
 	public:
-		Asteroid(std::string id, ParticleManager * particleManager);
-		Asteroid(std::string id, double scaleFactor, ParticleManager * particleManager);
-		~Asteroid();
+		LaserShot(std::string id, ParticleManager * particleManager);
+		~LaserShot();
 		void init();
 		void update(unsigned long elapsed_millis);
 		void draw();
 		void onReshape(int width, int height);
-		double randomBetween(double min, double max);
 		bool collidesWith(PhysicsObject *pobject);
 	};
 }

@@ -117,4 +117,7 @@ namespace asteroids {
 	void SpaceShip::setParticleManager(ParticleManager *particleManager) {
 		_particleManager = particleManager;
 	}
+	void SpaceShip::shootLaser(void) {
+		_particleManager->createLaserShot(getPosition(), getRotation());
+	}
 }

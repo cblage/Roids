@@ -193,6 +193,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\LaserShot.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\main.cpp"
 				>
 			</File>
@@ -256,6 +260,10 @@
 			</File>
 			<File
 				RelativePath="..\src\GameController.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\LaserShot.h"
 				>
 			</File>
 			<File

@@ -6,7 +6,7 @@
 #include <cmath>
 #include "SpaceShipHyperAccelerator.h"
 #include "PhysicsObject.h"
-
+#include "ParticleManager.h"
 
 namespace asteroids {
 	class ParticleManager;
@@ -33,6 +33,7 @@ namespace asteroids {
         void onReshape(int width, int height);
 		void hyperAccelerate(void);
 		void setParticleManager(ParticleManager *particleManager);
+		void shootLaser(void);
 	};
 }
 

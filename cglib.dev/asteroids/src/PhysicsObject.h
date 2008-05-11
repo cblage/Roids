@@ -11,6 +11,7 @@ namespace asteroids {
 	{
 	public:
 		PhysicsObject();
+		PhysicsObject(double mass);
 		virtual ~PhysicsObject();
 
 		virtual void accelerate(double factor, bool withRotation);
@@ -38,6 +39,9 @@ namespace asteroids {
 		virtual void setCollisionCenter(cg::Vector2d collisionCenter);
 		virtual void setUniverseDimensions(int width, int height);
 		virtual void update(double elapsed_millis);
+		virtual double getMass(void);
+		virtual void setMass(double mass);
+		virtual void calculateCollision(PhysicsObject *pobject);
 		
 	private:
 		PhysicsEngine * _physics;

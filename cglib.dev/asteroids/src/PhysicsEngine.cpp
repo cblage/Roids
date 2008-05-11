@@ -19,8 +19,33 @@ namespace asteroids {
 		_collisionRadius = 0;
 		_universeWidth = 0;
 		_universeHeight = 0;
+		_mass = 1;
+		_hasUpdated = false;
 	}
-	PhysicsEngine::PhysicsEngine(cg::Vector2d velocity,cg::Vector2d position){
+	
+	PhysicsEngine::PhysicsEngine(double mass) {
+		_velocity = cg::Vector2d( 0, 0);
+		_position = cg::Vector2d( 0, 0);
+		_acelFactor = 0;
+		_minVelocity = cg::Vector2d( 0, 0); 
+		_acceleration = cg::Vector2d( 0, 0);
+		_withRotation = false; 
+		_withMinVelocity = false;
+		_accelerating = false;
+		_rotFactor = 0;
+		_rotationDeg = 0;
+		_rotationRad = 0;
+		_rotating = false;
+		_collisionCenter = cg::Vector2d(0,0);
+		_collisionRadius = 0;
+		_universeWidth = 0;
+		_universeHeight = 0;
+		_mass = mass;
+		_hasUpdated = false;
+	}
+	
+
+	PhysicsEngine::PhysicsEngine(cg::Vector2d velocity,cg::Vector2d position) {
 		_velocity = velocity;
 		_position = position;
 		_acelFactor = 0;
@@ -37,11 +62,41 @@ namespace asteroids {
 		_collisionRadius = 0;
 		_universeWidth = 0;
 		_universeHeight = 0;
+		_hasUpdated = false;
+		_mass = 1;	
+	}
+	PhysicsEngine::PhysicsEngine(cg::Vector2d velocity,cg::Vector2d position, double mass) {
+		_velocity = velocity;
+		_position = position;
+		_acelFactor = 0;
+		_minVelocity = cg::Vector2d( 0, 0); 
+		_acceleration = cg::Vector2d( 0, 0);
+		_withRotation = false; 
+		_withMinVelocity = false;
+		_accelerating = false;
+		_rotFactor = 0;
+		_rotationDeg = 0;
+		_rotationRad = 0;
+		_rotating = false;
+		_collisionCenter = cg::Vector2d(0,0);
+		_collisionRadius = 0;
+		_universeWidth = 0;
+		_universeHeight = 0;
+		_mass = mass;	
+		_hasUpdated = false;
 	}
 
 	PhysicsEngine::~PhysicsEngine(){
 	}
 	
+	double PhysicsEngine::getMass(void) {
+		return _mass;
+	}
+	
+	void PhysicsEngine::setMass(double mass) {
+		_mass = mass;
+	}
+
 	void PhysicsEngine::setUniverseDimensions(int width, int height) {
 		_universeWidth = width;
 		_universeHeight = height;
@@ -53,6 +108,10 @@ namespace asteroids {
 
 	void PhysicsEngine::setPosition(cg::Vector2d position) {
 		_position = position;
+	}
+	
+	void PhysicsEngine::setAcceleration(cg::Vector2d acceleration) {
+		_acceleration = acceleration;
 	}
 	
 	cg::Vector2d PhysicsEngine::getUniverseDimensions(void) {
@@ -68,7 +127,7 @@ namespace asteroids {
 		_accelerating = true;
 		_acelFactor = factor;
 		_withMinVelocity = false;
-		_withRotation = withRotation;		
+		_withRotation = withRotation;
 	}
 
 	void PhysicsEngine::startAcceleration(double factor, bool withRotation, cg::Vector2d minVelocity) {
@@ -84,6 +143,13 @@ namespace asteroids {
 	}
 
 	void PhysicsEngine::update(double elapsed_millis) {
+		_hasUpdated = true;
+		_previousElapsedMillis = elapsed_millis;
+		_previousVelocity = _velocity;
+		_previousAcceleration = _acceleration;
+		_previousPosition = _position;
+		_previousRotationRad = _rotationRad;
+
 		double elapsed_seconds = elapsed_millis / 1000.0;
 		setCollisionCenter(getPosition());
 
@@ -114,12 +180,22 @@ namespace asteroids {
 			_position[1] = 0;
 		}
 	}
+	
+	void PhysicsEngine::stepBack(void) {
+		if(_hasUpdated == false)
+			return;
+
+		setPosition(_previousPosition);
+		setRotation(_previousRotationRad);
+		setVelocity(_previousVelocity);
+		setAcceleration(_previousAcceleration);
+	}
 
 	void PhysicsEngine::accelerate(double factor, bool withRotation) {
 		if(withRotation == true) {
-			_acceleration = cg::Vector2d(cos(getRotation()), sin(getRotation())) * factor;
+			_acceleration = cg::Vector2d(cos(getRotation()), sin(getRotation())) * factor/_mass;
 		} else {
-			_acceleration = getNormalizedVelocity()  * factor;
+			_acceleration = getNormalizedVelocity()  * factor/_mass;
 		}
 
 		cg::Vector2d newVelocity = _velocity + _acceleration;
@@ -136,9 +212,9 @@ namespace asteroids {
 
 	void PhysicsEngine::accelerate(double factor, bool withRotation, cg::Vector2d minVelocity) {
 		if(withRotation == true) {
-			_acceleration = cg::Vector2d(cos(getRotation()), sin(getRotation())) * factor;
+			_acceleration = cg::Vector2d(cos(getRotation()), sin(getRotation())) * factor/_mass;
 		} else {
-			_acceleration = getNormalizedVelocity() * factor;
+			_acceleration = getNormalizedVelocity() * factor/_mass;
 		}
 		cg::Vector2d newVelocity = _velocity + _acceleration;
 		if(abs(newVelocity[0]) < minVelocity[0] || abs(newVelocity[0]) < 5) {
@@ -175,7 +251,7 @@ namespace asteroids {
 	}
 
 	void PhysicsEngine::rotate(double factor) {
-		_rotationDeg = fmod(_rotationDeg + factor, 360);
+		_rotationDeg = fmod(_rotationDeg + factor/_mass, 360);
 		_rotationRad = _rotationDeg * PI4 / 180;
 	}
 
@@ -208,7 +284,29 @@ namespace asteroids {
 	bool PhysicsEngine::collidesWith(PhysicsObject *pobject) {
 		return (length(pobject->getCollisionCenter() - getCollisionCenter()) <= pobject->getCollisionRadius() + getCollisionRadius());
 	}
+	
+	bool PhysicsEngine::penetrates(PhysicsObject *pobject) {
+		return (length(pobject->getCollisionCenter() - getCollisionCenter()) < pobject->getCollisionRadius() + getCollisionRadius());
+	}
+	void PhysicsEngine::calculateCollision(PhysicsObject *pobject) {
+		if(!collidesWith(pobject))
+			return;
+		
+		double newElapsedMillis = _previousElapsedMillis/2;
+		while( newElapsedMillis > 0.01 && penetrates(pobject)) {
+			stepBack();
+			update(newElapsedMillis);
+			newElapsedMillis = _previousElapsedMillis/2;
+		}
 
-
+		cg::Vector2d normalVelocity = normalize(getCollisionCenter() - pobject->getCollisionCenter());
+		cg::Vector2d relativeVelocity = getVelocity() - pobject->getVelocity();
+		double restitutionFactor = 1;
+		
+		double j = (-(1+restitutionFactor) * dot(relativeVelocity,normalVelocity))/(/*dot(normalVelocity, normalVelocity)*/(1/getMass() + 1/pobject->getMass()));
+		setVelocity(getVelocity() + (j*normalVelocity)/getMass());
+		pobject->setVelocity(pobject->getVelocity() + (-j*normalVelocity)/pobject->getMass());
+	}
 }
+
 	

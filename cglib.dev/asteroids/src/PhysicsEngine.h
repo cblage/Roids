@@ -13,23 +13,34 @@ namespace  asteroids{
 
 	class PhysicsEngine{
 	public:
-		cg::Vector2d _position;
-		cg::Vector2d _velocity;
+		cg::Vector2d _position, _previousPosition;
+		cg::Vector2d _velocity, _previousVelocity;
 		double _acelFactor;
-		cg::Vector2d _minVelocity, _acceleration;
+		cg::Vector2d _minVelocity, _acceleration, _previousAcceleration;
 		bool _withRotation, _withMinVelocity, _accelerating;
-		double _rotFactor, _rotationDeg, _rotationRad;
+		double _rotFactor, _rotationDeg, _rotationRad, _previousRotationRad;
 		bool _rotating;
 		double _universeWidth, _universeHeight;
 		double _collisionRadius;
+		double _mass;
 		cg::Vector2d _collisionCenter;
+		double _previousElapsedMillis;
+		bool _hasUpdated;
 	public:
 		PhysicsEngine();
+		PhysicsEngine(double mass);
 		PhysicsEngine(cg::Vector2d velocity,cg::Vector2d position);
+		PhysicsEngine(cg::Vector2d velocity,cg::Vector2d position, double mass);
+
+
 		virtual ~PhysicsEngine();
+
+		double getMass(void);
+		void setMass(double mass);
 		void startAcceleration(double factor, bool withRotation);
 		void startAcceleration(double factor, bool withRotation, cg::Vector2d minVelocity);
 		void stopAcceleration();
+		void setAcceleration(cg::Vector2d acceleration);
 		void accelerate(double factor, bool withRotation);
 		void accelerate(double factor, bool withRotation, cg::Vector2d minVelocity);
 		cg::Vector2d getAcceleration() const;
@@ -53,6 +64,9 @@ namespace  asteroids{
 		void setCollisionRadius(double collisionRadius);
 		void setCollisionCenter(cg::Vector2d collisionCenter);
 		bool collidesWith(PhysicsObject *pobject);
+		void calculateCollision(PhysicsObject *pobject);
+		void stepBack(void);
+		bool penetrates(PhysicsObject *pobject);
 	};
 }
 

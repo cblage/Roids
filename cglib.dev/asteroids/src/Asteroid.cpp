@@ -4,11 +4,15 @@ namespace asteroids {
 
 	Asteroid::Asteroid(std::string id, double scaleFactor, ParticleManager *  particleManager) : 
 		Particle(id, particleManager),
-		_scaleFactor(scaleFactor) { }
+		_scaleFactor(scaleFactor) {
+		setMass(_scaleFactor * 10000);
+	}
 
 	Asteroid::Asteroid(std::string id, ParticleManager * particleManager) : 
 		Particle(id, particleManager),
-		_scaleFactor(randomBetween(1, 3)) { }
+		_scaleFactor(randomBetween(1, 3)) { 
+		setMass(_scaleFactor * 10000);
+	}
 
 	Asteroid::~Asteroid() {
 	}
@@ -17,7 +21,7 @@ namespace asteroids {
 		// Read from property file
 		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
 		setUniverseDimensions(win.width, win.height); 
-		setVelocity(cg::Vector2d(randomBetween(-100, 100), randomBetween(-100, 100)));
+		setVelocity(cg::Vector2d(randomBetween(-1000, 1000), randomBetween(-1000, 1000)));
 		setPosition(cg::Vector2d((win.width*randomBetween(0.2,1))/2,(win.width*randomBetween(0.2,1)/2)));
 		setCollisionCenter(getPosition());
 

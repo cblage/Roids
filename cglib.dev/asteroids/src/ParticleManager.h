@@ -8,6 +8,7 @@
 #include "Asteroid.h"
 #include "SpaceShip.h"
 #include "Particle.h"
+#include "LaserShot.h"
 
 namespace asteroids {
 	class Asteroid;
@@ -35,10 +36,12 @@ namespace asteroids {
 		void destroyParticle(std::string id);
 		void drawOverlay();
 		void preUpdate(unsigned long elapsed_millis);
+		void postUpdate(unsigned long elapsed_millis);
 		void createAsteroids(unsigned int numAsteroids, double scaleFactor, cg::Vector2d position);
-		void createLaserShot(cg::Vector2d position, cg::Vector2d direction);
+		void createLaserShot(cg::Vector2d position, double radiansRotation);
 		double randomBetween(double min, double max);
 		SpaceShip * getSpaceShip(void);
+		std::vector<Particle*> getParticles();
 	};
 }
 

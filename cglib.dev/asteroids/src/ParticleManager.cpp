@@ -43,6 +43,35 @@ namespace asteroids {
 		_numParticlesMessage = os.str();
 	}
 
+	std::vector<Particle*> ParticleManager::getParticles() {
+		//ODEIO-TE ENTITIES!!!!!!!!!!!!!!
+		std::vector<Particle*> particles;
+		for (std::vector<Entity*>::iterator p = cg::Group::begin(); p != cg::Group::end( ); p++) {
+			particles.push_back(dynamic_cast<Particle*>(*p));
+		}
+		return particles;
+
+		//return new std::vector<Particle*>(*(cg::Group::getEntities())); 
+	}
+
+	void ParticleManager::postUpdate(unsigned long elapsed_millis) {
+		std::vector<Particle*> particles = getParticles();
+		for(std::vector<Particle*>::size_type i = 0; i < particles.size(); i++) {
+			for(std::vector<Particle*>::size_type j = i+1; j < particles.size(); j++) {
+				if(particles[i]->collidesWith(particles[j])) {
+					if((particles[i]->getStrength() != particles[j]->getStrength())) {
+						particles[i]->setDestroyed(true);
+						destroyParticle(particles[i]->getId());
+						particles[j]->setDestroyed(true);
+						destroyParticle(particles[j]->getId());
+					} else {
+						particles[i]->calculateCollision(particles[j]);
+					}
+				}
+			}
+		}
+	}
+
 	void ParticleManager::createAsteroids(unsigned int numAsteroids, double scaleFactor, cg::Vector2d position) {
 		for(unsigned int i = 0; i < numAsteroids; i++) {
 			std::ostringstream os;
@@ -55,6 +84,17 @@ namespace asteroids {
 		}
 	}
 	
+	void ParticleManager::createLaserShot(cg::Vector2d position, double radiansRotation) {
+		std::ostringstream os;
+		os << "Particle" << _currIdNum++;
+		LaserShot * newLaserShot = new LaserShot(os.str(), this);
+		newLaserShot->init();
+		newLaserShot->setPosition(position);
+		newLaserShot->setRotation(radiansRotation);
+		newLaserShot->accelerate(500, true);
+		_newParticles.push_back(newLaserShot);
+	}
+
 	double ParticleManager::randomBetween(double min, double max) {
 		return (rand() / (double)RAND_MAX * (max - min)) + min;
 	}

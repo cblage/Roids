@@ -6,8 +6,20 @@ namespace asteroids {
 		_physics = new PhysicsEngine();
 	}
 
+	PhysicsObject::PhysicsObject(double mass) {
+		_physics = new PhysicsEngine(mass);
+	}
+
 	PhysicsObject::~PhysicsObject() {
 		delete(_physics);
+	}
+	
+	double PhysicsObject::getMass(void) {
+		return _physics->getMass();
+	}
+
+	void PhysicsObject::setMass(double mass) {
+		_physics->setMass(mass);
 	}
 
 	void PhysicsObject::accelerate(double factor, bool withRotation) {	
@@ -88,6 +100,9 @@ namespace asteroids {
 	}
 	bool PhysicsObject::collidesWith(PhysicsObject *pobject) {
 		return _physics->collidesWith(pobject);
+	}
+	void PhysicsObject::calculateCollision(PhysicsObject *pobject) {
+		_physics->calculateCollision(pobject);
 	}
 
 	void PhysicsObject::rotate(double factor) {

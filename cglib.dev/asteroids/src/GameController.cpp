@@ -14,7 +14,7 @@ namespace asteroids {
         if (key == 27) {
 			cg::Manager::instance()->shutdownApp();
 			//change this to pause later
-        } else if (key == ' ') {
+        } else if (key == 'h') {
 			_ship->hyperAccelerate();
         } else if (key == 'a') {
 			_ship->startRotation(540);
@@ -26,6 +26,8 @@ namespace asteroids {
 			_ship->startAcceleration(500, true);
 		} else if (key == 'x') {
 			_ship->startAcceleration(-1000, false, cg::Vector2d(0, 0));
+		} else if (key == ' ') {
+			_ship->shootLaser();
 		}
 	}
 	void GameController::onKeyReleased(unsigned char key) {

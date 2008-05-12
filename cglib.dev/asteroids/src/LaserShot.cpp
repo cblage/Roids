@@ -16,7 +16,7 @@ namespace asteroids {
 
 		_secondsToLive = cg::Properties::instance()->getDouble("LASER_SECONDS_TO_LIVE");
 		_radius = cg::Properties::instance()->getDouble("LASER_RADIUS");
-		setCollisionRadius(_radius);
+		setCollisionRadius(_radius*2);
 	}
 
 	void LaserShot::update(unsigned long elapsed_millis) {

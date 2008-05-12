@@ -305,7 +305,7 @@ namespace asteroids {
 		double originalElapsedMillis = _previousElapsedMillis;
 		double newElapsedMillis = _previousElapsedMillis/2;
 		
-		while( newElapsedMillis > 0.00005 && penetrates(pobject)) {
+		while( newElapsedMillis > 0.005 && penetrates(pobject)) {
 			stepBack();
 			update(newElapsedMillis);
 			newElapsedMillis /=2; 

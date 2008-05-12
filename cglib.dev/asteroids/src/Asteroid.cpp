@@ -83,14 +83,18 @@ namespace asteroids {
 			
 			glBegin(GL_QUAD_STRIP);
 			{
+				cg::Vector3d normal = cg::Vector3d(0, 0, 0);
 				glColor3d(0.9,0.9,0.9);
-				for (std::vector<cg::Vector3d>::iterator p = _asteroid_vector.begin( );p != _asteroid_vector.end();p++) {
-					 
-					   glVertex3f((*p)[0],(*p)[1],(*p)[2]);
-						glColor3d(0.4,0.4,0.4);
-					   glVertex3f((*q)[0],(*q)[1],(*q)[2]);
-					   glColor3d(0.9,0.9,0.9);
-					   q++;
+				for (std::vector<cg::Vector3d>::iterator p = _asteroid_vector.begin( );p != _asteroid_vector.end();p++) {		 
+					normal = normalize(cg::Vector3d((*p)[0],(*p)[1],(*p)[2]));
+					glNormal3f(normal[0], normal[1], normal[2]);
+					glVertex3f((*p)[0],(*p)[1],(*p)[2]);
+					glColor3d(0.4,0.4,0.4);
+					normal = normalize(cg::Vector3d((*q)[0],(*q)[1],(*q)[2]));
+					glNormal3f(normal[0], normal[1], normal[2]);
+					glVertex3f((*q)[0],(*q)[1],(*q)[2]);
+					glColor3d(0.9,0.9,0.9);
+					q++;
 				}
 				glVertex3f((*pBegin)[0],(*pBegin)[1],(*pBegin)[2]);
 				glColor3d(0.4,0.4,0.4);
@@ -100,21 +104,62 @@ namespace asteroids {
 			
 			glBegin(GL_TRIANGLE_STRIP);
 			{
+				cg::Vector3d normal = cg::Vector3d(0, 0, 0);
 				for (std::vector<cg::Vector3d>::iterator q = _asteroid_vector2.begin( );q != _asteroid_vector2.end();q++) {
 					glColor3d(0.4,0.4,0.4);
+					normal = normalize(cg::Vector3d((*q)[0],(*q)[1],(*q)[2]));
+					glNormal3f(normal[0], normal[1], normal[2]);
 					glVertex3f((*q)[0],(*q)[1],(*q)[2]);
-	glColor3d(0.8,0.8,0.8);
-					glVertex3f(1,1,20);
+					glColor3d(0.8,0.8,0.8);
+					glVertex3f(1,1,_radius);
+					glNormal3f(1, 1, _radius);
 				}				
 				glVertex3f((*qBegin)[0],(*qBegin)[1],(*qBegin)[2]);
+			}
+			glEnd();
+					glBegin(GL_QUAD_STRIP);
+			{
+				q = _asteroid_vector2.begin( );
+				cg::Vector3d normal = cg::Vector3d(0, 0, 0);
+				glColor3d(0.9,0.9,0.9);
+				for (std::vector<cg::Vector3d>::iterator p = _asteroid_vector.begin( );p != _asteroid_vector.end();p++) {		 
+					normal = normalize(cg::Vector3d((*p)[0],(*p)[1],-(*p)[2]));
+					glNormal3f(normal[0], normal[1], normal[2]);
+					glVertex3f((*p)[0],(*p)[1],-((*p)[2]));
+					glColor3d(0.4,0.4,0.4);
+					normal = normalize(cg::Vector3d((*q)[0],(*q)[1],-(*q)[2]));
+					glNormal3f(normal[0], normal[1], normal[2]);
+					glVertex3f((*q)[0],(*q)[1],-(*q)[2]);
+					glColor3d(0.9,0.9,0.9);
+					q++;
+				}
+				glVertex3f((*pBegin)[0],(*pBegin)[1],-(*pBegin)[2]);
+				glColor3d(0.4,0.4,0.4);
+				glVertex3f((*qBegin)[0],(*qBegin)[1],-(*qBegin)[2]);
+			}
+			glEnd();
+			
+			glBegin(GL_TRIANGLE_STRIP);
+			{
+				cg::Vector3d normal = cg::Vector3d(0, 0, 0);
+				for (std::vector<cg::Vector3d>::iterator q = _asteroid_vector2.begin( );q != _asteroid_vector2.end();q++) {
+					glColor3d(0.4,0.4,0.4);
+					normal = normalize(cg::Vector3d((*q)[0],(*q)[1],-(*q)[2]));
+					glNormal3f(normal[0], normal[1], normal[2]);
+					glVertex3f((*q)[0],(*q)[1],-(*q)[2]);
+					glColor3d(0.8,0.8,0.8);
+					glVertex3f(1,1,-_radius);
+					glNormal3f(1, 1, -_radius);
+				}				
+				glVertex3f((*qBegin)[0],-(*qBegin)[1],-(*qBegin)[2]);
 			}
 			glEnd();
 		}
 		glPopMatrix();
 		glFlush();
 
-		/*//cg::Vector2d position = getPosition();
-		glPushMatrix();
+		//cg::Vector2d position = getPosition();
+		/*glPushMatrix();
 		{
 			glTranslated(position[0], position[1], 0);
 			//glRotated(getRotation(true), 0, 0, 1);

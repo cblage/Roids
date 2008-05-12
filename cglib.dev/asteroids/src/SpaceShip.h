@@ -76,7 +76,7 @@ namespace asteroids {
 		void preUpdate(unsigned long elapsed_millis);
 		void postUpdate(unsigned long elapsed_millis);
 		void createAsteroids(unsigned int numAsteroids, double scaleFactor, cg::Vector2d position);
-		void createLaserShot(cg::Vector2d position, double radiansRotation, cg::Vector2d velocity);
+		void createLaserShot(cg::Vector2d position, double radiansRotation, cg::Vector2d velocity, double degreesRotation);
 		double randomBetween(double min, double max);
 		SpaceShip * getSpaceShip(void);
 		std::vector<Particle*> getParticles();

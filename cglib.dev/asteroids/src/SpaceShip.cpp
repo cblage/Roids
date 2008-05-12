@@ -118,6 +118,17 @@ namespace asteroids {
 		}
 		glPopMatrix();
 		glFlush();
+
+		//cg::Vector2d position = getPosition();
+	/*	glPushMatrix();
+		{
+			glTranslated(position[0], position[1], 0);
+			//glRotated(getRotation(true), 0, 0, 1);
+			glColor3d(1, 0, 0);
+			glutSolidSphere(getCollisionRadius(), 30, 30);
+		}
+		glPopMatrix();
+		glFlush();*/
 	}
 	void SpaceShip::onReshape(int width, int height) {
 		if(width > 100 && height > 100) {
@@ -141,7 +152,7 @@ namespace asteroids {
 	void SpaceShip::shootLaser(void) {
 		if (_charlesBronsonStyle > 0) {
 			_charlesBronsonStyle--;
-			_particleManager->createLaserShot(getPosition(), getRotation(), getVelocity());
+			_particleManager->createLaserShot(getPosition(), getRotation(), getVelocity(), getRotation(true));
 		}
 	}	
 }

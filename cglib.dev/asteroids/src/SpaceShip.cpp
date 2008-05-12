@@ -141,7 +141,7 @@ namespace asteroids {
 	void SpaceShip::shootLaser(void) {
 		if (_charlesBronsonStyle > 0) {
 			_charlesBronsonStyle--;
-			_particleManager->createLaserShot(getPosition(), getRotation());
+			_particleManager->createLaserShot(getPosition(), getRotation(), getVelocity());
 		}
 	}	
 }

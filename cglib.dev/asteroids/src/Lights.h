@@ -1,5 +1,7 @@
+#pragma once
 #ifndef LIGHTS_H
 #define LIGHTS_H
+#pragma message("Lights is included")
 
 #include "cg/cg.h"
 

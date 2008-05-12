@@ -69,13 +69,14 @@ namespace asteroids {
 		}
 	}
 	
-	void ParticleManager::createLaserShot(cg::Vector2d position, double radiansRotation) {
+	void ParticleManager::createLaserShot(cg::Vector2d position, double radiansRotation, cg::Vector2d velocity) {
 		std::ostringstream os;
 		os << "Particle" << _currIdNum++;
 		LaserShot * newLaserShot = new LaserShot(os.str(), this);
 		newLaserShot->init();
 		newLaserShot->setPosition(position);
 		newLaserShot->setRotation(radiansRotation);
+		newLaserShot->setVelocity(velocity);
 		if (radiansRotation > 3.14 && radiansRotation <6.28)
 			newLaserShot->accelerate(-500, true);
 		else 

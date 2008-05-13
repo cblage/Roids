@@ -52,6 +52,16 @@ namespace asteroids {
 		}
 		glPopMatrix();
 		glFlush();
+		
+		/*glPushMatrix();
+		{
+			glTranslated(position[0], position[1], 0);
+			//glRotated(getRotation(true), 0, 0, 1);
+			glColor3d(0, 1, 0);
+			glutSolidSphere(getCollisionRadius(), 30, 30);
+		}
+		glPopMatrix();
+		glFlush();*/
 	}
 
 	void LaserShot::onReshape(int width, int height) {

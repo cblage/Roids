@@ -40,12 +40,14 @@ namespace asteroids {
 		virtual void setCollisionRadius(double collisionRadius);
 		virtual void setCollisionCenter(cg::Vector2d collisionCenter);
 		virtual void setUniverseDimensions(int width, int height);
-		virtual void update(double elapsed_millis);
+		virtual void update(unsigned long elapsed_millis);
 		virtual double getMass(void);
 		virtual void setMass(double mass);
 		virtual void calculateCollision(PhysicsObject *pobject);
 		virtual void stepBack(void);
 		virtual bool penetrates(PhysicsObject *pobject);
+		virtual void setRotationFactor(double factor);
+		virtual double getRotationFactor(void);
 		
 	private:
 		PhysicsEngine * _physics;

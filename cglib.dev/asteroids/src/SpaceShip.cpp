@@ -62,7 +62,7 @@ namespace asteroids {
 			glColor3d(0.5,0.9,0.5);
 			
 			glLightfv(GL_LIGHT1, GL_POSITION,positionLight);
-			glLightfv(GL_LIGHT1,GL_SPOT_DIRECTION,directionLight);//falta definir a direcçao
+			glLightfv(GL_LIGHT1,GL_SPOT_DIRECTION,directionLight);
 
 
 			//top face
@@ -120,7 +120,7 @@ namespace asteroids {
 		glFlush();
 
 		//cg::Vector2d position = getPosition();
-	/*	glPushMatrix();
+		/*glPushMatrix();
 		{
 			glTranslated(position[0], position[1], 0);
 			//glRotated(getRotation(true), 0, 0, 1);

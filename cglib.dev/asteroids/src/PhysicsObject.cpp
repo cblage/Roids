@@ -65,6 +65,14 @@ namespace asteroids {
 	cg::Vector2d PhysicsObject::getAcceleration() const {
 		return _physics->getAcceleration();
 	}
+	
+	void PhysicsObject::setRotationFactor(double factor) {
+		_physics->setRotationFactor(factor);
+	}
+
+	double PhysicsObject::getRotationFactor(void) {
+		return _physics->getRotationFactor();
+	}
 
 	double PhysicsObject::getRotation() const {
 		return _physics->getRotation();
@@ -113,7 +121,7 @@ namespace asteroids {
 		_physics->setUniverseDimensions(width, height);
 	}
 
-	void PhysicsObject::update(double elapsed_millis) {
+	void PhysicsObject::update(unsigned long elapsed_millis) {
 		_physics->update(elapsed_millis);
 	}
 	

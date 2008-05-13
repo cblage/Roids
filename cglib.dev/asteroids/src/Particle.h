@@ -19,6 +19,7 @@ namespace asteroids {
 		bool _destroyed;
 		double _strength;
 		double _penetrationTime;
+		double _maxPenetrationTime;
 
 	public:
 		Particle(std::string id, ParticleManager * particleManager);

@@ -34,6 +34,7 @@ namespace asteroids {
 		baseAsteroidSize = cg::Properties::instance()->getDouble("BASE_ASTEROID_SIZE");
 		_radius = baseAsteroidSize * _scaleFactor;
 		setCollisionRadius(_radius*0.8);
+		startRotation(randomBetween(-length(getVelocity()), length(getVelocity())));
 
 		for (i = 0; i < 12; i++) {
 			angle = 2*(3.14)*i/12;
@@ -62,6 +63,8 @@ namespace asteroids {
 
 		PhysicsObject::update(elapsed_millis);
 		checkCollisions(elapsed_millis);
+
+		setRotationFactor(length(getVelocity())*getRotationFactor()/getRotationFactor());
 	}
 
 	void Asteroid::draw() {
@@ -75,7 +78,6 @@ namespace asteroids {
 		{
 			glTranslated(position[0], position[1], 0);
 			glRotated(getRotation(true), 0, 0, 1);
-			glRotated(180,0,1,0);
 			
 			std::vector<cg::Vector3d>::iterator q = _asteroid_vector2.begin( );
 			std::vector<cg::Vector3d>::iterator pBegin = _asteroid_vector.begin( );

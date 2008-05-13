@@ -3,6 +3,11 @@
 namespace asteroids {
 
 	PhysicsEngine::PhysicsEngine(){
+		_previousVelocity = cg::Vector2d(0, 0);
+		_previousRotationRad = 0;
+		_previousPosition = cg::Vector2d(0,0);
+		_previousCollisionCenter = cg::Vector2d(0,0);
+		_previousAcceleration = cg::Vector2d(0, 0);
 		_velocity = cg::Vector2d( 0, 0);
 		_position = cg::Vector2d( 0, 0);
 		_acelFactor = 0;
@@ -24,6 +29,11 @@ namespace asteroids {
 	}
 	
 	PhysicsEngine::PhysicsEngine(double mass) {
+		_previousVelocity = cg::Vector2d(0, 0);
+		_previousRotationRad = 0;
+		_previousPosition = cg::Vector2d(0,0);
+		_previousCollisionCenter = cg::Vector2d(0,0);
+		_previousAcceleration = cg::Vector2d(0, 0);
 		_velocity = cg::Vector2d( 0, 0);
 		_position = cg::Vector2d( 0, 0);
 		_acelFactor = 0;
@@ -46,6 +56,11 @@ namespace asteroids {
 	
 
 	PhysicsEngine::PhysicsEngine(cg::Vector2d velocity,cg::Vector2d position) {
+		_previousVelocity = cg::Vector2d(0, 0);
+		_previousRotationRad = 0;
+		_previousPosition = cg::Vector2d(0,0);
+		_previousCollisionCenter = cg::Vector2d(0,0);
+		_previousAcceleration = cg::Vector2d(0, 0);		
 		_velocity = velocity;
 		_position = position;
 		_acelFactor = 0;
@@ -66,6 +81,11 @@ namespace asteroids {
 		_mass = 1;	
 	}
 	PhysicsEngine::PhysicsEngine(cg::Vector2d velocity,cg::Vector2d position, double mass) {
+		_previousVelocity = cg::Vector2d(0, 0);
+		_previousRotationRad = 0;
+		_previousPosition = cg::Vector2d(0,0);
+		_previousCollisionCenter = cg::Vector2d(0,0);
+		_previousAcceleration = cg::Vector2d(0, 0);
 		_velocity = velocity;
 		_position = position;
 		_acelFactor = 0;
@@ -157,7 +177,7 @@ namespace asteroids {
 		double y = std::min(realMod(abs(vectorA[1]-vectorB[1])+_universeHeight, _universeHeight), realMod(_universeHeight-abs(vectorA[1]-vectorB[1]), _universeHeight));
 		return sqrt(pow(x,2)+pow(y,2));	
 	}
-	void PhysicsEngine::update(double elapsed_millis) {
+	void PhysicsEngine::update(unsigned long elapsed_millis) {
 		_hasUpdated = true;
 		_previousElapsedMillis = elapsed_millis;
 		_previousVelocity = _velocity;
@@ -191,7 +211,7 @@ namespace asteroids {
 			return;
 
 		setPosition(_previousPosition);
-		setRotation(_previousRotationRad);
+		//setRotation(_previousRotationRad);
 		setVelocity(_previousVelocity);
 		setAcceleration(_previousAcceleration);
 		setCollisionCenter(_previousCollisionCenter);
@@ -252,15 +272,20 @@ namespace asteroids {
 		_rotFactor = factor;
 	}
 
+	void PhysicsEngine::setRotationFactor(double factor) {
+		_rotFactor = factor;
+	}
+	
+	double PhysicsEngine::getRotationFactor(void) {
+		return _rotFactor;
+	}
+	
 	void PhysicsEngine::stopRotator() {
 		_rotating = false;
 	}
 
 	void PhysicsEngine::rotate(double factor) {
-		_rotationDeg = fmod(_rotationDeg + factor/_mass, 360);
-		if(_rotationDeg < 0) {
-			_rotationDeg += 360;
-		}
+		_rotationDeg = realMod(_rotationDeg + factor, 360);
 		_rotationRad = _rotationDeg * PI4 / 180;
 	}
 
@@ -271,10 +296,7 @@ namespace asteroids {
 		return (inDegrees == true) ? _rotationDeg : _rotationRad;
 	}
 	void PhysicsEngine::setRotation(double radiansRotation){
-		if(_rotating == true)
-			throw "cant set rotation to rotating object!";
-
-		_rotationRad = fmod(radiansRotation, PI4);
+		_rotationRad = realMod(radiansRotation, PI4);
 		_rotationDeg = _rotationRad * 180/PI4;
 	}
 
@@ -302,10 +324,9 @@ namespace asteroids {
 		if(!collidesWith(pobject))
 			return;
 		
-		double originalElapsedMillis = _previousElapsedMillis;
-		double newElapsedMillis = _previousElapsedMillis/2;
+		unsigned long newElapsedMillis = _previousElapsedMillis/2;
 		
-		while( newElapsedMillis > 0.005 && penetrates(pobject)) {
+		while(newElapsedMillis > 0.005 && penetrates(pobject)) {
 			stepBack();
 			update(newElapsedMillis);
 			newElapsedMillis /=2; 

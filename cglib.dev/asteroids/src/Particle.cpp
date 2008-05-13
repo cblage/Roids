@@ -7,6 +7,7 @@ namespace asteroids {
 		_destroyed(false),
 		_strength(0),
 		_penetrationTime(0),
+		_maxPenetrationTime(cg::Properties::instance()->getDouble("PARTICLE_MAX_PENETRATE")),
 		PhysicsObject() {};
 
 	Particle::Particle(std::string id, double strength, ParticleManager * particleManager) : cg::Entity(id),
@@ -14,6 +15,7 @@ namespace asteroids {
 		_destroyed(false),
 		_strength(strength),
 		_penetrationTime(0),
+		_maxPenetrationTime(cg::Properties::instance()->getDouble("PARTICLE_MAX_PENETRATE")),
 		PhysicsObject() {};
 	
 	Particle::Particle(std::string id, ParticleManager * particleManager, double mass) : cg::Entity(id),
@@ -21,6 +23,7 @@ namespace asteroids {
 		_destroyed(false),
 		_strength(0),
 		_penetrationTime(0),
+		_maxPenetrationTime(cg::Properties::instance()->getDouble("PARTICLE_MAX_PENETRATE")),
 		PhysicsObject(mass) {};
 
 	Particle::Particle(std::string id, double strength, ParticleManager * particleManager, double mass) : cg::Entity(id),
@@ -28,6 +31,7 @@ namespace asteroids {
 		_destroyed(false),
 		_strength(strength),
 		_penetrationTime(0),
+		_maxPenetrationTime(cg::Properties::instance()->getDouble("PARTICLE_MAX_PENETRATE")),
 		PhysicsObject(mass) {};
 
 	Particle::~Particle() {
@@ -72,7 +76,7 @@ namespace asteroids {
 				} 
 		}
 
-		if(collidesWith(getParticleManager()->getSpaceShip()) || _penetrationTime > 0.4) {
+		if(collidesWith(getParticleManager()->getSpaceShip()) || _penetrationTime > _maxPenetrationTime) {
 			destroy();
 		}
 	}

@@ -63,10 +63,11 @@ namespace asteroids {
 		std::vector<Particle*> particles = getParticleManager()->getParticles();
 		for(std::vector<Particle*>::size_type i = 0; i < particles.size(); i++) {
 				if(particles[i]->getId() == _id) continue;
-				if(collidesWith(particles[i])) {
+				if(collidesWith(particles[i]) && !particles[i]->isDestroyed()) {
 					if((getStrength() < particles[i]->getStrength())) {
 						destroy();
 						particles[i]->destroy();
+						return;
 					} else {
 						calculateCollision(particles[i]);
 					}

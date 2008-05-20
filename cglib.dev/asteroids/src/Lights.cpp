@@ -7,7 +7,7 @@ namespace asteroids {
     Lights::~Lights() {
 	}
     void Lights::init() {
-		GLfloat ambientLight[] = { 0.4, 0.4, 0.4, 1.0 };
+		GLfloat ambientLight[] = { 0.2, 0.2, 0.2, 1.0 };
 		GLfloat diffuseLight[] = { 0.8, 0.8, 0.8, 1.0 };
 		GLfloat specularLight[] = { 0.5, 0.5, 0.5, 1.0 };
 

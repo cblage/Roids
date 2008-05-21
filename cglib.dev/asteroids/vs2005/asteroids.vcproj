@@ -189,10 +189,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\src\GameController.cpp"
-				>
-			</File>
-			<File
 				RelativePath="..\src\LaserShot.cpp"
 				>
 			</File>
@@ -241,6 +237,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\ShipController.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\SpaceShip.cpp"
 				>
 			</File>
@@ -260,10 +260,6 @@
 			>
 			<File
 				RelativePath="..\src\Asteroid.h"
-				>
-			</File>
-			<File
-				RelativePath="..\src\GameController.h"
 				>
 			</File>
 			<File
@@ -308,6 +304,10 @@
 			</File>
 			<File
 				RelativePath="..\src\PhysicsObject.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\ShipController.h"
 				>
 			</File>
 			<File

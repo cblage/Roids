@@ -1,24 +1,20 @@
 #pragma once
-#ifndef GAME_CONTROLLER_H
-#define GAME_CONTROLLER_H
-#pragma message("GameController is included")
+#ifndef SHIP_CONTROLLER_H
+#define SHIP_CONTROLLER_H
+#pragma message("ShipController is included")
 
 #include "cg/cg.h"
 #include "SpaceShip.h"
-#include "MyCamera.h"
-
-
 
 namespace asteroids {
 	class SpaceShip;
-	class MyCamera;
 
-	class GameController : public cg::Entity,
+	class ShipController : public cg::Entity,
 		public cg::IKeyboardEventListener
 	{
 	public:
-		GameController(SpaceShip* ship, MyCamera* camera);
-		~GameController();
+		ShipController(SpaceShip* ship);
+		~ShipController();
 		void init();
         void onKeyPressed(unsigned char key);
         void onKeyReleased(unsigned char key);
@@ -27,7 +23,6 @@ namespace asteroids {
 
 	private:
 		SpaceShip * _ship;
-		MyCamera * _camera;
 	};
 
 

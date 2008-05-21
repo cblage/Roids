@@ -325,11 +325,14 @@ namespace asteroids {
 			return;
 		
 		unsigned long newElapsedMillis = _previousElapsedMillis/2;
-		
+		unsigned long originalElapsedMillis = _previousElapsedMillis;
+		bool steppedBack = false;
+
 		while(newElapsedMillis > 0.005 && penetrates(pobject)) {
 			stepBack();
 			update(newElapsedMillis);
 			newElapsedMillis /=2; 
+			steppedBack = true;
 		}
 
 		cg::Vector2d normalVelocity = normalize(constrainVector(getCollisionCenter() - pobject->getCollisionCenter()));
@@ -339,6 +342,7 @@ namespace asteroids {
 		double j = (-(1+restitutionFactor) * dot(relativeVelocity,normalVelocity))/(dot(normalVelocity, normalVelocity)*(1/getMass() + 1/pobject->getMass()));
 		setVelocity(getVelocity() + (j*normalVelocity)/getMass());
 		pobject->setVelocity(pobject->getVelocity() + (-j*normalVelocity)/pobject->getMass());
+		update(originalElapsedMillis - newElapsedMillis);
 	}
 }
 

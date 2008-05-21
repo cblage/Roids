@@ -77,7 +77,7 @@ namespace asteroids {
 				} 
 		}
 
-		if(collidesWith(getParticleManager()->getSpaceShip()) || _penetrationTime > _maxPenetrationTime) {
+		if(_penetrationTime > _maxPenetrationTime) {
 			destroy();
 		}
 	}

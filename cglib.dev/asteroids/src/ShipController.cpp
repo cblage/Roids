@@ -1,36 +1,32 @@
-#include "GameController.h"
+#include "ShipController.h"
 
 namespace asteroids {
 
-	GameController::GameController(SpaceShip* ship, MyCamera* camera) : cg::Entity("Controller") {
+	ShipController::ShipController(SpaceShip* ship) : cg::Entity("Controller") {
 		_ship = ship;
-		_camera = camera;
 	}
-	GameController::~GameController() {
+	ShipController::~ShipController() {
 	}
-	void GameController::init() {
+	void ShipController::init() {
 	}
-	void GameController::onKeyPressed(unsigned char key) {
-        if (key == 27) {
-			cg::Manager::instance()->shutdownApp();
-			//change this to pause later
-        } else if (key == 'h') {
+	void ShipController::onKeyPressed(unsigned char key) {
+		if (key == 'h') {
 			_ship->hyperAccelerate();
-        } else if (key == 'a') {
+		} else if (key == 'a') {
 			_ship->startRotation(540);
 		} else if (key == 'd') {
 			_ship->startRotation(-540);
 		} else if (key == 's') {
-			_ship->startAcceleration(-500, true);
+			_ship->startAcceleration(-500000, true);
 		} else if (key == 'w') {
-			_ship->startAcceleration(500, true);
+			_ship->startAcceleration(500000, true);
 		} else if (key == 'x') {
-			_ship->startAcceleration(-1000, false, cg::Vector2d(0, 0));
+			_ship->startAcceleration(-100000, false, cg::Vector2d(0, 0));
 		} else if (key == ' ') {
 			_ship->shootLaser();
 		}
 	}
-	void GameController::onKeyReleased(unsigned char key) {
+	void ShipController::onKeyReleased(unsigned char key) {
 		if (key == 'a') {
 			_ship->stopRotation();
 		} else if (key == 'd') {
@@ -43,8 +39,8 @@ namespace asteroids {
 			_ship->stopAcceleration();
 		}
 	}
-	void GameController::onSpecialKeyPressed(int key) {
-		switch (key)
+	void ShipController::onSpecialKeyPressed(int key) {
+		/*switch (key)
 		{
 		case GLUT_KEY_LEFT:
 			_camera->startRotate(0);
@@ -63,10 +59,10 @@ namespace asteroids {
 			break;
 		default:
 			return;
-		}
+		}*/
 	}	
-	void GameController::onSpecialKeyReleased(int key) {
-		switch (key)
+	void ShipController::onSpecialKeyReleased(int key) {
+		/*switch (key)
 		{
 		case GLUT_KEY_F1:
 			cg::Manager::instance()->getApp()->dump();
@@ -85,7 +81,7 @@ namespace asteroids {
 			break;
 		default:
 			return;
-		}
+		}*/
 	}
 
 }

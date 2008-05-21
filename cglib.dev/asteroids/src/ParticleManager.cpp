@@ -2,17 +2,16 @@
 
 namespace asteroids {
 
-	ParticleManager::ParticleManager(std::string id, SpaceShip * ship) : cg::Group(id), _currIdNum(0), _ship(ship) {
+	ParticleManager::ParticleManager(std::string id) : cg::Group(id), _currIdNum(0) {
 	}
 	ParticleManager::~ParticleManager() {
 	}
 	void ParticleManager::createEntities() {
 		int nasteroids = cg::Properties::instance()->getInt("NASTEROIDS");
 		for(int i = 0; i < nasteroids; i++) {
-			std::ostringstream os;
-			os << "Particle" << _currIdNum++;
-			add(new Asteroid(os.str(), this));
+			createAsteroid();
 		}
+		createShip();
 	}
 	void ParticleManager::postInit() {
 		std::ostringstream os;
@@ -59,19 +58,31 @@ namespace asteroids {
 
 	void ParticleManager::createAsteroids(unsigned int numAsteroids, double scaleFactor, cg::Vector2d position) {
 		for(unsigned int i = 0; i < numAsteroids; i++) {
-			std::ostringstream os;
-			os << "Particle" << _currIdNum++;
-			Asteroid * createdAsteroid = new Asteroid(os.str(), scaleFactor, this);
-			createdAsteroid->init();
-			createdAsteroid->accelerate(randomBetween(200, 400), false);
-			createdAsteroid->setPosition(position);
-			_newParticles.push_back(createdAsteroid);
+			createAsteroid(scaleFactor, position);
 		}
 	}
+
+	void ParticleManager::createAsteroid(double scaleFactor, cg::Vector2d position) {
+		std::ostringstream os;
+		os << "Asteroid" << _currIdNum++;
+		Asteroid * createdAsteroid = new Asteroid(os.str(), scaleFactor, this);
+		createdAsteroid->init();
+		createdAsteroid->accelerate(randomBetween(-400, 400), false);
+		createdAsteroid->setPosition(position);
+		_newParticles.push_back(createdAsteroid);
+	}
 	
+	void ParticleManager::createAsteroid(void) {
+		std::ostringstream os;
+		os << "Asteroid" << _currIdNum++;
+		Asteroid * createdAsteroid = new Asteroid(os.str(), this);
+		createdAsteroid->init();
+		createdAsteroid->accelerate(randomBetween(-400, 400), false);
+		_newParticles.push_back(createdAsteroid);
+	}
 	void ParticleManager::createLaserShot(cg::Vector2d position, double radiansRotation, cg::Vector2d velocity, double degreesRotation) {
 		std::ostringstream os;
-		os << "Particle" << _currIdNum++;
+		os << "LaserShot" << _currIdNum++;
 		LaserShot * newLaserShot = new LaserShot(os.str(), this);
 		newLaserShot->init();
 		newLaserShot->setPosition(position);
@@ -84,11 +95,26 @@ namespace asteroids {
 		_newParticles.push_back(newLaserShot);
 	}
 
+	void ParticleManager::createShip(cg::Vector2d position, double radiansRotation, cg::Vector2d velocity, double degreesRotation) {
+		std::ostringstream os;
+		os << "Ship" << _currIdNum++;
+		SpaceShip * newShip = new SpaceShip(os.str(), this);
+		newShip->init();
+		newShip->setPosition(position);
+		newShip->setRotation(radiansRotation);
+		newShip->setVelocity(velocity);
+		_newParticles.push_back(newShip);
+	}
+
+	void ParticleManager::createShip(void) {
+		std::ostringstream os;
+		os << "Ship" << _currIdNum++;
+		SpaceShip * newShip = new SpaceShip(os.str(), this);
+		newShip->init();
+		_newParticles.push_back(newShip);
+	}
 	double ParticleManager::randomBetween(double min, double max) {
 		return (rand() / (double)RAND_MAX * (max - min)) + min;
 	}
 
-	SpaceShip * ParticleManager::getSpaceShip(void) {
-		return _ship;
-	}
 }

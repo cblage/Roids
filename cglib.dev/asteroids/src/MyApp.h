@@ -5,15 +5,13 @@
 
 #include "cg/cg.h"
 #include "MyCamera.h"
-#include "SpaceShip.h"
-#include "GameController.h"
 #include "StarSphere.h"
 #include "ParticleManager.h"
 #include "Lights.h"
 
 namespace asteroids {
 	class StarSphere;
-	class GameController;
+	class ShipController;
 	class MyCamera;
 	class ParticleManager;
 	class SpaceShip;

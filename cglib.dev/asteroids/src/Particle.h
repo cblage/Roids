@@ -2,16 +2,15 @@
 #ifndef PARTICLE_H
 #define PARTICLE_H
 #pragma message("Particle is included")
-#include "SpaceShip.h"
 #include "PhysicsObject.h"
 #include "cg/cg.h"
 
 
 namespace asteroids {
-	class SpaceShip;
 	class ParticleManager;
 
 	class Particle : public cg::Entity,
+		public cg::IKeyboardEventListener,
 		public PhysicsObject
 	{
 	private:
@@ -34,6 +33,11 @@ namespace asteroids {
 		virtual double getStrength(void);
 		virtual void checkCollisions(double long elapsed_millis);
 		virtual void destroy(void);
+		virtual void onKeyPressed(unsigned char key) {}
+		virtual void onKeyReleased(unsigned char key) {}
+		virtual void onSpecialKeyPressed(int key){}
+		virtual void onSpecialKeyReleased(int key) {}
+
 
 	};
 	
@@ -47,6 +51,7 @@ namespace asteroids {
 		public cg::GroupDraw,
 		public cg::GroupUpdate,
 		public cg::GroupReshapeEvent,
+		public cg::GroupKeyboardEvent,
 		public cg::IDrawOverlayListener
 	{
 	private:
@@ -55,21 +60,19 @@ namespace asteroids {
 		std::vector<Particle *> _newParticles;
 
 		unsigned int _currIdNum;
-		SpaceShip * _ship;
 	protected:
 		void createEntities();
 		void postInit();
 	public:
-		ParticleManager(std::string id, SpaceShip * ship);
+		ParticleManager(std::string id);
 		~ParticleManager();
 		void destroyParticle(std::string id);
 		void drawOverlay();
 		void preUpdate(unsigned long elapsed_millis);
 		void postUpdate(unsigned long elapsed_millis);
 		void createAsteroids(unsigned int numAsteroids, double scaleFactor, cg::Vector2d position);
-		void createLaserShot(cg::Vector2d position, double radiansRotation);
+		void createLaserShot(cg::Vector2d position, double radiansRotation, cg::Vector2d velocity, double degreesRotation);
 		double randomBetween(double min, double max);
-		SpaceShip * getSpaceShip(void);
 		std::vector<Particle*> getParticles();
 	};
 #endif

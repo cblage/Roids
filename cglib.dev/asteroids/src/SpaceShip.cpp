@@ -2,8 +2,10 @@
 
 namespace asteroids {
 
-	SpaceShip::SpaceShip(std::string id) : cg::Entity(id), PhysicsObject() {
+	SpaceShip::SpaceShip(std::string id, ParticleManager *  particleManager) : Particle(id, particleManager) {
 		_hyperAccelerator = new SpaceShipHyperAccelerator(this);
+		_controller = new ShipController(this);
+		setMass(500);
 	}
 	SpaceShip::~SpaceShip() {
 		delete(_hyperAccelerator);
@@ -59,18 +61,26 @@ namespace asteroids {
 		{
 			glTranslated(position[0], position[1], 0);
 			glRotated(getRotation(true), 0, 0, 1);
-			glColor3d(0.5,0.9,0.5);
 			
+			glColor3d(0.5,0.9,0.5);
 			glLightfv(GL_LIGHT1, GL_POSITION,positionLight);
 			glLightfv(GL_LIGHT1,GL_SPOT_DIRECTION,directionLight);
-
+			cg::Vector3d normal = cg::Vector3d(0,0,0);
 
 			//top face
 			glBegin(GL_POLYGON);
 			{
 				//glColor3d(1,0, 0);
+				normal = normalize(tip);
+				glNormal3d(normal[0], normal[1], normal[2]);
 				glVertex3d(tip[0], tip[1], tip[2]);
+
+				normal = normalize(topLeftCorner);
+				glNormal3d(normal[0], normal[1], normal[2]);
 				glVertex3d(topLeftCorner[0], topLeftCorner[1], topLeftCorner[2]);
+
+				normal = normalize(topRightCorner);
+				glNormal3d(normal[0], normal[1], normal[2]);
 				glVertex3d(topRightCorner[0], topRightCorner[1], topRightCorner[2]);
 			}
 			glEnd();
@@ -79,8 +89,16 @@ namespace asteroids {
 			glBegin(GL_POLYGON);
 			{
 				//glColor3d(0, 1, 0);
+				normal = normalize(tip);
+				glNormal3d(normal[0], normal[1], normal[2]);
 				glVertex3d(tip[0], tip[1], tip[2]);
+
+				normal = normalize(bottomLeftCorner);
+				glNormal3d(normal[0], normal[1], normal[2]);
 				glVertex3d(bottomLeftCorner[0], bottomLeftCorner[1], bottomLeftCorner[2]);
+
+				normal = normalize(bottomRightCorner);
+				glNormal3d(normal[0], normal[1], normal[2]);
 				glVertex3d(bottomRightCorner[0], bottomRightCorner[1], bottomRightCorner[2]);
 			}
 			glEnd();
@@ -89,8 +107,16 @@ namespace asteroids {
 			glBegin(GL_POLYGON);
 			{
 				//glColor3d(0 ,0, 1);
+				normal = normalize(tip);
+				glNormal3d(normal[0], normal[1], normal[2]);
 				glVertex3d(tip[0], tip[1], tip[2]);
+
+				normal = normalize(topRightCorner);
+				glNormal3d(normal[0], normal[1], normal[2]);
 				glVertex3d(topRightCorner[0], topRightCorner[1], topRightCorner[2]);
+
+				normal = normalize(bottomRightCorner);
+				glNormal3d(normal[0], normal[1], normal[2]);
 				glVertex3d(bottomRightCorner[0], bottomRightCorner[1], bottomRightCorner[2]);
 			}
 			glEnd();
@@ -99,9 +125,17 @@ namespace asteroids {
 			glBegin(GL_POLYGON);
 			{
 				//glColor3d(1,1, 0);
+				normal = normalize(tip);
+				glNormal3d(normal[0], normal[1], normal[2]);
 				glVertex3d(tip[0], tip[1], tip[2]);
+
+				normal = normalize(topLeftCorner);
+				glNormal3d(normal[0], normal[1], normal[2]);
 				glVertex3d(topLeftCorner[0], topLeftCorner[1], topLeftCorner[2]);
-				glVertex3d(bottomLeftCorner[0], bottomLeftCorner[1], bottomLeftCorner[2]);				
+
+				normal = normalize(bottomLeftCorner);
+				glNormal3d(normal[0], normal[1], normal[2]);
+				glVertex3d(bottomLeftCorner[0], bottomLeftCorner[1], bottomLeftCorner[2]);
 			}
 			glEnd();
 
@@ -109,9 +143,20 @@ namespace asteroids {
 			glBegin(GL_POLYGON);
 			{
 				//glColor3d(0,1, 1);
+				normal = normalize(topLeftCorner);
+				glNormal3d(normal[0], normal[1], normal[2]);
 				glVertex3d(topLeftCorner[0], topLeftCorner[1], topLeftCorner[2]);
+
+				normal = normalize(topRightCorner);
+				glNormal3d(normal[0], normal[1], normal[2]);
 				glVertex3d(topRightCorner[0], topRightCorner[1], topRightCorner[2]);
+
+				normal = normalize(bottomLeftCorner);
+				glNormal3d(normal[0], normal[1], normal[2]);
 				glVertex3d(bottomLeftCorner[0], bottomLeftCorner[1], bottomLeftCorner[2]);
+
+				normal = normalize(bottomRightCorner);
+				glNormal3d(normal[0], normal[1], normal[2]);
 				glVertex3d(bottomRightCorner[0], bottomRightCorner[1], bottomRightCorner[2]);
 			}
 			glEnd();
@@ -136,23 +181,21 @@ namespace asteroids {
 		}
 	}
 
-	void SpaceShip::drawOverlay() {
-		glColor3d(0.9,0.1,0.1);
-		std::ostringstream os;
-		os << "acceleration: " << getAcceleration() << " velocity: " << getVelocity()  << " rotation angle: " << getRotation(true) << " or " << getRotation() << " position: " << getPosition();
-		cg::Util::instance()->drawBitmapString(os.str(), 10,10);
-	}
-
 	void SpaceShip::hyperAccelerate(void) {
 		_hyperAccelerator->hyperAccelerate();
 	}
-	void SpaceShip::setParticleManager(ParticleManager *particleManager) {
-		_particleManager = particleManager;
-	}
+	
 	void SpaceShip::shootLaser(void) {
 		if (_charlesBronsonStyle > 0) {
 			_charlesBronsonStyle--;
-			_particleManager->createLaserShot(getPosition(), getRotation(), getVelocity(), getRotation(true));
+			getParticleManager()->createLaserShot(getPosition(), getRotation(), getVelocity(), getRotation(true));
 		}
-	}	
+	}
+	void SpaceShip::onKeyPressed(unsigned char key) {
+		_controller->onKeyPressed(key);
+	}
+	
+	void SpaceShip::onKeyReleased(unsigned char key) {
+		_controller->onKeyReleased(key);
+	}
 }

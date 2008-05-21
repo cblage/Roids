@@ -3,7 +3,7 @@
 namespace asteroids {
 
 	LaserShot::LaserShot(std::string id, ParticleManager * particleManager) : 
-		Particle(id, 100, particleManager) { }
+		Particle(id, 10000000000000000000, particleManager) { setHealth(1); setMass(125000); }
 
 	LaserShot::~LaserShot() {
 	}
@@ -31,11 +31,6 @@ namespace asteroids {
 		}
 
 		PhysicsObject::update(elapsed_millis);
-	/*	if(collidesWith(getParticleManager()->getSpaceShip())) {
-			setDestroyed(true);
-			getParticleManager()->destroyParticle(_id);
-			return;
-		}*/
 	}
 
 	void LaserShot::draw() {
@@ -53,15 +48,6 @@ namespace asteroids {
 		glPopMatrix();
 		glFlush();
 		
-		/*glPushMatrix();
-		{
-			glTranslated(position[0], position[1], 0);
-			//glRotated(getRotation(true), 0, 0, 1);
-			glColor3d(0, 1, 0);
-			glutSolidSphere(getCollisionRadius(), 30, 30);
-		}
-		glPopMatrix();
-		glFlush();*/
 	}
 
 	void LaserShot::onReshape(int width, int height) {

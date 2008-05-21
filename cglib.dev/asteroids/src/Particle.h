@@ -19,6 +19,7 @@ namespace asteroids {
 		double _strength;
 		double _penetrationTime;
 		double _maxPenetrationTime;
+		double _health;
 
 	public:
 		Particle(std::string id, ParticleManager * particleManager);
@@ -37,6 +38,8 @@ namespace asteroids {
 		virtual void onKeyReleased(unsigned char key) {}
 		virtual void onSpecialKeyPressed(int key){}
 		virtual void onSpecialKeyReleased(int key) {}
+		virtual double getHealth(void);
+		virtual void setHealth(double health);
 
 
 	};

@@ -89,9 +89,9 @@ namespace asteroids {
 		newLaserShot->setRotation(radiansRotation);
 		newLaserShot->setVelocity(velocity);
 		if (degreesRotation >= 180 && degreesRotation < 360)
-			newLaserShot->accelerate(-500, true);
+			newLaserShot->accelerate(-1000 * newLaserShot->getMass(), true);
 		else 
-			newLaserShot->accelerate(500, true);
+			newLaserShot->accelerate(1000 * newLaserShot->getMass(), true);
 		_newParticles.push_back(newLaserShot);
 	}
 

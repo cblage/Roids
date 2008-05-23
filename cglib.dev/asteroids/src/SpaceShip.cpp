@@ -6,6 +6,7 @@ namespace asteroids {
 		_hyperAccelerator = new SpaceShipHyperAccelerator(this);
 		_controller = new ShipController(this);
 		setMass(500);
+		setHealth(500);
 	}
 	SpaceShip::~SpaceShip() {
 		delete(_hyperAccelerator);

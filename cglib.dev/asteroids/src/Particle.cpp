@@ -57,6 +57,9 @@ namespace asteroids {
 	}
 
 	void Particle::setHealth(double health) {
+		if(isDestroyed() == true)
+			return;
+
 		_health = health;
 		if(_health < 1) {
 			destroy();
@@ -64,35 +67,61 @@ namespace asteroids {
 	}
 
 	double Particle::getHealth(void) {
+		if(isDestroyed() == true)
+			return 0;
+
 		return _health;
 	}
+	
+	void Particle::dealDamage(double damage) {
+		if(isDestroyed() == true)
+			return;
+		
+		setHealth(getHealth() - damage);
+	}
+
 
 	void Particle::checkCollisions(double long elapsed_millis) {
 		if(isDestroyed() == true)
 			return;
+		
+		if(_penetrationTime > _maxPenetrationTime) {
+			destroy();
+			return;
+		}
 
 		std::vector<Particle*> particles = getParticleManager()->getParticles();
 		for(std::vector<Particle*>::size_type i = 0; i < particles.size(); i++) {
-				if(particles[i]->getId() == _id) continue;
-				if(collidesWith(particles[i]) && !particles[i]->isDestroyed()) {
-						double myCollisionFactor = (particles[i]->getStrength()/getStrength()) * (particles[i]->getMass()/getMass()) * length(particles[i]->getVelocity() - getVelocity());
-						double theirCollisionFactor = (getStrength()/particles[i]->getStrength()) * (getMass()/particles[i]->getMass()) * length(particles[i]->getVelocity() - getVelocity());
-						calculateCollision(particles[i]);
-						setHealth(getHealth() - myCollisionFactor * getHealth());
-						particles[i]->setHealth(particles[i]->getHealth() - theirCollisionFactor * particles[i]->getHealth());
-				}
-				if(penetrates(particles[i])) {
-					_penetrationTime += elapsed_millis / 1000.0;
-				} 
-		}
-
-		if(_penetrationTime > _maxPenetrationTime) {
-			destroy();
+			if(particles[i]->getId() == _id)
+				continue;
+			processParticleCollision(particles[i]);
+			if(isDestroyed() == true)
+				return;
+			if(penetrates(particles[i])) {
+				_penetrationTime += elapsed_millis / 1000.0;
+			} 
 		}
 	}
 
 	void Particle::destroy(void) {
 		setDestroyed(true);
 		getParticleManager()->destroyParticle(getId());
+	}
+	
+	void Particle::processParticleCollision(Particle * p) {
+		if(!collidesWith(p) || p->isDestroyed())
+			return;
+
+		double dealtDamage, recievedDamage;
+		recievedDamage = p->getCollisionDamage(this);
+		dealtDamage = getCollisionDamage(p);
+		calculateCollision(p);
+		dealDamage(recievedDamage);
+		p->dealDamage(dealtDamage);
+	}
+
+	double Particle::getCollisionDamage(Particle * target) {
+		//default damage dealt by a particle to another particle during a collision
+		return (getStrength()/target->getStrength()) * (getMass()/target->getMass()) * length(target->getVelocity() - getVelocity());
 	}
 }

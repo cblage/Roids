@@ -6,12 +6,14 @@ namespace asteroids {
 		Particle(id, particleManager),
 		_scaleFactor(scaleFactor) {
 		setMass(_scaleFactor * 10000);
+		setHealth(getMass());
 	}
 
 	Asteroid::Asteroid(std::string id, ParticleManager * particleManager) : 
 		Particle(id, particleManager),
 		_scaleFactor(randomBetween(1, 3)) { 
 		setMass(_scaleFactor * 10000);
+		setHealth(getMass());
 	}
 
 	Asteroid::~Asteroid() {
@@ -33,7 +35,7 @@ namespace asteroids {
 		
 		baseAsteroidSize = cg::Properties::instance()->getDouble("BASE_ASTEROID_SIZE");
 		_radius = baseAsteroidSize * _scaleFactor;
-		setCollisionRadius(_radius*0.8);
+		setCollisionRadius(_radius*0.75);
 		startRotation(randomBetween(-length(getVelocity()), length(getVelocity())));
 
 		for (i = 0; i < 12; i++) {

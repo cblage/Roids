@@ -40,7 +40,10 @@ namespace asteroids {
 		virtual void onSpecialKeyReleased(int key) {}
 		virtual double getHealth(void);
 		virtual void setHealth(double health);
-
+		virtual void processParticleCollision(Particle * p);
+		virtual double getCollisionDamage(Particle * target);
+		virtual void dealDamage(double damage);
+		
 
 	};
 	

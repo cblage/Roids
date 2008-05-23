@@ -65,6 +65,15 @@ namespace asteroids {
 			destroy();
 		}
 	}
+	
+	void Particle::initHealth(double health) {
+		_health = health;
+		_initHealth = health;
+	}
+
+	double Particle::getMaxHealth(void) {
+		return _initHealth;
+	}
 
 	double Particle::getHealth(void) {
 		if(isDestroyed() == true)
@@ -73,6 +82,13 @@ namespace asteroids {
 		return _health;
 	}
 	
+	double Particle::getHealth(bool per) {
+		if (per == false) 
+			return getHealth();
+		
+		return 100 * getHealth()/getMaxHealth();
+	}
+
 	void Particle::dealDamage(double damage) {
 		if(isDestroyed() == true)
 			return;

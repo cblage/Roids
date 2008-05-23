@@ -10,7 +10,8 @@
 #include "PhysicsObject.h"
 #include "SpaceShipHyperAccelerator.h"
 #include "ShipController.h"
-
+#include <sstream>
+#include <string>
 
 
 namespace asteroids {
@@ -19,10 +20,11 @@ namespace asteroids {
 	class ShipController;
 
 	class SpaceShip : public cg::IDrawListener,
-		public cg::IUpdateListener,
+		public cg::IUpdateListener, 
 		public Particle
 	{
 	private:
+		std::string _message;
 		cg::Vector2d _size;
 		double _winWidth, _winHeight, _charlesBronsonKilledSecondsAgo;		
 		SpaceShipHyperAccelerator * _hyperAccelerator;
@@ -39,6 +41,7 @@ namespace asteroids {
 		void shootLaser(void);
 		void onKeyPressed(unsigned char key);
 		void onKeyReleased(unsigned char key);
+		void drawOverlay();
 	};
 }
 

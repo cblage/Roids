@@ -5,8 +5,8 @@ namespace asteroids {
 	SpaceShip::SpaceShip(std::string id, ParticleManager *  particleManager) : Particle(id, particleManager) {
 		_hyperAccelerator = new SpaceShipHyperAccelerator(this);
 		_controller = new ShipController(this);
-		setMass(500);
-		setHealth(500);
+		setMass(cg::Properties::instance()->getDouble("SHIP_MASS"));
+		initHealth(cg::Properties::instance()->getDouble("SHIP_HEALTH"));
 	}
 	SpaceShip::~SpaceShip() {
 		delete(_hyperAccelerator);
@@ -25,7 +25,7 @@ namespace asteroids {
 		setVelocity(cg::Vector2d(0, 0));
 		setPosition(cg::Vector2d(win.width/2, win.height/2));
 		setCollisionCenter(getPosition());
-		_charlesBronsonStyle = 10;
+		_charlesBronsonStyle = cg::Properties::instance()->getDouble("SHIP_SHOTS");
 		_charlesBronsonKilledSecondsAgo = 0;
 	}
 	void SpaceShip::update(unsigned long elapsed_millis) {
@@ -43,9 +43,19 @@ namespace asteroids {
 				_charlesBronsonKilledSecondsAgo--;
 			}
 		}
-
-		
 	}
+	
+	void SpaceShip::drawOverlay() {
+		cg::Vector2d position = getPosition();
+		std::ostringstream vida;
+		vida << "H: " << floor(getHealth(true)) << "%";
+		std::ostringstream tiros;
+		tiros << _charlesBronsonStyle << " Tiros";
+		glColor3d(0.4,0.7,0.9);
+		cg::Util::instance()->drawBitmapString(vida.str(),position[0]-18,position[1]-25);
+		cg::Util::instance()->drawBitmapString(tiros.str(),position[0]-16,position[1]-35);
+	}
+
 	void SpaceShip::draw() {
 		cg::Vector3d tip = cg::Vector3d(_size[0], 0, 0)/2.0;
 		cg::Vector3d backTip = cg::Vector3d(-_size[0], 0, 0) / 1.5;
@@ -63,7 +73,7 @@ namespace asteroids {
 			glTranslated(position[0], position[1], 0);
 			glRotated(getRotation(true), 0, 0, 1);
 			
-			glColor3d(0.5,0.9,0.5);
+			glColor3d(1-getHealth(true)/100,getHealth(true)/100-0.1,0.2);
 			glLightfv(GL_LIGHT1, GL_POSITION,positionLight);
 			glLightfv(GL_LIGHT1,GL_SPOT_DIRECTION,directionLight);
 			cg::Vector3d normal = cg::Vector3d(0,0,0);

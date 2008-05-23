@@ -11,6 +11,7 @@ namespace asteroids {
 
 	class Particle : public cg::Entity,
 		public cg::IKeyboardEventListener,
+		public cg::IDrawOverlayListener,
 		public PhysicsObject
 	{
 	private:
@@ -20,6 +21,7 @@ namespace asteroids {
 		double _penetrationTime;
 		double _maxPenetrationTime;
 		double _health;
+		double _initHealth;
 
 	public:
 		Particle(std::string id, ParticleManager * particleManager);
@@ -38,12 +40,15 @@ namespace asteroids {
 		virtual void onKeyReleased(unsigned char key) {}
 		virtual void onSpecialKeyPressed(int key){}
 		virtual void onSpecialKeyReleased(int key) {}
+		virtual void drawOverlay() {}
 		virtual double getHealth(void);
 		virtual void setHealth(double health);
 		virtual void processParticleCollision(Particle * p);
 		virtual double getCollisionDamage(Particle * target);
 		virtual void dealDamage(double damage);
-		
+		virtual double getMaxHealth(void);
+		virtual double getHealth(bool per);
+		virtual void initHealth(double health);
 
 	};
 	

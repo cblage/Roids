@@ -20,7 +20,7 @@ namespace asteroids {
 		public cg::GroupUpdate,
 		public cg::GroupKeyboardEvent,
 		public cg::GroupReshapeEvent,
-		public cg::IDrawOverlayListener
+		public cg::GroupDrawOverlay
 	{
 	private:
 		std::string _numParticlesMessage;
@@ -35,7 +35,6 @@ namespace asteroids {
 		ParticleManager(std::string id);
 		~ParticleManager();
 		void destroyParticle(std::string id);
-		void drawOverlay();
 		void preUpdate(unsigned long elapsed_millis);
 		void postUpdate(unsigned long elapsed_millis);
 		void createAsteroids(unsigned int numAsteroids, double scaleFactor, cg::Vector2d position);
@@ -44,6 +43,7 @@ namespace asteroids {
 		void createLaserShot(cg::Vector2d position, double radiansRotation, cg::Vector2d velocity, double degreesRotation);
 		void createShip(cg::Vector2d position, double radiansRotation, cg::Vector2d velocity, double degreesRotation);
 		void createShip(void);
+		void preDrawOverlay();
 		double randomBetween(double min, double max);
 		SpaceShip * getSpaceShip(void);
 		std::vector<Particle*> getParticles();

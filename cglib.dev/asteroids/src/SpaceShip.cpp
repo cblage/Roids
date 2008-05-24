@@ -50,14 +50,20 @@ namespace asteroids {
 	}
 	
 	void SpaceShip::drawOverlay() {
+		GLboolean lightingEnabled;
+		lightingEnabled = glIsEnabled(GL_LIGHTING);
+		if(lightingEnabled == GL_TRUE) glDisable(GL_LIGHTING);
+		
 		cg::Vector2d position = getPosition();
-		std::ostringstream vida;
-		vida << "H: " << floor(getHealth(true)) << "%";
-		std::ostringstream tiros;
-		tiros << _charlesBronsonStyle << " Tiros";
+		std::ostringstream health;
+		health << "H: " << floor(getHealth(true)) << "%";
+		std::ostringstream ammo;
+		ammo << "A: " << _charlesBronsonStyle;
 		glColor3d(0.4,0.7,0.9);
-		cg::Util::instance()->drawBitmapString(vida.str(),position[0]-18,position[1]-25);
-		cg::Util::instance()->drawBitmapString(tiros.str(),position[0]-16,position[1]-35);
+		cg::Util::instance()->drawBitmapString(health.str(),position[0]-18,position[1]-25);
+		cg::Util::instance()->drawBitmapString(ammo.str(),position[0]-18,position[1]-35);
+
+		if(lightingEnabled == GL_TRUE) glEnable(GL_LIGHTING);
 	}
 
 	void SpaceShip::draw() {

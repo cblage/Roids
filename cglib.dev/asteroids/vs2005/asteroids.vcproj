@@ -201,6 +201,14 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\BeforeLevelState.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\DuringLevelState.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\GameManager.cpp"
 				>
 			</File>
@@ -300,6 +308,14 @@
 			</File>
 			<File
 				RelativePath="..\src\BeforeGameState.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\BeforeLevelState.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\DuringLevelState.h"
 				>
 			</File>
 			<File

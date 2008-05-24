@@ -10,6 +10,7 @@
 #include "Lights.h"
 #include "ApplicationState.h"
 #include "BeforeGameState.h"
+#include "BeforeLevelState.h"
 #include "ApplicationController.h"
 #include "ScreenManager.h"
 
@@ -37,8 +38,10 @@ namespace asteroids {
 		void onKeyPressed(unsigned char key);
 		void pause();
 		void quit();
+		GameManager * getGameManager();
 		void addScreen(Screen * s);
 		void removeScreen(Screen * s);
+
 	};
 }
 

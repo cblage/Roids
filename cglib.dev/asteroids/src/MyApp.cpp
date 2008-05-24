@@ -7,6 +7,8 @@ namespace asteroids {
 		_window.width = 800;
 		_window.height = 600;
 		_state = NULL;
+		_gameManager = NULL;
+		_screenManager = NULL;
 	}
 	MyApp::~MyApp() {
 	}
@@ -55,4 +57,7 @@ namespace asteroids {
 		_screenManager->removeScreen(s);
 	}
 
+	GameManager * MyApp::getGameManager() {
+		return _gameManager;
+	}
 }

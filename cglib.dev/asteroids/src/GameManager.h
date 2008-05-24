@@ -8,6 +8,8 @@
 #include "cg/cg.h"
 #include "ParticleManager.h"
 #include "ApplicationState.h"
+#include "BeforeGameState.h"
+#include "BeforeLevelState.h"
 
 
 namespace asteroids {
@@ -36,6 +38,7 @@ namespace asteroids {
 		int getCurrentScore();
 		void setScore(int score);
 		void addScore(int score);
+		void preDrawOverlay();
 	};
 
 

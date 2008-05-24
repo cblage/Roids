@@ -37,8 +37,10 @@ namespace asteroids {
 		void destroyParticle(std::string id);
 		void preUpdate(unsigned long elapsed_millis);
 		void postUpdate(unsigned long elapsed_millis);
-		void createAsteroids(unsigned int numAsteroids, double scaleFactor, cg::Vector2d position);
+		void createAsteroids(unsigned int numAsteroids, double scaleFactor, double radius, cg::Vector2d position);
 		void createAsteroid(double scaleFactor, cg::Vector2d position);
+		void createAsteroid(double scaleFactor, cg::Vector2d position, cg::Vector2d velocity);
+		void createAsteroid(cg::Vector2d position);
 		void createAsteroid(void);
 		void createLaserShot(cg::Vector2d position, double radiansRotation, cg::Vector2d velocity, double degreesRotation);
 		void createShip(cg::Vector2d position, double radiansRotation, cg::Vector2d velocity, double degreesRotation);

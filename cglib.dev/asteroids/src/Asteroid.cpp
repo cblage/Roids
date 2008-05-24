@@ -24,9 +24,9 @@ namespace asteroids {
 		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
 		setUniverseDimensions(win.width, win.height); 
 		setVelocity(cg::Vector2d(randomBetween(-100, 100), randomBetween(-100, 100)));
-		setPosition(cg::Vector2d((win.width*randomBetween(0.2,1))/2,(win.width*randomBetween(0.2,1)/2)));
 		setCollisionCenter(getPosition());
 
+		
 		_invulSeconds = cg::Properties::instance()->getDouble("ASTEROID_INVUL_SECONDS");
 
 		cg::Vector3d t;
@@ -205,6 +205,7 @@ namespace asteroids {
 	void Asteroid::destroy(void) {
 		int newAsteroids = abs(int(_scaleFactor/2 + 0.5));
 		double newScaleFactor = 0;
+		double radius = 0;
 		
 		if(newAsteroids > 1) {
 			newScaleFactor = _scaleFactor * (1/(double)newAsteroids);
@@ -212,7 +213,8 @@ namespace asteroids {
 			newScaleFactor = 0.5 * _scaleFactor;
 			newAsteroids = 2;
 		}
-		getParticleManager()->createAsteroids(newAsteroids, newScaleFactor, getPosition());
+		radius = getCollisionRadius();
+		getParticleManager()->createAsteroids(newAsteroids, newScaleFactor, radius, getPosition());
 
 		Particle::destroy();
 	}

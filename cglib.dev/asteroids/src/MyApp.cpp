@@ -9,7 +9,6 @@ namespace asteroids {
 		_state = NULL;
 	}
 	MyApp::~MyApp() {
-		delete(_screenManager);
 	}
 	void MyApp::createEntities() {
 		_screenManager = new ScreenManager();

@@ -16,6 +16,7 @@ namespace asteroids {
 	private:
 		std::string _message;
 		double _winWidth, _winHeight;
+		double _messageX, _messageY;
 	public:
 		Screen(std::string id);
 		~Screen();
@@ -25,6 +26,8 @@ namespace asteroids {
 		void setMessage(std::string message);
 		virtual void drawOverlay();
 		virtual void draw();
+		virtual cg::Vector2d getMessagePosition();
+		virtual void setMessagePosition(double x, double y);
 	};
 }
 

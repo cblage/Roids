@@ -3,7 +3,9 @@
 namespace asteroids {
 
 	Screen::Screen(std::string id) : Entity(id) {
-	
+		_message = "undefined message";
+		_messageX = 0.5;
+		_messageY = 0.5;
 	}
 	Screen::~Screen() {
 	}
@@ -30,8 +32,8 @@ namespace asteroids {
 		}
 		glPopMatrix();
 		
-		cg::Util::instance()->drawStrokeString(_message, _winWidth/2, _winHeight/2, 0.4, true, 4, 1, 1, 1, 1);
-		cg::Util::instance()->drawStrokeString(_message, _winWidth/2, _winHeight/2, 0.4, true, 2, 0, 1, 0, 1);
+		//cg::Util::instance()->drawStrokeString(_message, _winWidth/2, _winHeight/2, 0.4, true, 2, 0, 0.5, 0, 1);
+		cg::Util::instance()->drawStrokeString(_message, _messageX*_winWidth, _messageY*_winHeight, 0.4, true, 2, 0, 0.25, 0.5, 0.8);
 
 		GLfloat ambientLight[] = { 1, 1, 1, 1.0 };
 		glEnable(GL_LIGHTING);
@@ -49,8 +51,8 @@ namespace asteroids {
 	}
 
 	void Screen::onReshape(int width, int height) {
-			_winWidth = width;
-			_winHeight = height;
+		_winWidth = width;
+		_winHeight = height;
 	}
 
 	std::string Screen::getMessage() {
@@ -59,5 +61,20 @@ namespace asteroids {
 
 	void Screen::setMessage(std::string message) {
 		_message = message;
+	}
+
+	cg::Vector2d Screen::getMessagePosition() {
+		return cg::Vector2d(_messageX, _messageY);
+	}
+
+	void Screen::setMessagePosition(double x, double y) {
+		if(x > 1 || x < 0) {
+			throw "message position X out of bounds";
+		}
+		if(y > 1 || y < 0) {
+			throw "message position Y out of bounds";
+		}
+		_messageX = x;
+		_messageY = y;
 	}
 }

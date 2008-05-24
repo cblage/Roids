@@ -2,7 +2,7 @@
 
 namespace asteroids {
 
-	ShipController::ShipController(SpaceShip* ship) : cg::Entity("Controller") {
+	ShipController::ShipController(SpaceShip* ship) : cg::Entity("ShipController") {
 		_ship = ship;
 	}
 	ShipController::~ShipController() {

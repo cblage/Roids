@@ -185,7 +185,19 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath="..\src\ApplicationController.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\ApplicationState.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\Asteroid.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\BeforeGameState.cpp"
 				>
 			</File>
 			<File
@@ -241,6 +253,14 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\Screen.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\ScreenManager.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\ShipController.cpp"
 				>
 			</File>
@@ -263,7 +283,19 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath="..\src\ApplicationController.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\ApplicationState.h"
+				>
+			</File>
+			<File
 				RelativePath="..\src\Asteroid.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\BeforeGameState.h"
 				>
 			</File>
 			<File
@@ -315,6 +347,14 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\Screen.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\ScreenManager.h"
+				>
+			</File>
+			<File
 				RelativePath="..\src\ShipController.h"
 				>
 			</File>
@@ -340,6 +380,10 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
+			<File
+				RelativePath=".\config.ini"
+				>
+			</File>
 		</Filter>
 	</Files>
 	<Globals>

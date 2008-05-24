@@ -28,6 +28,29 @@ namespace cg {
             glutBitmapCharacter(GLUT_BITMAP_HELVETICA_10, s[i]);
         }
     }
+
+    void Util::drawStrokeString(std::string s, GLdouble x, GLdouble y, GLdouble scale, bool centered) {
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glEnable(GL_BLEND);
+		glEnable(GL_LINE_SMOOTH);
+		glEnable(GL_NORMALIZE);
+		glLineWidth(2.0);
+		glPushMatrix();
+		glTranslatef(x, y, 0);
+		if(centered) {
+			int length = 0;
+			for (int i = 0; s[i] != '\0'; i++) {
+					length += glutStrokeWidth(GLUT_STROKE_ROMAN, s[i]);
+			}
+			glTranslatef(-length*scale/2, 0, 0);
+		}
+		glScaled(scale, scale, 0);
+		for (int i = 0; s[i] != '\0'; i++) {
+				glutStrokeCharacter(GLUT_STROKE_ROMAN, s[i]);
+		}
+		glPopMatrix();
+    }
+
     void Util::drawBitmapStringVector(std::vector<std::string> s, GLdouble x, GLdouble y, GLdouble delta) {
         std::vector<std::string>::iterator iend = s.end();
         for(std::vector<std::string>::iterator i = s.begin(); i != iend; i++) {

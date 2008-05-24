@@ -30,23 +30,24 @@ namespace cg {
 
 	/** cg::Util is a singleton providing a set of utility methods.
 	 */
-    class Util {
+	class Util {
 
 	SINGLETON_HEADER(Util)
 
 	private:
 		double projectionDistance(double minA, double maxA, double minB, double maxB);
 
-    public:
-        void drawBitmapString(std::string s, GLdouble x, GLdouble y);
-        void drawBitmapStringVector(std::vector<std::string> s, GLdouble x, GLdouble y, GLdouble delta = -10);
-        unsigned long getSystemTime();
-        void worldToScreenCoordinates(GLdouble wx, GLdouble wy, GLdouble wz, GLdouble *sx, GLdouble *sy, GLdouble *sz);
-        void screenToWorldCoordinates(GLdouble sx, GLdouble sy, GLdouble sz, GLdouble *wx, GLdouble *wy, GLdouble *wz);
+	public:
+		void drawBitmapString(std::string s, GLdouble x, GLdouble y);
+		void drawStrokeString(std::string s, GLdouble x, GLdouble y, GLdouble scale = 1, bool centered = false);
+		void drawBitmapStringVector(std::vector<std::string> s, GLdouble x, GLdouble y, GLdouble delta = -10);
+		unsigned long getSystemTime();
+		void worldToScreenCoordinates(GLdouble wx, GLdouble wy, GLdouble wz, GLdouble *sx, GLdouble *sy, GLdouble *sz);
+		void screenToWorldCoordinates(GLdouble sx, GLdouble sy, GLdouble sz, GLdouble *wx, GLdouble *wy, GLdouble *wz);
 		bool isPointInPolygon(const Vector2d& point, std::vector<Vector2d>& polygon);
 		bool isAABBoxCollision(const Vector2d& bottomleft0, const Vector2d& topright0, 
-							   const Vector2d& bottomleft1, const Vector2d& topright1);
-    };
+		const Vector2d& bottomleft1, const Vector2d& topright1);
+	};
 
 }
 

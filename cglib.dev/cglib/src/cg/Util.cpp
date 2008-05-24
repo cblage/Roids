@@ -29,13 +29,18 @@ namespace cg {
         }
     }
 
-    void Util::drawStrokeString(std::string s, GLdouble x, GLdouble y, GLdouble scale, bool centered) {
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		glEnable(GL_BLEND);
-		glEnable(GL_LINE_SMOOTH);
-		glEnable(GL_NORMALIZE);
-		glLineWidth(2.0);
+    void Util::drawStrokeString(std::string s, GLdouble x, GLdouble y, GLdouble scale, bool centered, double lineWidth, GLdouble red, GLdouble green, GLdouble blue, GLdouble alpha) {
+		GLboolean lineSmoothEnabled, normalizeEnabled;
+		lineSmoothEnabled = glIsEnabled(GL_LINE_SMOOTH);
+		normalizeEnabled = glIsEnabled(GL_NORMALIZE);
 		glPushMatrix();
+
+
+		if(lineSmoothEnabled != GL_TRUE) glEnable(GL_LINE_SMOOTH);
+		if(normalizeEnabled != GL_TRUE) glEnable(GL_NORMALIZE);
+		glLineWidth(lineWidth);
+		glColor4d(red, green, blue, alpha);
+
 		glTranslatef(x, y, 0);
 		if(centered) {
 			int length = 0;
@@ -48,6 +53,8 @@ namespace cg {
 		for (int i = 0; s[i] != '\0'; i++) {
 				glutStrokeCharacter(GLUT_STROKE_ROMAN, s[i]);
 		}
+		if(lineSmoothEnabled != GL_TRUE) glDisable(GL_LINE_SMOOTH);
+		if(normalizeEnabled != GL_TRUE) glDisable(GL_NORMALIZE);
 		glPopMatrix();
     }
 

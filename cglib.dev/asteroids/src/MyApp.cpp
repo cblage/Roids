@@ -18,9 +18,9 @@ namespace asteroids {
 		addEntity(new ApplicationController(this));
 		addEntity (new MyCamera());
 		addEntity(new StarSphere());
-		addEntity(_screenManager);
 		addEntity(new ParticleManager("Particle Manager"));
 		addEntity(new Lights());
+		addEntity(_screenManager);
 	}
 
 	void MyApp::changeState(ApplicationState * state) {

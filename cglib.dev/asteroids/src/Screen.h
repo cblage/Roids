@@ -3,7 +3,6 @@
 #define SCREEN_H
 #pragma message("Screen is included")
 
-#include <GL/glut.h>
 #include <string>
 #include "cg/cg.h"
 
@@ -11,6 +10,7 @@ namespace asteroids {
 	
 	class Screen : public cg::Entity,
 		public cg::IDrawOverlayListener,
+		public cg::IDrawListener,
 		public cg::IReshapeEventListener
 	{
 	private:
@@ -24,6 +24,7 @@ namespace asteroids {
 		std::string getMessage();
 		void setMessage(std::string message);
 		virtual void drawOverlay();
+		virtual void draw();
 	};
 }
 

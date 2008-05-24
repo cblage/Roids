@@ -13,7 +13,8 @@ namespace asteroids {
 
 	class ScreenManager : public cg::Group,
 		public cg::GroupReshapeEvent,
-		public cg::GroupDrawOverlay
+		public cg::GroupDrawOverlay,
+		public cg::GroupDraw
 	{
 	protected:
 		void createEntities();

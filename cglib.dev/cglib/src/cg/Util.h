@@ -39,7 +39,7 @@ namespace cg {
 
 	public:
 		void drawBitmapString(std::string s, GLdouble x, GLdouble y);
-		void drawStrokeString(std::string s, GLdouble x, GLdouble y, GLdouble scale = 1, bool centered = false);
+		void drawStrokeString(std::string s, GLdouble x, GLdouble y, GLdouble scale = 1, bool centered = false, double lineWidth = 1,  GLdouble red=1, GLdouble green=1, GLdouble blue=1, GLdouble alpha=1);
 		void drawBitmapStringVector(std::vector<std::string> s, GLdouble x, GLdouble y, GLdouble delta = -10);
 		unsigned long getSystemTime();
 		void worldToScreenCoordinates(GLdouble wx, GLdouble wy, GLdouble wz, GLdouble *sx, GLdouble *sy, GLdouble *sz);

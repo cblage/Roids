@@ -201,6 +201,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\GameManager.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\LaserShot.cpp"
 				>
 			</File>
@@ -296,6 +300,10 @@
 			</File>
 			<File
 				RelativePath="..\src\BeforeGameState.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\GameManager.h"
 				>
 			</File>
 			<File

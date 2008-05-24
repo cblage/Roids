@@ -28,7 +28,6 @@ namespace asteroids {
 		cg::Vector2d _size;
 		double _winWidth, _winHeight, _charlesBronsonKilledSecondsAgo;		
 		SpaceShipHyperAccelerator * _hyperAccelerator;
-		int _lifes;
 		int _charlesBronsonStyle;
 		ShipController * _controller;
 	public:
@@ -44,7 +43,6 @@ namespace asteroids {
 		void onKeyPressed(unsigned char key);
 		void onKeyReleased(unsigned char key);
 		void drawOverlay();
-		void destroy(void);
 	};
 }
 

@@ -12,12 +12,12 @@ namespace asteroids {
 	}
 	void MyApp::createEntities() {
 		_screenManager = new ScreenManager();
+		_gameManager = new GameManager("GameManager", this);
 		BeforeGameState::instance()->changeTo(this);
-
 		addEntity(new ApplicationController(this));
 		addEntity (new MyCamera());
 		addEntity(new StarSphere());
-		addEntity(new ParticleManager("Particle Manager"));
+		addEntity(_gameManager);
 		addEntity(new Lights());
 		addEntity(_screenManager);
 	}

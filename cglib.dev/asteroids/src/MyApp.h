@@ -6,7 +6,7 @@
 #include "cg/cg.h"
 #include "MyCamera.h"
 #include "StarSphere.h"
-#include "ParticleManager.h"
+#include "GameManager.h"
 #include "Lights.h"
 #include "ApplicationState.h"
 #include "BeforeGameState.h"
@@ -15,17 +15,17 @@
 
 namespace asteroids {
 	class StarSphere;
-	class ShipController;
 	class MyCamera;
-	class ParticleManager;
-	class SpaceShip;
+	class GameManager;
+	class ScreenManager;
 	class ApplicationState;
-
+	class Screen;
 
 	class MyApp : public cg::Application {
 	private:
 		ApplicationState * _state;
 		ScreenManager * _screenManager;
+		GameManager * _gameManager;
 	public:
 		MyApp();
 		~MyApp();

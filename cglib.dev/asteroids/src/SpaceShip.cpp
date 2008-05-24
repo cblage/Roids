@@ -7,16 +7,9 @@ namespace asteroids {
 		_controller = new ShipController(this);
 		setMass(cg::Properties::instance()->getDouble("SHIP_MASS"));
 		initHealth(cg::Properties::instance()->getDouble("SHIP_HEALTH"));
-		_lifes = cg::Properties::instance()->getDouble("SHIP_LIFES");
+		
 	}
 
-	SpaceShip::SpaceShip(std::string id, ParticleManager *  particleManager, int lifes) : Particle(id, particleManager) {
-		_hyperAccelerator = new SpaceShipHyperAccelerator(this);
-		_controller = new ShipController(this);
-		_lifes = lifes;
-		setMass(cg::Properties::instance()->getDouble("SHIP_MASS"));
-		initHealth(cg::Properties::instance()->getDouble("SHIP_HEALTH"));
-	}
 	SpaceShip::~SpaceShip() {
 		delete(_hyperAccelerator);
 	}
@@ -221,11 +214,5 @@ namespace asteroids {
 		_controller->onKeyReleased(key);
 	}
 
-	void SpaceShip::destroy(void) {
-		if (_lifes > 0) {
-			_lifes--;
-			getParticleManager()->createShip(_lifes); 
-		}
-		Particle::destroy();
-	}
+	
 }

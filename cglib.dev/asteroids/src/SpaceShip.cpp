@@ -37,6 +37,7 @@ namespace asteroids {
 		_charlesBronsonKilledSecondsAgo = _charlesBronsonKilledSecondsAgo + elapsed_seconds;
 		if (_charlesBronsonKilledSecondsAgo >= 1) {
 			if (_charlesBronsonStyle >= 10){
+				_charlesBronsonKilledSecondsAgo--;
 				return;
 			}else {
 				_charlesBronsonStyle++;

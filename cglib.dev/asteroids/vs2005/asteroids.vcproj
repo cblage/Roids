@@ -237,6 +237,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\Score.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\ShipController.cpp"
 				>
 			</File>
@@ -304,6 +308,10 @@
 			</File>
 			<File
 				RelativePath="..\src\PhysicsObject.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\Score.h"
 				>
 			</File>
 			<File

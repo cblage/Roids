@@ -64,9 +64,9 @@ namespace asteroids {
 	class ParticleManager : public cg::Group,
 		public cg::GroupDraw,
 		public cg::GroupUpdate,
-		public cg::GroupReshapeEvent,
 		public cg::GroupKeyboardEvent,
-		public cg::IDrawOverlayListener
+		public cg::GroupReshapeEvent,
+		public cg::GroupDrawOverlay
 	{
 	private:
 		std::string _numParticlesMessage;
@@ -81,14 +81,22 @@ namespace asteroids {
 		ParticleManager(std::string id);
 		~ParticleManager();
 		void destroyParticle(std::string id);
-		void drawOverlay();
 		void preUpdate(unsigned long elapsed_millis);
 		void postUpdate(unsigned long elapsed_millis);
 		void createAsteroids(unsigned int numAsteroids, double scaleFactor, double radius, cg::Vector2d position);
+		void createAsteroid(double scaleFactor, cg::Vector2d position);
+		void createAsteroid(double scaleFactor, cg::Vector2d position, cg::Vector2d velocity);
+		void createAsteroid(cg::Vector2d position);
+		void createAsteroid(void);
+		void createShip(int life);
 		void createLaserShot(cg::Vector2d position, double radiansRotation, cg::Vector2d velocity, double degreesRotation);
+		void createShip(cg::Vector2d position, double radiansRotation, cg::Vector2d velocity, double degreesRotation);
+		void createShip(void);
+		void preDrawOverlay();
 		double randomBetween(double min, double max);
 		std::vector<Particle*> getParticles();
 	};
+
 #endif
 }
 

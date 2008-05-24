@@ -28,10 +28,12 @@ namespace asteroids {
 		cg::Vector2d _size;
 		double _winWidth, _winHeight, _charlesBronsonKilledSecondsAgo;		
 		SpaceShipHyperAccelerator * _hyperAccelerator;
+		int _lifes;
 		int _charlesBronsonStyle;
 		ShipController * _controller;
 	public:
 		SpaceShip(std::string id, ParticleManager *  particleManager);
+		SpaceShip(std::string id, ParticleManager *  particleManager, int lifes);
 		~SpaceShip();
 		void init();
 		void update(unsigned long elapsed_millis);
@@ -42,6 +44,7 @@ namespace asteroids {
 		void onKeyPressed(unsigned char key);
 		void onKeyReleased(unsigned char key);
 		void drawOverlay();
+		void destroy(void);
 	};
 }
 

@@ -42,12 +42,12 @@ namespace asteroids {
 		void createAsteroid(double scaleFactor, cg::Vector2d position, cg::Vector2d velocity);
 		void createAsteroid(cg::Vector2d position);
 		void createAsteroid(void);
+		void createShip(int life);
 		void createLaserShot(cg::Vector2d position, double radiansRotation, cg::Vector2d velocity, double degreesRotation);
 		void createShip(cg::Vector2d position, double radiansRotation, cg::Vector2d velocity, double degreesRotation);
 		void createShip(void);
 		void preDrawOverlay();
 		double randomBetween(double min, double max);
-		SpaceShip * getSpaceShip(void);
 		std::vector<Particle*> getParticles();
 	};
 }

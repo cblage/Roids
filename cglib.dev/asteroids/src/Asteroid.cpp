@@ -3,14 +3,14 @@
 namespace asteroids {
 
 	Asteroid::Asteroid(std::string id, double scaleFactor, ParticleManager *  particleManager) : 
-		Particle(id, particleManager),
+		Particle(id, particleManager, 'a'),
 		_scaleFactor(scaleFactor) {
 		setMass(_scaleFactor * 10000);
 		setHealth(getMass());
 	}
 
 	Asteroid::Asteroid(std::string id, ParticleManager * particleManager) : 
-		Particle(id, particleManager),
+		Particle(id, particleManager, 'a'),
 		_scaleFactor(randomBetween(1, 3)) { 
 		setMass(_scaleFactor * 10000);
 		setHealth(getMass());

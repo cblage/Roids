@@ -2,7 +2,7 @@
 
 namespace asteroids {
 
-	SpaceShip::SpaceShip(std::string id, ParticleManager *  particleManager) : Particle(id, particleManager) {
+	SpaceShip::SpaceShip(std::string id, ParticleManager *  particleManager) : Particle(id, particleManager, 's') {
 		_hyperAccelerator = new SpaceShipHyperAccelerator(this);
 		_controller = new ShipController(this);
 		setMass(cg::Properties::instance()->getDouble("SHIP_MASS"));

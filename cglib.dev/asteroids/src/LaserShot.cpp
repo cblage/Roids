@@ -3,7 +3,7 @@
 namespace asteroids {
 
 	LaserShot::LaserShot(std::string id, ParticleManager * particleManager) : 
-		Particle(id, 250, particleManager) { setHealth(1); setMass(1000); }
+		Particle(id, 250, particleManager, 'l') { setHealth(1); setMass(1000); }
 
 	LaserShot::~LaserShot() {
 	}

@@ -22,12 +22,13 @@ namespace asteroids {
 		double _maxPenetrationTime;
 		double _health;
 		double _initHealth;
+		char _particleType;
 
 	public:
-		Particle(std::string id, ParticleManager * particleManager);
-		Particle(std::string id, double strength, ParticleManager * particleManager);
-		Particle(std::string id, ParticleManager * particleManager, double mass);
-		Particle(std::string id, double strength, ParticleManager * particleManager, double mass);
+		Particle(std::string id, ParticleManager * particleManager, char particleType='p');
+		Particle(std::string id, double strength, ParticleManager * particleManager, char particleType='p');
+		Particle(std::string id, ParticleManager * particleManager, double mass, char particleType='p');
+		Particle(std::string id, double strength, ParticleManager * particleManager, double mass, char particleType='p');
 		virtual ~Particle();
 		virtual void setDestroyed(bool destroyed);
 		virtual bool isDestroyed(void);
@@ -49,6 +50,8 @@ namespace asteroids {
 		virtual double getMaxHealth(void);
 		virtual double getHealth(bool per);
 		virtual void initHealth(double health);
+		virtual char getParticleType();
+		virtual void setParticleType(char particleType);
 
 	};
 	

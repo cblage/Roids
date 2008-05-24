@@ -2,36 +2,40 @@
 
 namespace asteroids {
 
-	Particle::Particle(std::string id, ParticleManager * particleManager) : cg::Entity(id),
+	Particle::Particle(std::string id, ParticleManager * particleManager, char particleType) : cg::Entity(id),
 		_particleManager(particleManager),
 		_destroyed(false),
 		_strength(1),
 		_penetrationTime(0),
 		_maxPenetrationTime(cg::Properties::instance()->getDouble("PARTICLE_MAX_PENETRATE")),
+		_particleType(particleType),
 		PhysicsObject() {};
 
-	Particle::Particle(std::string id, double strength, ParticleManager * particleManager) : cg::Entity(id),
+	Particle::Particle(std::string id, double strength, ParticleManager * particleManager, char particleType) : cg::Entity(id),
 		_particleManager(particleManager),
 		_destroyed(false),
 		_strength(strength),
 		_penetrationTime(0),
 		_maxPenetrationTime(cg::Properties::instance()->getDouble("PARTICLE_MAX_PENETRATE")),
+		_particleType(particleType),
 		PhysicsObject() {};
 	
-	Particle::Particle(std::string id, ParticleManager * particleManager, double mass) : cg::Entity(id),
+	Particle::Particle(std::string id, ParticleManager * particleManager, double mass, char particleType) : cg::Entity(id),
 		_particleManager(particleManager),
 		_destroyed(false),
 		_strength(1),
 		_penetrationTime(0),
 		_maxPenetrationTime(cg::Properties::instance()->getDouble("PARTICLE_MAX_PENETRATE")),
+		_particleType(particleType),
 		PhysicsObject(mass) {};
 
-	Particle::Particle(std::string id, double strength, ParticleManager * particleManager, double mass) : cg::Entity(id),
+	Particle::Particle(std::string id, double strength, ParticleManager * particleManager, double mass, char particleType) : cg::Entity(id),
 		_particleManager(particleManager),
 		_destroyed(false),
 		_strength(strength),
 		_penetrationTime(0),
 		_maxPenetrationTime(cg::Properties::instance()->getDouble("PARTICLE_MAX_PENETRATE")),
+		_particleType(particleType),
 		PhysicsObject(mass) {};
 
 	Particle::~Particle() {
@@ -139,5 +143,12 @@ namespace asteroids {
 	double Particle::getCollisionDamage(Particle * target) {
 		//default damage dealt by a particle to another particle during a collision
 		return (getStrength()/target->getStrength()) * (getMass()/target->getMass()) * length(target->getVelocity() - getVelocity());
+	}
+
+	char Particle::getParticleType() {
+		return _particleType;
+	}
+	void Particle::setParticleType(char particleType) {
+		_particleType = particleType;
 	}
 }

@@ -1,8 +1,9 @@
 #include "MyCamera.h"
 
-namespace asteroids {
+namespace asteroids { 
 
     MyCamera::MyCamera() : Entity("MyCamera") {
+		_controller = new MyCameraController(this);
 	}
     MyCamera::~MyCamera() {
 	}
@@ -12,15 +13,15 @@ namespace asteroids {
 		_winHeight = win.height;
 		_ang1=0;
 		_ang2=0;
+
+		_rotLx = 0.0f; // Translate screen by using the glulookAt function (left or right)
+		_rotLy = 0.0f; // Translate screen by using the glulookAt function (up or down)
+		_rotLz = 0.0f; // Translate screen by using the glulookAt function (zoom in or out)
+
 		_rotateU = false;
 		_rotateD = false;
 		_rotateL = false;
 		_rotateR = false;
-
-
-	
-
-
     }
 	
 	void MyCamera::update(unsigned long elapsed_millis) {
@@ -30,30 +31,35 @@ namespace asteroids {
 	
 	void MyCamera::rotate(double secs){
 		if (_rotateU == true) {
-				_ang1 += 20*secs;
+				//_ang1 += 20*secs;
+				_rotLy += 80.0f*secs;
 		}
 		if (_rotateD == true){
-				_ang1 -= 20*secs;
+				//_ang1 -= 20*secs;
+				_rotLy -= 80.0f*secs;
 		}
 		if (_rotateR == true){
-				_ang2 -= 20*secs; 
+				//_ang2 -= 20*secs;
+				_rotLx += 80.0f*secs;
 		}
 		if (_rotateL == true){
-				_ang2 += 20*secs; 
+				//_ang2 += 20*secs;
+				_rotLx -= 80.0f*secs;
 		}
 	}
 
 	void MyCamera::draw() {
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
-		glRotatef(_ang1,1.0,0,0);
-		glRotatef(_ang2,0,1.0,0);
+		//glRotatef(_ang1,1.0,0,0);
+		//glRotatef(_ang2,0,1.0,0);
 		glOrtho(0,_winWidth,0,_winHeight,0, sqrt(pow(_winWidth, 2) + pow(_winHeight, 2))*2);
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 		//gluLookAt( 0, 100, 1000, 0,0,0, 0,1,0);
 		//gluLookAt(sqrt(pow(_winWidth, 2) + pow(_winHeight, 2)), sqrt(pow(_winWidth, 2) + pow(_winHeight, 2)), sqrt(pow(_winWidth, 2) + pow(_winHeight, 2)), 0, 0, 0, 0, 0, 1);
-		
+		//gluLookAt(0, 0, 200, 0, 0, 0, 0, 1, 0);
+		gluLookAt (_rotLx, _rotLy, 200.0 + _rotLz, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
 	}
 
 	void MyCamera::startRotate(int dir){
@@ -70,8 +76,8 @@ namespace asteroids {
 			_rotateD = true;
 		}
 		if (dir == 4){
-			_ang1=0;
-			_ang2=0;
+			_rotLx=0;
+			_rotLy=0;
 		}
 	}
 
@@ -90,6 +96,21 @@ namespace asteroids {
 		}
 	}
 
+	void MyCamera::onKeyPressed(unsigned char key) {
+		_controller->onKeyPressed(key);
+	}
+	
+	void MyCamera::onKeyReleased(unsigned char key) {
+		_controller->onKeyReleased(key);
+	}
+
+	void MyCamera::onSpecialKeyPressed(int key) {
+		_controller->onSpecialKeyPressed(key);
+	}
+	
+	void MyCamera::onSpecialKeyReleased(int key) {
+		_controller->onSpecialKeyReleased(key);
+	}
 	void MyCamera::onReshape(int width, int height) {
 		_winWidth = width;
 		_winHeight = height;

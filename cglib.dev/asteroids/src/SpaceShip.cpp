@@ -50,18 +50,26 @@ namespace asteroids {
 	}
 	
 	void SpaceShip::drawOverlay() {
+		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
 		GLboolean lightingEnabled;
 		lightingEnabled = glIsEnabled(GL_LIGHTING);
 		if(lightingEnabled == GL_TRUE) glDisable(GL_LIGHTING);
 		
 		cg::Vector2d position = getPosition();
-		std::ostringstream health;
+		cg::Vector2d windowSize = cg::Vector2d(win.width, win.height);
+		cg::Vector2d relativePosition = position / windowSize;
+                                
+		std::ostringstream health,sss;
+		double tamanho;
+		tamanho = 5;
+		sss << "s";
 		health << "H: " << floor(getHealth(true)) << "%";
 		std::ostringstream ammo;
 		ammo << "A: " << _charlesBronsonStyle;
 		glColor3d(0.4,0.7,0.9);
 		cg::Util::instance()->drawBitmapString(health.str(),position[0]-18,position[1]-25);
 		cg::Util::instance()->drawBitmapString(ammo.str(),position[0]-18,position[1]-35);
+		cg::Util::instance()->drawStrokeString(sss.str(), win.width-win.width/tamanho +  relativePosition[0]*win.width/tamanho , relativePosition[1]*win.height/tamanho,0.2,false,2,0.1,0.9,0.4,1);
 
 		if(lightingEnabled == GL_TRUE) glEnable(GL_LIGHTING);
 	}
@@ -219,6 +227,7 @@ namespace asteroids {
 	void SpaceShip::onKeyReleased(unsigned char key) {
 		_controller->onKeyReleased(key);
 	}
+	
 
 	
 }

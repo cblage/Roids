@@ -218,4 +218,21 @@ namespace asteroids {
 
 		Particle::destroy();
 	}
+
+		void Asteroid::drawOverlay() {
+		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
+		GLboolean lightingEnabled;
+		lightingEnabled = glIsEnabled(GL_LIGHTING);
+		if(lightingEnabled == GL_TRUE) glDisable(GL_LIGHTING);
+		
+		cg::Vector2d position = getPosition();
+		cg::Vector2d windowSize = cg::Vector2d(win.width, win.height);
+		cg::Vector2d relativePosition = position / windowSize;
+		std::ostringstream aaa;
+		double tamanho;
+		tamanho = 5;
+		aaa << "a";
+		cg::Util::instance()->drawStrokeString(aaa.str(), win.width-win.width/tamanho +  relativePosition[0]*win.width/tamanho , relativePosition[1]*win.height/tamanho,0.15,false,2,0.4,0.7,0.9,1);
+		if(lightingEnabled == GL_TRUE) glEnable(GL_LIGHTING);
+	}
 }

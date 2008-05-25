@@ -40,6 +40,7 @@ namespace asteroids {
 		bool collidesWith(PhysicsObject *pobject);
 		void checkCollisions(double long elapsed_millis);
 		void destroy(void);
+		void drawOverlay(void);
 	};
 }
 

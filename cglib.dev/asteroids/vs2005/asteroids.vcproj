@@ -253,6 +253,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\MyCameraController.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\Particle.cpp"
 				>
 			</File>
@@ -368,6 +372,10 @@
 			</File>
 			<File
 				RelativePath="..\src\MyCamera.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\MyCameraController.h"
 				>
 			</File>
 			<File

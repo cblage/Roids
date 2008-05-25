@@ -139,12 +139,26 @@ namespace asteroids {
 		GLboolean lightingEnabled;
 		lightingEnabled = glIsEnabled(GL_LIGHTING);
 		if(lightingEnabled == GL_TRUE) glDisable(GL_LIGHTING);
-
+		
+		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
+		lightingEnabled = glIsEnabled(GL_LIGHTING);
+		glPushMatrix();
+		{
+			glColor4d(0.9, 0, 0, 0.1);
+			glBegin(GL_QUADS);
+			{
+				glVertex3d(win.width-win.width/5, 0, 0);
+				glVertex3d(win.width-win.width/5, win.height/5 + 15, 0);
+				glVertex3d(win.width, win.height/5 + 15, 0);
+				glVertex3d(win.width, 0, 0);
+			}
+			glEnd();
+		}
+		glPopMatrix();	
 		cg::Util::instance()->drawStrokeString(shipsLeft.str(), 10 , 35, 0.2, false, 2, 0, 0.5, 0.25, 1);
 		cg::Util::instance()->drawStrokeString(score.str(), 10 , 10, 0.2, false, 2, 0, 0.25, 0.5, 1);
-
+		
 		if(lightingEnabled == GL_TRUE) glEnable(GL_LIGHTING);
 	}
-
 
 }

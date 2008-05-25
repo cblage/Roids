@@ -183,4 +183,31 @@ namespace asteroids {
 #endif
 
 
+#ifndef PAUSED_STATE_H
+#define PAUSED_STATE_H
+
+
+namespace asteroids {
+	class Screen; 
+
+	class PausedState : public ApplicationState{
+	SINGLETON_HEADER(PausedState);
+	
+	private:
+		Screen * _screen;
+
+	public:
+		void changeState(MyApp * application, ApplicationState * state);
+		void onUpdate();
+		void pause();
+		void enter();
+		void leave();
+		std::string getName(void);
+	};
+
+}
+
+#endif
+
+
 #endif

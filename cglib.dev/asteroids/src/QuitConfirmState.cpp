@@ -7,7 +7,7 @@ namespace asteroids {
 	void QuitConfirmState::enter() {
 		_screen = new Screen("QuitConfirmScreen");
 		_screen->init();
-		_screen->setMessage("Quit? (Y/N)");
+		_screen->setMessage("Leaving already? (Y/N)");
 		_application->addScreen(_screen);
 	}
 	void QuitConfirmState::leave() {

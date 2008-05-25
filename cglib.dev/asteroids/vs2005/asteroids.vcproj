@@ -253,6 +253,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\PausedState.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\PhysicsEngine.cpp"
 				>
 			</File>
@@ -262,10 +266,6 @@
 			</File>
 			<File
 				RelativePath="..\src\QuitConfirmState.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\src\Score.cpp"
 				>
 			</File>
 			<File
@@ -363,6 +363,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\PausedState.h"
+				>
+			</File>
+			<File
 				RelativePath="..\src\PhysicsEngine.h"
 				>
 			</File>
@@ -372,10 +376,6 @@
 			</File>
 			<File
 				RelativePath="..\src\QuitConfirmState.h"
-				>
-			</File>
-			<File
-				RelativePath="..\src\Score.h"
 				>
 			</File>
 			<File

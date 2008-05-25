@@ -22,6 +22,7 @@ namespace asteroids {
 		void enter();
 		void leave();
 		std::string getName(void);
+		void pause();
 	};
 
 }

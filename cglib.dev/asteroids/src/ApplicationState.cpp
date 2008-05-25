@@ -39,7 +39,9 @@ namespace asteroids {
 	}
 
 	void ApplicationState::resume(MyApp *application) {
+		ApplicationState * s = getPreviousState();
 		changeTo(application);
+		setPreviousState(s);
 	}
 	void ApplicationState::suspend() {
 		changeFrom();
@@ -51,7 +53,7 @@ namespace asteroids {
 	}
 
 	void ApplicationState::pause() {
-		//PausedState::instance()->changeTo(_application);
+		PausedState::instance()->changeTo(_application);
 	}
 	void ApplicationState::quit() {
 		QuitConfirmState::instance()->changeTo(_application);

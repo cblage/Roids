@@ -45,30 +45,18 @@ namespace asteroids {
 			{
 				glTranslated(_winWidth/2, _winHeight/2, 0);
 				glTranslated((*p)[0], (*p)[1], (*p)[2]);
-				colorPick=rand()%10;
+				colorPick=rand()%2;
 					switch(colorPick){
 						case 0 :
-							glColor3d(1,0,0);
+							glColor3d(1,1,1);
 							break;
 						case 1 :
-							glColor3d(0,1,0);
-							break;
-						case 2 :
-							glColor3d(0,0,1);
-							break;
-						case 3 :
-							glColor3d(1,1,0);
-							break;
-						case 4 :
-							glColor3d(0,1,1);
-							break;
-						case 5 :
-							glColor3d(0,0,0);
+							glColor3d(0.8,0.8,0.8);
 							break;
 						default:
 							glColor3d(1,1,1);
 				}
-				glutSolidSphere(1.3, 6, 6);
+				glutSolidSphere(1, 6, 6);
 			}
 			glPopMatrix();
 			glFlush();

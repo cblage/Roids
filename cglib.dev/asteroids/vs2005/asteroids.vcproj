@@ -213,6 +213,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\ExplosionManager.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\GameManager.cpp"
 				>
 			</File>
@@ -234,18 +238,6 @@
 			</File>
 			<File
 				RelativePath="..\src\MyApp.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\src\MyBat.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\src\MyBox.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\src\MyBoxManager.cpp"
 				>
 			</File>
 			<File
@@ -339,6 +331,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\ExplosionManager.h"
+				>
+			</File>
+			<File
 				RelativePath="..\src\GameManager.h"
 				>
 			</File>
@@ -356,18 +352,6 @@
 			</File>
 			<File
 				RelativePath="..\src\MyApp.h"
-				>
-			</File>
-			<File
-				RelativePath="..\src\MyBat.h"
-				>
-			</File>
-			<File
-				RelativePath="..\src\MyBox.h"
-				>
-			</File>
-			<File
-				RelativePath="..\src\MyBoxManager.h"
 				>
 			</File>
 			<File

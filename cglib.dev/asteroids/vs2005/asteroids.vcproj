@@ -209,6 +209,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\EndOfLevelState.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\GameManager.cpp"
 				>
 			</File>
@@ -320,6 +324,10 @@
 			</File>
 			<File
 				RelativePath="..\src\DuringLevelState.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\EndOfLevelState.h"
 				>
 			</File>
 			<File

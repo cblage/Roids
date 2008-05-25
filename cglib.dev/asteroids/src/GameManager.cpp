@@ -5,6 +5,7 @@ namespace asteroids {
 		_shipsLeft = cg::Properties::instance()->getInt("SHIP_LIFES");
 		_asteroidsLeft = 0;
 		_currentScore = 0;
+		_levelRunning = false;
 	}
 	GameManager::~GameManager() {
 	}
@@ -40,28 +41,41 @@ namespace asteroids {
 		ParticleManager::addParticle(p);
 	}
 
+	void GameManager::preUpdate(unsigned long elapsed_millis) {
+		ParticleManager::preUpdate(elapsed_millis);
+		if(_asteroidsLeft == 0 && _levelRunning) {
+			finishLevel();
+		}
+	}
+
 	void GameManager::destroyParticle(std::string id) {
 		Particle * destroyedParticle = getParticle(id);
 		char pType = destroyedParticle->getParticleType();
 		
 		switch(pType) {
 			case 'a':
-				addScore(destroyedParticle->getMass()/10);
-				_asteroidsLeft--;
+				if(_levelRunning) {
+					addScore(destroyedParticle->getMass()/10);
+				}
+				--_asteroidsLeft;
 				break;
 			case 's':
-				addScore(-1000);
-				if (_shipsLeft > 0) {
-					_shipsLeft--;
-					createShip(); 
+				if(_levelRunning) {
+					addScore(-1000);
+					if (_shipsLeft > 0) {
+						_shipsLeft--;
+						createShip(); 
+					}
 				}
 				break;
 		}
 		ParticleManager::destroyParticle(id);
 	}
 	void GameManager::createLaserShot(cg::Vector2d position, double radiansRotation, cg::Vector2d velocity, double degreesRotation) {
-		addScore(-100);
-		ParticleManager::createLaserShot(position, radiansRotation, velocity, degreesRotation);
+		if(_levelRunning) {
+			addScore(-100);
+			ParticleManager::createLaserShot(position, radiansRotation, velocity, degreesRotation);
+		}
 	}
 	void GameManager::beginLevel() {
 		if(_currentLevel == 0) { //level 0 = demo level
@@ -69,10 +83,26 @@ namespace asteroids {
 			return;
 		}
 		createShip();
-		createAsteroids(log((double)_currentLevel*10));
+		createAsteroids((int)pow(log((double)_currentLevel*2+2),2));
+		_levelRunning = true;
 	}
 	void GameManager::finishLevel() {
+		_levelRunning = false;
+		//make sure we have a clean slate - no new particles are going to be added
+		//and we dont want duplicates in the deleted ones
+		_newParticles.clear();
+		_deletedParticles.clear();
 		
+		std::vector<Particle *> particles = getParticles();
+		for(std::vector<Particle*>::size_type i = 0; i < particles.size(); i++) {
+			//cant use this because asteroids would generate new ones
+			//particles[i]->destroy();
+			destroyParticle(particles[i]->getId());
+		}
+
+		if(_currentLevel != 0) {
+			EndOfLevelState::instance()->changeTo(_application);
+		}
 	}
 	
 	void GameManager::advanceLevel() {

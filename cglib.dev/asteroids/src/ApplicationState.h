@@ -132,10 +132,12 @@ namespace asteroids {
 		int _currentScore;
 		unsigned int _currentLevel, _asteroidsLeft, _shipsLeft;
 		MyApp * _application;
-
+		bool _levelRunning;
+	
 	public:
 		GameManager(std::string id, MyApp *application);
 		~GameManager();
+		void preUpdate(unsigned long elapsed_millis);
 		void createEntities();
 		void addParticle(Particle *p);
 		void destroyParticle(std::string id);

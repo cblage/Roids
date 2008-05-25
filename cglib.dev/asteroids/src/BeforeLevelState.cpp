@@ -27,7 +27,7 @@ namespace asteroids {
 	}
 	
 	void BeforeLevelState::pause() {
-	
+		
 	}
 
 	std::string BeforeLevelState::getName(void) {

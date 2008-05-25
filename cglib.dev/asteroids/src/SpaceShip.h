@@ -21,6 +21,7 @@ namespace asteroids {
 
 	class SpaceShip : public cg::IDrawListener,
 		public cg::IUpdateListener, 
+		public cg::IReshapeEventListener,
 		public Particle
 	{
 	private:

@@ -17,6 +17,7 @@ namespace asteroids {
 	
 
 	void GameManager::resetGame() {
+		_levelRunning = false;
 		_shipsLeft = cg::Properties::instance()->getInt("SHIP_LIFES");
 		
 		//make sure we have a clean slate - no new particles are going to be added
@@ -30,6 +31,7 @@ namespace asteroids {
 			//particles[i]->destroy();
 			destroyParticle(particles[i]->getId());
 		}
+
 		changeLevel(0);
 		setScore(0);
 	}
@@ -65,6 +67,9 @@ namespace asteroids {
 					if (_shipsLeft > 0) {
 						_shipsLeft--;
 						createShip(); 
+					} else {
+						//_levelRunning = false;
+						GameOverState::instance()->changeTo(_application);
 					}
 				}
 				break;

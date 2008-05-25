@@ -217,6 +217,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\GameOverState.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\LaserShot.cpp"
 				>
 			</File>
@@ -332,6 +336,10 @@
 			</File>
 			<File
 				RelativePath="..\src\GameManager.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\GameOverState.h"
 				>
 			</File>
 			<File

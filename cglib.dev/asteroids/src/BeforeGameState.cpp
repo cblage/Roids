@@ -33,6 +33,7 @@ namespace asteroids {
 	
 
 	void BeforeGameState::pause() {
+		BeforeLevelState::instance()->changeTo(_application);
 	}
 	
 	std::string BeforeGameState::getName(void) {

@@ -14,6 +14,7 @@ namespace asteroids {
 		ApplicationState * s = _application->getState();
 		if(s != NULL) {
 			s->changeFrom();
+			setPreviousState(s);
 		}
 		_application->changeState(state);
 	}
@@ -23,21 +24,29 @@ namespace asteroids {
 	void ApplicationState::onUpdate() {
 		_application->cg::Application::onUpdate();
 	}
-	void ApplicationState::onKeyPressed(unsigned char key) {
+	bool ApplicationState::onKeyPressed(unsigned char key) {
 		switch(key) {
 			case 'p':
 			case 'P':
 				_application->pause();
-				break;
+				return true;
 			case 27:
 				_application->quit();
-				break;
+				return true;
+			default:
+				return false;
 		}
 	}
 
-	void ApplicationState::enter() {
+	void ApplicationState::resume(MyApp *application) {
+		changeTo(application);
 	}
-
+	void ApplicationState::suspend() {
+		changeFrom();
+	}
+	void ApplicationState::enter() {
+	
+	}
 	void ApplicationState::leave() {
 	}
 
@@ -45,7 +54,14 @@ namespace asteroids {
 		//PausedState::instance()->changeTo(_application);
 	}
 	void ApplicationState::quit() {
-		//QuitConfirmState::instance()->changeTo(_application);
+		QuitConfirmState::instance()->changeTo(_application);
+	}
+	
+	void ApplicationState::setPreviousState(ApplicationState * s) {
+		_previousState = s;
 	}
 
+	ApplicationState * ApplicationState::getPreviousState() {
+		return _previousState;
+	}
 }

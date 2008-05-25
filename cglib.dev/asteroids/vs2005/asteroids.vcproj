@@ -261,6 +261,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\QuitConfirmState.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\Score.cpp"
 				>
 			</File>
@@ -364,6 +368,10 @@
 			</File>
 			<File
 				RelativePath="..\src\PhysicsObject.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\QuitConfirmState.h"
 				>
 			</File>
 			<File

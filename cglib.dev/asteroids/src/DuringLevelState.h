@@ -15,6 +15,7 @@ namespace asteroids {
 
 	public:
 		void enter();
+		void resume(MyApp *application);
 		std::string getName(void);
 	};
 

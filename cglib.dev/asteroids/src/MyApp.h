@@ -41,6 +41,7 @@ namespace asteroids {
 		GameManager * getGameManager();
 		void addScreen(Screen * s);
 		void removeScreen(Screen * s);
+		void resetTime();
 
 	};
 }

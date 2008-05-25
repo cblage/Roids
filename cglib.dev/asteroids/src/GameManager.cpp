@@ -7,7 +7,6 @@ namespace asteroids {
 		_currentScore = 0;
 	}
 	GameManager::~GameManager() {
-		ParticleManager::~ParticleManager();
 	}
 	
 	void GameManager::createEntities() {

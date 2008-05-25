@@ -13,19 +13,24 @@ namespace asteroids {
 	class ApplicationState {
 	protected:
 		MyApp * _application;
+		ApplicationState * _previousState;
 
 	public:
-		void changeFrom();
-		void changeTo(MyApp * application);
-		void changeState(MyApp * application, ApplicationState * state);
+		virtual void changeFrom();
+		virtual void changeTo(MyApp * application);
+		virtual void changeState(MyApp * application, ApplicationState * state);
 		virtual std::string getName(void) = 0;
 		virtual void onUpdate();
 		virtual void onDisplay();
-		virtual void onKeyPressed(unsigned char key);
+		virtual bool onKeyPressed(unsigned char key);
 		virtual void pause();
 		virtual void quit();
 		virtual void enter();
 		virtual void leave();
+		virtual void resume(MyApp * application);
+		virtual void suspend();
+		virtual void setPreviousState(ApplicationState * s);
+		virtual ApplicationState * getPreviousState();
 	};
 
 }
@@ -60,6 +65,7 @@ namespace asteroids {
 		GameManager * getGameManager();
 		void addScreen(Screen * s);
 		void removeScreen(Screen * s);
+		void resetTime();
 
 	};
 }
@@ -147,4 +153,34 @@ namespace asteroids {
 	};
 #endif
 }
+
+
+#ifndef QUITCONFIRM_STATE_H
+#define QUITCONFIRM_STATE_H
+
+
+namespace asteroids {
+	class Screen;
+	class QuitConfirmState : public ApplicationState{
+	SINGLETON_HEADER(QuitConfirmState);
+	
+	private:
+		Screen * _screen;
+
+	public:
+		void changeState(MyApp * application, ApplicationState * state);
+		bool onKeyPressed(unsigned char key);
+		void onUpdate();
+		void pause();
+		void quit();
+		void enter();
+		void leave();
+		std::string getName(void);
+	};
+
+}
+
+#endif
+
+
 #endif

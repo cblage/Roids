@@ -17,9 +17,18 @@ namespace asteroids {
 		_application->getGameManager()->changeLevel(1);
 	}
 
-	void BeforeGameState::onKeyPressed(unsigned char key) {
-		ApplicationState::onKeyPressed(key);
-		BeforeLevelState::instance()->changeTo(_application);
+
+	void BeforeGameState::suspend() {
+		_application->removeScreen(_screen);
+		delete(_screen);
+	}
+
+	bool BeforeGameState::onKeyPressed(unsigned char key) {
+		if(!ApplicationState::onKeyPressed(key)) {
+			BeforeLevelState::instance()->changeTo(_application);
+			return true;
+		}
+		return false;
 	}
 	
 

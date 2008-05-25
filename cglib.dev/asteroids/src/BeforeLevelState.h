@@ -18,7 +18,7 @@ namespace asteroids {
 		Screen * _screen;
 
 	public:
-		void onKeyPressed(unsigned char key);
+		bool onKeyPressed(unsigned char key);
 		void enter();
 		void leave();
 		std::string getName(void);

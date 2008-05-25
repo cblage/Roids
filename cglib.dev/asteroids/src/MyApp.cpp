@@ -60,4 +60,7 @@ namespace asteroids {
 	GameManager * MyApp::getGameManager() {
 		return _gameManager;
 	}
+	void MyApp::resetTime() {
+		updateFrameTime();
+	}
 }

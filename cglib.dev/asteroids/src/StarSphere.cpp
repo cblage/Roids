@@ -40,23 +40,64 @@ namespace asteroids {
 
 	void StarSphere::draw() {
 		int colorPick=0;
+		double red, green, blue, radius;
 		for (std::vector<cg::Vector3d>::iterator p = _stars.begin();  p != _stars.end(); ++p) {
 			glPushMatrix();
 			{
 				glTranslated(_winWidth/2, _winHeight/2, 0);
-				glTranslated((*p)[0], (*p)[1], (*p)[2]);
-				colorPick=rand()%2;
-					switch(colorPick){
-						case 0 :
-							glColor3d(1,1,1);
-							break;
-						case 1 :
-							glColor3d(0.8,0.8,0.8);
-							break;
-						default:
-							glColor3d(1,1,1);
+				colorPick=rand()%100;
+				switch(colorPick){
+					case 0 :
+						red = 1;
+						green = 1;
+						blue = 1;
+						radius = 1;
+						break;
+					default:
+						red = 0.8;
+						green = 0.8;
+						blue = 0.8;
+						radius = 1;
 				}
-				glutSolidSphere(1, 6, 6);
+
+
+				glPushMatrix(); 
+				{
+					glTranslated((*p)[0], (*p)[1], (*p)[2]);
+					glColor3d(red, green, blue);
+					glutSolidSphere(radius, 3, 3);
+				}
+				glPopMatrix();
+			
+				glPushMatrix(); 
+				{
+					GLboolean blendEnabled, depthTestEnabled;
+					blendEnabled = glIsEnabled(GL_BLEND);
+					depthTestEnabled = glIsEnabled(GL_DEPTH_TEST);
+					if(blendEnabled != GL_TRUE) glEnable(GL_BLEND);
+					if(depthTestEnabled == GL_TRUE) glDisable(GL_DEPTH_TEST);
+					glBlendFunc(GL_SRC_ALPHA,GL_ONE);
+					
+					for(int i = 0; i < 4; i++) {
+						glPushMatrix(); 
+						{
+							double x, y, angle;
+							angle = 2 * 3.14 * i / 4;
+							x = cos(angle);
+							y = sin(angle);
+							glTranslated((*p)[0]+x, (*p)[1]+y, (*p)[2]);
+							glColor4d(red, green, blue, 0.1);
+							glutSolidSphere(radius, 3, 3);
+						}
+						glPopMatrix();
+					}
+
+
+					if(blendEnabled != GL_TRUE) glDisable(GL_BLEND);
+					if(depthTestEnabled == GL_TRUE) glEnable(GL_DEPTH_TEST);
+				}
+				glPopMatrix();
+
 			}
 			glPopMatrix();
 			glFlush();

@@ -213,6 +213,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\ExplosionDebris.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\ExplosionManager.cpp"
 				>
 			</File>
@@ -328,6 +332,10 @@
 			</File>
 			<File
 				RelativePath="..\src\EndOfLevelState.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\ExplosionDebris.h"
 				>
 			</File>
 			<File

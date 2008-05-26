@@ -10,6 +10,7 @@
 #include "ApplicationState.h"
 #include "EndOfLevelState.h"
 #include "GameOverState.h"
+#include "ExplosionManager.h"
 
 
 
@@ -47,20 +48,20 @@ namespace asteroids {
 
 #ifndef MY_APP_H
 #define MY_APP_H
-	class StarSphere;
+		class StarSphere;
 	class MyCamera;
 	class GameManager;
+	class ExplosionManager;
 	class ScreenManager;
 	class ApplicationState;
 	class Screen;
-
-
 
 	class MyApp : public cg::Application {
 	private:
 		ApplicationState * _state;
 		ScreenManager * _screenManager;
 		GameManager * _gameManager;
+		ExplosionManager * _explosionManager;
 	public:
 		MyApp();
 		~MyApp();
@@ -72,8 +73,12 @@ namespace asteroids {
 		void onKeyPressed(unsigned char key);
 		void pause();
 		void quit();
+		GameManager * getGameManager();
+		ExplosionManager * getExplosionManager();
 		void addScreen(Screen * s);
 		void removeScreen(Screen * s);
+		void resetTime();
+
 	};
 #endif
 

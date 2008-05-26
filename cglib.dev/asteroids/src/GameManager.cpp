@@ -74,6 +74,7 @@ namespace asteroids {
 				}
 				break;
 		}
+		_application->getExplosionManager()->generateExplosion(destroyedParticle);
 		ParticleManager::destroyParticle(id);
 	}
 	void GameManager::createLaserShot(cg::Vector2d position, double radiansRotation, cg::Vector2d velocity, double degreesRotation) {
@@ -104,6 +105,7 @@ namespace asteroids {
 			//particles[i]->destroy();
 			destroyParticle(particles[i]->getId());
 		}
+		_asteroidsLeft = 0; //lets just make sure
 
 		if(_currentLevel != 0) {
 			EndOfLevelState::instance()->changeTo(_application);
@@ -141,7 +143,6 @@ namespace asteroids {
 		if(lightingEnabled == GL_TRUE) glDisable(GL_LIGHTING);
 		
 		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
-		lightingEnabled = glIsEnabled(GL_LIGHTING);
 		glPushMatrix();
 		{
 			glColor4d(0.9, 0, 0, 0.1);

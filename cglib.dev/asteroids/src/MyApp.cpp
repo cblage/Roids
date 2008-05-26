@@ -9,16 +9,19 @@ namespace asteroids {
 		_state = NULL;
 		_gameManager = NULL;
 		_screenManager = NULL;
+		_explosionManager = NULL;
 	}
 	MyApp::~MyApp() {
 	}
 	void MyApp::createEntities() {
 		_screenManager = new ScreenManager();
 		_gameManager = new GameManager("GameManager", this);
+		_explosionManager = new ExplosionManager("ExplosionManager", this);
 		BeforeGameState::instance()->changeTo(this);
 		addEntity(new ApplicationController(this));
 		addEntity (new MyCamera());
 		addEntity(new StarSphere());
+		addEntity(_explosionManager);
 		addEntity(_gameManager);
 		addEntity(new Lights());
 		addEntity(_screenManager);
@@ -59,6 +62,9 @@ namespace asteroids {
 
 	GameManager * MyApp::getGameManager() {
 		return _gameManager;
+	}
+	ExplosionManager * MyApp::getExplosionManager() {
+		return _explosionManager;
 	}
 	void MyApp::resetTime() {
 		updateFrameTime();

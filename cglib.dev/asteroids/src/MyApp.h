@@ -13,11 +13,13 @@
 #include "BeforeLevelState.h"
 #include "ApplicationController.h"
 #include "ScreenManager.h"
+#include "ExplosionManager.h"
 
 namespace asteroids {
 	class StarSphere;
 	class MyCamera;
 	class GameManager;
+	class ExplosionManager;
 	class ScreenManager;
 	class ApplicationState;
 	class Screen;
@@ -27,6 +29,7 @@ namespace asteroids {
 		ApplicationState * _state;
 		ScreenManager * _screenManager;
 		GameManager * _gameManager;
+		ExplosionManager * _explosionManager;
 	public:
 		MyApp();
 		~MyApp();
@@ -39,6 +42,7 @@ namespace asteroids {
 		void pause();
 		void quit();
 		GameManager * getGameManager();
+		ExplosionManager * getExplosionManager();
 		void addScreen(Screen * s);
 		void removeScreen(Screen * s);
 		void resetTime();

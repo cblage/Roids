@@ -1,7 +1,7 @@
 #pragma once
-#ifndef LASERSHOT_H
-#define LASERSHOT_H
-#pragma message("LaserShot is included")
+#ifndef EXPLOSIONDEBRIS_H
+#define EXPLOSIONDEBRIS_H
+#pragma message("ExplosionDebris is included")
 
 #include <string>
 #include <vector>
@@ -16,17 +16,18 @@ namespace asteroids {
 	class PhysicsObject;
 	class Particle;
 
-	class LaserShot : public cg::IDrawListener,
+	class ExplosionDebris : public cg::IDrawListener,
 		public cg::IUpdateListener,
 		public cg::IReshapeEventListener,
 		public Particle
 	{
 	private:
-		double _secondsToLive, _radius;
+		double _maxSecondsToLive, _secondsToLive, _radius, _alpha;
+		cg::Vector3d _color;
 		
 	public:
-		LaserShot(std::string id, ParticleManager * particleManager);
-		~LaserShot();
+		ExplosionDebris(std::string id, ParticleManager * particleManager, cg::Vector3d color = cg::Vector3d(0.7, 0.7, 0.7));
+		~ExplosionDebris();
 		void init();
 		void update(unsigned long elapsed_millis);
 		void draw();

@@ -17,9 +17,9 @@ namespace asteroids {
 		} else if (key == 'd') {
 			_ship->startRotation(-540);
 		} else if (key == 's') {
-			_ship->startAcceleration(-500000, true);
+			_ship->startAcceleration(-250000, true);
 		} else if (key == 'w') {
-			_ship->startAcceleration(500000, true);
+			_ship->startAcceleration(250000, true);
 		} else if (key == 'x') {
 			_ship->startAcceleration(-100000, false, cg::Vector2d(0, 0));
 		} else if (key == ' ') {

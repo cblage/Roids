@@ -45,13 +45,13 @@ namespace asteroids {
 			glPushMatrix();
 			{
 				glTranslated(_winWidth/2, _winHeight/2, 0);
-				colorPick=rand()%100;
+				colorPick=rand()%10000;
 				switch(colorPick){
 					case 0 :
 						red = 1;
 						green = 1;
 						blue = 1;
-						radius = 1;
+						radius = 2;
 						break;
 					default:
 						red = 0.8;

@@ -13,7 +13,7 @@ namespace asteroids {
 
 		GLfloat diffuseLight1[] = { 1, 1, 1, 1.0 };
 		GLfloat specularLight1[] = { 1, 1, 1, 1.0 };
-		GLfloat spotAngle=45;
+		GLfloat spotAngle=30;
 
 		glEnable(GL_LIGHTING);
 

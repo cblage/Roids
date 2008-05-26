@@ -61,16 +61,16 @@ namespace asteroids {
 		cg::Vector2d position = getPosition();
 		cg::Vector2d windowSize = cg::Vector2d(win.width, win.height);
 		cg::Vector2d relativePosition = position / windowSize;
-		std::ostringstream health,sss;
+		std::ostringstream health;
 		
-		sss << "s";
+
 		health << "H: " << floor(getHealth(true)) << "%";
 		std::ostringstream ammo;
 		ammo << "A: " << _charlesBronsonStyle;
 		glColor3d(0.4,0.7,0.9);
 		cg::Util::instance()->drawBitmapString(health.str(),position[0]-18,position[1]-25);
 		cg::Util::instance()->drawBitmapString(ammo.str(),position[0]-18,position[1]-35);
-		cg::Util::instance()->drawStrokeString(sss.str(), win.width-win.width/_radarSize +  relativePosition[0]*win.width/_radarSize , relativePosition[1]*win.height/_radarSize,0.2,false,2,0.1,0.9,0.4,1);
+		cg::Util::instance()->drawStrokeString("S", win.width-win.width/_radarSize +  relativePosition[0]*win.width/_radarSize , relativePosition[1]*win.height/_radarSize,0.1,false,2,0.1,0.9,0.4,1);
 
 		if(lightingEnabled == GL_TRUE) glEnable(GL_LIGHTING);
 	}
@@ -83,7 +83,7 @@ namespace asteroids {
 		cg::Vector3d bottomLeftCorner = cg::Vector3d(-_size[0], -_size[1], -_size[1])/2.0;
 		cg::Vector3d bottomRightCorner = cg::Vector3d(-_size[0], _size[1], -_size[1])/2.0;
 		
-		GLfloat positionLight[]={tip[0],tip[1],tip[2],1};
+		GLfloat positionLight[]={tip[0],tip[1],tip[2],0.8};
 		GLfloat directionLight[]={1,0,0};
 		cg::Vector2d position = getPosition();
 		
@@ -91,10 +91,10 @@ namespace asteroids {
 		{
 			glTranslated(position[0], position[1], 0);
 			glRotated(getRotation(true), 0, 0, 1);
+			glLightfv(GL_LIGHT1, GL_POSITION,positionLight);
+			glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION,directionLight);
 			
 			glColor3d(1-getHealth(true)/100,getHealth(true)/100-0.1,0.2);
-			glLightfv(GL_LIGHT1, GL_POSITION,positionLight);
-			glLightfv(GL_LIGHT1,GL_SPOT_DIRECTION,directionLight);
 			cg::Vector3d normal = cg::Vector3d(0,0,0);
 
 			//top face

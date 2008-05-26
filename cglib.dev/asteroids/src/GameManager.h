@@ -23,8 +23,9 @@ namespace asteroids {
 		int _currentScore;
 		unsigned int _currentLevel, _asteroidsLeft, _shipsLeft;
 		MyApp * _application;
-		bool _levelRunning;
+		bool _levelRunning, _cooldownPeriod;
 		double _radarSize;
+		double _cooldownTime, _cooldownLeft;
 
 	public:
 		GameManager(std::string id, MyApp *application);

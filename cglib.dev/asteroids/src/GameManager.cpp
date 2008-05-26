@@ -5,6 +5,8 @@ namespace asteroids {
 		_shipsLeft = cg::Properties::instance()->getInt("SHIP_LIFES");
 		_asteroidsLeft = 0;
 		_currentScore = 0;
+		_cooldownLeft = 0;
+		_cooldownPeriod = false;
 		_levelRunning = false;
 	}
 	GameManager::~GameManager() {
@@ -17,6 +19,8 @@ namespace asteroids {
 
 	void GameManager::postInit() {
 		_radarSize = cg::Properties::instance()->getDouble("RADAR_SIZE");
+		_shipsLeft = cg::Properties::instance()->getInt("SHIP_LIFES");
+		_cooldownTime = cg::Properties::instance()->getDouble("COOLDOWN_TIME");
 	}
 	
 
@@ -50,7 +54,17 @@ namespace asteroids {
 	void GameManager::preUpdate(unsigned long elapsed_millis) {
 		ParticleManager::preUpdate(elapsed_millis);
 		if(_asteroidsLeft == 0 && _levelRunning) {
-			finishLevel();
+			if(_currentLevel == 0)  {
+				finishLevel();
+			} else if( ! _cooldownPeriod) {
+				_cooldownPeriod = true;
+				_cooldownLeft = _cooldownTime;
+			} else {
+				_cooldownLeft -= elapsed_millis/1000.0;
+				if(_cooldownLeft <= 0) {
+					finishLevel();
+				}
+			}
 		}
 	}
 
@@ -97,9 +111,11 @@ namespace asteroids {
 		createShip();
 		createAsteroids((int)pow(log((double)_currentLevel*2+2),2));
 		_levelRunning = true;
+		_cooldownPeriod = false;
 	}
 	void GameManager::finishLevel() {
 		_levelRunning = false;
+		_cooldownPeriod = false;
 		//make sure we have a clean slate - no new particles are going to be added
 		//and we dont want duplicates in the deleted ones
 		_newParticles.clear();
@@ -117,7 +133,6 @@ namespace asteroids {
 			if((_currentLevel%3) == 0) {
 				_shipsLeft++;
 			}
-
 			EndOfLevelState::instance()->changeTo(_application);
 		}
 	}

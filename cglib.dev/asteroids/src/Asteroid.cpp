@@ -79,8 +79,7 @@ namespace asteroids {
 		glPushMatrix();
 		{
 			glTranslated(position[0], position[1], 0);
-			glRotated(getRotation(true), 0, 0, 1);
-			
+			//glEnable(GL_NORMALIZE);
 			std::vector<cg::Vector3d>::iterator q = _asteroid_vector2.begin( );
 			std::vector<cg::Vector3d>::iterator pBegin = _asteroid_vector.begin( );
 			std::vector<cg::Vector3d>::iterator qBegin = _asteroid_vector2.begin( );
@@ -91,17 +90,21 @@ namespace asteroids {
 				glColor3d(0.4,0.4,0.4);
 				for (std::vector<cg::Vector3d>::iterator p = _asteroid_vector.begin( );p != _asteroid_vector.end();p++) {		 
 					normal = normalize(cg::Vector3d((*p)[0],(*p)[1],(*p)[2]));
-					glNormal3f(normal[0], normal[1], normal[2]);
+					glNormal3f(-normal[0], -normal[1], normal[2]);
 					glVertex3f((*p)[0],(*p)[1],(*p)[2]);
 					glColor3d(0.4,0.4,0.4);
 					normal = normalize(cg::Vector3d((*q)[0],(*q)[1],(*q)[2]));
-					glNormal3f(normal[0], normal[1], normal[2]);
+					glNormal3f(-normal[0], -normal[1], normal[2]);
 					glVertex3f((*q)[0],(*q)[1],(*q)[2]);
 					glColor3d(0.47,0.47,0.47);
 					q++;
 				}
+				normal = normalize(cg::Vector3d((*pBegin)[0],(*pBegin)[1],(*pBegin)[2]));
+				glNormal3f(-normal[0], -normal[1], normal[2]);
 				glVertex3f((*pBegin)[0],(*pBegin)[1],(*pBegin)[2]);
 				glColor3d(0.4,0.4,0.4);
+				normal = normalize(cg::Vector3d((*qBegin)[0],(*qBegin)[1],(*qBegin)[2]));
+				glNormal3f(-normal[0], -normal[1], normal[2]);
 				glVertex3f((*qBegin)[0],(*qBegin)[1],(*qBegin)[2]);
 			}
 			glEnd();
@@ -112,33 +115,40 @@ namespace asteroids {
 				for (std::vector<cg::Vector3d>::iterator q = _asteroid_vector2.begin( );q != _asteroid_vector2.end();q++) {
 					glColor3d(0.4,0.4,0.4);
 					normal = normalize(cg::Vector3d((*q)[0],(*q)[1],(*q)[2]));
-					glNormal3f(normal[0], normal[1], normal[2]);
+					glNormal3f(-normal[0], -normal[1], normal[2]);
 					glVertex3f((*q)[0],(*q)[1],(*q)[2]);
 					glColor3d(0.47,0.47,0.47);
+					normal = normalize(cg::Vector3d(6, 10, _radius*0.7));
+					glNormal3f(-normal[0], -normal[1], normal[2]);
 					glVertex3f(6,10,_radius*0.7);
-					glNormal3f(6, 10, _radius*0.7);
-				}				
+				}	
+				normal = normalize(cg::Vector3d((*qBegin)[0],(*qBegin)[1],(*qBegin)[2]));
+				glNormal3f(-normal[0], -normal[1], normal[2]);
 				glVertex3f((*qBegin)[0],(*qBegin)[1],(*qBegin)[2]);
 			}
 			glEnd();
-					glBegin(GL_QUAD_STRIP);
+			glBegin(GL_QUAD_STRIP);
 			{
 				q = _asteroid_vector2.begin( );
 				cg::Vector3d normal = cg::Vector3d(0, 0, 0);
 				glColor3d(0.47,0.47,0.47);
 				for (std::vector<cg::Vector3d>::iterator p = _asteroid_vector.begin( );p != _asteroid_vector.end();p++) {		 
 					normal = normalize(cg::Vector3d((*p)[0],(*p)[1],-(*p)[2]));
-					glNormal3f(normal[0], normal[1], normal[2]);
-					glVertex3f((*p)[0],(*p)[1],-((*p)[2]));
+					glNormal3f(-normal[0], -normal[1], normal[2]);
+					glVertex3f((*p)[0],(*p)[1],-(*p)[2]);
 					glColor3d(0.4,0.4,0.4);
 					normal = normalize(cg::Vector3d((*q)[0],(*q)[1],-(*q)[2]));
-					glNormal3f(normal[0], normal[1], normal[2]);
+					glNormal3f(-normal[0], -normal[1], normal[2]);
 					glVertex3f((*q)[0],(*q)[1],-(*q)[2]);
 					glColor3d(0.47,0.47,0.47);
 					q++;
 				}
+				normal = normalize(cg::Vector3d((*pBegin)[0],(*pBegin)[1],-(*pBegin)[2]));
+				glNormal3f(-normal[0], -normal[1], normal[2]);
 				glVertex3f((*pBegin)[0],(*pBegin)[1],-(*pBegin)[2]);
 				glColor3d(0.4,0.4,0.4);
+				normal = normalize(cg::Vector3d((*qBegin)[0],(*qBegin)[1],-(*qBegin)[2]));
+				glNormal3f(-normal[0], -normal[1], normal[2]);
 				glVertex3f((*qBegin)[0],(*qBegin)[1],-(*qBegin)[2]);
 			}
 			glEnd();
@@ -149,15 +159,19 @@ namespace asteroids {
 				for (std::vector<cg::Vector3d>::iterator q = _asteroid_vector2.begin( );q != _asteroid_vector2.end();q++) {
 					glColor3d(0.4,0.4,0.4);
 					normal = normalize(cg::Vector3d((*q)[0],(*q)[1],-(*q)[2]));
-					glNormal3f(normal[0], normal[1], normal[2]);
+					glNormal3f(-normal[0], -normal[1], normal[2]);
 					glVertex3f((*q)[0],(*q)[1],-(*q)[2]);
 					glColor3d(0.47,0.47,0.47);
+					normal = normalize(cg::Vector3d(6, 10, -_radius*0.7));
+					glNormal3f(-normal[0], -normal[1], normal[2]);
 					glVertex3f(6,10,-_radius*0.7);
-					glNormal3f(6,10, -_radius*0.7);
 				}				
+				normal = normalize(cg::Vector3d((*qBegin)[0],-(*qBegin)[1],-(*qBegin)[2]));
+				glNormal3f(-normal[0], -normal[1], normal[2]);	
 				glVertex3f((*qBegin)[0],-(*qBegin)[1],-(*qBegin)[2]);
 			}
 			glEnd();
+			glRotated(getRotation(true), 0, 0, 1);
 		}
 		glPopMatrix();
 		glFlush();
@@ -228,9 +242,8 @@ namespace asteroids {
 		cg::Vector2d position = getPosition();
 		cg::Vector2d windowSize = cg::Vector2d(win.width, win.height);
 		cg::Vector2d relativePosition = position / windowSize;
-		std::ostringstream aaa;
-		aaa << "a";
-		cg::Util::instance()->drawStrokeString(aaa.str(), win.width-win.width/_radarSize +  relativePosition[0]*win.width/_radarSize , relativePosition[1]*win.height/_radarSize,0.15*_scaleFactor,false,2,0.4,0.7,0.9,1);
+
+		cg::Util::instance()->drawStrokeString("@", win.width-win.width/_radarSize +  relativePosition[0]*win.width/_radarSize , relativePosition[1]*win.height/_radarSize,0.15*_scaleFactor,false,2,0.4,0.7,0.9,1);
 		if(lightingEnabled == GL_TRUE) glEnable(GL_LIGHTING);
 	}
 }

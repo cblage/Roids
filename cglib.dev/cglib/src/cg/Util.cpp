@@ -29,12 +29,12 @@ namespace cg {
         }
     }
 
-    void Util::drawStrokeString(std::string s, GLdouble x, GLdouble y, GLdouble scale, bool centered, double lineWidth, GLdouble red, GLdouble green, GLdouble blue, GLdouble alpha) {
+    void Util::drawStrokeString(std::string s, GLdouble x, GLdouble y, GLdouble scale, bool centered, double lineWidth, GLdouble red, GLdouble green, GLdouble blue, GLdouble alpha, GLdouble rotation) {
 		GLboolean lineSmoothEnabled, normalizeEnabled;
 		lineSmoothEnabled = glIsEnabled(GL_LINE_SMOOTH);
 		normalizeEnabled = glIsEnabled(GL_NORMALIZE);
 		glPushMatrix();
-
+	
 
 		if(lineSmoothEnabled != GL_TRUE) glEnable(GL_LINE_SMOOTH);
 		if(normalizeEnabled != GL_TRUE) glEnable(GL_NORMALIZE);
@@ -42,19 +42,35 @@ namespace cg {
 		glColor4d(red, green, blue, alpha);
 
 		glTranslatef(x, y, 0);
-		if(centered) {
-			int length = 0;
+		
+
+		int length = 0;
 			for (int i = 0; s[i] != '\0'; i++) {
-					length += glutStrokeWidth(GLUT_STROKE_ROMAN, s[i]);
-			}
+				length += glutStrokeWidth(GLUT_STROKE_ROMAN, s[i]);
+		}
+		if(centered) {
 			glTranslatef(-length*scale/2, 0, 0);
 		}
+		
+/*		if(!centered) {
+			glTranslatef(-length*scale/2, 0, 0);
+			glTranslatef(, 0, 0);
+			glRotated(rotation, 0, 0, 1);
+		}
+*/		
 		glScaled(scale, scale, 0);
+		
+
+		glRotated(rotation, 0, 0, 1);
 		for (int i = 0; s[i] != '\0'; i++) {
 				glutStrokeCharacter(GLUT_STROKE_ROMAN, s[i]);
 		}
+
 		if(lineSmoothEnabled != GL_TRUE) glDisable(GL_LINE_SMOOTH);
 		if(normalizeEnabled != GL_TRUE) glDisable(GL_NORMALIZE);
+		
+		
+	
 		glPopMatrix();
     }
 

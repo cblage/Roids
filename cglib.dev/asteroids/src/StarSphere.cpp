@@ -47,16 +47,71 @@ namespace asteroids {
 				glTranslated(_winWidth/2, _winHeight/2, 0);
 				colorPick=rand()%10000;
 				switch(colorPick){
-					case 0 :
+					case 1 :
 						red = 1;
+						green = 0;
+						blue = 0;
+						radius = 3;
+						break;
+					case 2 :
+						red = 0;
 						green = 1;
+						blue = 0;
+						radius = 3;
+						break;
+					case 3 :
+						red = 0;
+						green = 0;
 						blue = 1;
 						radius = 2;
 						break;
+					case 4 :
+						red = 0.5;
+						green = 0.5;
+						blue = 0.5;
+						radius = 2;
+						break;
+					case 5 :
+						red = 0.5;
+						green = 0.5;
+						blue = 0.5;
+						radius = 2;
+						break;
+					case 6 :
+						red = 0.5;
+						green = 0.5;
+						blue = 0.5;
+						radius = 3;
+						break;
+					case 7 :
+						red = 0.5;
+						green = 0.5;
+						blue = 0.5;
+						radius = 3;
+						break;
+					case 8 :
+						red = 0.5;
+						green = 0.5;
+						blue = 0.5;
+						radius = 3;
+						break;
+					case 9 :
+						red = 0.5;
+						green = 0.5;
+						blue = 0.5;
+						radius = 3;
+						break;
+					case 10 :
+						red = 0.5;
+						green = 0.5;
+						blue = 0.5;
+						radius = 2;
+						break;
+
 					default:
-						red = 0.8;
-						green = 0.8;
-						blue = 0.8;
+						red = 1;
+						green = 1;
+						blue = 1;
 						radius = 1;
 				}
 
@@ -87,7 +142,7 @@ namespace asteroids {
 							y = sin(angle);
 							glTranslated((*p)[0]+x, (*p)[1]+y, (*p)[2]);
 							glColor4d(red, green, blue, 0.1);
-							glutSolidSphere(radius, 3, 3);
+							glutSolidSphere(radius, 6, 6);
 						}
 						glPopMatrix();
 					}

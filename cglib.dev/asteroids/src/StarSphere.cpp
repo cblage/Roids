@@ -142,7 +142,7 @@ namespace asteroids {
 							y = sin(angle);
 							glTranslated((*p)[0]+x, (*p)[1]+y, (*p)[2]);
 							glColor4d(red, green, blue, 0.1);
-							glutSolidSphere(radius, 6, 6);
+							glutSolidSphere(radius, 3, 3);
 						}
 						glPopMatrix();
 					}

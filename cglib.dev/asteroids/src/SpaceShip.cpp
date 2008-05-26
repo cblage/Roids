@@ -16,6 +16,8 @@ namespace asteroids {
 
 	void SpaceShip::init() {
 		// Read from property file
+		_radarSize = cg::Properties::instance()->getDouble("RADAR_SIZE");
+
 		_size = cg::Vector2d(
 								cg::Properties::instance()->getDouble("SHIP_LENGTH"),
 								cg::Properties::instance()->getDouble("SHIP_HEIGHT")
@@ -27,7 +29,8 @@ namespace asteroids {
 		setVelocity(cg::Vector2d(0, 0));
 		setPosition(cg::Vector2d(win.width/2, win.height/2));
 		setCollisionCenter(getPosition());
-		_charlesBronsonStyle = cg::Properties::instance()->getDouble("SHIP_SHOTS");
+		_maxCharlesBronsonStyle = cg::Properties::instance()->getDouble("SHIP_SHOTS");
+		_charlesBronsonStyle = _maxCharlesBronsonStyle;
 		_charlesBronsonKilledSecondsAgo = 0;
 		
 	}
@@ -39,7 +42,7 @@ namespace asteroids {
 		cg::Vector2d position = getPosition();
 		_charlesBronsonKilledSecondsAgo = _charlesBronsonKilledSecondsAgo + elapsed_seconds;
 		if (_charlesBronsonKilledSecondsAgo >= 1) {
-			if (_charlesBronsonStyle >= 10){
+			if (_charlesBronsonStyle >= _maxCharlesBronsonStyle){
 				_charlesBronsonKilledSecondsAgo--;
 				return;
 			}else {
@@ -58,10 +61,8 @@ namespace asteroids {
 		cg::Vector2d position = getPosition();
 		cg::Vector2d windowSize = cg::Vector2d(win.width, win.height);
 		cg::Vector2d relativePosition = position / windowSize;
-                                
 		std::ostringstream health,sss;
-		double tamanho;
-		tamanho = 5;
+		
 		sss << "s";
 		health << "H: " << floor(getHealth(true)) << "%";
 		std::ostringstream ammo;
@@ -69,7 +70,7 @@ namespace asteroids {
 		glColor3d(0.4,0.7,0.9);
 		cg::Util::instance()->drawBitmapString(health.str(),position[0]-18,position[1]-25);
 		cg::Util::instance()->drawBitmapString(ammo.str(),position[0]-18,position[1]-35);
-		cg::Util::instance()->drawStrokeString(sss.str(), win.width-win.width/tamanho +  relativePosition[0]*win.width/tamanho , relativePosition[1]*win.height/tamanho,0.2,false,2,0.1,0.9,0.4,1);
+		cg::Util::instance()->drawStrokeString(sss.str(), win.width-win.width/_radarSize +  relativePosition[0]*win.width/_radarSize , relativePosition[1]*win.height/_radarSize,0.2,false,2,0.1,0.9,0.4,1);
 
 		if(lightingEnabled == GL_TRUE) glEnable(GL_LIGHTING);
 	}

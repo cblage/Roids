@@ -45,20 +45,24 @@ namespace asteroids {
 		cg::Vector2d position = getPosition();
 		glPushMatrix(); 
 		{
-			GLboolean blendEnabled, depthTestEnabled;
+			GLboolean blendEnabled, depthTestEnabled, lightingEnabled;
 			blendEnabled = glIsEnabled(GL_BLEND);
 			depthTestEnabled = glIsEnabled(GL_DEPTH_TEST);
+			lightingEnabled = glIsEnabled(GL_LIGHTING);
 			if(blendEnabled != GL_TRUE) glEnable(GL_BLEND);
 			if(depthTestEnabled == GL_TRUE) glDisable(GL_DEPTH_TEST);
+			if(lightingEnabled == GL_TRUE) glDisable(GL_LIGHTING);
 			glBlendFunc(GL_SRC_ALPHA,GL_ONE);
 
 			glTranslated(position[0], position[1], 0);
 			glColor4d(_color[0], _color[1], _color[2], _alpha);
-			glutSolidSphere(_radius*0.5, 10, 10);
+			glutSolidSphere(_radius*0.5, 3, 3);
 			glRotated(getRotation(true), 0, 0, 1);
 		
 			if(blendEnabled != GL_TRUE) glDisable(GL_BLEND);
 			if(depthTestEnabled == GL_TRUE) glEnable(GL_DEPTH_TEST);
+			if(lightingEnabled == GL_TRUE) glEnable(GL_LIGHTING);
+
 		}
 		glPopMatrix();
 

@@ -14,6 +14,10 @@ namespace asteroids {
 		changeLevel(0);
 		beginLevel();
 	}
+
+	void GameManager::postInit() {
+		_radarSize = cg::Properties::instance()->getDouble("RADAR_SIZE");
+	}
 	
 
 	void GameManager::resetGame() {
@@ -31,7 +35,7 @@ namespace asteroids {
 			//particles[i]->destroy();
 			destroyParticle(particles[i]->getId());
 		}
-
+		_application->getExplosionManager()->clearExplosions();
 		changeLevel(0);
 		setScore(0);
 	}
@@ -85,9 +89,11 @@ namespace asteroids {
 	}
 	void GameManager::beginLevel() {
 		if(_currentLevel == 0) { //level 0 = demo level
+			_asteroidsLeft = 0;
 			createAsteroids(cg::Properties::instance()->getInt("DEMO_ASTEROIDS"));
 			return;
 		}
+		_asteroidsLeft = 0;
 		createShip();
 		createAsteroids((int)pow(log((double)_currentLevel*2+2),2));
 		_levelRunning = true;
@@ -106,8 +112,12 @@ namespace asteroids {
 			destroyParticle(particles[i]->getId());
 		}
 		_asteroidsLeft = 0; //lets just make sure
-
+		_application->getExplosionManager()->clearExplosions();
 		if(_currentLevel != 0) {
+			if((_currentLevel%3) == 0) {
+				_shipsLeft++;
+			}
+
 			EndOfLevelState::instance()->changeTo(_application);
 		}
 	}
@@ -148,9 +158,9 @@ namespace asteroids {
 			glColor4d(0.9, 0, 0, 0.1);
 			glBegin(GL_QUADS);
 			{
-				glVertex3d(win.width-win.width/5, 0, 0);
-				glVertex3d(win.width-win.width/5, win.height/5 + 15, 0);
-				glVertex3d(win.width, win.height/5 + 15, 0);
+				glVertex3d(win.width-win.width/_radarSize, 0, 0);
+				glVertex3d(win.width-win.width/_radarSize, win.height/_radarSize + 15, 0);
+				glVertex3d(win.width, win.height/_radarSize + 15, 0);
 				glVertex3d(win.width, 0, 0);
 			}
 			glEnd();

@@ -26,6 +26,7 @@ namespace asteroids {
 		void generateExplosion(Particle * p);
 		void createExplosionDebris(cg::Vector2d position, cg::Vector2d velocity, cg::Vector3d color = cg::Vector3d(0.7, 0.7, 0.7));
 		void preDrawOverlay();
+		void clearExplosions();
 	};
 
 

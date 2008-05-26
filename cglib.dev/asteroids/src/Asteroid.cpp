@@ -26,7 +26,7 @@ namespace asteroids {
 		setVelocity(cg::Vector2d(randomBetween(-100, 100), randomBetween(-100, 100)));
 		setCollisionCenter(getPosition());
 
-		
+		_radarSize = cg::Properties::instance()->getDouble("RADAR_SIZE");
 		_invulSeconds = cg::Properties::instance()->getDouble("ASTEROID_INVUL_SECONDS");
 
 		cg::Vector3d t;
@@ -229,10 +229,8 @@ namespace asteroids {
 		cg::Vector2d windowSize = cg::Vector2d(win.width, win.height);
 		cg::Vector2d relativePosition = position / windowSize;
 		std::ostringstream aaa;
-		double tamanho;
-		tamanho = 5;
 		aaa << "a";
-		cg::Util::instance()->drawStrokeString(aaa.str(), win.width-win.width/tamanho +  relativePosition[0]*win.width/tamanho , relativePosition[1]*win.height/tamanho,0.15,false,2,0.4,0.7,0.9,1);
+		cg::Util::instance()->drawStrokeString(aaa.str(), win.width-win.width/_radarSize +  relativePosition[0]*win.width/_radarSize , relativePosition[1]*win.height/_radarSize,0.15*_scaleFactor,false,2,0.4,0.7,0.9,1);
 		if(lightingEnabled == GL_TRUE) glEnable(GL_LIGHTING);
 	}
 }

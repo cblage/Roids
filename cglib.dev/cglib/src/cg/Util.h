@@ -22,7 +22,7 @@
 #include <string>
 #include <sys/timeb.h>
 #include <vector>
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 #include "Singleton.h"
 #include "Vector.h"
 

@@ -19,6 +19,7 @@
 #ifndef COMMAND_QUEUE_H
 #define COMMAND_QUEUE_H
 
+#include <stdexcept>
 #include <string>
 #include <queue>
 #include "Notifier.h"

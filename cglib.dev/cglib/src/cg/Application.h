@@ -21,7 +21,7 @@
 
 #include <string>
 #include <sys/timeb.h>
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 #include "DebugFile.h"
 #include "DebugNotifier.h"
 #include "DrawNotifier.h"

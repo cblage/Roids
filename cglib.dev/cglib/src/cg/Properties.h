@@ -19,10 +19,12 @@
 #ifndef PROPERTIES_H
 #define PROPERTIES_H
 
+#include <stdexcept>
 #include <fstream>
 #include <map>
 #include <sstream>
 #include <string>
+#include <stdlib.h>
 #include "Singleton.h"
 #include "Vector.h"
 

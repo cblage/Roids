@@ -19,7 +19,7 @@
 #ifndef KEYBUFFER_H
 #define KEYBUFFER_H
 
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 #include "Singleton.h"
 
 namespace cg {

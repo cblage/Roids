@@ -19,6 +19,7 @@
 #ifndef GROUP_H
 #define GROUP_H
 
+#include <stdexcept>
 #include <algorithm>
 #include <fstream>
 #include <string>

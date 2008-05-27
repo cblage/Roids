@@ -19,6 +19,7 @@
 #ifndef DEBUG_FILE_H
 #define DEBUG_FILE_H
 
+#include <stdexcept>
 #include <fstream>
 #include <string>
 

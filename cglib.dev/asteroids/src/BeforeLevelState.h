@@ -16,13 +16,16 @@ namespace asteroids {
 	
 	private:
 		Screen * _screen;
+		double _timeLeft, _warmupTime, _posWarmupTime;
 
 	public:
-		bool onKeyPressed(unsigned char key);
 		void enter();
+		void suspend();
+		void resume(MyApp * application);
 		void leave();
 		std::string getName(void);
-		void pause();
+		std::string getMessage() ;
+		void update(unsigned long elapsed_millis);
 	};
 
 }

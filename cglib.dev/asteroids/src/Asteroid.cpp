@@ -127,6 +127,8 @@ namespace asteroids {
 				glVertex3f((*qBegin)[0],(*qBegin)[1],(*qBegin)[2]);
 			}
 			glEnd();
+
+			//bottom
 			glBegin(GL_QUAD_STRIP);
 			{
 				q = _asteroid_vector2.begin( );
@@ -134,21 +136,21 @@ namespace asteroids {
 				glColor3d(0.47,0.47,0.47);
 				for (std::vector<cg::Vector3d>::iterator p = _asteroid_vector.begin( );p != _asteroid_vector.end();p++) {		 
 					normal = normalize(cg::Vector3d((*p)[0],(*p)[1],-(*p)[2]));
-					glNormal3f(-normal[0], -normal[1], normal[2]);
+					glNormal3f(normal[0], normal[1], normal[2]);
 					glVertex3f((*p)[0],(*p)[1],-(*p)[2]);
 					glColor3d(0.4,0.4,0.4);
 					normal = normalize(cg::Vector3d((*q)[0],(*q)[1],-(*q)[2]));
-					glNormal3f(-normal[0], -normal[1], normal[2]);
+					glNormal3f(normal[0], normal[1], normal[2]);
 					glVertex3f((*q)[0],(*q)[1],-(*q)[2]);
 					glColor3d(0.47,0.47,0.47);
 					q++;
 				}
 				normal = normalize(cg::Vector3d((*pBegin)[0],(*pBegin)[1],-(*pBegin)[2]));
-				glNormal3f(-normal[0], -normal[1], normal[2]);
+				glNormal3f(normal[0], normal[1], normal[2]);
 				glVertex3f((*pBegin)[0],(*pBegin)[1],-(*pBegin)[2]);
 				glColor3d(0.4,0.4,0.4);
 				normal = normalize(cg::Vector3d((*qBegin)[0],(*qBegin)[1],-(*qBegin)[2]));
-				glNormal3f(-normal[0], -normal[1], normal[2]);
+				glNormal3f(normal[0], normal[1], normal[2]);
 				glVertex3f((*qBegin)[0],(*qBegin)[1],-(*qBegin)[2]);
 			}
 			glEnd();
@@ -159,15 +161,15 @@ namespace asteroids {
 				for (std::vector<cg::Vector3d>::iterator q = _asteroid_vector2.begin( );q != _asteroid_vector2.end();q++) {
 					glColor3d(0.4,0.4,0.4);
 					normal = normalize(cg::Vector3d((*q)[0],(*q)[1],-(*q)[2]));
-					glNormal3f(-normal[0], -normal[1], normal[2]);
+					glNormal3f(normal[0], normal[1], normal[2]);
 					glVertex3f((*q)[0],(*q)[1],-(*q)[2]);
 					glColor3d(0.47,0.47,0.47);
 					normal = normalize(cg::Vector3d(6, 10, -_radius*0.7));
-					glNormal3f(-normal[0], -normal[1], normal[2]);
+					glNormal3f(normal[0], normal[1], normal[2]);
 					glVertex3f(6,10,-_radius*0.7);
 				}				
 				normal = normalize(cg::Vector3d((*qBegin)[0],-(*qBegin)[1],-(*qBegin)[2]));
-				glNormal3f(-normal[0], -normal[1], normal[2]);	
+				glNormal3f(normal[0], normal[1], normal[2]);	
 				glVertex3f((*qBegin)[0],-(*qBegin)[1],-(*qBegin)[2]);
 			}
 			glEnd();

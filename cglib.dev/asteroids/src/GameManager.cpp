@@ -162,7 +162,8 @@ namespace asteroids {
 		score << "Score: " << getCurrentScore();
 		std::ostringstream shipsLeft;
 		shipsLeft << "Ships: " << _shipsLeft;
-
+		std::ostringstream currLevel;
+		currLevel << "Level " << _currentLevel;
 		GLboolean lightingEnabled;
 		lightingEnabled = glIsEnabled(GL_LIGHTING);
 		if(lightingEnabled == GL_TRUE) glDisable(GL_LIGHTING);
@@ -181,6 +182,8 @@ namespace asteroids {
 			glEnd();
 		}
 		glPopMatrix();	
+
+		cg::Util::instance()->drawStrokeString(currLevel.str(), 10 , win.height-25, 0.15, false, 2, 0.5, 0, 0.25, 1);
 		cg::Util::instance()->drawStrokeString(shipsLeft.str(), 10 , 35, 0.2, false, 2, 0, 0.5, 0.25, 1);
 		cg::Util::instance()->drawStrokeString(score.str(), 10 , 10, 0.2, false, 2, 0, 0.25, 0.5, 1);
 		

@@ -31,6 +31,7 @@ namespace asteroids {
 		virtual void suspend();
 		virtual void setPreviousState(ApplicationState * s);
 		virtual ApplicationState * getPreviousState();
+		virtual void update(unsigned long elapsed_millis);
 	};
 
 }

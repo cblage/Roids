@@ -25,7 +25,7 @@ namespace asteroids {
 	}
 
 	bool EndOfLevelState::onKeyPressed(unsigned char key) {
-		if(!ApplicationState::onKeyPressed(key)) {
+		if(!ApplicationState::onKeyPressed(key) && key == 13) {
 			BeforeLevelState::instance()->changeTo(_application);
 			return true;
 		}

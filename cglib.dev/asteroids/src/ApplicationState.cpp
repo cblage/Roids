@@ -66,4 +66,8 @@ namespace asteroids {
 	ApplicationState * ApplicationState::getPreviousState() {
 		return _previousState;
 	}
+
+	void ApplicationState::update(unsigned long elapsed_millis) {
+	
+	}
 }

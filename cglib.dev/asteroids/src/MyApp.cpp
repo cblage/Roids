@@ -38,6 +38,7 @@ namespace asteroids {
 
 	void MyApp::onUpdate() {
 		_state->onUpdate();
+		_state->update(_time.elapsed);
 	}
 	void MyApp::onDisplay() {
 		_state->onDisplay();

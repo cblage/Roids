@@ -5,7 +5,7 @@
 
 #include <string>
 #include "ApplicationState.h"
-#include "Screen.h"
+#include "GameOverScreen.h"
 #include "BeforeGameState.h"
 
 

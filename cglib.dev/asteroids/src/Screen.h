@@ -13,7 +13,7 @@ namespace asteroids {
 		public cg::IDrawListener,
 		public cg::IReshapeEventListener
 	{
-	private:
+	protected:
 		std::string _message;
 		double _winWidth, _winHeight;
 		double _messageX, _messageY;

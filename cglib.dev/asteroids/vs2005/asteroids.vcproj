@@ -225,6 +225,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\GameOverScreen.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\GameOverState.cpp"
 				>
 			</File>
@@ -344,6 +348,10 @@
 			</File>
 			<File
 				RelativePath="..\src\GameManager.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\GameOverScreen.h"
 				>
 			</File>
 			<File

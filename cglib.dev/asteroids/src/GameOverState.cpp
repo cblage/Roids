@@ -5,9 +5,8 @@ namespace asteroids {
 	SINGLETON_IMPLEMENTATION(GameOverState)
 	
 	void GameOverState::enter() {
-		_screen = new Screen("GameOverScreen");
+		_screen = new GameOverScreen("GameOverScreen", _application->getGameManager()->getCurrentScore(), _application->getGameManager()->getCurrentLevel());
 		_screen->init();
-		_screen->setMessage("Try again? (Y/N)");
 		_application->addScreen(_screen);
 	}
 	void GameOverState::leave() {
@@ -31,7 +30,7 @@ namespace asteroids {
 		if(key == 'y') {
 			BeforeGameState::instance()->changeTo(_application);
 			return true;
-		} else if(key =='n') {
+		} else if(key =='n' || key == 27) {
 			_application->quit();
 			return true;
 		}

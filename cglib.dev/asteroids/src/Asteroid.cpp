@@ -79,6 +79,7 @@ namespace asteroids {
 		glPushMatrix();
 		{
 			glTranslated(position[0], position[1], 0);
+			glRotated(getRotation(true), 1, 1, 1);
 			//glEnable(GL_NORMALIZE);
 			std::vector<cg::Vector3d>::iterator q = _asteroid_vector2.begin( );
 			std::vector<cg::Vector3d>::iterator pBegin = _asteroid_vector.begin( );
@@ -173,7 +174,7 @@ namespace asteroids {
 				glVertex3f((*qBegin)[0],-(*qBegin)[1],-(*qBegin)[2]);
 			}
 			glEnd();
-			glRotated(getRotation(true), 0, 0, 1);
+
 		}
 		glPopMatrix();
 		glFlush();

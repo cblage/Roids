@@ -3,7 +3,7 @@
 namespace asteroids {
 
 	LaserShot::LaserShot(std::string id, ParticleManager * particleManager) : 
-		Particle(id, 250, particleManager, 'l') { setHealth(1); setMass(1000); }
+		Particle(id, particleManager, 'l') {}
 
 	LaserShot::~LaserShot() {
 	}
@@ -13,7 +13,9 @@ namespace asteroids {
 		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
 		setUniverseDimensions(win.width, win.height); 
 		setCollisionCenter(getPosition());
-
+		setStrength(cg::Properties::instance()->getDouble("LASER_STRENGHT"));
+		setMass(cg::Properties::instance()->getDouble("LASER_MASS"));
+		setHealth(cg::Properties::instance()->getDouble("LASER_HEALTH"));
 		_secondsToLive = cg::Properties::instance()->getDouble("LASER_SECONDS_TO_LIVE");
 		_radius = cg::Properties::instance()->getDouble("LASER_RADIUS");
 		setCollisionRadius(_radius*2);

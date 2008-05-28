@@ -26,6 +26,7 @@ namespace asteroids {
 		bool _levelRunning, _cooldownPeriod;
 		double _radarSize;
 		double _cooldownTime, _cooldownLeft;
+		unsigned int _difficulty;
 
 	public:
 		GameManager(std::string id, MyApp *application);

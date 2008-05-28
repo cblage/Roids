@@ -8,6 +8,7 @@ namespace asteroids {
 		_cooldownLeft = 0;
 		_cooldownPeriod = false;
 		_levelRunning = false;
+		_difficulty = cg::Properties::instance()->getInt("DIFFICULTY");
 	}
 	GameManager::~GameManager() {
 	}
@@ -109,7 +110,7 @@ namespace asteroids {
 		}
 		_asteroidsLeft = 0;
 		createShip();
-		createAsteroids((int)pow(log((double)_currentLevel*2+2),2));
+		createAsteroids((int)pow(log((double)_currentLevel*(_difficulty+1)+2),2));
 		_levelRunning = true;
 		_cooldownPeriod = false;
 	}

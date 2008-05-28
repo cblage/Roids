@@ -32,6 +32,7 @@ namespace asteroids {
 		int _charlesBronsonStyle, _maxCharlesBronsonStyle;
 		ShipController * _controller;
 		double _radarSize;
+		double _invulTime, _invulTimeMax;
 	public:
 		SpaceShip(std::string id, ParticleManager *  particleManager);
 		SpaceShip(std::string id, ParticleManager *  particleManager, int lifes);
@@ -45,6 +46,8 @@ namespace asteroids {
 		void onKeyPressed(unsigned char key);
 		void onKeyReleased(unsigned char key);
 		void drawOverlay();
+		void dealDamage(double damage);
+		double getCollisionDamage(Particle * target);
 	};
 }
 

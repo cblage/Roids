@@ -8,6 +8,7 @@ namespace asteroids {
 		setMass(cg::Properties::instance()->getDouble("SHIP_MASS"));
 		initHealth(cg::Properties::instance()->getDouble("SHIP_HEALTH"));
 		
+		
 	}
 
 	SpaceShip::~SpaceShip() {
@@ -17,6 +18,9 @@ namespace asteroids {
 	void SpaceShip::init() {
 		// Read from property file
 		_radarSize = cg::Properties::instance()->getDouble("RADAR_SIZE");
+		
+		_invulTimeMax = cg::Properties::instance()->getDouble("SHIP_RESPAWN_INVUL");
+		_invulTime = _invulTimeMax;
 
 		_size = cg::Vector2d(
 								cg::Properties::instance()->getDouble("SHIP_LENGTH"),
@@ -50,6 +54,14 @@ namespace asteroids {
 				_charlesBronsonKilledSecondsAgo--;
 			}
 		}
+		
+		if(_invulTime > 0) {
+			if((_invulTime - elapsed_millis/1000.0)< 0) {
+				_invulTime = 0;
+			} else {
+				_invulTime-= elapsed_millis/1000.0;
+			}
+		}		
 	}
 	
 	void SpaceShip::drawOverlay() {
@@ -194,17 +206,43 @@ namespace asteroids {
 		glPopMatrix();
 		//glFlush();
 
-		//cg::Vector2d position = getPosition();
-		/*glPushMatrix();
-		{
-			glTranslated(position[0], position[1], 0);
-			//glRotated(getRotation(true), 0, 0, 1);
-			glColor3d(1, 0, 0);
-			glutSolidSphere(getCollisionRadius(), 30, 30);
+		if(_invulTime > 0) {
+			glPushMatrix();
+			{
+				GLboolean blendEnabled, depthTestEnabled;
+				blendEnabled = glIsEnabled(GL_BLEND);
+				depthTestEnabled = glIsEnabled(GL_DEPTH_TEST);
+				if(blendEnabled != GL_TRUE) glEnable(GL_BLEND);
+				if(depthTestEnabled == GL_TRUE) glDisable(GL_DEPTH_TEST);
+				glBlendFunc(GL_SRC_ALPHA,GL_ONE);
+				
+				glTranslated(position[0], position[1], 0);
+				glColor4d(0.17, 0.67, 1, _invulTime/_invulTimeMax*0.6);
+				glutSolidSphere(_size[1]*1.1, 35, 35);
+				
+				if(depthTestEnabled == GL_TRUE) glEnable(GL_DEPTH_TEST);
+				if(blendEnabled != GL_TRUE) glDisable(GL_BLEND);
+			}
+			glPopMatrix();		
 		}
-		glPopMatrix();
-		glFlush();*/
+
 	}
+	
+	void SpaceShip::dealDamage(double damage) {
+		if(_invulTime > 0)
+			return;
+		//else
+		Particle::dealDamage(damage);
+	}
+	
+	double SpaceShip::getCollisionDamage(Particle * target) {
+		if(_invulTime > 0)
+			return 0;
+		//else
+		return Particle::getCollisionDamage(target);	
+	}
+	
+	
 	void SpaceShip::onReshape(int width, int height) {
 		if(width > 100 && height > 100) {
 			setUniverseDimensions(width,height);
@@ -216,7 +254,7 @@ namespace asteroids {
 	}
 	
 	void SpaceShip::shootLaser(void) {
-		if (_charlesBronsonStyle > 0) {
+		if (_charlesBronsonStyle > 0 && _invulTime == 0) {
 			_charlesBronsonStyle--;
 			getParticleManager()->createLaserShot(getPosition(), getRotation(), getVelocity(), getRotation(true));
 		}

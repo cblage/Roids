@@ -72,8 +72,13 @@ namespace cg {
 
         tTime _time;
         struct timeb _timeb;
-        void updateFrameTime();
-
+		inline void updateFrameTime() {
+			ftime(&_timeb);
+			_time.last = _time.current;
+			_time.current = (_timeb.time * 1000) + _timeb.millitm;
+			_time.elapsed = _time.current - _time.last;
+		}
+		
 		bool _isFirstUpdate;
 		void setup();
 		void addEntity(Entity* entity);

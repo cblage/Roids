@@ -56,6 +56,7 @@
 		571ECACB0DECBAF9007AE794 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571ECACA0DECBAF9007AE794 /* GLUT.framework */; };
 		571ECB750DECC11E007AE794 /* ParticleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 571ECB740DECC11E007AE794 /* ParticleManager.cpp */; };
 		571ECBAC0DECC382007AE794 /* config.ini in Resources */ = {isa = PBXBuildFile; fileRef = 571ECBAB0DECC382007AE794 /* config.ini */; };
+		57D3747F0DED15F7002C0837 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D3747E0DED15F7002C0837 /* CoreFoundation.framework */; };
 		8D0C4E8D0486CD37000505A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0867D6AAFE840B52C02AAC07 /* InfoPlist.strings */; };
 		8D0C4E8E0486CD37000505A6 /* main.nib in Resources */ = {isa = PBXBuildFile; fileRef = 02345980000FD03B11CA0E72 /* main.nib */; };
 /* End PBXBuildFile section */
@@ -184,6 +185,7 @@
 		571ECACA0DECBAF9007AE794 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = /System/Library/Frameworks/GLUT.framework; sourceTree = "<absolute>"; };
 		571ECB740DECC11E007AE794 /* ParticleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleManager.cpp; sourceTree = "<group>"; };
 		571ECBAB0DECC382007AE794 /* config.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.ini; sourceTree = "<group>"; };
+		57D3747E0DED15F7002C0837 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
 		8D0C4E960486CD37000505A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,6 +196,7 @@
 			files = (
 				571ECAC70DECBAEA007AE794 /* OpenGL.framework in Frameworks */,
 				571ECACB0DECBAF9007AE794 /* GLUT.framework in Frameworks */,
+				57D3747F0DED15F7002C0837 /* CoreFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +307,7 @@
 		20286C32FDCF999611CA2CEA /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				57D3747E0DED15F7002C0837 /* CoreFoundation.framework */,
 				571ECACA0DECBAF9007AE794 /* GLUT.framework */,
 				571ECAC60DECBAEA007AE794 /* OpenGL.framework */,
 			);
@@ -541,9 +545,10 @@
 			baseConfigurationReference = 5048396D09E3307300765E4B /* asteroidsOSXProj.xcconfig */;
 			buildSettings = {
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_SYMBOL_SEPARATION = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
-				ZERO_LINK = YES;
+				ZERO_LINK = NO;
 			};
 			name = Debug;
 		};
@@ -555,6 +560,7 @@
 					ppc,
 					i386,
 				);
+				GCC_ENABLE_SYMBOL_SEPARATION = NO;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
 				SEPARATE_STRIP = YES;
 			};

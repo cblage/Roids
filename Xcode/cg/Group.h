@@ -28,7 +28,6 @@
 #include "Entity.h"
 
 #define FOR_EACH_ENTITY(COMMAND,INTERFACE)\
-	//std::vector<Entity*>* entities = getEntities();\
 	std::vector<Entity*>::iterator iend = end();\
 	for (std::vector<Entity*>::iterator i = begin(); i != iend; i++) {\
 		if((*i)->state.isEnabled()) {\

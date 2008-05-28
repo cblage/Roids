@@ -1,0 +1,1 @@
+(EXCEPTION) [cg::Properties] property 'RADAR_SIZE' already exists.

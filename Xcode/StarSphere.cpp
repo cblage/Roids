@@ -155,7 +155,7 @@ namespace asteroids {
 
 			}
 			glPopMatrix();
-			glFlush();
+			//glFlush();
 		}
     }
 	double StarSphere::randomBetween(double min, double max) {

@@ -56,6 +56,9 @@ namespace asteroids {
 
 			glTranslated(position[0], position[1], 0);
 			glColor4d(_color[0], _color[1], _color[2], _alpha);
+			/*glBegin(GL_POINTS);
+			glVertex3d(0, 0, 0);
+			glEnd();*/
 			glutSolidSphere(_radius*0.5, 3, 3);
 			glRotated(getRotation(true), 0, 0, 1);
 		
@@ -66,7 +69,7 @@ namespace asteroids {
 		}
 		glPopMatrix();
 
-		glFlush();
+		//glFlush();
 
 		/*cg::Vector2d position = getPosition();
 		glPushMatrix();

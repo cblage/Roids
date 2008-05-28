@@ -192,7 +192,7 @@ namespace asteroids {
 			glEnd();
 		}
 		glPopMatrix();
-		glFlush();
+		//glFlush();
 
 		//cg::Vector2d position = getPosition();
 		/*glPushMatrix();

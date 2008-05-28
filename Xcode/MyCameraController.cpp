@@ -41,6 +41,7 @@ namespace asteroids {
 		}*/
 	}
 	void MyCameraController::onSpecialKeyPressed(int key) {
+		/*
 		switch (key)
 		{
 		case GLUT_KEY_LEFT:
@@ -60,9 +61,10 @@ namespace asteroids {
 			break;
 		default:
 			return;
-		}
+		}*/
 	}	
 	void MyCameraController::onSpecialKeyReleased(int key) {
+		/*
 		switch (key)
 		{
 		case GLUT_KEY_F1:
@@ -82,7 +84,7 @@ namespace asteroids {
 			break;
 		default:
 			return;
-		}
+		}*/
 	}
 
 }

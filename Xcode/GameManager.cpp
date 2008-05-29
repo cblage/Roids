@@ -8,7 +8,7 @@ namespace asteroids {
 		_cooldownLeft = 0;
 		_cooldownPeriod = false;
 		_levelRunning = false;
-		_difficulty = cg::Properties::instance()->getInt("DIFFICULTY");
+		_difficulty = cg::Properties::instance()->getDouble("DIFFICULTY");
 	}
 	GameManager::~GameManager() {
 	}
@@ -110,7 +110,10 @@ namespace asteroids {
 		}
 		_asteroidsLeft = 0;
 		createShip();
-		createAsteroids((int)pow(log((double)_currentLevel*(_difficulty+1)+2),2));
+		double scale = 2*_difficulty*log10(_currentLevel*_difficulty+2);
+		double delta = _difficulty*log10(_currentLevel)/_currentLevel+0.5;
+		unsigned int asteroids = abs(2*_difficulty*log10(_currentLevel+1)+_currentLevel*0.1+0.5);
+		createAsteroids(asteroids, scale, delta);
 		_levelRunning = true;
 		_cooldownPeriod = false;
 	}

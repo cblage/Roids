@@ -58,8 +58,10 @@ namespace asteroids {
 		if(_invulTime > 0) {
 			if((_invulTime - elapsed_millis/1000.0)< 0) {
 				_invulTime = 0;
+				setCollisionRadius(_size[1]/2);
 			} else {
 				_invulTime-= elapsed_millis/1000.0;
+				setCollisionRadius(_size[1]*1.1);
 			}
 		}		
 	}

@@ -2,7 +2,7 @@
 
 namespace asteroids {
 	ExplosionManager::ExplosionManager(std::string id, MyApp *application) : ParticleManager(id), _application(application) {
-
+		_massDivider = cg::Properties::instance()->getDouble("DEBRIS_MASS_DIVIDER");
 	}
 	ExplosionManager::~ExplosionManager() {
 	}
@@ -19,13 +19,12 @@ namespace asteroids {
 		cg::Vector2d newPosition, velocity;
 		double rand, rand2;
 		rand = randomBetween(0, 3.14);
-		unsigned int numDebris = ceil(p->getMass()/50);
+		unsigned int numDebris = ceil(p->getMass()/_massDivider);
 		for(unsigned int i = 0; i < numDebris; i++) {
 			rand2 = randomBetween(0.1,7.0)/5.0;
  			angle = 2*(3.14)*i/numDebris+ rand + rand2;
-			x = cos(angle)*randomBetween(0.5,0.9)*p->getCollisionRadius();
-			y = sin(angle)*randomBetween(0.5,0.9)*p->getCollisionRadius();
-			
+			x = cos(angle)*randomBetween(0.5,0.9)*p->getCollisionRadius()*0.8;
+			y = sin(angle)*randomBetween(0.5,0.9)*p->getCollisionRadius()*0.8;			
 			newPosition = p->getPosition() + cg::Vector2d(x,y);
 			velocity = normalize(cg::Vector2d(x,y))*randomBetween(50,200)+p->getVelocity(); 
 			createExplosionDebris(newPosition, velocity);
@@ -43,7 +42,7 @@ namespace asteroids {
 	}
 	
 	void ExplosionManager::clearExplosions() {
-			//make sure we have a clean slate - no new particles are going to be added
+		///make sure we have a clean slate - no new particles are going to be added
 		//and we dont want duplicates in the deleted ones
 		_newParticles.clear();
 		_deletedParticles.clear();

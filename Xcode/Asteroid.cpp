@@ -26,6 +26,8 @@ namespace asteroids {
 		setHealth(getMass());
 		
 		_radarSize = cg::Properties::instance()->getDouble("RADAR_SIZE");
+		_radarAdvanced = cg::Properties::instance()->getInt("RADAR_ADVANCED");
+		
 		_invulSeconds = cg::Properties::instance()->getDouble("ASTEROID_INVUL_SECONDS");
 
 		cg::Vector3d t;
@@ -55,13 +57,13 @@ namespace asteroids {
 	void Asteroid::update(unsigned long elapsed_millis) {
 		if(isDestroyed() == true)
 			return;
-		
-		if((_invulSeconds - elapsed_millis/1000.0)< 0) {
-			_invulSeconds = 0;
-		} else {
-			_invulSeconds -= elapsed_millis/1000.0;
+		if(_invulSeconds > 0) {			
+			if((_invulSeconds - elapsed_millis/1000.0)< 0) {
+				_invulSeconds = 0;
+			} else {
+				_invulSeconds -= elapsed_millis/1000.0;
+			}
 		}
-
 		PhysicsObject::update(elapsed_millis);
 		checkCollisions(elapsed_millis);
 
@@ -252,8 +254,31 @@ namespace asteroids {
 		cg::Vector2d position = getPosition();
 		cg::Vector2d windowSize = cg::Vector2d(win.width, win.height);
 		cg::Vector2d relativePosition = position / windowSize;
+		
+		if(_radarAdvanced == 1) {
+			cg::Vector3d tip = cg::Vector3d(_size[0], 0, 0)/2.0;
+			cg::Vector3d leftCorner = cg::Vector3d(-_size[0], -_size[1], 0)/2.0;
+			cg::Vector3d rightCorner = cg::Vector3d(-_size[0], _size[1], 0)/2.0;
+			glPushMatrix();
+			{
+				glTranslated(win.width-win.width/_radarSize +  relativePosition[0]*win.width/_radarSize, relativePosition[1]*win.height/_radarSize, 0);
+				glRotated(getRotation(true), 0, 0, 1);
+				glScaled(1/_radarSize, 1/_radarSize, 1/_radarSize);
+				glColor3d(0.4,0.7,0.9);
+				glBegin(GL_LINE_LOOP);
+				{
+					for (std::vector<cg::Vector3d>::iterator p = _asteroid_vector.begin( );p != _asteroid_vector.end( ); ++p) {
+						glVertex3f((*p)[0],(*p)[1],(*p)[2]);
+					}
+				}
+				glEnd();
+			}
+			glPopMatrix();
+		} else {
+			cg::Util::instance()->drawStrokeString("@", win.width-win.width/_radarSize +  relativePosition[0]*win.width/_radarSize , relativePosition[1]*win.height/_radarSize,0.0075*_scaleFactor*_baseAsteroidSize,false,2,0.4,0.7,0.9,1);
+		}		
+		
 
-		cg::Util::instance()->drawStrokeString("@", win.width-win.width/_radarSize +  relativePosition[0]*win.width/_radarSize , relativePosition[1]*win.height/_radarSize,0.0075*_scaleFactor*_baseAsteroidSize,false,2,0.4,0.7,0.9,1);
 		if(lightingEnabled == GL_TRUE) glEnable(GL_LIGHTING);
 	}
 }

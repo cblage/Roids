@@ -24,7 +24,7 @@ namespace asteroids {
 		std::vector<cg::Vector3d> _asteroid_vector, _asteroid_vector2;
 		cg::Vector2d _size;
 		double _scaleFactor, _radius, _invulSeconds, _baseAsteroidSize, _baseAsteroidMass;
-		double _radarSize;
+		double _radarSize, _radarAdvanced;
 
 
 		

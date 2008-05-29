@@ -32,6 +32,7 @@ namespace asteroids {
 		int _charlesBronsonStyle, _maxCharlesBronsonStyle;
 		ShipController * _controller;
 		double _radarSize;
+		int _radarAdvanced;
 		double _invulTime, _invulTimeMax;
 	public:
 		SpaceShip(std::string id, ParticleManager *  particleManager);

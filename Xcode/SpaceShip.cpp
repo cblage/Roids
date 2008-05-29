@@ -18,6 +18,7 @@ namespace asteroids {
 	void SpaceShip::init() {
 		// Read from property file
 		_radarSize = cg::Properties::instance()->getDouble("RADAR_SIZE");
+		_radarAdvanced = cg::Properties::instance()->getInt("RADAR_ADVANCED");
 		
 		_invulTimeMax = cg::Properties::instance()->getDouble("SHIP_RESPAWN_INVUL");
 		_invulTime = _invulTimeMax;
@@ -84,7 +85,30 @@ namespace asteroids {
 		glColor3d(0.4,0.7,0.9);
 		cg::Util::instance()->drawBitmapString(health.str(),position[0]-18,position[1]-25);
 		cg::Util::instance()->drawBitmapString(ammo.str(),position[0]-18,position[1]-35);
-		cg::Util::instance()->drawStrokeString("S", win.width-win.width/_radarSize +  relativePosition[0]*win.width/_radarSize , relativePosition[1]*win.height/_radarSize,0.1,false,2,0.1,0.9,0.4,1);
+		if(_radarAdvanced == 1) {
+			cg::Vector3d tip = cg::Vector3d(_size[0], 0, 0)/2.0;
+			cg::Vector3d leftCorner = cg::Vector3d(-_size[0], -_size[1], 0)/2.0;
+			cg::Vector3d rightCorner = cg::Vector3d(-_size[0], _size[1], 0)/2.0;
+			glColor3d(1-getHealth(true)/100,getHealth(true)/100-0.1,0.2);		
+
+			glPushMatrix();
+			{
+				glTranslated(win.width-win.width/_radarSize +  relativePosition[0]*win.width/_radarSize, relativePosition[1]*win.height/_radarSize, 0);
+				glRotated(getRotation(true), 0, 0, 1);
+				glScaled(1.5/_radarSize, 1.5/_radarSize, 1.5/_radarSize);
+				glBegin(GL_TRIANGLES); 
+				{
+					glVertex3d(tip[0], tip[1], tip[2]);			
+					glVertex3d(leftCorner[0], leftCorner[1], leftCorner[2]);			
+					glVertex3d(rightCorner[0], rightCorner[1], rightCorner[2]);	
+				}
+				glEnd();
+			}
+			glPopMatrix();
+		} else {
+			cg::Util::instance()->drawStrokeString("S", win.width-win.width/_radarSize +  relativePosition[0]*win.width/_radarSize , relativePosition[1]*win.height/_radarSize,0.1,false,2,0.1,0.9,0.4,1);
+		}
+		
 
 		if(lightingEnabled == GL_TRUE) glEnable(GL_LIGHTING);
 	}
@@ -184,7 +208,7 @@ namespace asteroids {
 			glEnd();
 
 			//bottom
-			glBegin(GL_POLYGON);
+			glBegin(GL_QUADS);
 			{
 				//glColor3d(0,1, 1);
 				normal = normalize(topLeftCorner);

@@ -13,9 +13,9 @@ namespace asteroids {
 		if (key == 'h') {
 			_ship->hyperAccelerate();
 		} else if (key == 'a') {
-			_ship->startRotation(540);
+			_ship->startRotation(360);
 		} else if (key == 'd') {
-			_ship->startRotation(-540);
+			_ship->startRotation(-360);
 		} else if (key == 's') {
 			_ship->startAcceleration(-250000, true);
 		} else if (key == 'w') {

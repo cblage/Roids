@@ -246,6 +246,9 @@ namespace asteroids {
 	}
 
 	void Asteroid::drawOverlay() {
+		if(isDestroyed() == true)
+			return;		
+
 		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
 		GLboolean lightingEnabled;
 		lightingEnabled = glIsEnabled(GL_LIGHTING);

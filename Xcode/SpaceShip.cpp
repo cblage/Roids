@@ -68,6 +68,9 @@ namespace asteroids {
 	}
 	
 	void SpaceShip::drawOverlay() {
+		if(isDestroyed() == true)
+			return;		
+
 		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
 		GLboolean lightingEnabled;
 		lightingEnabled = glIsEnabled(GL_LIGHTING);
@@ -89,13 +92,12 @@ namespace asteroids {
 			cg::Vector3d tip = cg::Vector3d(_size[0], 0, 0)/2.0;
 			cg::Vector3d leftCorner = cg::Vector3d(-_size[0], -_size[1], 0)/2.0;
 			cg::Vector3d rightCorner = cg::Vector3d(-_size[0], _size[1], 0)/2.0;
-			glColor3d(1-getHealth(true)/100,getHealth(true)/100-0.1,0.2);		
-
 			glPushMatrix();
 			{
 				glTranslated(win.width-win.width/_radarSize +  relativePosition[0]*win.width/_radarSize, relativePosition[1]*win.height/_radarSize, 0);
 				glRotated(getRotation(true), 0, 0, 1);
 				glScaled(1.5/_radarSize, 1.5/_radarSize, 1.5/_radarSize);
+				glColor3d(0.4,0.7,0.9);
 				glBegin(GL_TRIANGLES); 
 				{
 					glVertex3d(tip[0], tip[1], tip[2]);			
@@ -114,6 +116,9 @@ namespace asteroids {
 	}
 
 	void SpaceShip::draw() {
+		if(isDestroyed() == true)
+			return;		
+
 		cg::Vector3d tip = cg::Vector3d(_size[0], 0, 0)/2.0;
 		cg::Vector3d backTip = cg::Vector3d(-_size[0], 0, 0) / 1.5;
 		cg::Vector3d topLeftCorner = cg::Vector3d(-_size[0], -_size[1], _size[1])/2.0;

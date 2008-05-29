@@ -5,6 +5,7 @@ namespace asteroids {
 	SINGLETON_IMPLEMENTATION(EndOfLevelState)
 	
 	void EndOfLevelState::enter() {
+		_timeLeft = cg::Properties::instance()->getDouble("POS_COOLDOWN_TIME");
 		_screen = new Screen("EndOfLevelScreen");
 		_screen->init();
 		std::ostringstream os;
@@ -38,6 +39,13 @@ namespace asteroids {
 
 	void EndOfLevelState::onUpdate() {
 		_application->resetTime();
+	}
+	
+	void EndOfLevelState::update(unsigned long elapsed_millis) {
+		_timeLeft -= elapsed_millis/1000.0;
+		if(_timeLeft < 0) {
+			BeforeLevelState::instance()->changeTo(_application);
+		}
 	}
 
 	std::string EndOfLevelState::getName(void) {

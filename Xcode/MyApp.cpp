@@ -69,5 +69,6 @@ namespace asteroids {
 	}
 	void MyApp::resetTime() {
 		updateFrameTime();
+		_state->update(_time.elapsed);
 	}
 }

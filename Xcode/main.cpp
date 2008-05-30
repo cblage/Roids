@@ -21,6 +21,6 @@ int main(int argc, char** argv) {
 	chdir(path);
 #endif
 	srand(time(0));
-	cg::Manager::instance()->runApp(new asteroids::MyApp(),60,argc,argv);
+	cg::Manager::instance()->runApp(new asteroids::MyApp(), 60,argc,argv);
 	return 0;
 }

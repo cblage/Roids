@@ -39,19 +39,44 @@ namespace asteroids {
 	}
 
 	void StarSphere::draw() {
-		glPushAttrib(GL_LIGHTING_BIT | GL_POINT_SMOOTH);
+		glPushAttrib(GL_LIGHTING_BIT);
 		glDisable(GL_LIGHTING);
 		glEnableClientState(GL_VERTEX_ARRAY);
+		glPointSize(1.1);
 		glPushMatrix(); 
 		{
-			//glEnable(GL_POINT_SMOOTH);
-			glPointSize(1.1);
 			glTranslated(_winWidth/2, _winHeight/2, 0);
 			glVertexPointer(3, GL_DOUBLE, 0, &_stars[0]);
 			glColor3d(1, 1, 1);
 			glDrawArrays(GL_POINTS, 0, _stars.size());
+			
+			glPushAttrib(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+			glPushMatrix(); 
+			{
+				glEnable(GL_BLEND); 
+				glDisable(GL_DEPTH_TEST); 
+				glBlendFunc(GL_SRC_ALPHA,GL_ONE); 
+				
+				glColor4d(1, 1, 1, 0.1);
+				for(int i = 0; i < 4; i++) { 
+					glPushMatrix();  
+					{ 
+						double x, y, angle; 
+						angle = 2 * 3.14 * i / 4; 
+						x = cos(angle); 
+						y = sin(angle); 
+						glTranslated(x, y, 0); 
+						glDrawArrays(GL_POINTS, 0, _stars.size());
+					} 
+					glPopMatrix(); 
+				}
+			}
+			glPopMatrix();
+			glPopAttrib();
 		}
 		glPopMatrix();	
+		
+		
 		glDisableClientState(GL_VERTEX_ARRAY);
 		glPopAttrib();
     }

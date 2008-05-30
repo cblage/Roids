@@ -27,6 +27,9 @@ namespace asteroids {
 		double _radarSize;
 		double _cooldownTime, _cooldownLeft;
 		double _difficulty;
+		double _frameRate;
+		bool _showFrameRate;
+		double _frameRateAccul, _maxFrameRateAccul, _frameRateAcculDivider;
 
 	public:
 		GameManager(std::string id, MyApp *application);

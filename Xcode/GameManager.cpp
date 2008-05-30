@@ -122,7 +122,7 @@ namespace asteroids {
 		}
 		_asteroidsLeft = 0;
 		createShip();
-		double scale = 2*_difficulty*log10((_currentLevel%10+1)*_difficulty+2) + 1.2*pow(_difficulty*int(_currentLevel/10), 2);
+		double scale = 2*_difficulty*log10((_currentLevel%10+1)*_difficulty+2) + 1.2*pow(_difficulty*_currentLevel/10, 2);
 		double delta = _difficulty*log10((_currentLevel%10+1))/(_currentLevel%10+1)+0.5;
 		unsigned int asteroids = abs(2*_difficulty*log10((_currentLevel%10+1)+1)+(_currentLevel%10+1)*0.1+0.5);
 		createAsteroids(asteroids, scale, delta);
@@ -190,7 +190,7 @@ namespace asteroids {
 		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
 		glPushMatrix();
 		{
-			glColor4d(0.9, 0, 0, 0.1);
+			glColor4d(0.9, 0, 0, 0.3);
 			glBegin(GL_QUADS);
 			{
 				glVertex3d(win.width-win.width/_radarSize, 0, 0);

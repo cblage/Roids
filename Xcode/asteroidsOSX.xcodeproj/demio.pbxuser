@@ -23,6 +23,10 @@
 			57B7CB4D0DEDB5DA00CEE73C /* MyCameraController.cpp:26 */,
 			57B7CC830DEDCEE700CEE73C /* Asteroid.cpp:225 */,
 			57B7CDD50DEE0DE000CEE73C /* GameManager.cpp:123 */,
+			5705F47A0DF0681100B5BA26 /* GameManager.cpp:126 */,
+			5705F4800DF0682800B5BA26 /* GameManager.cpp:125 */,
+			5705F4820DF0682900B5BA26 /* GameManager.cpp:124 */,
+			5705F4E90DF06BB200B5BA26 /* GameManager.cpp:127 */,
 		);
 		codeSenseManager = 571EC95F0DECB7FA007AE794 /* Code sense */;
 		executables = (
@@ -405,6 +409,202 @@
 			5705F4650DF0667800B5BA26 /* PBXTextBookmark */ = 5705F4650DF0667800B5BA26 /* PBXTextBookmark */;
 			5705F4660DF0670100B5BA26 /* PBXTextBookmark */ = 5705F4660DF0670100B5BA26 /* PBXTextBookmark */;
 			5705F4670DF0670100B5BA26 /* PBXTextBookmark */ = 5705F4670DF0670100B5BA26 /* PBXTextBookmark */;
+			5705F4690DF0675100B5BA26 /* PBXTextBookmark */ = 5705F4690DF0675100B5BA26 /* PBXTextBookmark */;
+			5705F46A0DF0675100B5BA26 /* PBXTextBookmark */ = 5705F46A0DF0675100B5BA26 /* PBXTextBookmark */;
+			5705F46B0DF0675100B5BA26 /* PBXTextBookmark */ = 5705F46B0DF0675100B5BA26 /* PBXTextBookmark */;
+			5705F46C0DF0675100B5BA26 /* PBXTextBookmark */ = 5705F46C0DF0675100B5BA26 /* PBXTextBookmark */;
+			5705F46E0DF0677C00B5BA26 /* PBXTextBookmark */ = 5705F46E0DF0677C00B5BA26 /* PBXTextBookmark */;
+			5705F46F0DF0677C00B5BA26 /* PBXTextBookmark */ = 5705F46F0DF0677C00B5BA26 /* PBXTextBookmark */;
+			5705F4710DF0678700B5BA26 /* PBXTextBookmark */ = 5705F4710DF0678700B5BA26 /* PBXTextBookmark */;
+			5705F4720DF0678700B5BA26 /* PBXTextBookmark */ = 5705F4720DF0678700B5BA26 /* PBXTextBookmark */;
+			5705F4740DF067E700B5BA26 /* PBXTextBookmark */ = 5705F4740DF067E700B5BA26 /* PBXTextBookmark */;
+			5705F4750DF067E700B5BA26 /* PBXTextBookmark */ = 5705F4750DF067E700B5BA26 /* PBXTextBookmark */;
+			5705F4770DF0680200B5BA26 /* PBXTextBookmark */ = 5705F4770DF0680200B5BA26 /* PBXTextBookmark */;
+			5705F4780DF0680200B5BA26 /* PBXTextBookmark */ = 5705F4780DF0680200B5BA26 /* PBXTextBookmark */;
+			5705F47C0DF0681400B5BA26 /* PBXTextBookmark */ = 5705F47C0DF0681400B5BA26 /* PBXTextBookmark */;
+			5705F47D0DF0681400B5BA26 /* PBXTextBookmark */ = 5705F47D0DF0681400B5BA26 /* PBXTextBookmark */;
+			5705F4830DF0682A00B5BA26 /* PBXTextBookmark */ = 5705F4830DF0682A00B5BA26 /* PBXTextBookmark */;
+			5705F4840DF0682A00B5BA26 /* PBXTextBookmark */ = 5705F4840DF0682A00B5BA26 /* PBXTextBookmark */;
+			5705F4890DF0688D00B5BA26 /* PBXTextBookmark */ = 5705F4890DF0688D00B5BA26 /* PBXTextBookmark */;
+			5705F48A0DF0688D00B5BA26 /* PBXTextBookmark */ = 5705F48A0DF0688D00B5BA26 /* PBXTextBookmark */;
+			5705F48C0DF0689300B5BA26 /* PBXTextBookmark */ = 5705F48C0DF0689300B5BA26 /* PBXTextBookmark */;
+			5705F48D0DF0689300B5BA26 /* PBXTextBookmark */ = 5705F48D0DF0689300B5BA26 /* PBXTextBookmark */;
+			5705F48F0DF068AA00B5BA26 /* PBXTextBookmark */ = 5705F48F0DF068AA00B5BA26 /* PBXTextBookmark */;
+			5705F4900DF068AA00B5BA26 /* PBXTextBookmark */ = 5705F4900DF068AA00B5BA26 /* PBXTextBookmark */;
+			5705F4920DF068D400B5BA26 /* PBXTextBookmark */ = 5705F4920DF068D400B5BA26 /* PBXTextBookmark */;
+			5705F4930DF068D400B5BA26 /* PBXTextBookmark */ = 5705F4930DF068D400B5BA26 /* PBXTextBookmark */;
+			5705F4950DF0690A00B5BA26 /* PBXTextBookmark */ = 5705F4950DF0690A00B5BA26 /* PBXTextBookmark */;
+			5705F4960DF0690A00B5BA26 /* PBXTextBookmark */ = 5705F4960DF0690A00B5BA26 /* PBXTextBookmark */;
+			5705F4970DF0690A00B5BA26 /* PBXTextBookmark */ = 5705F4970DF0690A00B5BA26 /* PBXTextBookmark */;
+			5705F4980DF0690A00B5BA26 /* PBXTextBookmark */ = 5705F4980DF0690A00B5BA26 /* PBXTextBookmark */;
+			5705F49A0DF0693900B5BA26 /* PBXTextBookmark */ = 5705F49A0DF0693900B5BA26 /* PBXTextBookmark */;
+			5705F49B0DF0693900B5BA26 /* PBXTextBookmark */ = 5705F49B0DF0693900B5BA26 /* PBXTextBookmark */;
+			5705F49C0DF0693900B5BA26 /* PBXTextBookmark */ = 5705F49C0DF0693900B5BA26 /* PBXTextBookmark */;
+			5705F49D0DF0693900B5BA26 /* PBXTextBookmark */ = 5705F49D0DF0693900B5BA26 /* PBXTextBookmark */;
+			5705F49F0DF0695800B5BA26 /* PBXTextBookmark */ = 5705F49F0DF0695800B5BA26 /* PBXTextBookmark */;
+			5705F4A00DF0695800B5BA26 /* PBXTextBookmark */ = 5705F4A00DF0695800B5BA26 /* PBXTextBookmark */;
+			5705F4A20DF0697900B5BA26 /* PBXTextBookmark */ = 5705F4A20DF0697900B5BA26 /* PBXTextBookmark */;
+			5705F4A30DF0697900B5BA26 /* PBXTextBookmark */ = 5705F4A30DF0697900B5BA26 /* PBXTextBookmark */;
+			5705F4A40DF0699A00B5BA26 /* PBXTextBookmark */ = 5705F4A40DF0699A00B5BA26 /* PBXTextBookmark */;
+			5705F4A50DF0699A00B5BA26 /* PBXTextBookmark */ = 5705F4A50DF0699A00B5BA26 /* PBXTextBookmark */;
+			5705F4A80DF069F200B5BA26 /* PBXTextBookmark */ = 5705F4A80DF069F200B5BA26 /* PBXTextBookmark */;
+			5705F4A90DF069F200B5BA26 /* PBXTextBookmark */ = 5705F4A90DF069F200B5BA26 /* PBXTextBookmark */;
+			5705F4AB0DF069F200B5BA26 /* PBXTextBookmark */ = 5705F4AB0DF069F200B5BA26 /* PBXTextBookmark */;
+			5705F4AC0DF069F200B5BA26 /* PBXTextBookmark */ = 5705F4AC0DF069F200B5BA26 /* PBXTextBookmark */;
+			5705F4AD0DF069F200B5BA26 /* PBXTextBookmark */ = 5705F4AD0DF069F200B5BA26 /* PBXTextBookmark */;
+			5705F4AF0DF069F200B5BA26 /* PBXTextBookmark */ = 5705F4AF0DF069F200B5BA26 /* PBXTextBookmark */;
+			5705F4B10DF06A1500B5BA26 /* PBXTextBookmark */ = 5705F4B10DF06A1500B5BA26 /* PBXTextBookmark */;
+			5705F4B20DF06A1500B5BA26 /* PBXTextBookmark */ = 5705F4B20DF06A1500B5BA26 /* PBXTextBookmark */;
+			5705F4B30DF06A3000B5BA26 /* PBXTextBookmark */ = 5705F4B30DF06A3000B5BA26 /* PBXTextBookmark */;
+			5705F4B40DF06A3000B5BA26 /* PBXTextBookmark */ = 5705F4B40DF06A3000B5BA26 /* PBXTextBookmark */;
+			5705F4B60DF06A7100B5BA26 /* PBXTextBookmark */ = 5705F4B60DF06A7100B5BA26 /* PBXTextBookmark */;
+			5705F4B70DF06A7100B5BA26 /* PBXTextBookmark */ = 5705F4B70DF06A7100B5BA26 /* PBXTextBookmark */;
+			5705F4B90DF06A8A00B5BA26 /* PBXTextBookmark */ = 5705F4B90DF06A8A00B5BA26 /* PBXTextBookmark */;
+			5705F4BA0DF06A8A00B5BA26 /* PBXTextBookmark */ = 5705F4BA0DF06A8A00B5BA26 /* PBXTextBookmark */;
+			5705F4BB0DF06A8A00B5BA26 /* PBXTextBookmark */ = 5705F4BB0DF06A8A00B5BA26 /* PBXTextBookmark */;
+			5705F4BC0DF06A8A00B5BA26 /* PBXTextBookmark */ = 5705F4BC0DF06A8A00B5BA26 /* PBXTextBookmark */;
+			5705F4BE0DF06ACF00B5BA26 /* PBXTextBookmark */ = 5705F4BE0DF06ACF00B5BA26 /* PBXTextBookmark */;
+			5705F4BF0DF06ACF00B5BA26 /* PBXTextBookmark */ = 5705F4BF0DF06ACF00B5BA26 /* PBXTextBookmark */;
+			5705F4C00DF06ACF00B5BA26 /* PBXTextBookmark */ = 5705F4C00DF06ACF00B5BA26 /* PBXTextBookmark */;
+			5705F4C10DF06ACF00B5BA26 /* PBXTextBookmark */ = 5705F4C10DF06ACF00B5BA26 /* PBXTextBookmark */;
+			5705F4C20DF06ACF00B5BA26 /* PBXTextBookmark */ = 5705F4C20DF06ACF00B5BA26 /* PBXTextBookmark */;
+			5705F4C30DF06ACF00B5BA26 /* PBXTextBookmark */ = 5705F4C30DF06ACF00B5BA26 /* PBXTextBookmark */;
+			5705F4C50DF06AEC00B5BA26 /* PBXTextBookmark */ = 5705F4C50DF06AEC00B5BA26 /* PBXTextBookmark */;
+			5705F4C60DF06AEC00B5BA26 /* PBXTextBookmark */ = 5705F4C60DF06AEC00B5BA26 /* PBXTextBookmark */;
+			5705F4C70DF06AEC00B5BA26 /* PBXTextBookmark */ = 5705F4C70DF06AEC00B5BA26 /* PBXTextBookmark */;
+			5705F4C80DF06AEC00B5BA26 /* PBXTextBookmark */ = 5705F4C80DF06AEC00B5BA26 /* PBXTextBookmark */;
+			5705F4CB0DF06B0500B5BA26 /* PBXTextBookmark */ = 5705F4CB0DF06B0500B5BA26 /* PBXTextBookmark */;
+			5705F4CC0DF06B0500B5BA26 /* PBXTextBookmark */ = 5705F4CC0DF06B0500B5BA26 /* PBXTextBookmark */;
+			5705F4CD0DF06B0500B5BA26 /* PBXTextBookmark */ = 5705F4CD0DF06B0500B5BA26 /* PBXTextBookmark */;
+			5705F4CE0DF06B0500B5BA26 /* PBXTextBookmark */ = 5705F4CE0DF06B0500B5BA26 /* PBXTextBookmark */;
+			5705F4D00DF06B2800B5BA26 /* PBXTextBookmark */ = 5705F4D00DF06B2800B5BA26 /* PBXTextBookmark */;
+			5705F4D10DF06B2800B5BA26 /* PBXTextBookmark */ = 5705F4D10DF06B2800B5BA26 /* PBXTextBookmark */;
+			5705F4D20DF06B2800B5BA26 /* PBXTextBookmark */ = 5705F4D20DF06B2800B5BA26 /* PBXTextBookmark */;
+			5705F4D30DF06B2800B5BA26 /* PBXTextBookmark */ = 5705F4D30DF06B2800B5BA26 /* PBXTextBookmark */;
+			5705F4D50DF06B4900B5BA26 /* PBXTextBookmark */ = 5705F4D50DF06B4900B5BA26 /* PBXTextBookmark */;
+			5705F4D60DF06B4900B5BA26 /* PBXTextBookmark */ = 5705F4D60DF06B4900B5BA26 /* PBXTextBookmark */;
+			5705F4D80DF06B5D00B5BA26 /* PBXTextBookmark */ = 5705F4D80DF06B5D00B5BA26 /* PBXTextBookmark */;
+			5705F4D90DF06B5D00B5BA26 /* PBXTextBookmark */ = 5705F4D90DF06B5D00B5BA26 /* PBXTextBookmark */;
+			5705F4DA0DF06B5D00B5BA26 /* PBXTextBookmark */ = 5705F4DA0DF06B5D00B5BA26 /* PBXTextBookmark */;
+			5705F4DB0DF06B5D00B5BA26 /* PBXTextBookmark */ = 5705F4DB0DF06B5D00B5BA26 /* PBXTextBookmark */;
+			5705F4DD0DF06B7700B5BA26 /* PBXTextBookmark */ = 5705F4DD0DF06B7700B5BA26 /* PBXTextBookmark */;
+			5705F4DE0DF06B7700B5BA26 /* PBXTextBookmark */ = 5705F4DE0DF06B7700B5BA26 /* PBXTextBookmark */;
+			5705F4E00DF06B8D00B5BA26 /* PBXTextBookmark */ = 5705F4E00DF06B8D00B5BA26 /* PBXTextBookmark */;
+			5705F4E10DF06B8D00B5BA26 /* PBXTextBookmark */ = 5705F4E10DF06B8D00B5BA26 /* PBXTextBookmark */;
+			5705F4E20DF06B8D00B5BA26 /* PBXTextBookmark */ = 5705F4E20DF06B8D00B5BA26 /* PBXTextBookmark */;
+			5705F4E30DF06B8D00B5BA26 /* PBXTextBookmark */ = 5705F4E30DF06B8D00B5BA26 /* PBXTextBookmark */;
+			5705F4E50DF06BA000B5BA26 /* PBXTextBookmark */ = 5705F4E50DF06BA000B5BA26 /* PBXTextBookmark */;
+			5705F4E60DF06BA000B5BA26 /* PBXTextBookmark */ = 5705F4E60DF06BA000B5BA26 /* PBXTextBookmark */;
+			5705F4EA0DF06BB400B5BA26 /* PBXTextBookmark */ = 5705F4EA0DF06BB400B5BA26 /* PBXTextBookmark */;
+			5705F4EB0DF06BB400B5BA26 /* PBXTextBookmark */ = 5705F4EB0DF06BB400B5BA26 /* PBXTextBookmark */;
+			5705F4ED0DF06C0A00B5BA26 /* PBXTextBookmark */ = 5705F4ED0DF06C0A00B5BA26 /* PBXTextBookmark */;
+			5705F4EE0DF06C0A00B5BA26 /* PBXTextBookmark */ = 5705F4EE0DF06C0A00B5BA26 /* PBXTextBookmark */;
+			5705F4F00DF06C1700B5BA26 /* PBXTextBookmark */ = 5705F4F00DF06C1700B5BA26 /* PBXTextBookmark */;
+			5705F4F10DF06C1700B5BA26 /* PBXTextBookmark */ = 5705F4F10DF06C1700B5BA26 /* PBXTextBookmark */;
+			5705F4F20DF06C1700B5BA26 /* PBXTextBookmark */ = 5705F4F20DF06C1700B5BA26 /* PBXTextBookmark */;
+			5705F4F30DF06C1700B5BA26 /* PBXTextBookmark */ = 5705F4F30DF06C1700B5BA26 /* PBXTextBookmark */;
+			5705F4F50DF06C5000B5BA26 /* PBXTextBookmark */ = 5705F4F50DF06C5000B5BA26 /* PBXTextBookmark */;
+			5705F4F60DF06C5000B5BA26 /* PBXTextBookmark */ = 5705F4F60DF06C5000B5BA26 /* PBXTextBookmark */;
+			5705F4F70DF06C5000B5BA26 /* PBXTextBookmark */ = 5705F4F70DF06C5000B5BA26 /* PBXTextBookmark */;
+			5705F4F80DF06C5000B5BA26 /* PBXTextBookmark */ = 5705F4F80DF06C5000B5BA26 /* PBXTextBookmark */;
+			5705F4F90DF06C5000B5BA26 /* PBXTextBookmark */ = 5705F4F90DF06C5000B5BA26 /* PBXTextBookmark */;
+			5705F4FA0DF06C5000B5BA26 /* PBXTextBookmark */ = 5705F4FA0DF06C5000B5BA26 /* PBXTextBookmark */;
+			5705F4FC0DF06C6100B5BA26 /* PBXTextBookmark */ = 5705F4FC0DF06C6100B5BA26 /* PBXTextBookmark */;
+			5705F4FD0DF06C6100B5BA26 /* PBXTextBookmark */ = 5705F4FD0DF06C6100B5BA26 /* PBXTextBookmark */;
+			5705F5000DF06C7100B5BA26 /* PBXTextBookmark */ = 5705F5000DF06C7100B5BA26 /* PBXTextBookmark */;
+			5705F5010DF06C7100B5BA26 /* PBXTextBookmark */ = 5705F5010DF06C7100B5BA26 /* PBXTextBookmark */;
+			5705F5030DF06C8D00B5BA26 /* PBXTextBookmark */ = 5705F5030DF06C8D00B5BA26 /* PBXTextBookmark */;
+			5705F5040DF06C8D00B5BA26 /* PBXTextBookmark */ = 5705F5040DF06C8D00B5BA26 /* PBXTextBookmark */;
+			5705F5060DF06C9E00B5BA26 /* PBXTextBookmark */ = 5705F5060DF06C9E00B5BA26 /* PBXTextBookmark */;
+			5705F5070DF06C9E00B5BA26 /* PBXTextBookmark */ = 5705F5070DF06C9E00B5BA26 /* PBXTextBookmark */;
+			5705F50B0DF06CDF00B5BA26 /* PBXTextBookmark */ = 5705F50B0DF06CDF00B5BA26 /* PBXTextBookmark */;
+			5705F50C0DF06CDF00B5BA26 /* PBXTextBookmark */ = 5705F50C0DF06CDF00B5BA26 /* PBXTextBookmark */;
+			5705F50D0DF06CDF00B5BA26 /* PBXTextBookmark */ = 5705F50D0DF06CDF00B5BA26 /* PBXTextBookmark */;
+			5705F50E0DF06CDF00B5BA26 /* PBXTextBookmark */ = 5705F50E0DF06CDF00B5BA26 /* PBXTextBookmark */;
+			5705F5100DF06CEE00B5BA26 /* PBXTextBookmark */ = 5705F5100DF06CEE00B5BA26 /* PBXTextBookmark */;
+			5705F5110DF06CEE00B5BA26 /* PBXTextBookmark */ = 5705F5110DF06CEE00B5BA26 /* PBXTextBookmark */;
+			5705F5130DF06CF500B5BA26 /* PBXTextBookmark */ = 5705F5130DF06CF500B5BA26 /* PBXTextBookmark */;
+			5705F5140DF06CF500B5BA26 /* PBXTextBookmark */ = 5705F5140DF06CF500B5BA26 /* PBXTextBookmark */;
+			5705F5160DF06CFD00B5BA26 /* PBXTextBookmark */ = 5705F5160DF06CFD00B5BA26 /* PBXTextBookmark */;
+			5705F5170DF06CFD00B5BA26 /* PBXTextBookmark */ = 5705F5170DF06CFD00B5BA26 /* PBXTextBookmark */;
+			5705F5190DF06D0E00B5BA26 /* PBXTextBookmark */ = 5705F5190DF06D0E00B5BA26 /* PBXTextBookmark */;
+			5705F51A0DF06D0E00B5BA26 /* PBXTextBookmark */ = 5705F51A0DF06D0E00B5BA26 /* PBXTextBookmark */;
+			5705F51B0DF06D0E00B5BA26 /* PBXTextBookmark */ = 5705F51B0DF06D0E00B5BA26 /* PBXTextBookmark */;
+			5705F51C0DF06D0E00B5BA26 /* PBXTextBookmark */ = 5705F51C0DF06D0E00B5BA26 /* PBXTextBookmark */;
+			5705F51E0DF06D2400B5BA26 /* PBXTextBookmark */ = 5705F51E0DF06D2400B5BA26 /* PBXTextBookmark */;
+			5705F51F0DF06D2400B5BA26 /* PBXTextBookmark */ = 5705F51F0DF06D2400B5BA26 /* PBXTextBookmark */;
+			5705F5200DF06D2400B5BA26 /* PBXTextBookmark */ = 5705F5200DF06D2400B5BA26 /* PBXTextBookmark */;
+			5705F5210DF06D2400B5BA26 /* PBXTextBookmark */ = 5705F5210DF06D2400B5BA26 /* PBXTextBookmark */;
+			5705F5230DF06D2B00B5BA26 /* PBXTextBookmark */ = 5705F5230DF06D2B00B5BA26 /* PBXTextBookmark */;
+			5705F5240DF06D2B00B5BA26 /* PBXTextBookmark */ = 5705F5240DF06D2B00B5BA26 /* PBXTextBookmark */;
+			5705F5270DF06D4000B5BA26 /* PBXTextBookmark */ = 5705F5270DF06D4000B5BA26 /* PBXTextBookmark */;
+			5705F5280DF06D4000B5BA26 /* PBXTextBookmark */ = 5705F5280DF06D4000B5BA26 /* PBXTextBookmark */;
+			5705F52A0DF06D5700B5BA26 /* PBXTextBookmark */ = 5705F52A0DF06D5700B5BA26 /* PBXTextBookmark */;
+			5705F52B0DF06D5700B5BA26 /* PBXTextBookmark */ = 5705F52B0DF06D5700B5BA26 /* PBXTextBookmark */;
+			5705F52C0DF06D5700B5BA26 /* PBXTextBookmark */ = 5705F52C0DF06D5700B5BA26 /* PBXTextBookmark */;
+			5705F52D0DF06D5700B5BA26 /* PBXTextBookmark */ = 5705F52D0DF06D5700B5BA26 /* PBXTextBookmark */;
+			5705F52F0DF06D7D00B5BA26 /* PBXTextBookmark */ = 5705F52F0DF06D7D00B5BA26 /* PBXTextBookmark */;
+			5705F5300DF06D7D00B5BA26 /* PBXTextBookmark */ = 5705F5300DF06D7D00B5BA26 /* PBXTextBookmark */;
+			5705F5310DF06D7D00B5BA26 /* PBXTextBookmark */ = 5705F5310DF06D7D00B5BA26 /* PBXTextBookmark */;
+			5705F5320DF06D7D00B5BA26 /* PBXTextBookmark */ = 5705F5320DF06D7D00B5BA26 /* PBXTextBookmark */;
+			5705F5330DF06D8C00B5BA26 /* PBXTextBookmark */ = 5705F5330DF06D8C00B5BA26 /* PBXTextBookmark */;
+			5705F5340DF06D8C00B5BA26 /* PBXTextBookmark */ = 5705F5340DF06D8C00B5BA26 /* PBXTextBookmark */;
+			5705F5380DF06DA600B5BA26 /* PBXTextBookmark */ = 5705F5380DF06DA600B5BA26 /* PBXTextBookmark */;
+			5705F5390DF06DA600B5BA26 /* PBXTextBookmark */ = 5705F5390DF06DA600B5BA26 /* PBXTextBookmark */;
+			5705F53A0DF06DA600B5BA26 /* PBXTextBookmark */ = 5705F53A0DF06DA600B5BA26 /* PBXTextBookmark */;
+			5705F53B0DF06DA600B5BA26 /* PBXTextBookmark */ = 5705F53B0DF06DA600B5BA26 /* PBXTextBookmark */;
+			5705F53C0DF06DA600B5BA26 /* PBXTextBookmark */ = 5705F53C0DF06DA600B5BA26 /* PBXTextBookmark */;
+			5705F53D0DF06DA600B5BA26 /* PBXTextBookmark */ = 5705F53D0DF06DA600B5BA26 /* PBXTextBookmark */;
+			5705F53E0DF06DA600B5BA26 /* PBXTextBookmark */ = 5705F53E0DF06DA600B5BA26 /* PBXTextBookmark */;
+			5705F53F0DF06DB300B5BA26 /* PBXBookmark */ = 5705F53F0DF06DB300B5BA26 /* PBXBookmark */;
+			5705F5420DF06DCD00B5BA26 /* PBXTextBookmark */ = 5705F5420DF06DCD00B5BA26 /* PBXTextBookmark */;
+			5705F5440DF06DCD00B5BA26 /* PBXTextBookmark */ = 5705F5440DF06DCD00B5BA26 /* PBXTextBookmark */;
+			5705F5450DF06DFE00B5BA26 /* PBXTextBookmark */ = 5705F5450DF06DFE00B5BA26 /* PBXTextBookmark */;
+			5705F5460DF06DFE00B5BA26 /* PBXTextBookmark */ = 5705F5460DF06DFE00B5BA26 /* PBXTextBookmark */;
+			5705F5480DF06E1400B5BA26 /* PBXTextBookmark */ = 5705F5480DF06E1400B5BA26 /* PBXTextBookmark */;
+			5705F5490DF06E1400B5BA26 /* PBXTextBookmark */ = 5705F5490DF06E1400B5BA26 /* PBXTextBookmark */;
+			5705F54A0DF06E2100B5BA26 /* PBXTextBookmark */ = 5705F54A0DF06E2100B5BA26 /* PBXTextBookmark */;
+			5705F54B0DF06E2100B5BA26 /* PBXTextBookmark */ = 5705F54B0DF06E2100B5BA26 /* PBXTextBookmark */;
+			5705F54E0DF06E2E00B5BA26 /* PBXBookmark */ = 5705F54E0DF06E2E00B5BA26 /* PBXBookmark */;
+			5705F5500DF06E3400B5BA26 /* PBXTextBookmark */ = 5705F5500DF06E3400B5BA26 /* PBXTextBookmark */;
+			5705F5510DF06E3500B5BA26 /* PBXTextBookmark */ = 5705F5510DF06E3500B5BA26 /* PBXTextBookmark */;
+			5705F5520DF06E3500B5BA26 /* PBXTextBookmark */ = 5705F5520DF06E3500B5BA26 /* PBXTextBookmark */;
+			5705F5530DF06E3500B5BA26 /* PBXTextBookmark */ = 5705F5530DF06E3500B5BA26 /* PBXTextBookmark */;
+			5705F5550DF06E3B00B5BA26 /* PBXTextBookmark */ = 5705F5550DF06E3B00B5BA26 /* PBXTextBookmark */;
+			5705F5560DF06E3B00B5BA26 /* PBXTextBookmark */ = 5705F5560DF06E3B00B5BA26 /* PBXTextBookmark */;
+			5705F5580DF06E4000B5BA26 /* PBXTextBookmark */ = 5705F5580DF06E4000B5BA26 /* PBXTextBookmark */;
+			5705F5590DF06E4000B5BA26 /* PBXTextBookmark */ = 5705F5590DF06E4000B5BA26 /* PBXTextBookmark */;
+			5705F55A0DF06E4600B5BA26 /* PBXTextBookmark */ = 5705F55A0DF06E4600B5BA26 /* PBXTextBookmark */;
+			5705F55B0DF06E4600B5BA26 /* PBXTextBookmark */ = 5705F55B0DF06E4600B5BA26 /* PBXTextBookmark */;
+			5705F55D0DF06E5400B5BA26 /* PBXTextBookmark */ = 5705F55D0DF06E5400B5BA26 /* PBXTextBookmark */;
+			5705F55E0DF06E5400B5BA26 /* PBXTextBookmark */ = 5705F55E0DF06E5400B5BA26 /* PBXTextBookmark */;
+			5705F55F0DF06E5400B5BA26 /* PBXTextBookmark */ = 5705F55F0DF06E5400B5BA26 /* PBXTextBookmark */;
+			5705F5600DF06E5400B5BA26 /* PBXTextBookmark */ = 5705F5600DF06E5400B5BA26 /* PBXTextBookmark */;
+			5705F5620DF06E5D00B5BA26 /* PBXTextBookmark */ = 5705F5620DF06E5D00B5BA26 /* PBXTextBookmark */;
+			5705F5630DF06E5D00B5BA26 /* PBXTextBookmark */ = 5705F5630DF06E5D00B5BA26 /* PBXTextBookmark */;
+			5705F5640DF06E5D00B5BA26 /* PBXTextBookmark */ = 5705F5640DF06E5D00B5BA26 /* PBXTextBookmark */;
+			5705F5650DF06E5D00B5BA26 /* PBXTextBookmark */ = 5705F5650DF06E5D00B5BA26 /* PBXTextBookmark */;
+			5705F5670DF06E6300B5BA26 /* PBXTextBookmark */ = 5705F5670DF06E6300B5BA26 /* PBXTextBookmark */;
+			5705F5680DF06E6300B5BA26 /* PBXTextBookmark */ = 5705F5680DF06E6300B5BA26 /* PBXTextBookmark */;
+			5705F56A0DF06E7500B5BA26 /* PBXTextBookmark */ = 5705F56A0DF06E7500B5BA26 /* PBXTextBookmark */;
+			5705F56B0DF06E7500B5BA26 /* PBXTextBookmark */ = 5705F56B0DF06E7500B5BA26 /* PBXTextBookmark */;
+			5705F56D0DF06E7C00B5BA26 /* PBXTextBookmark */ = 5705F56D0DF06E7C00B5BA26 /* PBXTextBookmark */;
+			5705F56E0DF06E7C00B5BA26 /* PBXTextBookmark */ = 5705F56E0DF06E7C00B5BA26 /* PBXTextBookmark */;
+			5705F5700DF06E8400B5BA26 /* PBXTextBookmark */ = 5705F5700DF06E8400B5BA26 /* PBXTextBookmark */;
+			5705F5710DF06E8400B5BA26 /* PBXTextBookmark */ = 5705F5710DF06E8400B5BA26 /* PBXTextBookmark */;
+			5705F5730DF06E9200B5BA26 /* PBXTextBookmark */ = 5705F5730DF06E9200B5BA26 /* PBXTextBookmark */;
+			5705F5740DF06E9200B5BA26 /* PBXTextBookmark */ = 5705F5740DF06E9200B5BA26 /* PBXTextBookmark */;
+			5705F5750DF06E9200B5BA26 /* PBXTextBookmark */ = 5705F5750DF06E9200B5BA26 /* PBXTextBookmark */;
+			5705F5760DF06E9200B5BA26 /* PBXTextBookmark */ = 5705F5760DF06E9200B5BA26 /* PBXTextBookmark */;
+			5705F5780DF06E9D00B5BA26 /* PBXTextBookmark */ = 5705F5780DF06E9D00B5BA26 /* PBXTextBookmark */;
+			5705F5790DF06E9D00B5BA26 /* PBXTextBookmark */ = 5705F5790DF06E9D00B5BA26 /* PBXTextBookmark */;
+			5705F57A0DF06E9D00B5BA26 /* PBXTextBookmark */ = 5705F57A0DF06E9D00B5BA26 /* PBXTextBookmark */;
+			5705F57B0DF06E9D00B5BA26 /* PBXTextBookmark */ = 5705F57B0DF06E9D00B5BA26 /* PBXTextBookmark */;
+			5705F57C0DF06EC900B5BA26 /* PBXTextBookmark */ = 5705F57C0DF06EC900B5BA26 /* PBXTextBookmark */;
+			5705F57D0DF06EC900B5BA26 /* PBXTextBookmark */ = 5705F57D0DF06EC900B5BA26 /* PBXTextBookmark */;
+			5705F57E0DF06EC900B5BA26 /* PBXTextBookmark */ = 5705F57E0DF06EC900B5BA26 /* PBXTextBookmark */;
+			5705F57F0DF06EC900B5BA26 /* PBXTextBookmark */ = 5705F57F0DF06EC900B5BA26 /* PBXTextBookmark */;
+			5705F5800DF06EC900B5BA26 /* PBXTextBookmark */ = 5705F5800DF06EC900B5BA26 /* PBXTextBookmark */;
 			570CA0110DEEE3C7003E5BDE = 570CA0110DEEE3C7003E5BDE /* PBXTextBookmark */;
 			570CA0120DEEE3C7003E5BDE = 570CA0120DEEE3C7003E5BDE /* PBXTextBookmark */;
 			570CA0130DEEE3C7003E5BDE = 570CA0130DEEE3C7003E5BDE /* PBXTextBookmark */;
@@ -1280,7 +1480,7 @@
 		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
 		name = "GameManager.cpp: 178";
 		rLen = 0;
-		rLoc = 5686;
+		rLoc = 5769;
 		rType = 0;
 		vrLen = 1593;
 		vrLoc = 0;
@@ -1340,7 +1540,7 @@
 		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
 		name = "GameManager.cpp: 178";
 		rLen = 0;
-		rLoc = 5686;
+		rLoc = 5769;
 		rType = 0;
 		vrLen = 1593;
 		vrLoc = 0;
@@ -1454,7 +1654,7 @@
 		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
 		name = "GameManager.cpp: 149";
 		rLen = 0;
-		rLoc = 4851;
+		rLoc = 4934;
 		rType = 0;
 		vrLen = 1620;
 		vrLoc = 4540;
@@ -1514,7 +1714,7 @@
 		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
 		name = "GameManager.cpp: 149";
 		rLen = 0;
-		rLoc = 4851;
+		rLoc = 4934;
 		rType = 0;
 		vrLen = 1620;
 		vrLoc = 4540;
@@ -1564,7 +1764,7 @@
 		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
 		name = "GameManager.cpp: 197";
 		rLen = 0;
-		rLoc = 6089;
+		rLoc = 6172;
 		rType = 0;
 		vrLen = 1601;
 		vrLoc = 4540;
@@ -1584,7 +1784,7 @@
 		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
 		name = "GameManager.cpp: 175";
 		rLen = 0;
-		rLoc = 5500;
+		rLoc = 5583;
 		rType = 0;
 		vrLen = 1602;
 		vrLoc = 4540;
@@ -1624,7 +1824,7 @@
 		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
 		name = "GameManager.cpp: 175";
 		rLen = 0;
-		rLoc = 5500;
+		rLoc = 5583;
 		rType = 0;
 		vrLen = 1622;
 		vrLoc = 4540;
@@ -1734,7 +1934,7 @@
 		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
 		name = "GameManager.cpp: 181";
 		rLen = 0;
-		rLoc = 5500;
+		rLoc = 5583;
 		rType = 0;
 		vrLen = 1628;
 		vrLoc = 4757;
@@ -1764,7 +1964,7 @@
 		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
 		name = "GameManager.cpp: 201";
 		rLen = 0;
-		rLoc = 5977;
+		rLoc = 6060;
 		rType = 0;
 		vrLen = 1629;
 		vrLoc = 4757;
@@ -1774,7 +1974,7 @@
 		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
 		name = "GameManager.cpp: 201";
 		rLen = 0;
-		rLoc = 5977;
+		rLoc = 6060;
 		rType = 0;
 		vrLen = 1629;
 		vrLoc = 4757;
@@ -1794,7 +1994,7 @@
 		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
 		name = "GameManager.cpp: 207";
 		rLen = 0;
-		rLoc = 6285;
+		rLoc = 6368;
 		rType = 0;
 		vrLen = 1599;
 		vrLoc = 4756;
@@ -1814,7 +2014,7 @@
 		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
 		name = "GameManager.cpp: 203";
 		rLen = 0;
-		rLoc = 6089;
+		rLoc = 6172;
 		rType = 0;
 		vrLen = 1611;
 		vrLoc = 4756;
@@ -1834,7 +2034,7 @@
 		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
 		name = "GameManager.cpp: 203";
 		rLen = 0;
-		rLoc = 6089;
+		rLoc = 6172;
 		rType = 0;
 		vrLen = 1610;
 		vrLoc = 4756;
@@ -1854,7 +2054,7 @@
 		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
 		name = "GameManager.cpp: 203";
 		rLen = 0;
-		rLoc = 6089;
+		rLoc = 6172;
 		rType = 0;
 		vrLen = 1610;
 		vrLoc = 4756;
@@ -2634,7 +2834,7 @@
 		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
 		name = "GameManager.cpp: 210";
 		rLen = 0;
-		rLoc = 6346;
+		rLoc = 6429;
 		rType = 0;
 		vrLen = 1555;
 		vrLoc = 4934;
@@ -2654,7 +2854,7 @@
 		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
 		name = "GameManager.cpp: 210";
 		rLen = 0;
-		rLoc = 6346;
+		rLoc = 6429;
 		rType = 0;
 		vrLen = 1559;
 		vrLoc = 4934;
@@ -2674,7 +2874,7 @@
 		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
 		name = "GameManager.cpp: 210";
 		rLen = 0;
-		rLoc = 6346;
+		rLoc = 6429;
 		rType = 0;
 		vrLen = 1560;
 		vrLoc = 4934;
@@ -2684,7 +2884,7 @@
 		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
 		name = "GameManager.cpp: 210";
 		rLen = 0;
-		rLoc = 6346;
+		rLoc = 6429;
 		rType = 0;
 		vrLen = 1560;
 		vrLoc = 4934;
@@ -2797,6 +2997,2033 @@
 		rLoc = 1184;
 		rType = 0;
 		vrLen = 1059;
+		vrLoc = 277;
+	};
+	5705F4690DF0675100B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F46A0DF0675100B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1059;
+		vrLoc = 277;
+	};
+	5705F46B0DF0675100B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1059;
+		vrLoc = 277;
+	};
+	5705F46C0DF0675100B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 125";
+		rLen = 0;
+		rLoc = 3696;
+		rType = 0;
+		vrLen = 1865;
+		vrLoc = 2883;
+	};
+	5705F46E0DF0677C00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F46F0DF0677C00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 125";
+		rLen = 0;
+		rLoc = 3696;
+		rType = 0;
+		vrLen = 1870;
+		vrLoc = 2883;
+	};
+	5705F4710DF0678700B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4720DF0678700B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 125";
+		rLen = 0;
+		rLoc = 3696;
+		rType = 0;
+		vrLen = 1872;
+		vrLoc = 2883;
+	};
+	5705F4740DF067E700B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4750DF067E700B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 125";
+		rLen = 0;
+		rLoc = 3695;
+		rType = 0;
+		vrLen = 1886;
+		vrLoc = 2883;
+	};
+	5705F4770DF0680200B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4780DF0680200B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 125";
+		rLen = 0;
+		rLoc = 3695;
+		rType = 0;
+		vrLen = 1887;
+		vrLoc = 2883;
+	};
+	5705F47A0DF0681100B5BA26 /* GameManager.cpp:126 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		functionName = "GameManager::beginLevel()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 126;
+		location = asteroidsOSX;
+		modificationTime = 233860733.528052;
+		state = 2;
+	};
+	5705F47C0DF0681400B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F47D0DF0681400B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 125";
+		rLen = 0;
+		rLoc = 3695;
+		rType = 0;
+		vrLen = 1887;
+		vrLoc = 2883;
+	};
+	5705F4800DF0682800B5BA26 /* GameManager.cpp:125 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		functionName = "GameManager::beginLevel()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 125;
+		location = asteroidsOSX;
+		modificationTime = 233860733.528061;
+		state = 2;
+	};
+	5705F4820DF0682900B5BA26 /* GameManager.cpp:124 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		functionName = "GameManager::beginLevel()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 124;
+		location = asteroidsOSX;
+		modificationTime = 233860733.528068;
+		state = 2;
+	};
+	5705F4830DF0682A00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4840DF0682A00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 125";
+		rLen = 0;
+		rLoc = 3695;
+		rType = 0;
+		vrLen = 1887;
+		vrLoc = 2883;
+	};
+	5705F4890DF0688D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F48A0DF0688D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 125";
+		rLen = 0;
+		rLoc = 3695;
+		rType = 0;
+		vrLen = 1891;
+		vrLoc = 2883;
+	};
+	5705F48C0DF0689300B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F48D0DF0689300B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 125";
+		rLen = 0;
+		rLoc = 3695;
+		rType = 0;
+		vrLen = 1890;
+		vrLoc = 2883;
+	};
+	5705F48F0DF068AA00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4900DF068AA00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 125";
+		rLen = 0;
+		rLoc = 3695;
+		rType = 0;
+		vrLen = 1893;
+		vrLoc = 2883;
+	};
+	5705F4920DF068D400B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4930DF068D400B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 129";
+		rLen = 0;
+		rLoc = 4023;
+		rType = 0;
+		vrLen = 1903;
+		vrLoc = 2883;
+	};
+	5705F4950DF0690A00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4960DF0690A00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 124";
+		rLen = 0;
+		rLoc = 3677;
+		rType = 0;
+		vrLen = 1926;
+		vrLoc = 2883;
+	};
+	5705F4970DF0690A00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 124";
+		rLen = 0;
+		rLoc = 3677;
+		rType = 0;
+		vrLen = 1926;
+		vrLoc = 2883;
+	};
+	5705F4980DF0690A00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1045;
+		vrLoc = 277;
+	};
+	5705F49A0DF0693900B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F49B0DF0693900B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1045;
+		vrLoc = 277;
+	};
+	5705F49C0DF0693900B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1045;
+		vrLoc = 277;
+	};
+	5705F49D0DF0693900B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 127";
+		rLen = 0;
+		rLoc = 3877;
+		rType = 0;
+		vrLen = 1908;
+		vrLoc = 2903;
+	};
+	5705F49F0DF0695800B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4A00DF0695800B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 127";
+		rLen = 0;
+		rLoc = 3877;
+		rType = 0;
+		vrLen = 1908;
+		vrLoc = 2903;
+	};
+	5705F4A20DF0697900B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4A30DF0697900B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1905;
+		vrLoc = 2903;
+	};
+	5705F4A40DF0699A00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4A50DF0699A00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 115";
+		rLen = 1;
+		rLoc = 3440;
+		rType = 0;
+		vrLen = 1908;
+		vrLoc = 2903;
+	};
+	5705F4A80DF069F200B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4A90DF069F200B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5705F4AA0DF069F200B5BA26 /* temp1212166682.0.GameManager.cpp */;
+		name = "temp1212166682.0.GameManager.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 911;
+		vrLoc = 0;
+	};
+	5705F4AA0DF069F200B5BA26 /* temp1212166682.0.GameManager.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = file;
+		path = temp1212166682.0.GameManager.cpp;
+		sourceTree = "<group>";
+	};
+	5705F4AB0DF069F200B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 115";
+		rLen = 1;
+		rLoc = 3440;
+		rType = 0;
+		vrLen = 1908;
+		vrLoc = 2903;
+	};
+	5705F4AC0DF069F200B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 115";
+		rLen = 1;
+		rLoc = 3440;
+		rType = 0;
+		vrLen = 1908;
+		vrLoc = 2903;
+	};
+	5705F4AD0DF069F200B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5705F4AE0DF069F200B5BA26 /* temp1212166682.0.GameManager.cpp */;
+		name = "temp1212166682.0.GameManager.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 911;
+		vrLoc = 0;
+	};
+	5705F4AE0DF069F200B5BA26 /* temp1212166682.0.GameManager.cpp */ = {
+		isa = PBXFileReference;
+		path = temp1212166682.0.GameManager.cpp;
+		sourceTree = "<group>";
+	};
+	5705F4AF0DF069F200B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1901;
+		vrLoc = 2903;
+	};
+	5705F4B10DF06A1500B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4B20DF06A1500B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 129";
+		rLen = 0;
+		rLoc = 4032;
+		rType = 0;
+		vrLen = 1922;
+		vrLoc = 2903;
+	};
+	5705F4B30DF06A3000B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4B40DF06A3000B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1922;
+		vrLoc = 2903;
+	};
+	5705F4B60DF06A7100B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4B70DF06A7100B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1926;
+		vrLoc = 2903;
+	};
+	5705F4B90DF06A8A00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4BA0DF06A8A00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1926;
+		vrLoc = 2903;
+	};
+	5705F4BB0DF06A8A00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1926;
+		vrLoc = 2903;
+	};
+	5705F4BC0DF06A8A00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1044;
+		vrLoc = 277;
+	};
+	5705F4BE0DF06ACF00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4BF0DF06ACF00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 105";
+		rLen = 0;
+		rLoc = 3038;
+		rType = 0;
+		vrLen = 1866;
+		vrLoc = 3033;
+	};
+	5705F4C00DF06ACF00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 17";
+		rLen = 0;
+		rLoc = 298;
+		rType = 0;
+		vrLen = 1044;
+		vrLoc = 277;
+	};
+	5705F4C10DF06ACF00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 17";
+		rLen = 0;
+		rLoc = 298;
+		rType = 0;
+		vrLen = 1044;
+		vrLoc = 277;
+	};
+	5705F4C20DF06ACF00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 105";
+		rLen = 0;
+		rLoc = 3038;
+		rType = 0;
+		vrLen = 1866;
+		vrLoc = 3033;
+	};
+	5705F4C30DF06ACF00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1044;
+		vrLoc = 277;
+	};
+	5705F4C50DF06AEC00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4C60DF06AEC00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1044;
+		vrLoc = 277;
+	};
+	5705F4C70DF06AEC00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1044;
+		vrLoc = 277;
+	};
+	5705F4C80DF06AEC00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1868;
+		vrLoc = 3033;
+	};
+	5705F4CB0DF06B0500B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4CC0DF06B0500B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1868;
+		vrLoc = 3033;
+	};
+	5705F4CD0DF06B0500B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1868;
+		vrLoc = 3033;
+	};
+	5705F4CE0DF06B0500B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1044;
+		vrLoc = 277;
+	};
+	5705F4D00DF06B2800B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4D10DF06B2800B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 17";
+		rLen = 0;
+		rLoc = 291;
+		rType = 0;
+		vrLen = 1044;
+		vrLoc = 277;
+	};
+	5705F4D20DF06B2800B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 17";
+		rLen = 0;
+		rLoc = 291;
+		rType = 0;
+		vrLen = 1044;
+		vrLoc = 277;
+	};
+	5705F4D30DF06B2800B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1870;
+		vrLoc = 3033;
+	};
+	5705F4D50DF06B4900B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4D60DF06B4900B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1867;
+		vrLoc = 3033;
+	};
+	5705F4D80DF06B5D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4D90DF06B5D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1867;
+		vrLoc = 3033;
+	};
+	5705F4DA0DF06B5D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1867;
+		vrLoc = 3033;
+	};
+	5705F4DB0DF06B5D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1182;
+		rType = 0;
+		vrLen = 1022;
+		vrLoc = 277;
+	};
+	5705F4DD0DF06B7700B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4DE0DF06B7700B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1022;
+		vrLoc = 277;
+	};
+	5705F4E00DF06B8D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4E10DF06B8D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1022;
+		vrLoc = 277;
+	};
+	5705F4E20DF06B8D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1022;
+		vrLoc = 277;
+	};
+	5705F4E30DF06B8D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1870;
+		vrLoc = 3033;
+	};
+	5705F4E50DF06BA000B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4E60DF06BA000B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1869;
+		vrLoc = 3033;
+	};
+	5705F4E90DF06BB200B5BA26 /* GameManager.cpp:127 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		functionName = "GameManager::beginLevel()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 127;
+		location = asteroidsOSX;
+		modificationTime = 233860733.528073;
+		state = 1;
+	};
+	5705F4EA0DF06BB400B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4EB0DF06BB400B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1869;
+		vrLoc = 3033;
+	};
+	5705F4ED0DF06C0A00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4EE0DF06C0A00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1872;
+		vrLoc = 3033;
+	};
+	5705F4F00DF06C1700B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4F10DF06C1700B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1872;
+		vrLoc = 3033;
+	};
+	5705F4F20DF06C1700B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1872;
+		vrLoc = 3033;
+	};
+	5705F4F30DF06C1700B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1022;
+		vrLoc = 277;
+	};
+	5705F4F50DF06C5000B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4F60DF06C5000B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1022;
+		vrLoc = 277;
+	};
+	5705F4F70DF06C5000B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9AA0DECB98B007AE794 /* GameManager.h */;
+		name = "GameManager.h: 14";
+		rLen = 0;
+		rLoc = 321;
+		rType = 0;
+		vrLen = 1247;
+		vrLoc = 321;
+	};
+	5705F4F80DF06C5000B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1022;
+		vrLoc = 277;
+	};
+	5705F4F90DF06C5000B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9AA0DECB98B007AE794 /* GameManager.h */;
+		name = "GameManager.h: 14";
+		rLen = 0;
+		rLoc = 321;
+		rType = 0;
+		vrLen = 1247;
+		vrLoc = 321;
+	};
+	5705F4FA0DF06C5000B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1903;
+		vrLoc = 3050;
+	};
+	5705F4FC0DF06C6100B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F4FD0DF06C6100B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1904;
+		vrLoc = 3050;
+	};
+	5705F5000DF06C7100B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F5010DF06C7100B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1845;
+		vrLoc = 3050;
+	};
+	5705F5030DF06C8D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F5040DF06C8D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1903;
+		vrLoc = 3050;
+	};
+	5705F5060DF06C9E00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F5070DF06C9E00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1909;
+		vrLoc = 3050;
+	};
+	5705F50B0DF06CDF00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F50C0DF06CDF00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1909;
+		vrLoc = 3050;
+	};
+	5705F50D0DF06CDF00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1909;
+		vrLoc = 3050;
+	};
+	5705F50E0DF06CDF00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1022;
+		vrLoc = 277;
+	};
+	5705F5100DF06CEE00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F5110DF06CEE00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1022;
+		vrLoc = 277;
+	};
+	5705F5130DF06CF500B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F5140DF06CF500B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1022;
+		vrLoc = 277;
+	};
+	5705F5160DF06CFD00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F5170DF06CFD00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1022;
+		vrLoc = 277;
+	};
+	5705F5190DF06D0E00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F51A0DF06D0E00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1022;
+		vrLoc = 277;
+	};
+	5705F51B0DF06D0E00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1022;
+		vrLoc = 277;
+	};
+	5705F51C0DF06D0E00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1906;
+		vrLoc = 3050;
+	};
+	5705F51E0DF06D2400B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F51F0DF06D2400B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1906;
+		vrLoc = 3050;
+	};
+	5705F5200DF06D2400B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1906;
+		vrLoc = 3050;
+	};
+	5705F5210DF06D2400B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1022;
+		vrLoc = 277;
+	};
+	5705F5230DF06D2B00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F5240DF06D2B00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1022;
+		vrLoc = 277;
+	};
+	5705F5270DF06D4000B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F5280DF06D4000B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1022;
+		vrLoc = 277;
+	};
+	5705F52A0DF06D5700B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F52B0DF06D5700B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1022;
+		vrLoc = 277;
+	};
+	5705F52C0DF06D5700B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1022;
+		vrLoc = 277;
+	};
+	5705F52D0DF06D5700B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1908;
+		vrLoc = 3050;
+	};
+	5705F52F0DF06D7D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F5300DF06D7D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1908;
+		vrLoc = 3050;
+	};
+	5705F5310DF06D7D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 126";
+		rLen = 0;
+		rLoc = 3799;
+		rType = 0;
+		vrLen = 1908;
+		vrLoc = 3050;
+	};
+	5705F5320DF06D7D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1022;
+		vrLoc = 277;
+	};
+	5705F5330DF06D8C00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F5340DF06D8C00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1022;
+		vrLoc = 277;
+	};
+	5705F5380DF06DA600B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F5390DF06DA600B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9CF0DECB98B007AE794 /* SpaceShipController.h */;
+		name = "SpaceShipController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 542;
+		vrLoc = 0;
+	};
+	5705F53A0DF06DA600B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 730;
+		vrLoc = 1980;
+	};
+	5705F53B0DF06DA600B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9B80DECB98B007AE794 /* MyCameraController.cpp */;
+		name = "MyCameraController.cpp: 1";
+		rLen = 0;
+		rLoc = 15;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 0;
+	};
+	5705F53C0DF06DA600B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9CF0DECB98B007AE794 /* SpaceShipController.h */;
+		name = "SpaceShipController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 542;
+		vrLoc = 0;
+	};
+	5705F53D0DF06DA600B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 730;
+		vrLoc = 1980;
+	};
+	5705F53E0DF06DA600B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 57D374F60DED1801002C0837 /* demio.pbxuser */;
+		name = "demio.pbxuser: 1716";
+		rLen = 0;
+		rLoc = 74368;
+		rType = 0;
+		vrLen = 1011;
+		vrLoc = 0;
+	};
+	5705F53F0DF06DB300B5BA26 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+	};
+	5705F5420DF06DCD00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 57D374F60DED1801002C0837 /* demio.pbxuser */;
+		name = "demio.pbxuser: 5983";
+		rLen = 0;
+		rLoc = 180526;
+		rType = 0;
+		vrLen = 1011;
+		vrLoc = 0;
+	};
+	5705F5440DF06DCD00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 128";
+		rLen = 0;
+		rLoc = 4023;
+		rType = 0;
+		vrLen = 1884;
+		vrLoc = 2786;
+	};
+	5705F5450DF06DFE00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 57D374F60DED1801002C0837 /* demio.pbxuser */;
+		name = "demio.pbxuser: 6010";
+		rLen = 0;
+		rLoc = 181436;
+		rType = 0;
+		vrLen = 1011;
+		vrLoc = 0;
+	};
+	5705F5460DF06DFE00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 125";
+		rLen = 0;
+		rLoc = 3733;
+		rType = 0;
+		vrLen = 1884;
+		vrLoc = 2786;
+	};
+	5705F5480DF06E1400B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 57D374F60DED1801002C0837 /* demio.pbxuser */;
+		name = "demio.pbxuser: 6032";
+		rLen = 0;
+		rLoc = 182118;
+		rType = 0;
+		vrLen = 1011;
+		vrLoc = 0;
+	};
+	5705F5490DF06E1400B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 127";
+		rLen = 0;
+		rLoc = 3974;
+		rType = 0;
+		vrLen = 1884;
+		vrLoc = 2786;
+	};
+	5705F54A0DF06E2100B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 57D374F60DED1801002C0837 /* demio.pbxuser */;
+		name = "demio.pbxuser: 6054";
+		rLen = 0;
+		rLoc = 182800;
+		rType = 0;
+		vrLen = 1011;
+		vrLoc = 0;
+	};
+	5705F54B0DF06E2100B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 127";
+		rLen = 0;
+		rLoc = 3974;
+		rType = 0;
+		vrLen = 1884;
+		vrLoc = 2786;
+	};
+	5705F54E0DF06E2E00B5BA26 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+	};
+	5705F5500DF06E3400B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 57D374F60DED1801002C0837 /* demio.pbxuser */;
+		name = "demio.pbxuser: 6076";
+		rLen = 0;
+		rLoc = 183482;
+		rType = 0;
+		vrLen = 1011;
+		vrLoc = 0;
+	};
+	5705F5510DF06E3500B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 127";
+		rLen = 0;
+		rLoc = 3974;
+		rType = 0;
+		vrLen = 1884;
+		vrLoc = 2786;
+	};
+	5705F5520DF06E3500B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 127";
+		rLen = 0;
+		rLoc = 3974;
+		rType = 0;
+		vrLen = 1884;
+		vrLoc = 2786;
+	};
+	5705F5530DF06E3500B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1043;
+		vrLoc = 277;
+	};
+	5705F5550DF06E3B00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 57D374F60DED1801002C0837 /* demio.pbxuser */;
+		name = "demio.pbxuser: 6125";
+		rLen = 0;
+		rLoc = 185056;
+		rType = 0;
+		vrLen = 1011;
+		vrLoc = 0;
+	};
+	5705F5560DF06E3B00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1044;
+		vrLoc = 277;
+	};
+	5705F5580DF06E4000B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 57D374F60DED1801002C0837 /* demio.pbxuser */;
+		name = "demio.pbxuser: 6147";
+		rLen = 0;
+		rLoc = 185726;
+		rType = 0;
+		vrLen = 1011;
+		vrLoc = 0;
+	};
+	5705F5590DF06E4000B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1044;
+		vrLoc = 277;
+	};
+	5705F55A0DF06E4600B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 57D374F60DED1801002C0837 /* demio.pbxuser */;
+		name = "demio.pbxuser: 6169";
+		rLen = 0;
+		rLoc = 186396;
+		rType = 0;
+		vrLen = 1011;
+		vrLoc = 0;
+	};
+	5705F55B0DF06E4600B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1044;
+		vrLoc = 277;
+	};
+	5705F55D0DF06E5400B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 57D374F60DED1801002C0837 /* demio.pbxuser */;
+		name = "demio.pbxuser: 6191";
+		rLen = 0;
+		rLoc = 187066;
+		rType = 0;
+		vrLen = 1011;
+		vrLoc = 0;
+	};
+	5705F55E0DF06E5400B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1044;
+		vrLoc = 277;
+	};
+	5705F55F0DF06E5400B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1044;
+		vrLoc = 277;
+	};
+	5705F5600DF06E5400B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 125";
+		rLen = 0;
+		rLoc = 3757;
+		rType = 0;
+		vrLen = 1871;
+		vrLoc = 2797;
+	};
+	5705F5620DF06E5D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 57D374F60DED1801002C0837 /* demio.pbxuser */;
+		name = "demio.pbxuser: 6235";
+		rLen = 0;
+		rLoc = 188410;
+		rType = 0;
+		vrLen = 1011;
+		vrLoc = 0;
+	};
+	5705F5630DF06E5D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 125";
+		rLen = 0;
+		rLoc = 3757;
+		rType = 0;
+		vrLen = 1871;
+		vrLoc = 2797;
+	};
+	5705F5640DF06E5D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 125";
+		rLen = 0;
+		rLoc = 3757;
+		rType = 0;
+		vrLen = 1871;
+		vrLoc = 2797;
+	};
+	5705F5650DF06E5D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1043;
+		vrLoc = 277;
+	};
+	5705F5670DF06E6300B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 57D374F60DED1801002C0837 /* demio.pbxuser */;
+		name = "demio.pbxuser: 6279";
+		rLen = 0;
+		rLoc = 189766;
+		rType = 0;
+		vrLen = 1011;
+		vrLoc = 0;
+	};
+	5705F5680DF06E6300B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1044;
+		vrLoc = 277;
+	};
+	5705F56A0DF06E7500B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 57D374F60DED1801002C0837 /* demio.pbxuser */;
+		name = "demio.pbxuser: 6301";
+		rLen = 0;
+		rLoc = 190436;
+		rType = 0;
+		vrLen = 1011;
+		vrLoc = 0;
+	};
+	5705F56B0DF06E7500B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1044;
+		vrLoc = 277;
+	};
+	5705F56D0DF06E7C00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 57D374F60DED1801002C0837 /* demio.pbxuser */;
+		name = "demio.pbxuser: 6323";
+		rLen = 0;
+		rLoc = 191106;
+		rType = 0;
+		vrLen = 1011;
+		vrLoc = 0;
+	};
+	5705F56E0DF06E7C00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1043;
+		vrLoc = 277;
+	};
+	5705F5700DF06E8400B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 57D374F60DED1801002C0837 /* demio.pbxuser */;
+		name = "demio.pbxuser: 6345";
+		rLen = 0;
+		rLoc = 191776;
+		rType = 0;
+		vrLen = 1011;
+		vrLoc = 0;
+	};
+	5705F5710DF06E8400B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1182;
+		rType = 0;
+		vrLen = 1044;
+		vrLoc = 277;
+	};
+	5705F5730DF06E9200B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 57D374F60DED1801002C0837 /* demio.pbxuser */;
+		name = "demio.pbxuser: 6367";
+		rLen = 0;
+		rLoc = 192449;
+		rType = 0;
+		vrLen = 1011;
+		vrLoc = 0;
+	};
+	5705F5740DF06E9200B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1182;
+		rType = 0;
+		vrLen = 1044;
+		vrLoc = 277;
+	};
+	5705F5750DF06E9200B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1182;
+		rType = 0;
+		vrLen = 1044;
+		vrLoc = 277;
+	};
+	5705F5760DF06E9200B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 125";
+		rLen = 0;
+		rLoc = 3757;
+		rType = 0;
+		vrLen = 1875;
+		vrLoc = 2797;
+	};
+	5705F5780DF06E9D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 57D374F60DED1801002C0837 /* demio.pbxuser */;
+		name = "demio.pbxuser: 6411";
+		rLen = 0;
+		rLoc = 193793;
+		rType = 0;
+		vrLen = 1011;
+		vrLoc = 0;
+	};
+	5705F5790DF06E9D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 125";
+		rLen = 0;
+		rLoc = 3757;
+		rType = 0;
+		vrLen = 1875;
+		vrLoc = 2797;
+	};
+	5705F57A0DF06E9D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 125";
+		rLen = 0;
+		rLoc = 3757;
+		rType = 0;
+		vrLen = 1875;
+		vrLoc = 2797;
+	};
+	5705F57B0DF06E9D00B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1044;
+		vrLoc = 277;
+	};
+	5705F57C0DF06EC900B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 57D374F60DED1801002C0837 /* demio.pbxuser */;
+		name = "demio.pbxuser: 6455";
+		rLen = 0;
+		rLoc = 195149;
+		rType = 0;
+		vrLen = 1011;
+		vrLoc = 0;
+	};
+	5705F57D0DF06EC900B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 730;
+		vrLoc = 1980;
+	};
+	5705F57E0DF06EC900B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 57D374F60DED1801002C0837 /* demio.pbxuser */;
+		name = "demio.pbxuser: 6455";
+		rLen = 0;
+		rLoc = 195149;
+		rType = 0;
+		vrLen = 1011;
+		vrLoc = 0;
+	};
+	5705F57F0DF06EC900B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571EC9A90DECB98B007AE794 /* GameManager.cpp */;
+		name = "GameManager.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 730;
+		vrLoc = 1980;
+	};
+	5705F5800DF06EC900B5BA26 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 571ECBAB0DECC382007AE794 /* config.ini */;
+		name = "config.ini: 62";
+		rLen = 0;
+		rLoc = 1184;
+		rType = 0;
+		vrLen = 1043;
 		vrLoc = 277;
 	};
 	570CA0110DEEE3C7003E5BDE /* PBXTextBookmark */ = {
@@ -3288,16 +5515,16 @@
 	};
 	571EC9A90DECB98B007AE794 /* GameManager.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1204, 3024}}";
-			sepNavSelRange = "{6346, 0}";
-			sepNavVisRange = "{4934, 1560}";
+			sepNavIntBoundsRect = "{{0, 0}, {806, 2968}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{1980, 730}";
 		};
 	};
 	571EC9AA0DECB98B007AE794 /* GameManager.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1204, 1330}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1204, 1302}}";
 			sepNavSelRange = "{321, 0}";
-			sepNavVisRange = "{321, 1297}";
+			sepNavVisRange = "{321, 1247}";
 		};
 	};
 	571EC9AB0DECB98B007AE794 /* GameOverScreen.cpp */ = {
@@ -3364,7 +5591,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {638, 840}}";
 			sepNavSelRange = "{15, 0}";
-			sepNavVisRange = "{0, 636}";
+			sepNavVisRange = "{0, 588}";
 			sepNavWindowFrame = "{{84, 82}, {1263, 878}}";
 		};
 	};
@@ -3453,6 +5680,13 @@
 			sepNavVisRange = "{540, 868}";
 		};
 	};
+	571EC9CF0DECB98B007AE794 /* SpaceShipController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {638, 370}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 542}";
+		};
+	};
 	571EC9D10DECB98B007AE794 /* SpaceShipEngine.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1204, 750}}";
@@ -3502,9 +5736,9 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1204, 980}}";
 			sepNavSelRange = "{1184, 0}";
-			sepNavVisRange = "{277, 1059}";
+			sepNavVisRange = "{277, 1043}";
 			sepNavVisRect = "{{0, 0}, {1224, 750}}";
-			sepNavWindowFrame = "{{133, 0}, {1263, 878}}";
+			sepNavWindowFrame = "{{280, 0}, {1263, 878}}";
 		};
 	};
 	571ECBB30DECC4CB007AE794 /* Properties.cpp:57 */ = {
@@ -3520,7 +5754,7 @@
 		hitCount = 0;
 		ignoreCount = 0;
 		lineNumber = 57;
-		modificationTime = 233713724.683858;
+		modificationTime = 233860733.527995;
 		state = 2;
 	};
 	573F23B50DEE559100E55E1E /* PBXTextBookmark */ = {
@@ -3647,7 +5881,7 @@
 		ignoreCount = 0;
 		lineNumber = 26;
 		location = asteroidsOSX;
-		modificationTime = 233713724.6838861;
+		modificationTime = 233860733.528032;
 		state = 1;
 	};
 	57B7CB4E0DEDB5DD00CEE73C /* PBXTextBookmark */ = {
@@ -3905,7 +6139,7 @@
 		ignoreCount = 0;
 		lineNumber = 225;
 		location = asteroidsOSX;
-		modificationTime = 233713724.683891;
+		modificationTime = 233860733.528037;
 		state = 2;
 	};
 	57B7CC970DEDD14000CEE73C /* PBXTextBookmark */ = {
@@ -4072,7 +6306,7 @@
 		ignoreCount = 0;
 		lineNumber = 123;
 		location = asteroidsOSX;
-		modificationTime = 233713724.683973;
+		modificationTime = 233860733.528047;
 		state = 2;
 	};
 	57B7CEEE0DEE32C800CEE73C /* PBXTextBookmark */ = {
@@ -4159,7 +6393,7 @@
 		ignoreCount = 0;
 		lineNumber = 14;
 		location = asteroidsOSX;
-		modificationTime = 233713724.683876;
+		modificationTime = 233860733.528015;
 		state = 2;
 	};
 	57D374B50DED16A0002C0837 /* MyApp.cpp:40 */ = {
@@ -4176,7 +6410,7 @@
 		ignoreCount = 0;
 		lineNumber = 40;
 		location = asteroidsOSX;
-		modificationTime = 233713724.683881;
+		modificationTime = 233860733.528026;
 		state = 2;
 	};
 	57D374F60DED1801002C0837 /* demio.pbxuser */ = {
@@ -4185,6 +6419,11 @@
 		name = demio.pbxuser;
 		path = /Users/demio/Documents/Projects/Current/asteroidsOSX/asteroidsOSX.xcodeproj/demio.pbxuser;
 		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {638, 90972}}";
+			sepNavSelRange = "{195149, 0}";
+			sepNavVisRange = "{0, 1011}";
+		};
 	};
 	57D375210DED181B002C0837 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;

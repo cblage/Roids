@@ -298,6 +298,15 @@ namespace asteroids {
 		_controller->onKeyReleased(key);
 	}
 	
+	
+	void SpaceShip::onSpecialKeyPressed(int key) {
+		_controller->onSpecialKeyPressed(key);
+	}
+	
+	void SpaceShip::onSpecialKeyReleased(int key) {
+		_controller->onSpecialKeyReleased(key);
+	}
+	
 
 	
 }

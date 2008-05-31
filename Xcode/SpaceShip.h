@@ -46,6 +46,8 @@ namespace asteroids {
 		void shootLaser(void);
 		void onKeyPressed(unsigned char key);
 		void onKeyReleased(unsigned char key);
+		void onSpecialKeyPressed(int key);
+        void onSpecialKeyReleased(int key);
 		void drawOverlay();
 		void dealDamage(double damage);
 		double getCollisionDamage(Particle * target);

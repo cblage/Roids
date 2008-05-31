@@ -4,84 +4,105 @@ namespace asteroids {
 
 	ShipController::ShipController(SpaceShip* ship) : cg::Entity("ShipController") {
 		_ship = ship;
+		_controlsScheme = cg::Properties::instance()->getInt("CONTROLS_SCHEME");
 	}
 	ShipController::~ShipController() {
 	}
 	void ShipController::init() {
 	}
 	void ShipController::onKeyPressed(unsigned char key) {
-		if (key == 'h') {
-			_ship->hyperAccelerate();
-		} else if (key == 'a') {
-			_ship->startRotation(360);
-		} else if (key == 'd') {
-			_ship->startRotation(-360);
-		} else if (key == 's') {
-			_ship->startAcceleration(-250000, true);
-		} else if (key == 'w') {
-			_ship->startAcceleration(250000, true);
-		} else if (key == 'x') {
-			_ship->startAcceleration(-100000, false, cg::Vector2d(0, 0));
-		} else if (key == ' ') {
-			_ship->shootLaser();
+		switch(key) 
+		{
+			case ' ':
+				_ship->shootLaser();
+				break;
+			case 'h':
+				_ship->hyperAccelerate();
+				break;
+			case 'x':
+				_ship->startAcceleration(-100000, false, cg::Vector2d(0, 0));
+				break;
 		}
+		
+		if(_controlsScheme != 1)
+			return;
+		
+		switch(key) 
+		{
+
+			case  'a':
+				_ship->startRotation(360);
+				break;
+			case 'd':
+				_ship->startRotation(-360);
+				break;
+			case 'w':
+				_ship->startAcceleration(250000, true);
+				break;
+			case 's':
+				_ship->startAcceleration(-250000, true);
+				break;
+		}		
+
 	}
 	void ShipController::onKeyReleased(unsigned char key) {
-		if (key == 'a') {
-			_ship->stopRotation();
-		} else if (key == 'd') {
-			_ship->stopRotation();
-		} else if (key == 's') {
-			_ship->stopAcceleration();
-		} else if (key == 'w') {
-			_ship->stopAcceleration();
-		} else if (key == 'x') {
-			_ship->stopAcceleration();
+		switch(key)
+		{		
+			case 'x':
+				_ship->stopAcceleration();
+				break;	
 		}
+		
+		if(_controlsScheme != 1)
+			return;
+		
+		switch(key) 
+		{
+			case 'a':
+			case 'd':
+				_ship->stopRotation();
+				break;
+			case 'w':
+			case 's':
+				_ship->stopAcceleration();
+				break;
+		}		
 	}
 	void ShipController::onSpecialKeyPressed(int key) {
-		/*switch (key)
+		if(_controlsScheme != 2)
+			return;
+		
+		switch (key)
 		{
 		case GLUT_KEY_LEFT:
-			_camera->startRotate(0);
+			_ship->startRotation(360);
 			break;
 		case GLUT_KEY_RIGHT:
-			_camera->startRotate(1);
+			_ship->startRotation(-360);
 			break;
 		case GLUT_KEY_UP:
-			_camera->startRotate(2);
+			_ship->startAcceleration(250000, true);
 			break;
 		case GLUT_KEY_DOWN:
-			_camera->startRotate(3);
+			_ship->startAcceleration(-250000, true);
 			break;
-		case GLUT_KEY_HOME:
-			_camera->startRotate(4);
-			break;
-		default:
-			return;
-		}*/
+		}
 	}	
 	void ShipController::onSpecialKeyReleased(int key) {
-		/*switch (key)
+		if(_controlsScheme != 2)
+			return;
+		
+		switch (key)
 		{
-		case GLUT_KEY_F1:
-			cg::Manager::instance()->getApp()->dump();
-			break;
 		case GLUT_KEY_LEFT:
-			_camera->stopRotate(0);
-			break;
 		case GLUT_KEY_RIGHT:
-			_camera->stopRotate(1);
+			_ship->stopRotation();
 			break;
 		case GLUT_KEY_UP:
-			_camera->stopRotate(2);
-			break;
 		case GLUT_KEY_DOWN:
-			_camera->stopRotate(3);
+			_ship->stopAcceleration();
 			break;
-		default:
-			return;
-		}*/
+		}
 	}
 
 }

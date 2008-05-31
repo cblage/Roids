@@ -23,6 +23,7 @@ namespace asteroids {
 
 	private:
 		SpaceShip * _ship;
+		int _controlsScheme;
 	};
 
 

@@ -72,9 +72,8 @@ namespace asteroids {
 			return;		
 
 		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
-		GLboolean lightingEnabled;
-		lightingEnabled = glIsEnabled(GL_LIGHTING);
-		if(lightingEnabled == GL_TRUE) glDisable(GL_LIGHTING);
+		glPushAttrib(GL_LIGHTING_BIT);
+		glDisable(GL_LIGHTING);
 		
 		cg::Vector2d position = getPosition();
 		cg::Vector2d windowSize = cg::Vector2d(win.width, win.height);
@@ -112,7 +111,7 @@ namespace asteroids {
 		}
 		
 
-		if(lightingEnabled == GL_TRUE) glEnable(GL_LIGHTING);
+		glPopAttrib();
 	}
 
 	void SpaceShip::draw() {
@@ -240,19 +239,15 @@ namespace asteroids {
 		if(_invulTime > 0) {
 			glPushMatrix();
 			{
-				GLboolean blendEnabled, depthTestEnabled;
-				blendEnabled = glIsEnabled(GL_BLEND);
-				depthTestEnabled = glIsEnabled(GL_DEPTH_TEST);
-				if(blendEnabled != GL_TRUE) glEnable(GL_BLEND);
-				if(depthTestEnabled == GL_TRUE) glDisable(GL_DEPTH_TEST);
-				glBlendFunc(GL_SRC_ALPHA,GL_ONE);
-				
+			
+				glPushAttrib(GL_COLOR_BUFFER_BIT);			
+				glEnable(GL_BLEND);
+				glBlendFunc(GL_SRC_ALPHA,GL_ONE);				
 				glTranslated(position[0], position[1], 0);
 				glColor4d(0.17, 0.67, 1, _invulTime/_invulTimeMax*0.6);
 				glutSolidSphere(_size[1]*1.1, 35, 35);
-				
-				if(depthTestEnabled == GL_TRUE) glEnable(GL_DEPTH_TEST);
-				if(blendEnabled != GL_TRUE) glDisable(GL_BLEND);
+				glPopAttrib();
+			
 			}
 			glPopMatrix();		
 		}

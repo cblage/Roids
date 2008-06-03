@@ -522,6 +522,7 @@
 					"_GLIBCXX_DEBUG=1",
 					"_GLIBCXX_DEBUG_PEDANTIC=1",
 				);
+				GCC_WARN_PEDANTIC = NO;
 				"PRODUCT NAME" = "";
 			};
 			name = Debug;

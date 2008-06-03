@@ -122,9 +122,9 @@ namespace asteroids {
 		}
 		_asteroidsLeft = 0;
 		createShip();
-		double scale = 2*_difficulty*log10((_currentLevel%10+1)*_difficulty+2) + 1.2*pow(_difficulty*_currentLevel/10, 2);
-		double delta = _difficulty*log10((_currentLevel%10+1))/(_currentLevel%10+1)+0.5;
-		unsigned int asteroids = abs(2*_difficulty*log10((_currentLevel%10+1)+1)+(_currentLevel%10+1)*0.1+0.5);
+		double scale = 2*_difficulty*log10((double)((_currentLevel%10+1)*_difficulty+2)) + 1.2*pow(_difficulty*_currentLevel/10, 2);
+		double delta = _difficulty*log10((double)(_currentLevel%10+1))/(_currentLevel%10+1)+0.5;
+		unsigned int asteroids = abs(2*_difficulty*log10((double)((_currentLevel%10+1)+1))+(_currentLevel%10+1)*0.1+0.5);
 		createAsteroids(asteroids, scale, delta);
 		_levelRunning = true;
 		_cooldownPeriod = false;

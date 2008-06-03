@@ -250,9 +250,8 @@ namespace asteroids {
 			return;		
 
 		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
-		GLboolean lightingEnabled;
-		lightingEnabled = glIsEnabled(GL_LIGHTING);
-		if(lightingEnabled == GL_TRUE) glDisable(GL_LIGHTING);
+		glPushAttrib(GL_LIGHTING_BIT);
+		glDisable(GL_LIGHTING);
 		
 		cg::Vector2d position = getPosition();
 		cg::Vector2d windowSize = cg::Vector2d(win.width, win.height);
@@ -280,8 +279,7 @@ namespace asteroids {
 		} else {
 			cg::Util::instance()->drawStrokeString("@", win.width-win.width/_radarSize +  relativePosition[0]*win.width/_radarSize , relativePosition[1]*win.height/_radarSize,0.0075*_scaleFactor*_baseAsteroidSize,false,2,0.4,0.7,0.9,1);
 		}		
-		
 
-		if(lightingEnabled == GL_TRUE) glEnable(GL_LIGHTING);
+		glPopAttrib();
 	}
 }

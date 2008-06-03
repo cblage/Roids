@@ -48,7 +48,7 @@ namespace asteroids {
 			glTranslated(_winWidth/2, _winHeight/2, 0);
 			glVertexPointer(3, GL_DOUBLE, 0, &_stars[0]);
 			glColor3d(1, 1, 1);
-			glDrawArrays(GL_POINTS, 0, _stars.size());
+			glDrawArrays(GL_POINTS, 0, (GLsizei) _stars.size());
 			
 			glPushAttrib(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 			glPushMatrix(); 
@@ -66,7 +66,7 @@ namespace asteroids {
 						x = cos(angle); 
 						y = sin(angle); 
 						glTranslated(x, y, 0); 
-						glDrawArrays(GL_POINTS, 0, _stars.size());
+						glDrawArrays(GL_POINTS, 0, (GLsizei) _stars.size());
 					} 
 					glPopMatrix(); 
 				}

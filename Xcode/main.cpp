@@ -1,11 +1,13 @@
 #include <stdlib.h>
-#include <TargetConditionals.h>
 #include <ctime>
 #include "cg/cg.h"
 #include "MyApp.h"
 
+#if defined ( __APPLE__ )
+	#include <TargetConditionals.h>
+#endif
 #if TARGET_OS_MAC
-#include <CoreFoundation/CoreFoundation.h>
+	#include <CoreFoundation/CoreFoundation.h>
 #endif
 
 

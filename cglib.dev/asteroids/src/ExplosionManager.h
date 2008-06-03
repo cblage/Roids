@@ -18,6 +18,7 @@ namespace asteroids {
 	{
 	private:
 		MyApp * _application;
+		double _massDivider;
 
 	public:
 		ExplosionManager(std::string id, MyApp *application);

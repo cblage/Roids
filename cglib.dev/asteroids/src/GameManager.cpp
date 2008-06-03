@@ -8,6 +8,12 @@ namespace asteroids {
 		_cooldownLeft = 0;
 		_cooldownPeriod = false;
 		_levelRunning = false;
+		_difficulty = cg::Properties::instance()->getDouble("DIFFICULTY");
+		_frameRate = 0;
+		_maxFrameRateAccul = cg::Properties::instance()->getDouble("SHOW_FPS"); 
+		_showFrameRate = (_maxFrameRateAccul > 0) ? true : false;
+		_frameRateAccul = 0;
+		_frameRateAcculDivider = 0;
 	}
 	GameManager::~GameManager() {
 	}
@@ -66,6 +72,13 @@ namespace asteroids {
 				}
 			}
 		}
+		_frameRateAccul+= elapsed_millis/1000.0;
+		_frameRateAcculDivider++;
+		if(_maxFrameRateAccul > 0 && _frameRateAccul > _maxFrameRateAccul) {
+			_frameRate = 1000.0/(_frameRateAccul/(_frameRateAcculDivider/1000.0));
+			_frameRateAccul = 0;
+			_frameRateAcculDivider = 0;
+		}
 	}
 
 	void GameManager::destroyParticle(std::string id) {
@@ -109,7 +122,10 @@ namespace asteroids {
 		}
 		_asteroidsLeft = 0;
 		createShip();
-		createAsteroids((int)pow(log((double)_currentLevel*2+2),2));
+		double scale = 2*_difficulty*log10((_currentLevel%10+1)*_difficulty+2) + 1.2*pow(_difficulty*_currentLevel/10, 2);
+		double delta = _difficulty*log10((_currentLevel%10+1))/(_currentLevel%10+1)+0.5;
+		unsigned int asteroids = abs(2*_difficulty*log10((_currentLevel%10+1)+1)+(_currentLevel%10+1)*0.1+0.5);
+		createAsteroids(asteroids, scale, delta);
 		_levelRunning = true;
 		_cooldownPeriod = false;
 	}
@@ -164,14 +180,17 @@ namespace asteroids {
 		shipsLeft << "Ships: " << _shipsLeft;
 		std::ostringstream currLevel;
 		currLevel << "Level " << _currentLevel;
-		GLboolean lightingEnabled;
-		lightingEnabled = glIsEnabled(GL_LIGHTING);
-		if(lightingEnabled == GL_TRUE) glDisable(GL_LIGHTING);
+		std::ostringstream frameRate;
+
+
+		
+		glPushAttrib(GL_LIGHTING_BIT);
+		glDisable(GL_LIGHTING);
 		
 		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
 		glPushMatrix();
 		{
-			glColor4d(0.9, 0, 0, 0.1);
+			glColor4d(0.9, 0, 0, 0.3);
 			glBegin(GL_QUADS);
 			{
 				glVertex3d(win.width-win.width/_radarSize, 0, 0);
@@ -187,7 +206,11 @@ namespace asteroids {
 		cg::Util::instance()->drawStrokeString(shipsLeft.str(), 10 , 35, 0.2, false, 2, 0, 0.5, 0.25, 1);
 		cg::Util::instance()->drawStrokeString(score.str(), 10 , 10, 0.2, false, 2, 0, 0.25, 0.5, 1);
 		
-		if(lightingEnabled == GL_TRUE) glEnable(GL_LIGHTING);
+		if(_showFrameRate) {
+			frameRate << int(_frameRate+0.5);
+			cg::Util::instance()->drawStrokeString(frameRate.str(), win.width - 25 , win.height-25, 0.1, false, 2, 1, 1, 0, 1);
+		}
+		glPopAttrib();
 	}
 
 }

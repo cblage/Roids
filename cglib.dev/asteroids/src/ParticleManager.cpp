@@ -65,12 +65,17 @@ namespace asteroids {
 
 	}
 
-	void ParticleManager::createAsteroids(unsigned int numAsteroids, double scaleFactor, double radius, cg::Vector2d position) {
+	void ParticleManager::createAsteroids(unsigned int numAsteroids, double scaleFactor, double radius, cg::Vector2d position, double scaleDelta) {
 		double x, y, angle;
 		cg::Vector2d newPosition, velocity;
-		double rand, rand2;
+		double rand, rand2, scaleRand, finalScaleFactor;
 		rand = randomBetween(0, 3.14);
+		scaleFactor = (scaleFactor < 1) ? 1 : scaleFactor;
+		scaleDelta = abs(scaleDelta);
 		for(unsigned int i = 0; i < numAsteroids; i++) {
+			scaleRand = (scaleDelta > 0) ? randomBetween(-scaleDelta, scaleDelta) : 0;
+			finalScaleFactor = ((scaleFactor + scaleRand) > 1) ? scaleFactor + scaleRand : scaleFactor + randomBetween(0, scaleDelta);
+			
 			rand2 = randomBetween(0.1,7.0)/5.0;
  			angle = 2*(3.14)*i/numAsteroids + rand + rand2;
 			x = cos(angle)*randomBetween(0.5,0.9)*radius;
@@ -78,7 +83,7 @@ namespace asteroids {
 			
 			newPosition = position + cg::Vector2d(x,y);
 			velocity = normalize(cg::Vector2d(x,y))*randomBetween(50,200); 
-			createAsteroid(scaleFactor, newPosition, velocity);
+			createAsteroid(finalScaleFactor, newPosition, velocity);
 		}
 	}
 
@@ -116,34 +121,39 @@ namespace asteroids {
 		}
 	}
 
-	void ParticleManager::createAsteroids(unsigned int numAsteroids, double scaleFactor) {
+	void ParticleManager::createAsteroids(unsigned int numAsteroids, double scaleFactor, double scaleDelta) {
 		int quadrant = 0;
+		double scaleRand, finalScaleFactor;
+		scaleFactor = (scaleFactor < 1) ? 1 : scaleFactor;
+		scaleDelta = abs(scaleDelta);
 		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
 		for(unsigned int i = 0; i < numAsteroids; i++) {
+			scaleRand = (scaleDelta > 0) ? randomBetween(-scaleDelta, scaleDelta) : 0;
+			finalScaleFactor = ((scaleFactor + scaleRand) > 1) ? scaleFactor + scaleRand : scaleFactor + randomBetween(0, scaleDelta);
 			switch (quadrant)	{
 				case 0:
-					createAsteroid(scaleFactor, cg::Vector2d((win.width*randomBetween(0.0,0.33)),(win.height*randomBetween(0.0,0.33))));
+					createAsteroid(finalScaleFactor, cg::Vector2d((win.width*randomBetween(0.0,0.33)),(win.height*randomBetween(0.0,0.33))));
 					break;
 				case 1:
-					createAsteroid(scaleFactor, cg::Vector2d((win.width*randomBetween(0.67,1)),(win.height*randomBetween(0.67,1))));
+					createAsteroid(finalScaleFactor, cg::Vector2d((win.width*randomBetween(0.67,1)),(win.height*randomBetween(0.67,1))));
 					break;
 				case 2:
-					createAsteroid(scaleFactor, cg::Vector2d((win.width*randomBetween(0.0,0.33)),(win.height*randomBetween(0.67,1))));
+					createAsteroid(finalScaleFactor, cg::Vector2d((win.width*randomBetween(0.0,0.33)),(win.height*randomBetween(0.67,1))));
 					break;
 				case 3:
-					createAsteroid(scaleFactor, cg::Vector2d((win.width*randomBetween(0.33,0.67)),(win.height*randomBetween(0.0,0.33))));
+					createAsteroid(finalScaleFactor, cg::Vector2d((win.width*randomBetween(0.33,0.67)),(win.height*randomBetween(0.0,0.33))));
 					break;
 				case 4:
-					createAsteroid(scaleFactor, cg::Vector2d((win.width*randomBetween(0.33,0.67)),(win.height*randomBetween(0.67,1))));
+					createAsteroid(finalScaleFactor, cg::Vector2d((win.width*randomBetween(0.33,0.67)),(win.height*randomBetween(0.67,1))));
 					break;
 				case 5:
-					createAsteroid(scaleFactor, cg::Vector2d((win.width*randomBetween(0.33,0.67)),(win.height*randomBetween(0.33,0.67))));
+					createAsteroid(finalScaleFactor, cg::Vector2d((win.width*randomBetween(0.33,0.67)),(win.height*randomBetween(0.33,0.67))));
 					break;
 				case 6:
-					createAsteroid(scaleFactor, cg::Vector2d((win.width*randomBetween(0.0,0.33)),(win.height*randomBetween(0.33,0.67))));
+					createAsteroid(finalScaleFactor, cg::Vector2d((win.width*randomBetween(0.0,0.33)),(win.height*randomBetween(0.33,0.67))));
 					break;
 				case 7:
-					createAsteroid(scaleFactor, cg::Vector2d((win.width*randomBetween(0.67,1)),(win.height*randomBetween(0.33,0.67))));
+					createAsteroid(finalScaleFactor, cg::Vector2d((win.width*randomBetween(0.67,1)),(win.height*randomBetween(0.33,0.67))));
 					break;
 			}
 			quadrant = (quadrant + 1) % 8;
@@ -151,6 +161,7 @@ namespace asteroids {
 	}
 
 	void ParticleManager::createAsteroid(double scaleFactor, cg::Vector2d position) {
+		scaleFactor = (scaleFactor < 1) ? 1 : scaleFactor;
 		std::ostringstream os;
 		os << "Asteroid" << _currIdNum++;
 		Asteroid * createdAsteroid = new Asteroid(os.str(), scaleFactor, this);
@@ -161,6 +172,7 @@ namespace asteroids {
 	}
 
 	void ParticleManager::createAsteroid(double scaleFactor, cg::Vector2d position, cg::Vector2d velocity) {
+		scaleFactor = (scaleFactor < 1) ? 1 : scaleFactor;
 		std::ostringstream os;
 		os << "Asteroid" << _currIdNum++;
 		Asteroid * createdAsteroid = new Asteroid(os.str(), scaleFactor, this);
@@ -197,10 +209,11 @@ namespace asteroids {
 		newLaserShot->setPosition(position);
 		newLaserShot->setRotation(radiansRotation);
 		newLaserShot->setVelocity(velocity);
-		if (degreesRotation >= 180 && degreesRotation < 360)
+		if (degreesRotation >= 180 && degreesRotation < 360) {
 			newLaserShot->accelerate(-1000 * newLaserShot->getMass(), true);
-		else 
+		} else {
 			newLaserShot->accelerate(1000 * newLaserShot->getMass(), true);
+		} 
 		addParticle(newLaserShot);
 	}
 

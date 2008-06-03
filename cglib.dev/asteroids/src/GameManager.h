@@ -26,6 +26,10 @@ namespace asteroids {
 		bool _levelRunning, _cooldownPeriod;
 		double _radarSize;
 		double _cooldownTime, _cooldownLeft;
+		double _difficulty;
+		double _frameRate;
+		bool _showFrameRate;
+		double _frameRateAccul, _maxFrameRateAccul, _frameRateAcculDivider;
 
 	public:
 		GameManager(std::string id, MyApp *application);
@@ -51,7 +55,7 @@ namespace asteroids {
 
 #ifndef MY_APP_H
 #define MY_APP_H
-		class StarSphere;
+	class StarSphere;
 	class MyCamera;
 	class GameManager;
 	class ExplosionManager;

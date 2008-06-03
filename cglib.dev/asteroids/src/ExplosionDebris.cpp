@@ -56,17 +56,20 @@ namespace asteroids {
 
 			glTranslated(position[0], position[1], 0);
 			glColor4d(_color[0], _color[1], _color[2], _alpha);
+			/*glBegin(GL_POINTS);
+			glVertex3d(0, 0, 0);
+			glEnd();*/
 			glutSolidSphere(_radius*0.5, 3, 3);
-			glRotated(getRotation(true), 0, 0, 1);
-		
-			if(blendEnabled != GL_TRUE) glDisable(GL_BLEND);
+			//glRotated(getRotation(true), 0, 0, 1);
+
+			if(lightingEnabled == GL_TRUE) glEnable(GL_LIGHTING);		
 			if(depthTestEnabled == GL_TRUE) glEnable(GL_DEPTH_TEST);
-			if(lightingEnabled == GL_TRUE) glEnable(GL_LIGHTING);
+			if(blendEnabled != GL_TRUE) glDisable(GL_BLEND);
 
 		}
 		glPopMatrix();
 
-		glFlush();
+		//glFlush();
 
 		/*cg::Vector2d position = getPosition();
 		glPushMatrix();

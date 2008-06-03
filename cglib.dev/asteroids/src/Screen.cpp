@@ -23,7 +23,7 @@ namespace asteroids {
 		//cg::Util::instance()->drawStrokeString(_message, _winWidth/2, _winHeight/2, 0.4, true, 1, 0, 0, 1);
 		glPushMatrix();
 		{
-			glColor4d(0, 0, 0, 0.9);
+			glColor4d(0, 0, 0, 0.7);
 			glBegin(GL_QUADS);
 			{
 				glVertex3d(0, 0, 0);

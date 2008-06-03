@@ -32,8 +32,7 @@ namespace cg {
 			throw e;
 		}
     }
-	inline
-	void Application::setup() {
+	inline void Application::setup() {
         _time.last = 0;
         _time.current = 0;
         _time.elapsed = 0;
@@ -63,13 +62,6 @@ namespace cg {
 		}
 		Registry::instance()->init();
     }
-    inline
-    void Application::updateFrameTime() {
-        ftime(&_timeb);
-		_time.last = _time.current;
-		_time.current = (_timeb.time * 1000) + _timeb.millitm;
-		_time.elapsed = _time.current - _time.last;
-    }
     void Application::onUpdate() {
         updateFrameTime();
 		if(_isFirstUpdate) {
@@ -79,8 +71,7 @@ namespace cg {
 		DebugNotifier::instance()->debug();
 		UpdateNotifier::instance()->update(_time.elapsed);
     }
-	inline
-	void Application::setOverlayProjection() {
+	inline void Application::setOverlayProjection() {
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
         gluOrtho2D(0,_window.width,0,_window.height);  

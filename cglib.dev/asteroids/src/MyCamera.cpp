@@ -17,6 +17,8 @@ namespace asteroids {
 		_rotLx = 0.0f; // Translate screen by using the glulookAt function (left or right)
 		_rotLy = 0.0f; // Translate screen by using the glulookAt function (up or down)
 		_rotLz = 0.0f; // Translate screen by using the glulookAt function (zoom in or out)
+		
+		_debugCamera = (cg::Properties::instance()->getInt("DEBUG_CAMERA") == 1) ? true : false;
 
 		_rotateU = false;
 		_rotateD = false;
@@ -63,6 +65,9 @@ namespace asteroids {
 	}
 
 	void MyCamera::startRotate(int dir){
+		if(!_debugCamera)
+			return;
+		
 		if (dir == 0){
 			_rotateL = true;
 		}
@@ -82,6 +87,9 @@ namespace asteroids {
 	}
 
 	void MyCamera::stopRotate(int dir){
+		if(!_debugCamera)
+			return;
+		
 		if (dir == 0){
 			_rotateL = false;
 		}

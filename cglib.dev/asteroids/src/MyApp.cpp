@@ -3,7 +3,7 @@
 namespace asteroids {
 
 	MyApp::MyApp() : cg::Application("config.ini") {
-		_window.caption = "Asteroids Reborn";
+		_window.caption = "Roids! (Alpha Version)";
 		_window.width = 800;
 		_window.height = 600;
 		_state = NULL;
@@ -69,5 +69,6 @@ namespace asteroids {
 	}
 	void MyApp::resetTime() {
 		updateFrameTime();
+		_state->update(_time.elapsed);
 	}
 }

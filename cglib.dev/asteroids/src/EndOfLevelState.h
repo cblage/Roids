@@ -16,6 +16,7 @@ namespace asteroids {
 	
 	private:
 		Screen * _screen;
+		double _timeLeft;
 
 	public:
 		bool onKeyPressed(unsigned char key);
@@ -25,6 +26,7 @@ namespace asteroids {
 		void onUpdate();
 		std::string getName(void);
 		void pause();
+		void update(unsigned long elapsed_millis);
 	};
 
 }

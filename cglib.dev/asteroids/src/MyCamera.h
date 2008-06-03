@@ -22,6 +22,7 @@ namespace asteroids {
 		float _ang1, _ang2;
 		GLfloat _rotLx, _rotLy, _rotLz;
 		bool _rotateU,_rotateD, _rotateL, _rotateR;
+		bool _debugCamera;
 
     public:
 		void update(unsigned long elapsed_millis);

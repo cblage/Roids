@@ -62,19 +62,19 @@ namespace asteroids {
 	class Particle;
 
 	class ParticleManager : public cg::Group,
-		public cg::GroupDraw,
-		public cg::GroupUpdate,
-		public cg::GroupKeyboardEvent,
-		public cg::GroupReshapeEvent,
-		public cg::GroupDrawOverlay
+	public cg::GroupDraw,
+	public cg::GroupUpdate,
+	public cg::GroupKeyboardEvent,
+	public cg::GroupReshapeEvent,
+	public cg::GroupDrawOverlay
 	{
 	protected:
 		std::string _numParticlesMessage;
 		std::vector<std::string> _deletedParticles;
 		std::vector<Particle *> _newParticles;
-
+		
 		unsigned int _currIdNum;
-
+		
 		virtual void createEntities();
 		virtual void postInit();
 	public:
@@ -83,8 +83,8 @@ namespace asteroids {
 		virtual void destroyParticle(std::string id);
 		virtual void preUpdate(unsigned long elapsed_millis);
 		virtual void postUpdate(unsigned long elapsed_millis);
-		virtual void createAsteroids(unsigned int numAsteroids, double scaleFactor, double radius, cg::Vector2d position);
-		virtual void createAsteroids(unsigned int numAsteroids, double scaleFactor);
+		virtual void createAsteroids(unsigned int numAsteroids, double scaleFactor, double radius, cg::Vector2d position, double scaleDelta = 0);
+		virtual void createAsteroids(unsigned int numAsteroids, double scaleFactor, double scaleDelta = 0);
 		virtual void createAsteroids(unsigned int numAsteroids);
 		virtual void createAsteroid(double scaleFactor, cg::Vector2d position);
 		virtual void createAsteroid(double scaleFactor, cg::Vector2d position, cg::Vector2d velocity);
@@ -99,8 +99,6 @@ namespace asteroids {
 		virtual void addParticle(Particle * p);
 		virtual Particle * getParticle(std::string id);
 	};
-
-
 #endif
 }
 

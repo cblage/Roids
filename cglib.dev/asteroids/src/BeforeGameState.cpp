@@ -14,7 +14,7 @@ namespace asteroids {
 		_application->removeScreen(_screen);
 		delete(_screen);
 		_application->getGameManager()->resetGame();
-		_application->getGameManager()->changeLevel(1);
+		_application->getGameManager()->changeLevel(cg::Properties::instance()->getInt("INITIAL_LEVEL"));
 	}
 
 

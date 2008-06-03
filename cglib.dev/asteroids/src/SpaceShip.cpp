@@ -8,6 +8,7 @@ namespace asteroids {
 		setMass(cg::Properties::instance()->getDouble("SHIP_MASS"));
 		initHealth(cg::Properties::instance()->getDouble("SHIP_HEALTH"));
 		
+		
 	}
 
 	SpaceShip::~SpaceShip() {
@@ -17,6 +18,10 @@ namespace asteroids {
 	void SpaceShip::init() {
 		// Read from property file
 		_radarSize = cg::Properties::instance()->getDouble("RADAR_SIZE");
+		_radarAdvanced = cg::Properties::instance()->getInt("RADAR_ADVANCED");
+		
+		_invulTimeMax = cg::Properties::instance()->getDouble("SHIP_RESPAWN_INVUL");
+		_invulTime = _invulTimeMax;
 
 		_size = cg::Vector2d(
 								cg::Properties::instance()->getDouble("SHIP_LENGTH"),
@@ -50,9 +55,22 @@ namespace asteroids {
 				_charlesBronsonKilledSecondsAgo--;
 			}
 		}
+		
+		if(_invulTime > 0) {
+			if((_invulTime - elapsed_millis/1000.0)< 0) {
+				_invulTime = 0;
+				setCollisionRadius(_size[1]/2);
+			} else {
+				_invulTime-= elapsed_millis/1000.0;
+				setCollisionRadius(_size[1]*1.1);
+			}
+		}		
 	}
 	
 	void SpaceShip::drawOverlay() {
+		if(isDestroyed() == true)
+			return;		
+
 		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
 		GLboolean lightingEnabled;
 		lightingEnabled = glIsEnabled(GL_LIGHTING);
@@ -70,12 +88,37 @@ namespace asteroids {
 		glColor3d(0.4,0.7,0.9);
 		cg::Util::instance()->drawBitmapString(health.str(),position[0]-18,position[1]-25);
 		cg::Util::instance()->drawBitmapString(ammo.str(),position[0]-18,position[1]-35);
-		cg::Util::instance()->drawStrokeString("S", win.width-win.width/_radarSize +  relativePosition[0]*win.width/_radarSize , relativePosition[1]*win.height/_radarSize,0.1,false,2,0.1,0.9,0.4,1);
+		if(_radarAdvanced == 1) {
+			cg::Vector3d tip = cg::Vector3d(_size[0], 0, 0)/2.0;
+			cg::Vector3d leftCorner = cg::Vector3d(-_size[0], -_size[1], 0)/2.0;
+			cg::Vector3d rightCorner = cg::Vector3d(-_size[0], _size[1], 0)/2.0;
+			glPushMatrix();
+			{
+				glTranslated(win.width-win.width/_radarSize +  relativePosition[0]*win.width/_radarSize, relativePosition[1]*win.height/_radarSize, 0);
+				glRotated(getRotation(true), 0, 0, 1);
+				glScaled(1.5/_radarSize, 1.5/_radarSize, 1.5/_radarSize);
+				glColor3d(0.4,0.7,0.9);
+				glBegin(GL_TRIANGLES); 
+				{
+					glVertex3d(tip[0], tip[1], tip[2]);			
+					glVertex3d(leftCorner[0], leftCorner[1], leftCorner[2]);			
+					glVertex3d(rightCorner[0], rightCorner[1], rightCorner[2]);	
+				}
+				glEnd();
+			}
+			glPopMatrix();
+		} else {
+			cg::Util::instance()->drawStrokeString("S", win.width-win.width/_radarSize +  relativePosition[0]*win.width/_radarSize , relativePosition[1]*win.height/_radarSize,0.1,false,2,0.1,0.9,0.4,1);
+		}
+		
 
 		if(lightingEnabled == GL_TRUE) glEnable(GL_LIGHTING);
 	}
 
 	void SpaceShip::draw() {
+		if(isDestroyed() == true)
+			return;		
+
 		cg::Vector3d tip = cg::Vector3d(_size[0], 0, 0)/2.0;
 		cg::Vector3d backTip = cg::Vector3d(-_size[0], 0, 0) / 1.5;
 		cg::Vector3d topLeftCorner = cg::Vector3d(-_size[0], -_size[1], _size[1])/2.0;
@@ -170,7 +213,7 @@ namespace asteroids {
 			glEnd();
 
 			//bottom
-			glBegin(GL_POLYGON);
+			glBegin(GL_QUADS);
 			{
 				//glColor3d(0,1, 1);
 				normal = normalize(topLeftCorner);
@@ -192,19 +235,45 @@ namespace asteroids {
 			glEnd();
 		}
 		glPopMatrix();
-		glFlush();
+		//glFlush();
 
-		//cg::Vector2d position = getPosition();
-		/*glPushMatrix();
-		{
-			glTranslated(position[0], position[1], 0);
-			//glRotated(getRotation(true), 0, 0, 1);
-			glColor3d(1, 0, 0);
-			glutSolidSphere(getCollisionRadius(), 30, 30);
+		if(_invulTime > 0) {
+			glPushMatrix();
+			{
+				GLboolean blendEnabled, depthTestEnabled;
+				blendEnabled = glIsEnabled(GL_BLEND);
+				depthTestEnabled = glIsEnabled(GL_DEPTH_TEST);
+				if(blendEnabled != GL_TRUE) glEnable(GL_BLEND);
+				if(depthTestEnabled == GL_TRUE) glDisable(GL_DEPTH_TEST);
+				glBlendFunc(GL_SRC_ALPHA,GL_ONE);
+				
+				glTranslated(position[0], position[1], 0);
+				glColor4d(0.17, 0.67, 1, _invulTime/_invulTimeMax*0.6);
+				glutSolidSphere(_size[1]*1.1, 35, 35);
+				
+				if(depthTestEnabled == GL_TRUE) glEnable(GL_DEPTH_TEST);
+				if(blendEnabled != GL_TRUE) glDisable(GL_BLEND);
+			}
+			glPopMatrix();		
 		}
-		glPopMatrix();
-		glFlush();*/
+
 	}
+	
+	void SpaceShip::dealDamage(double damage) {
+		if(_invulTime > 0)
+			return;
+		//else
+		Particle::dealDamage(damage);
+	}
+	
+	double SpaceShip::getCollisionDamage(Particle * target) {
+		if(_invulTime > 0)
+			return 0;
+		//else
+		return Particle::getCollisionDamage(target);	
+	}
+	
+	
 	void SpaceShip::onReshape(int width, int height) {
 		if(width > 100 && height > 100) {
 			setUniverseDimensions(width,height);
@@ -216,7 +285,7 @@ namespace asteroids {
 	}
 	
 	void SpaceShip::shootLaser(void) {
-		if (_charlesBronsonStyle > 0) {
+		if (_charlesBronsonStyle > 0 && _invulTime == 0) {
 			_charlesBronsonStyle--;
 			getParticleManager()->createLaserShot(getPosition(), getRotation(), getVelocity(), getRotation(true));
 		}
@@ -227,6 +296,15 @@ namespace asteroids {
 	
 	void SpaceShip::onKeyReleased(unsigned char key) {
 		_controller->onKeyReleased(key);
+	}
+	
+	
+	void SpaceShip::onSpecialKeyPressed(int key) {
+		_controller->onSpecialKeyPressed(key);
+	}
+	
+	void SpaceShip::onSpecialKeyReleased(int key) {
+		_controller->onSpecialKeyReleased(key);
 	}
 	
 

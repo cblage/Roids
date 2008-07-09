@@ -15,7 +15,7 @@ namespace  asteroids{
 	class PhysicsObject;
 
 	class PhysicsEngine{
-	public:
+	private:
 		cg::Vector2d _position, _previousPosition;
 		cg::Vector2d _velocity, _previousVelocity;
 		double _acelFactor;

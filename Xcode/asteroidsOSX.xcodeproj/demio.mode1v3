@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>5704D7980DF6F5010039D942</string>
+						<string>571784BD0E24CD8400C2B42B</string>
 						<key>history</key>
 						<array>
 							<string>574DB2FF0DF5C6810006D9FE</string>
@@ -226,7 +226,7 @@
 							<string>579974D20DF626AE00A46A83</string>
 							<string>579974D30DF626AE00A46A83</string>
 							<string>579974D40DF626AE00A46A83</string>
-							<string>579974D80DF626AE00A46A83</string>
+							<string>5704D7980DF6F5010039D942</string>
 						</array>
 						<key>prevStack</key>
 						<array>
@@ -343,7 +343,7 @@
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 1786}, {392, 594}}</string>
+							<string>{{0, 0}, {392, 594}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -390,12 +390,11 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>5704D7970DF6F5010039D942</string>
+										<string>571784BA0E24CD8400C2B42B</string>
 										<key>history</key>
 										<array>
 											<string>57F909DB0DED31E700992D09</string>
 											<string>57B7CBBA0DEDBBF300CEE73C</string>
-											<string>57B7CC420DEDCC1100CEE73C</string>
 											<string>57B7CC4D0DEDCC1100CEE73C</string>
 											<string>57B7CC700DEDCE2B00CEE73C</string>
 											<string>57B7CC970DEDD14000CEE73C</string>
@@ -437,7 +436,6 @@
 											<string>57CC214F0DF592DB00D66589</string>
 											<string>57CC21630DF5A1EB00D66589</string>
 											<string>57CC21720DF5A3C900D66589</string>
-											<string>574DB2C90DF5B6EA0006D9FE</string>
 											<string>574DB2CA0DF5B6EA0006D9FE</string>
 											<string>574DB2E90DF5BE770006D9FE</string>
 											<string>574DB2F50DF5C6810006D9FE</string>
@@ -446,11 +444,10 @@
 											<string>579974A90DF6125900A46A83</string>
 											<string>579974CD0DF626AE00A46A83</string>
 											<string>5704D7900DF6F4FF0039D942</string>
-											<string>5705F41D0DF0611300B5BA26</string>
+											<string>5704D7970DF6F5010039D942</string>
 										</array>
 										<key>prevStack</key>
 										<array>
-											<string>57D375210DED181B002C0837</string>
 											<string>57D3754A0DED1CC2002C0837</string>
 											<string>57D3754C0DED1CC2002C0837</string>
 											<string>57F909DD0DED31E700992D09</string>
@@ -464,7 +461,6 @@
 											<string>57B7CC310DEDC8BA00CEE73C</string>
 											<string>57B7CC320DEDC8BA00CEE73C</string>
 											<string>57B7CC4F0DEDCC1100CEE73C</string>
-											<string>57B7CC500DEDCC1100CEE73C</string>
 											<string>57B7CC530DEDCC1100CEE73C</string>
 											<string>57B7CC570DEDCC1100CEE73C</string>
 											<string>57B7CC580DEDCC1100CEE73C</string>
@@ -504,7 +500,6 @@
 											<string>5772F3710DF57FED00F2526C</string>
 											<string>574DB2FB0DF5C6810006D9FE</string>
 											<string>579974AE0DF6125900A46A83</string>
-											<string>5704D7910DF6F4FF0039D942</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -562,9 +557,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>5704D7930DF6F4FF0039D942</string>
+				<string>571784BB0E24CD8400C2B42B</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>5704D7940DF6F4FF0039D942</string>
+				<string>571784BC0E24CD8400C2B42B</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -712,9 +707,8 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>571ECB050DECBBE5007AE794</string>
 		<string>574DB2F00DF5BEAA0006D9FE</string>
-		<string>/Users/demio/Documents/Projects/Current/asteroidsOSX/asteroidsOSX.xcodeproj</string>
+		<string>/Users/demio/Documents/Projects/Current/roids/branches/MacOSX/Xcode/asteroidsOSX.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>135 202 1113 653 0 0 1680 1028 </string>

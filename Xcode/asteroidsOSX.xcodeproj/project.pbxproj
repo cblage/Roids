@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		571784CD0E24D7AA00C2B42B /* gpl.txt in Resources */ = {isa = PBXBuildFile; fileRef = 571784CC0E24D7AA00C2B42B /* gpl.txt */; };
 		571EC9D70DECB98B007AE794 /* ApplicationController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 571EC9620DECB98B007AE794 /* ApplicationController.cpp */; };
 		571EC9D80DECB98B007AE794 /* ApplicationState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 571EC9640DECB98B007AE794 /* ApplicationState.cpp */; };
 		571EC9D90DECB98B007AE794 /* Asteroid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 571EC9660DECB98B007AE794 /* Asteroid.cpp */; };
@@ -67,6 +68,7 @@
 		5048396D09E3307300765E4B /* asteroidsOSXProj.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = asteroidsOSXProj.xcconfig; sourceTree = "<group>"; };
 		5048396E09E3307300765E4B /* asteroidsOSXTarget.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = asteroidsOSXTarget.xcconfig; sourceTree = "<group>"; };
 		508344B209E5C41E0093A071 /* asteroidsOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = asteroidsOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		571784CC0E24D7AA00C2B42B /* gpl.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gpl.txt; sourceTree = "<group>"; };
 		571EC9620DECB98B007AE794 /* ApplicationController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ApplicationController.cpp; sourceTree = "<group>"; };
 		571EC9630DECB98B007AE794 /* ApplicationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationController.h; sourceTree = "<group>"; };
 		571EC9640DECB98B007AE794 /* ApplicationState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ApplicationState.cpp; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 		20286C2CFDCF999611CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				571784CC0E24D7AA00C2B42B /* gpl.txt */,
 				571ECBAB0DECC382007AE794 /* config.ini */,
 				8D0C4E960486CD37000505A6 /* Info.plist */,
 				0867D6AAFE840B52C02AAC07 /* InfoPlist.strings */,
@@ -429,6 +432,7 @@
 				8D0C4E8D0486CD37000505A6 /* InfoPlist.strings in Resources */,
 				8D0C4E8E0486CD37000505A6 /* main.nib in Resources */,
 				571ECBAC0DECC382007AE794 /* config.ini in Resources */,
+				571784CD0E24D7AA00C2B42B /* gpl.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

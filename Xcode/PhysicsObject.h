@@ -23,7 +23,7 @@
 #define PHYSICS_OBJ_H
 #pragma message("PhysicsObject is included")
 #include "cg/cg.h"
-#include "PhysicsEngine.h"
+
 
 
 namespace asteroids {

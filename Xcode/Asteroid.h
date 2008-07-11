@@ -26,19 +26,19 @@
 #include <vector>
 #include "cg/cg.h"
 #include <cmath>
-#include "Particle.h"
+#include "GameEntity.h"
 
 
 
 namespace asteroids {
-	class ParticleManager;
+	class GameManager;
 	class Particle;
 	class SpaceShip;
 
 	class Asteroid : public cg::IDrawListener,
 		public cg::IUpdateListener,
 		public cg::IReshapeEventListener,
-		public Particle
+		public GameEntity
 	{
 	private:
 		std::vector<cg::Vector3d> _asteroid_vector, _asteroid_vector2;
@@ -49,8 +49,8 @@ namespace asteroids {
 
 		
 	public:
-		Asteroid(std::string id, ParticleManager * particleManager);
-		Asteroid(std::string id, double scaleFactor, ParticleManager * particleManager);
+		Asteroid(std::string id, GameManager * gameManager);
+		Asteroid(std::string id, double scaleFactor, GameManager * gameManager);
 		~Asteroid();
 		void init();
 		void update(unsigned long elapsed_millis);

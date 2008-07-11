@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		571784CD0E24D7AA00C2B42B /* gpl.txt in Resources */ = {isa = PBXBuildFile; fileRef = 571784CC0E24D7AA00C2B42B /* gpl.txt */; };
+		57182B280E27AAEB00CE0B64 /* GameEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57182B270E27AAEB00CE0B64 /* GameEntity.cpp */; };
 		571EC9D70DECB98B007AE794 /* ApplicationController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 571EC9620DECB98B007AE794 /* ApplicationController.cpp */; };
 		571EC9D80DECB98B007AE794 /* ApplicationState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 571EC9640DECB98B007AE794 /* ApplicationState.cpp */; };
 		571EC9D90DECB98B007AE794 /* Asteroid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 571EC9660DECB98B007AE794 /* Asteroid.cpp */; };
@@ -69,6 +70,8 @@
 		5048396E09E3307300765E4B /* asteroidsOSXTarget.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = asteroidsOSXTarget.xcconfig; sourceTree = "<group>"; };
 		508344B209E5C41E0093A071 /* asteroidsOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = asteroidsOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		571784CC0E24D7AA00C2B42B /* gpl.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gpl.txt; sourceTree = "<group>"; };
+		57182B260E27AAEB00CE0B64 /* GameEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEntity.h; sourceTree = "<group>"; };
+		57182B270E27AAEB00CE0B64 /* GameEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameEntity.cpp; sourceTree = "<group>"; };
 		571EC9620DECB98B007AE794 /* ApplicationController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ApplicationController.cpp; sourceTree = "<group>"; };
 		571EC9630DECB98B007AE794 /* ApplicationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationController.h; sourceTree = "<group>"; };
 		571EC9640DECB98B007AE794 /* ApplicationState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ApplicationState.cpp; sourceTree = "<group>"; };
@@ -228,7 +231,10 @@
 		20286C2AFDCF999611CA2CEA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				57182B260E27AAEB00CE0B64 /* GameEntity.h */,
+				57182B270E27AAEB00CE0B64 /* GameEntity.cpp */,
 				571EC9620DECB98B007AE794 /* ApplicationController.cpp */,
+				571ECB740DECC11E007AE794 /* ParticleManager.cpp */,
 				571EC9630DECB98B007AE794 /* ApplicationController.h */,
 				571EC9640DECB98B007AE794 /* ApplicationState.cpp */,
 				571EC9650DECB98B007AE794 /* ApplicationState.h */,
@@ -273,7 +279,6 @@
 				571EC9C20DECB98B007AE794 /* PhysicsObject.cpp */,
 				571EC9C30DECB98B007AE794 /* PhysicsObject.h */,
 				571EC9C40DECB98B007AE794 /* QuitConfirmState.cpp */,
-				571ECB740DECC11E007AE794 /* ParticleManager.cpp */,
 				571EC9C50DECB98B007AE794 /* QuitConfirmState.h */,
 				571EC9C60DECB98B007AE794 /* Screen.cpp */,
 				571EC9C70DECB98B007AE794 /* Screen.h */,
@@ -489,6 +494,7 @@
 				571ECA040DECB98B007AE794 /* SpaceShipHyperAccelerator.cpp in Sources */,
 				571ECA050DECB98B007AE794 /* StarSphere.cpp in Sources */,
 				571ECB750DECC11E007AE794 /* ParticleManager.cpp in Sources */,
+				57182B280E27AAEB00CE0B64 /* GameEntity.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

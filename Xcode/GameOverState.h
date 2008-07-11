@@ -25,13 +25,10 @@
 
 #include <string>
 #include "ApplicationState.h"
-#include "GameOverScreen.h"
-#include "BeforeGameState.h"
-
-
 
 namespace asteroids {
-
+	class Screen;
+	
 	class GameOverState : public ApplicationState{
 	SINGLETON_HEADER(GameOverState);
 	

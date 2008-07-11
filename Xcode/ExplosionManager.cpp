@@ -19,6 +19,7 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #include "ExplosionManager.h"
+#include "ExplosionDebris.h"
 
 namespace asteroids {
 	ExplosionManager::ExplosionManager(std::string id, MyApp *application) : ParticleManager(id), _application(application) {

@@ -19,6 +19,11 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #include "ApplicationState.h"
+#include "GameManager.h"
+#include "MyApp.h"
+#include "QuitConfirmState.h"
+#include "PausedState.h"
+
 
 namespace asteroids {
 

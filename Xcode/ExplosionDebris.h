@@ -31,10 +31,8 @@
 
 
 namespace asteroids {
-	class ParticleManager;
-	class SpaceShip;
+	class ExplosionManager;
 	class PhysicsObject;
-	class Particle;
 
 	class ExplosionDebris : public cg::IDrawListener,
 		public cg::IUpdateListener,
@@ -46,7 +44,7 @@ namespace asteroids {
 		cg::Vector3d _color;
 		
 	public:
-		ExplosionDebris(std::string id, ParticleManager * particleManager, cg::Vector3d color = cg::Vector3d(0.7, 0.7, 0.7));
+		ExplosionDebris(std::string id, ExplosionManager * explosionManager, cg::Vector3d color = cg::Vector3d(0.7, 0.7, 0.7));
 		~ExplosionDebris();
 		void init();
 		void update(unsigned long elapsed_millis);

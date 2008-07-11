@@ -19,10 +19,13 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #include "SpaceShip.h"
+#include "SpaceShipHyperAccelerator.h"
+#include "ShipController.h"
+#include "GameManager.h"
 
 namespace asteroids {
 
-	SpaceShip::SpaceShip(std::string id, ParticleManager *  particleManager) : Particle(id, particleManager, 's') {
+	SpaceShip::SpaceShip(std::string id, GameManager *  gameManager) : GameEntity(id, gameManager, 's') {
 		_hyperAccelerator = new SpaceShipHyperAccelerator(this);
 		_controller = new ShipController(this);
 		setMass(cg::Properties::instance()->getDouble("SHIP_MASS"));
@@ -300,9 +303,8 @@ namespace asteroids {
 	}
 	
 	void SpaceShip::shootLaser(void) {
-		if (_charlesBronsonStyle > 0 && _invulTime == 0) {
-			_charlesBronsonStyle--;
-			getParticleManager()->createLaserShot(getPosition(), getRotation(), getVelocity(), getRotation(true));
+		if (_charlesBronsonStyle > 0 && _invulTime == 0 && getGameManager()->createLaserShot(getPosition(), getRotation(), getVelocity(), getRotation(true))) {
+			_charlesBronsonStyle--;			
 		}
 	}
 	void SpaceShip::onKeyPressed(unsigned char key) {

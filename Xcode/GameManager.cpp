@@ -19,6 +19,15 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #include "GameManager.h"
+#include "ApplicationState.h"
+#include "EndOfLevelState.h"
+#include "GameOverState.h"
+#include "ExplosionManager.h"
+#include "MyApp.h"
+#include "Asteroid.h"
+#include "SpaceShip.h"
+#include "LaserShot.h"
+
 
 namespace asteroids {
 	GameManager::GameManager(std::string id, MyApp *application) : ParticleManager(id), _application(application) {
@@ -34,6 +43,7 @@ namespace asteroids {
 		_showFrameRate = (_maxFrameRateAccul > 0) ? true : false;
 		_frameRateAccul = 0;
 		_frameRateAcculDivider = 0;
+		_gamePaused = false;
 	}
 	GameManager::~GameManager() {
 	}
@@ -128,12 +138,188 @@ namespace asteroids {
 		_application->getExplosionManager()->generateExplosion(destroyedParticle);
 		ParticleManager::destroyParticle(id);
 	}
-	void GameManager::createLaserShot(cg::Vector2d position, double radiansRotation, cg::Vector2d velocity, double degreesRotation) {
-		if(_levelRunning) {
-			addScore(-100);
-			ParticleManager::createLaserShot(position, radiansRotation, velocity, degreesRotation);
+	
+	void GameManager::createAsteroids(unsigned int numAsteroids, double scaleFactor, double radius, cg::Vector2d position, double scaleDelta) {
+		double x, y, angle;
+		cg::Vector2d newPosition, velocity;
+		double rand, rand2, scaleRand, finalScaleFactor;
+		rand = randomBetween(0, 3.14);
+		scaleFactor = (scaleFactor < 1) ? 1 : scaleFactor;
+		scaleDelta = abs(scaleDelta);
+		for(unsigned int i = 0; i < numAsteroids; i++) {
+			scaleRand = (scaleDelta > 0) ? randomBetween(-scaleDelta, scaleDelta) : 0;
+			finalScaleFactor = ((scaleFactor + scaleRand) > 1) ? scaleFactor + scaleRand : scaleFactor + randomBetween(0, scaleDelta);
+			
+			rand2 = randomBetween(0.1,7.0)/5.0;
+ 			angle = 2*(3.14)*i/numAsteroids + rand + rand2;
+			x = cos(angle)*randomBetween(0.5,0.9)*radius;
+			y = sin(angle)*randomBetween(0.5,0.9)*radius;
+			
+			newPosition = position + cg::Vector2d(x,y);
+			velocity = normalize(cg::Vector2d(x,y))*randomBetween(50,200); 
+			createAsteroid(finalScaleFactor, newPosition, velocity);
 		}
 	}
+	
+	void GameManager::createAsteroids(unsigned int numAsteroids) {
+		int quadrant = 0;
+		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
+		for(unsigned int i = 0; i < numAsteroids; i++) {
+			switch (quadrant)	{
+				case 0:
+					createAsteroid(cg::Vector2d((win.width*randomBetween(0.0,0.33)),(win.height*randomBetween(0.0,0.33))));
+					break;
+				case 1:
+					createAsteroid(cg::Vector2d((win.width*randomBetween(0.67,1)),(win.height*randomBetween(0.67,1))));
+					break;
+				case 2:
+					createAsteroid(cg::Vector2d((win.width*randomBetween(0.0,0.33)),(win.height*randomBetween(0.67,1))));
+					break;
+				case 3:
+					createAsteroid(cg::Vector2d((win.width*randomBetween(0.33,0.67)),(win.height*randomBetween(0.0,0.33))));
+					break;
+				case 4:
+					createAsteroid(cg::Vector2d((win.width*randomBetween(0.33,0.67)),(win.height*randomBetween(0.67,1))));
+					break;
+				case 5:
+					createAsteroid(cg::Vector2d((win.width*randomBetween(0.33,0.67)),(win.height*randomBetween(0.33,0.67))));
+					break;
+				case 6:
+					createAsteroid(cg::Vector2d((win.width*randomBetween(0.0,0.33)),(win.height*randomBetween(0.33,0.67))));
+					break;
+				case 7:
+					createAsteroid(cg::Vector2d((win.width*randomBetween(0.67,1)),(win.height*randomBetween(0.33,0.67))));
+					break;
+			}
+			quadrant = (quadrant + 1) % 8;
+		}
+	}
+	
+	void GameManager::createAsteroids(unsigned int numAsteroids, double scaleFactor, double scaleDelta) {
+		int quadrant = 0;
+		double scaleRand, finalScaleFactor;
+		scaleFactor = (scaleFactor < 1) ? 1 : scaleFactor;
+		scaleDelta = abs(scaleDelta);
+		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
+		for(unsigned int i = 0; i < numAsteroids; i++) {
+			scaleRand = (scaleDelta > 0) ? randomBetween(-scaleDelta, scaleDelta) : 0;
+			finalScaleFactor = ((scaleFactor + scaleRand) > 1) ? scaleFactor + scaleRand : scaleFactor + randomBetween(0, scaleDelta);
+			switch (quadrant)	{
+				case 0:
+					createAsteroid(finalScaleFactor, cg::Vector2d((win.width*randomBetween(0.0,0.33)),(win.height*randomBetween(0.0,0.33))));
+					break;
+				case 1:
+					createAsteroid(finalScaleFactor, cg::Vector2d((win.width*randomBetween(0.67,1)),(win.height*randomBetween(0.67,1))));
+					break;
+				case 2:
+					createAsteroid(finalScaleFactor, cg::Vector2d((win.width*randomBetween(0.0,0.33)),(win.height*randomBetween(0.67,1))));
+					break;
+				case 3:
+					createAsteroid(finalScaleFactor, cg::Vector2d((win.width*randomBetween(0.33,0.67)),(win.height*randomBetween(0.0,0.33))));
+					break;
+				case 4:
+					createAsteroid(finalScaleFactor, cg::Vector2d((win.width*randomBetween(0.33,0.67)),(win.height*randomBetween(0.67,1))));
+					break;
+				case 5:
+					createAsteroid(finalScaleFactor, cg::Vector2d((win.width*randomBetween(0.33,0.67)),(win.height*randomBetween(0.33,0.67))));
+					break;
+				case 6:
+					createAsteroid(finalScaleFactor, cg::Vector2d((win.width*randomBetween(0.0,0.33)),(win.height*randomBetween(0.33,0.67))));
+					break;
+				case 7:
+					createAsteroid(finalScaleFactor, cg::Vector2d((win.width*randomBetween(0.67,1)),(win.height*randomBetween(0.33,0.67))));
+					break;
+			}
+			quadrant = (quadrant + 1) % 8;
+		}
+	}
+	
+	void GameManager::createAsteroid(double scaleFactor, cg::Vector2d position) {
+		scaleFactor = (scaleFactor < 1) ? 1 : scaleFactor;
+		std::ostringstream os;
+		os << "Asteroid" << _currIdNum++;
+		Asteroid * createdAsteroid = new Asteroid(os.str(), scaleFactor, this);
+		createdAsteroid->init();
+		createdAsteroid->accelerate(randomBetween(-400, 400), false);
+		createdAsteroid->setPosition(position);
+		addParticle(createdAsteroid);
+	}
+	
+	void GameManager::createAsteroid(double scaleFactor, cg::Vector2d position, cg::Vector2d velocity) {
+		scaleFactor = (scaleFactor < 1) ? 1 : scaleFactor;
+		std::ostringstream os;
+		os << "Asteroid" << _currIdNum++;
+		Asteroid * createdAsteroid = new Asteroid(os.str(), scaleFactor, this);
+		createdAsteroid->init();
+		createdAsteroid->setVelocity(velocity);
+		createdAsteroid->setPosition(position);
+		addParticle(createdAsteroid);
+	}
+	
+	void GameManager::createAsteroid(cg::Vector2d position) {
+		std::ostringstream os;
+		os << "Asteroid" << _currIdNum++;
+		Asteroid * createdAsteroid = new Asteroid(os.str(), this);
+		createdAsteroid->init();
+		createdAsteroid->accelerate(randomBetween(-400, 400), false);
+		createdAsteroid->setPosition(position);
+		addParticle(createdAsteroid);
+	}
+	
+	void GameManager::createAsteroid(void) {
+		std::ostringstream os;
+		os << "Asteroid" << _currIdNum++;
+		Asteroid * createdAsteroid = new Asteroid(os.str(), this);
+		createdAsteroid->init();
+		createdAsteroid->accelerate(randomBetween(-400, 400), false);
+		addParticle(createdAsteroid);
+	}
+	
+	
+	bool GameManager::createLaserShot(cg::Vector2d position, double radiansRotation, cg::Vector2d velocity, double degreesRotation) {
+		if(!_levelRunning || _gamePaused) {
+			return false;
+		}
+
+		std::ostringstream os;
+		os << "LaserShot" << _currIdNum++;
+		LaserShot * newLaserShot = new LaserShot(os.str(), this);
+		newLaserShot->init();
+		newLaserShot->setPosition(position);
+		newLaserShot->setRotation(radiansRotation);
+		newLaserShot->setVelocity(velocity);
+		if (degreesRotation >= 180 && degreesRotation < 360) {
+			newLaserShot->accelerate(-1000 * newLaserShot->getMass(), true);
+		} else {
+			newLaserShot->accelerate(1000 * newLaserShot->getMass(), true);
+		} 
+		addParticle(newLaserShot);
+		addScore(-100);
+		return true;
+	}
+	
+	void GameManager::createShip(cg::Vector2d position, double radiansRotation, cg::Vector2d velocity, double degreesRotation) {
+		std::ostringstream os;
+		os << "Ship" << _currIdNum++;
+		SpaceShip * newShip = new SpaceShip(os.str(), this);
+		newShip->init();
+		newShip->setPosition(position);
+		newShip->setRotation(radiansRotation);
+		newShip->setVelocity(velocity);
+		addParticle(newShip);
+	}
+	
+	void GameManager::createShip(void) {
+		std::ostringstream os;
+		os << "Ship" << _currIdNum++;
+		SpaceShip * newShip = new SpaceShip(os.str(), this);
+		newShip->init();
+		addParticle(newShip);
+	}
+	
+	
+	
+	
 	void GameManager::beginLevel() {
 		if(_currentLevel == 0) { //level 0 = demo level
 			_asteroidsLeft = 0;
@@ -171,6 +357,14 @@ namespace asteroids {
 			}
 			EndOfLevelState::instance()->changeTo(_application);
 		}
+	}
+	
+	void GameManager::pauseGame() {
+		_gamePaused = true;
+	}
+
+	void GameManager::resumeGame() {
+		_gamePaused = false;
 	}
 	
 	void GameManager::advanceLevel() {

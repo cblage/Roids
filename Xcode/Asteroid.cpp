@@ -19,16 +19,17 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #include "Asteroid.h"
+#include "GameManager.h"
 
 namespace asteroids {
 
-	Asteroid::Asteroid(std::string id, double scaleFactor, ParticleManager *  particleManager) : 
-		Particle(id, particleManager, 'a'),
+	Asteroid::Asteroid(std::string id, double scaleFactor, GameManager *  gameManager) : 
+		GameEntity(id, gameManager, 'a'),
 		_scaleFactor(scaleFactor) {
 	}
 
-	Asteroid::Asteroid(std::string id, ParticleManager * particleManager) : 
-		Particle(id, particleManager, 'a'),
+	Asteroid::Asteroid(std::string id, GameManager * gameManager) : 
+		GameEntity(id, gameManager, 'a'),
 		_scaleFactor(randomBetween(2, 6)) { 
 	}
 
@@ -260,7 +261,7 @@ namespace asteroids {
 				newAsteroids = 2;
 				newScaleDelta = 0.4;
 			}
-			getParticleManager()->createAsteroids(newAsteroids, newScaleFactor, getCollisionRadius(), getPosition(), newScaleDelta);
+			getGameManager()->createAsteroids(newAsteroids, newScaleFactor, getCollisionRadius(), getPosition(), newScaleDelta);
 		}		
 		Particle::destroy();
 	}

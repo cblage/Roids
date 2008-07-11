@@ -27,10 +27,11 @@
 #include <string>
 #include <vector>
 #include "cg/cg.h"
-#include "Screen.h"
+
 
 namespace asteroids {
-
+	class Screen;
+	
 	class ScreenManager : public cg::Group,
 		public cg::GroupReshapeEvent,
 		public cg::GroupDrawOverlay,

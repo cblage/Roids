@@ -19,6 +19,16 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #include "MyApp.h"
+#include "MyCamera.h"
+#include "StarSphere.h"
+#include "GameManager.h"
+#include "Lights.h"
+#include "ApplicationState.h"
+#include "BeforeGameState.h"
+#include "BeforeLevelState.h"
+#include "ApplicationController.h"
+#include "ScreenManager.h"
+#include "ExplosionManager.h"
 
 namespace asteroids {
 

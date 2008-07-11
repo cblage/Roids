@@ -25,7 +25,7 @@
 #include <string>
 #include <cmath>
 #include "cg/cg.h"
-#include "MyCameraController.h"
+
 
 namespace asteroids {
 	class MyCameraController;

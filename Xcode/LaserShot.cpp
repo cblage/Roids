@@ -19,11 +19,12 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #include "LaserShot.h"
+#include "GameManager.h"
 
 namespace asteroids {
 
-	LaserShot::LaserShot(std::string id, ParticleManager * particleManager) : 
-		Particle(id, particleManager, 'l') {}
+	LaserShot::LaserShot(std::string id, GameManager * gameManager) : 
+		GameEntity(id, gameManager, 'l') {}
 
 	LaserShot::~LaserShot() {
 	}
@@ -49,7 +50,7 @@ namespace asteroids {
 		_secondsToLive -= elapsed_millis / 1000.0;
 		if(_secondsToLive <= 0) {
 			setDestroyed(true);
-			getParticleManager()->destroyParticle(_id);
+			getGameManager()->destroyParticle(_id);
 			return;
 		}
 

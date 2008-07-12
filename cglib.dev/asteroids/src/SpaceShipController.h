@@ -18,14 +18,14 @@
  along with Roids!; if not, write to the Free Software
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
-#ifndef MY_CONTROLLER_H
-#define MY_CONTROLLER_H
+#ifndef SPACESHIP_CONTROLLER_H
+#define SPACESHIP_CONTROLLER_H
 
 #include "cg/cg.h"
-#include "SpaceShip.h"
 
 namespace asteroids {
-
+	class SpaceShip;
+	
 	class SpaceShipController : public cg::Entity,
 		public cg::IKeyboardEventListener
 	{

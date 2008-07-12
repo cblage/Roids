@@ -24,7 +24,6 @@
 #pragma message("ShipController is included")
 
 #include "cg/cg.h"
-#include "SpaceShip.h"
 
 namespace asteroids {
 	class SpaceShip;

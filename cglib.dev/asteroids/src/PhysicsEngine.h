@@ -27,7 +27,7 @@
 #include <vector>
 #include "cg/cg.h"
 #include <cmath>
-#include "PhysicsObject.h"
+
 
 
 namespace  asteroids{

@@ -27,8 +27,6 @@
 #include <vector>
 #include "cg/cg.h"
 #include "ParticleManager.h"
-#include "ExplosionDebris.h"
-
 
 
 namespace asteroids {

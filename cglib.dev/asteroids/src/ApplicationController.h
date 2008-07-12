@@ -24,7 +24,6 @@
 #pragma message("ApplicationController is included")
 
 #include "cg/cg.h"
-#include "MyApp.h"
 
 namespace asteroids {
 	class MyApp;

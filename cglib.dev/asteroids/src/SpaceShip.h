@@ -26,23 +26,19 @@
 #include <string>
 #include "cg/cg.h"
 #include <cmath>
-#include "Particle.h"
-#include "PhysicsObject.h"
-#include "SpaceShipHyperAccelerator.h"
-#include "ShipController.h"
 #include <sstream>
 #include <string>
-
+#include "GameEntity.h"
 
 namespace asteroids {
-	class ParticleManager;
+	class GameManager;
 	class SpaceShipHyperAccelerator;
 	class ShipController;
 
 	class SpaceShip : public cg::IDrawListener,
 		public cg::IUpdateListener, 
 		public cg::IReshapeEventListener,
-		public Particle
+		public GameEntity
 	{
 	private:
 		std::string _message;
@@ -55,8 +51,8 @@ namespace asteroids {
 		int _radarAdvanced;
 		double _invulTime, _invulTimeMax;
 	public:
-		SpaceShip(std::string id, ParticleManager *  particleManager);
-		SpaceShip(std::string id, ParticleManager *  particleManager, int lifes);
+		SpaceShip(std::string id, GameManager *  gameManager);
+		SpaceShip(std::string id, GameManager *  gameManager, int lifes);
 		~SpaceShip();
 		void init();
 		void update(unsigned long elapsed_millis);

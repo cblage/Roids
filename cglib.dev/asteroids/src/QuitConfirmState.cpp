@@ -19,6 +19,9 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #include "QuitConfirmState.h"
+#include "MyApp.h"
+#include "Screen.h"
+#include "GameManager.h"
 
 namespace asteroids {
 
@@ -28,9 +31,11 @@ namespace asteroids {
 		_screen = new Screen("QuitConfirmScreen");
 		_screen->init();
 		_screen->setMessage("Leaving already? (Y/N)");
+		_application->getGameManager()->pauseGame();
 		_application->addScreen(_screen);
 	}
 	void QuitConfirmState::leave() {
+		_application->getGameManager()->resumeGame();
 		_application->removeScreen(_screen);
 		delete(_screen);
 	}

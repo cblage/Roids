@@ -25,12 +25,10 @@
 
 #include <string>
 #include "ApplicationState.h"
-#include "Screen.h"
-#include "BeforeLevelState.h"
-
 
 namespace asteroids {
-
+	class Screen;
+	
 	class EndOfLevelState : public ApplicationState{
 	SINGLETON_HEADER(EndOfLevelState);
 	

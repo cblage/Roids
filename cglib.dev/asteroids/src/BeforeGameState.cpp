@@ -19,6 +19,10 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #include "BeforeGameState.h"
+#include "MyApp.h"
+#include "BeforeLevelState.h"
+#include "Screen.h"
+#include "GameManager.h"
 
 namespace asteroids {
 

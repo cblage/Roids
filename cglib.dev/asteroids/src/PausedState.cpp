@@ -19,6 +19,9 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #include "PausedState.h"
+#include "MyApp.h"
+#include "Screen.h"
+#include "GameManager.h"
 
 namespace asteroids {
 
@@ -29,8 +32,10 @@ namespace asteroids {
 		_screen->init();
 		_screen->setMessage("Coffee break ^_^");
 		_application->addScreen(_screen);
+		_application->getGameManager()->pauseGame();
 	}
 	void PausedState::leave() {
+		_application->getGameManager()->resumeGame();
 		_application->removeScreen(_screen);
 		delete(_screen);
 	}

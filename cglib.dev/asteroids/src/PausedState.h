@@ -25,12 +25,11 @@
 
 #include <string>
 #include "ApplicationState.h"
-#include "Screen.h"
-
 
 
 namespace asteroids {
-
+	class Screen;
+	
 	class PausedState : public ApplicationState{
 	SINGLETON_HEADER(PausedState);
 	

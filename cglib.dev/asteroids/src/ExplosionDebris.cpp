@@ -19,11 +19,12 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #include "ExplosionDebris.h"
+#include "ExplosionManager.h"
 
 namespace asteroids {
 
-	ExplosionDebris::ExplosionDebris(std::string id, ParticleManager * particleManager, cg::Vector3d color) : 
-		Particle(id, particleManager, 'd'), _color(color) { setHealth(1); setMass(1); }
+	ExplosionDebris::ExplosionDebris(std::string id, ExplosionManager * explosionManager, cg::Vector3d color) : 
+		Particle(id, explosionManager, 'd'), _color(color) { setHealth(1); setMass(1); }
 
 	ExplosionDebris::~ExplosionDebris() {
 	}

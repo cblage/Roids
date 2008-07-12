@@ -27,23 +27,23 @@
 #include <vector>
 #include "cg/cg.h"
 #include "ParticleManager.h"
-#include "ApplicationState.h"
-#include "EndOfLevelState.h"
-#include "GameOverState.h"
-#include "ExplosionManager.h"
 
 
 
 namespace asteroids {
 	class MyApp;
-
-	class GameManager : public ParticleManager
+	class Particle;
+	
+	class GameManager : public ParticleManager,
+		public cg::GroupKeyboardEvent,
+		public cg::GroupReshapeEvent,
+		public cg::GroupDrawOverlay
 	{
 	private:
 		int _currentScore;
 		unsigned int _currentLevel, _asteroidsLeft, _shipsLeft;
 		MyApp * _application;
-		bool _levelRunning, _cooldownPeriod;
+		bool _levelRunning, _cooldownPeriod, _gamePaused;
 		double _radarSize;
 		double _cooldownTime, _cooldownLeft;
 		double _difficulty;
@@ -59,7 +59,16 @@ namespace asteroids {
 		void createEntities();
 		void addParticle(Particle *p);
 		void destroyParticle(std::string id);
-		void createLaserShot(cg::Vector2d position, double radiansRotation, cg::Vector2d velocity, double degreesRotation);
+		bool createLaserShot(cg::Vector2d position, double radiansRotation, cg::Vector2d velocity, double degreesRotation);
+		void createAsteroids(unsigned int numAsteroids, double scaleFactor, double radius, cg::Vector2d position, double scaleDelta = 0);
+		void createAsteroids(unsigned int numAsteroids, double scaleFactor, double scaleDelta = 0);
+		void createAsteroids(unsigned int numAsteroids);
+		void createAsteroid(double scaleFactor, cg::Vector2d position);
+		void createAsteroid(double scaleFactor, cg::Vector2d position, cg::Vector2d velocity);
+		void createAsteroid(cg::Vector2d position);
+		void createAsteroid(void);
+		void createShip(cg::Vector2d position, double radiansRotation, cg::Vector2d velocity, double degreesRotation);
+		void createShip(void);
 		void resetGame();
 		void beginLevel();
 		void finishLevel();
@@ -70,44 +79,10 @@ namespace asteroids {
 		void setScore(int score);
 		void addScore(int score);
 		void preDrawOverlay();
+		void pauseGame();
+		void resumeGame();
 	};
 
-
-#ifndef MY_APP_H
-#define MY_APP_H
-	class StarSphere;
-	class MyCamera;
-	class GameManager;
-	class ExplosionManager;
-	class ScreenManager;
-	class ApplicationState;
-	class Screen;
-
-	class MyApp : public cg::Application {
-	private:
-		ApplicationState * _state;
-		ScreenManager * _screenManager;
-		GameManager * _gameManager;
-		ExplosionManager * _explosionManager;
-	public:
-		MyApp();
-		~MyApp();
-		void createEntities();
-		void onUpdate();
-		void onDisplay();
-		void changeState(ApplicationState * state);
-		ApplicationState * getState();
-		void onKeyPressed(unsigned char key);
-		void pause();
-		void quit();
-		GameManager * getGameManager();
-		ExplosionManager * getExplosionManager();
-		void addScreen(Screen * s);
-		void removeScreen(Screen * s);
-		void resetTime();
-
-	};
-#endif
 
 }
 

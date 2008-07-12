@@ -27,11 +27,11 @@
 #include <vector>
 #include "cg/cg.h"
 #include <cmath>
-#include "Particle.h"
+#include "GameEntity.h"
 
 
 namespace asteroids {
-	class ParticleManager;
+	class GameManager;
 	class SpaceShip;
 	class PhysicsObject;
 	class Particle;
@@ -39,13 +39,13 @@ namespace asteroids {
 	class LaserShot : public cg::IDrawListener,
 		public cg::IUpdateListener,
 		public cg::IReshapeEventListener,
-		public Particle
+		public GameEntity
 	{
 	private:
 		double _secondsToLive, _radius;
 		
 	public:
-		LaserShot(std::string id, ParticleManager * particleManager);
+		LaserShot(std::string id, GameManager * gameManager);
 		~LaserShot();
 		void init();
 		void update(unsigned long elapsed_millis);

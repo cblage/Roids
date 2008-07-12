@@ -24,16 +24,7 @@
 #pragma message("MyApp is included")
 
 #include "cg/cg.h"
-#include "MyCamera.h"
-#include "StarSphere.h"
-#include "GameManager.h"
-#include "Lights.h"
-#include "ApplicationState.h"
-#include "BeforeGameState.h"
-#include "BeforeLevelState.h"
-#include "ApplicationController.h"
-#include "ScreenManager.h"
-#include "ExplosionManager.h"
+
 
 namespace asteroids {
 	class StarSphere;

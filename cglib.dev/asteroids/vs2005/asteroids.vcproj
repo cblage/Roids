@@ -221,6 +221,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\GameEntity.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\GameManager.cpp"
 				>
 			</File>
@@ -344,6 +348,10 @@
 			</File>
 			<File
 				RelativePath="..\src\ExplosionManager.h"
+				>
+			</File>
+			<File
+				RelativePath="..\src\GameEntity.h"
 				>
 			</File>
 			<File

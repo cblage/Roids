@@ -19,45 +19,40 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #pragma once
-#ifndef MY_CAMERA_H
-#define MY_CAMERA_H
-#pragma message("MyCamera is included")
+#ifndef LASERSHOT_H
+#define LASERSHOT_H
+#pragma message("LaserShot is included")
+
 #include <string>
+#include <vector>
+#include "../cg/cg.h"
 #include <cmath>
-#include "cg/cg.h"
+#include "GameEntity.h"
 
 
 namespace asteroids {
-	class MyCameraController;
+	class GameManager;
+	class SpaceShip;
+	class PhysicsObject;
+	class Particle;
 
-    class MyCamera : public cg::Entity, 
-		public cg::IDrawListener,
-		public cg::IKeyboardEventListener,
+	class LaserShot : public cg::IDrawListener,
 		public cg::IUpdateListener,
-		public cg::IReshapeEventListener
+		public cg::IReshapeEventListener,
+		public GameEntity
 	{
-    private:
-		MyCameraController * _controller;
-		double _winWidth, _winHeight;
-		float _ang1, _ang2;
-		GLfloat _rotLx, _rotLy, _rotLz;
-		bool _rotateU,_rotateD, _rotateL, _rotateR;
-		bool _debugCamera;
-
-    public:
+	private:
+		double _secondsToLive, _radius;
+		
+	public:
+		LaserShot(std::string id, GameManager * gameManager);
+		~LaserShot();
+		void init();
 		void update(unsigned long elapsed_millis);
-        MyCamera();
-        virtual ~MyCamera();
-        void init();
-        void draw();
-        void onReshape(int width, int height);
-		void startRotate(int dir);
-		void stopRotate(int dir);
-		void rotate(double secs);
-		void onKeyPressed(unsigned char key);
-		void onKeyReleased(unsigned char key);
-		void onSpecialKeyPressed(int key);
-        void onSpecialKeyReleased(int key);
+		void draw();
+		void onReshape(int width, int height);
+		bool collidesWith(PhysicsObject *pobject);
+		double randomBetween(double min, double max);
 	};
 }
 

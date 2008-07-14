@@ -19,36 +19,32 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #pragma once
-#ifndef SCREEN_H
-#define SCREEN_H
-#pragma message("Screen is included")
+#ifndef MYCAMERA_CONTROLLER_H
+#define MYCAMERA_CONTROLLER_H
+#pragma message("MyCameraController is included")
 
-#include <string>
-#include "cg/cg.h"
+#include "../cg/cg.h"
 
 namespace asteroids {
-	
-	class Screen : public cg::Entity,
-		public cg::IDrawOverlayListener,
-		public cg::IDrawListener,
-		public cg::IReshapeEventListener
+	class MyCamera;
+
+	class MyCameraController : public cg::Entity,
+		public cg::IKeyboardEventListener
 	{
-	protected:
-		std::string _message;
-		double _winWidth, _winHeight;
-		double _messageX, _messageY;
 	public:
-		Screen(std::string id);
-		~Screen();
+		MyCameraController(MyCamera* camera);
+		~MyCameraController();
 		void init();
-		void onReshape(int width, int height);
-		std::string getMessage();
-		void setMessage(std::string message);
-		virtual void drawOverlay();
-		virtual void draw();
-		virtual cg::Vector2d getMessagePosition();
-		virtual void setMessagePosition(double x, double y);
+        void onKeyPressed(unsigned char key);
+        void onKeyReleased(unsigned char key);
+        void onSpecialKeyPressed(int key);
+        void onSpecialKeyReleased(int key);
+
+	private:
+		MyCamera * _camera;
 	};
+
+
 }
 
 #endif

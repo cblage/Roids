@@ -19,33 +19,35 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #pragma once
-#ifndef STAR_SPHERE_H
-#define STAR_SPHERE_H
-#pragma message("StarSphere is included")
+#ifndef SCREEN_H
+#define SCREEN_H
+#pragma message("Screen is included")
 
 #include <string>
-#include <vector>
-#include <cmath>
-#include "cg/cg.h"
+#include "../cg/cg.h"
 
 namespace asteroids {
-	const double PI3  = 4.0*atan(1.0);
-    
-	class StarSphere : public cg::Entity, 
+	
+	class Screen : public cg::Entity,
+		public cg::IDrawOverlayListener,
 		public cg::IDrawListener,
 		public cg::IReshapeEventListener
 	{
-    private:
-		std::vector<cg::Vector3d> _stars;
-		double _winWidth, _winHeight, _starDensity, _starSphereRadius;
-    public:
-        StarSphere();
-        virtual ~StarSphere();
-        void init();
-        void draw();
-		cg::Vector3d getRandomStar();
-		double randomBetween(double min, double max);
+	protected:
+		std::string _message;
+		double _winWidth, _winHeight;
+		double _messageX, _messageY;
+	public:
+		Screen(std::string id);
+		~Screen();
+		void init();
 		void onReshape(int width, int height);
+		std::string getMessage();
+		void setMessage(std::string message);
+		virtual void drawOverlay();
+		virtual void draw();
+		virtual cg::Vector2d getMessagePosition();
+		virtual void setMessagePosition(double x, double y);
 	};
 }
 

@@ -19,39 +19,45 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #pragma once
-#ifndef EXPLOSIONDEBRIS_H
-#define EXPLOSIONDEBRIS_H
-#pragma message("ExplosionDebris is included")
-
+#ifndef MY_CAMERA_H
+#define MY_CAMERA_H
+#pragma message("MyCamera is included")
 #include <string>
-#include <vector>
-#include "cg/cg.h"
 #include <cmath>
-#include "Particle.h"
+#include "../cg/cg.h"
 
 
 namespace asteroids {
-	class ExplosionManager;
-	class PhysicsObject;
+	class MyCameraController;
 
-	class ExplosionDebris : public cg::IDrawListener,
+    class MyCamera : public cg::Entity, 
+		public cg::IDrawListener,
+		public cg::IKeyboardEventListener,
 		public cg::IUpdateListener,
-		public cg::IReshapeEventListener,
-		public Particle
+		public cg::IReshapeEventListener
 	{
-	private:
-		double _maxSecondsToLive, _secondsToLive, _radius, _alpha;
-		cg::Vector3d _color;
-		
-	public:
-		ExplosionDebris(std::string id, ExplosionManager * explosionManager, cg::Vector3d color = cg::Vector3d(0.7, 0.7, 0.7));
-		~ExplosionDebris();
-		void init();
+    private:
+		MyCameraController * _controller;
+		double _winWidth, _winHeight;
+		float _ang1, _ang2;
+		GLfloat _rotLx, _rotLy, _rotLz;
+		bool _rotateU,_rotateD, _rotateL, _rotateR;
+		bool _debugCamera;
+
+    public:
 		void update(unsigned long elapsed_millis);
-		void draw();
-		void onReshape(int width, int height);
-		bool collidesWith(PhysicsObject *pobject);
-		double randomBetween(double min, double max);
+        MyCamera();
+        virtual ~MyCamera();
+        void init();
+        void draw();
+        void onReshape(int width, int height);
+		void startRotate(int dir);
+		void stopRotate(int dir);
+		void rotate(double secs);
+		void onKeyPressed(unsigned char key);
+		void onKeyReleased(unsigned char key);
+		void onSpecialKeyPressed(int key);
+        void onSpecialKeyReleased(int key);
 	};
 }
 

@@ -18,31 +18,35 @@
  along with Roids!; if not, write to the Free Software
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
-#include <stdlib.h>
-#include <ctime>
-#include "cg/cg.h"
-#include "MyApp.h"
+#pragma once
+#ifndef STAR_SPHERE_H
+#define STAR_SPHERE_H
+#pragma message("StarSphere is included")
 
-#if defined ( __APPLE__ )
-	#include <TargetConditionals.h>
-#endif
-#if TARGET_OS_MAC
-	#include <CoreFoundation/CoreFoundation.h>
-#endif
+#include <string>
+#include <vector>
+#include <cmath>
+#include "../cg/cg.h"
 
-
-int main(int argc, char** argv) {
-#if TARGET_OS_MAC
-	CFBundleRef mainBundle = CFBundleGetMainBundle();
-	CFURLRef resourcesURL = CFBundleCopyResourcesDirectoryURL(mainBundle);
-	char path[PATH_MAX];
-	if (!CFURLGetFileSystemRepresentation(resourcesURL, TRUE, (UInt8 *)path, PATH_MAX))	{
-		// error!
-	}
-	CFRelease(resourcesURL);
-	chdir(path);
-#endif
-	srand(time(0));
-	cg::Manager::instance()->runApp(new asteroids::MyApp(), 60,argc,argv);
-	return 0;
+namespace asteroids {
+	const double PI3  = 4.0*atan(1.0);
+    
+	class StarSphere : public cg::Entity, 
+		public cg::IDrawListener,
+		public cg::IReshapeEventListener
+	{
+    private:
+		std::vector<cg::Vector3d> _stars;
+		double _winWidth, _winHeight, _starDensity, _starSphereRadius;
+    public:
+        StarSphere();
+        virtual ~StarSphere();
+        void init();
+        void draw();
+		cg::Vector3d getRandomStar();
+		double randomBetween(double min, double max);
+		void onReshape(int width, int height);
+	};
 }
+
+#endif

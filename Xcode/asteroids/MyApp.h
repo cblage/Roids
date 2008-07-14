@@ -19,32 +19,46 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #pragma once
-#ifndef MYCAMERA_CONTROLLER_H
-#define MYCAMERA_CONTROLLER_H
-#pragma message("MyCameraController is included")
+#ifndef MY_APP_H
+#define MY_APP_H
+#pragma message("MyApp is included")
 
-#include "cg/cg.h"
+#include "../cg/cg.h"
+
 
 namespace asteroids {
+	class StarSphere;
 	class MyCamera;
+	class GameManager;
+	class ExplosionManager;
+	class ScreenManager;
+	class ApplicationState;
+	class Screen;
 
-	class MyCameraController : public cg::Entity,
-		public cg::IKeyboardEventListener
-	{
-	public:
-		MyCameraController(MyCamera* camera);
-		~MyCameraController();
-		void init();
-        void onKeyPressed(unsigned char key);
-        void onKeyReleased(unsigned char key);
-        void onSpecialKeyPressed(int key);
-        void onSpecialKeyReleased(int key);
-
+	class MyApp : public cg::Application {
 	private:
-		MyCamera * _camera;
+		ApplicationState * _state;
+		ScreenManager * _screenManager;
+		GameManager * _gameManager;
+		ExplosionManager * _explosionManager;
+	public:
+		MyApp();
+		~MyApp();
+		void createEntities();
+		void onUpdate();
+		void onDisplay();
+		void changeState(ApplicationState * state);
+		ApplicationState * getState();
+		void onKeyPressed(unsigned char key);
+		void pause();
+		void quit();
+		GameManager * getGameManager();
+		ExplosionManager * getExplosionManager();
+		void addScreen(Screen * s);
+		void removeScreen(Screen * s);
+		void resetTime();
+
 	};
-
-
 }
 
 #endif

@@ -19,41 +19,40 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #pragma once
-#ifndef APPLICATION_STATE_H
-#define APPLICATION_STATE_H
-#pragma message("ApplicationState is included")
+#ifndef EXPLOSIONDEBRIS_H
+#define EXPLOSIONDEBRIS_H
+#pragma message("ExplosionDebris is included")
 
-#include "cg/cg.h"
 #include <string>
+#include <vector>
+#include "../cg/cg.h"
 #include <cmath>
+#include "Particle.h"
+
 
 namespace asteroids {
-	class MyApp;
-	class ApplicationState {
-	protected:
-		MyApp * _application;
-		ApplicationState * _previousState;
+	class ExplosionManager;
+	class PhysicsObject;
 
+	class ExplosionDebris : public cg::IDrawListener,
+		public cg::IUpdateListener,
+		public cg::IReshapeEventListener,
+		public Particle
+	{
+	private:
+		double _maxSecondsToLive, _secondsToLive, _radius, _alpha;
+		cg::Vector3d _color;
+		
 	public:
-		virtual void changeFrom();
-		virtual void changeTo(MyApp * application);
-		virtual void changeState(MyApp * application, ApplicationState * state);
-		virtual std::string getName(void) = 0;
-		virtual void onUpdate();
-		virtual void onDisplay();
-		virtual bool onKeyPressed(unsigned char key);
-		virtual void pause();
-		virtual void quit();
-		virtual void enter();
-		virtual void leave();
-		virtual void resume(MyApp * application);
-		virtual void suspend();
-		virtual void setPreviousState(ApplicationState * s);
-		virtual ApplicationState * getPreviousState();
-		virtual void update(unsigned long elapsed_millis);
+		ExplosionDebris(std::string id, ExplosionManager * explosionManager, cg::Vector3d color = cg::Vector3d(0.7, 0.7, 0.7));
+		~ExplosionDebris();
+		void init();
+		void update(unsigned long elapsed_millis);
+		void draw();
+		void onReshape(int width, int height);
+		bool collidesWith(PhysicsObject *pobject);
+		double randomBetween(double min, double max);
 	};
-
 }
-
 
 #endif

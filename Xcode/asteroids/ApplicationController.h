@@ -23,7 +23,7 @@
 #define APP_CONTROLLER_H
 #pragma message("ApplicationController is included")
 
-#include "../cg/cg.h"
+#include <cg/cg.h>
 
 namespace asteroids {
 	class MyApp;

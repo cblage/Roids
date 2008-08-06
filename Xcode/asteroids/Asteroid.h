@@ -24,7 +24,7 @@
 #pragma message("Asteroid is included")
 #include <string>
 #include <vector>
-#include "../cg/cg.h"
+#include <cg/cg.h>
 #include <cmath>
 #include "GameEntity.h"
 

@@ -20,7 +20,7 @@
 */
 #include <stdlib.h>
 #include <ctime>
-#include "../cg/cg.h"
+#include <cg/cg.h>
 #include "MyApp.h"
 
 #if defined ( __APPLE__ )

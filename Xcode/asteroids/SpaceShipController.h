@@ -21,7 +21,7 @@
 #ifndef SPACESHIP_CONTROLLER_H
 #define SPACESHIP_CONTROLLER_H
 
-#include "../cg/cg.h"
+#include <cg/cg.h>
 
 namespace asteroids {
 	class SpaceShip;

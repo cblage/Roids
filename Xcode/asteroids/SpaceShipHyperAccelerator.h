@@ -23,7 +23,7 @@
 #define SPACE_SHIP_HYPERACCELERATOR_H
 #pragma message("SpaceShipHyperAccelerator is included")
 
-#include "../cg/cg.h"
+#include <cg/cg.h>
 #include "SpaceShipEngine.h"
 
 

@@ -23,7 +23,7 @@
 #define LIGHTS_H
 #pragma message("Lights is included")
 
-#include "../cg/cg.h"
+#include <cg/cg.h>
 
 namespace asteroids {
 

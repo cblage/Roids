@@ -23,7 +23,7 @@
 #define MY_APP_H
 #pragma message("MyApp is included")
 
-#include "../cg/cg.h"
+#include <cg/cg.h>
 
 
 namespace asteroids {

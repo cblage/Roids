@@ -23,7 +23,7 @@
 #define SHIP_CONTROLLER_H
 #pragma message("ShipController is included")
 
-#include "../cg/cg.h"
+#include <cg/cg.h>
 
 namespace asteroids {
 	class SpaceShip;

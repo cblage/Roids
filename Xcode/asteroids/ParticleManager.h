@@ -25,7 +25,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include "../cg/cg.h"
+#include <cg/cg.h>
 
 
 namespace asteroids {

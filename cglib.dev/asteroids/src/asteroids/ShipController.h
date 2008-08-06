@@ -19,46 +19,33 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #pragma once
-#ifndef MY_APP_H
-#define MY_APP_H
-#pragma message("MyApp is included")
+#ifndef SHIP_CONTROLLER_H
+#define SHIP_CONTROLLER_H
+#pragma message("ShipController is included")
 
-#include "cg/cg.h"
-
+#include <cg/cg.h>
 
 namespace asteroids {
-	class StarSphere;
-	class MyCamera;
-	class GameManager;
-	class ExplosionManager;
-	class ScreenManager;
-	class ApplicationState;
-	class Screen;
+	class SpaceShip;
 
-	class MyApp : public cg::Application {
-	private:
-		ApplicationState * _state;
-		ScreenManager * _screenManager;
-		GameManager * _gameManager;
-		ExplosionManager * _explosionManager;
+	class ShipController : public cg::Entity,
+		public cg::IKeyboardEventListener
+	{
 	public:
-		MyApp();
-		~MyApp();
-		void createEntities();
-		void onUpdate();
-		void onDisplay();
-		void changeState(ApplicationState * state);
-		ApplicationState * getState();
-		void onKeyPressed(unsigned char key);
-		void pause();
-		void quit();
-		GameManager * getGameManager();
-		ExplosionManager * getExplosionManager();
-		void addScreen(Screen * s);
-		void removeScreen(Screen * s);
-		void resetTime();
+		ShipController(SpaceShip* ship);
+		~ShipController();
+		void init();
+        void onKeyPressed(unsigned char key);
+        void onKeyReleased(unsigned char key);
+        void onSpecialKeyPressed(int key);
+        void onSpecialKeyReleased(int key);
 
+	private:
+		SpaceShip * _ship;
+		int _controlsScheme;
 	};
+
+
 }
 
 #endif

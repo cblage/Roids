@@ -19,41 +19,32 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #pragma once
-#ifndef LASERSHOT_H
-#define LASERSHOT_H
-#pragma message("LaserShot is included")
+#ifndef APP_CONTROLLER_H
+#define APP_CONTROLLER_H
+#pragma message("ApplicationController is included")
 
-#include <string>
-#include <vector>
-#include "cg/cg.h"
-#include <cmath>
-#include "GameEntity.h"
-
+#include <cg/cg.h>
 
 namespace asteroids {
-	class GameManager;
-	class SpaceShip;
-	class PhysicsObject;
-	class Particle;
+	class MyApp;
 
-	class LaserShot : public cg::IDrawListener,
-		public cg::IUpdateListener,
-		public cg::IReshapeEventListener,
-		public GameEntity
+	class ApplicationController : public cg::Entity,
+		public cg::IKeyboardEventListener
 	{
-	private:
-		double _secondsToLive, _radius;
-		
 	public:
-		LaserShot(std::string id, GameManager * gameManager);
-		~LaserShot();
+		ApplicationController(MyApp* application);
+		~ApplicationController();
 		void init();
-		void update(unsigned long elapsed_millis);
-		void draw();
-		void onReshape(int width, int height);
-		bool collidesWith(PhysicsObject *pobject);
-		double randomBetween(double min, double max);
+		void onKeyPressed(unsigned char key);
+		void onKeyReleased(unsigned char key);
+		void onSpecialKeyPressed(int key);
+		void onSpecialKeyReleased(int key);
+
+	private:
+		MyApp * _application;
 	};
+
+
 }
 
 #endif

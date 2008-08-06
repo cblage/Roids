@@ -19,36 +19,26 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #pragma once
-#ifndef SCREEN_H
-#define SCREEN_H
-#pragma message("Screen is included")
+#ifndef SPACE_SHIP_HYPERACCELERATOR_H
+#define SPACE_SHIP_HYPERACCELERATOR_H
+#pragma message("SpaceShipHyperAccelerator is included")
 
-#include <string>
-#include "cg/cg.h"
+#include <cg/cg.h>
+#include "SpaceShipEngine.h"
+
 
 namespace asteroids {
-	
-	class Screen : public cg::Entity,
-		public cg::IDrawOverlayListener,
-		public cg::IDrawListener,
-		public cg::IReshapeEventListener
+	class SpaceShip;
+	class SpaceShipHyperAccelerator : public SpaceShipEngine
 	{
-	protected:
-		std::string _message;
-		double _winWidth, _winHeight;
-		double _messageX, _messageY;
 	public:
-		Screen(std::string id);
-		~Screen();
-		void init();
-		void onReshape(int width, int height);
-		std::string getMessage();
-		void setMessage(std::string message);
-		virtual void drawOverlay();
-		virtual void draw();
-		virtual cg::Vector2d getMessagePosition();
-		virtual void setMessagePosition(double x, double y);
-	};
+		SpaceShipHyperAccelerator(SpaceShip * ship);
+		virtual ~SpaceShipHyperAccelerator(void);
+		void update(double elapsed_seconds);
+		void hyperAccelerate(void);
+		double randomBetween(double min, double max);
+	private:
+		bool _hyperAccelerating;
+	};	
 }
-
 #endif

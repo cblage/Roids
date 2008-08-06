@@ -19,26 +19,46 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #pragma once
-#ifndef SPACE_SHIP_HYPERACCELERATOR_H
-#define SPACE_SHIP_HYPERACCELERATOR_H
-#pragma message("SpaceShipHyperAccelerator is included")
+#ifndef MY_APP_H
+#define MY_APP_H
+#pragma message("MyApp is included")
 
-#include "cg/cg.h"
-#include "SpaceShipEngine.h"
+#include <cg/cg.h>
 
 
 namespace asteroids {
-	class SpaceShip;
-	class SpaceShipHyperAccelerator : public SpaceShipEngine
-	{
-	public:
-		SpaceShipHyperAccelerator(SpaceShip * ship);
-		virtual ~SpaceShipHyperAccelerator(void);
-		void update(double elapsed_seconds);
-		void hyperAccelerate(void);
-		double randomBetween(double min, double max);
+	class StarSphere;
+	class MyCamera;
+	class GameManager;
+	class ExplosionManager;
+	class ScreenManager;
+	class ApplicationState;
+	class Screen;
+
+	class MyApp : public cg::Application {
 	private:
-		bool _hyperAccelerating;
-	};	
+		ApplicationState * _state;
+		ScreenManager * _screenManager;
+		GameManager * _gameManager;
+		ExplosionManager * _explosionManager;
+	public:
+		MyApp();
+		~MyApp();
+		void createEntities();
+		void onUpdate();
+		void onDisplay();
+		void changeState(ApplicationState * state);
+		ApplicationState * getState();
+		void onKeyPressed(unsigned char key);
+		void pause();
+		void quit();
+		GameManager * getGameManager();
+		ExplosionManager * getExplosionManager();
+		void addScreen(Screen * s);
+		void removeScreen(Screen * s);
+		void resetTime();
+
+	};
 }
+
 #endif

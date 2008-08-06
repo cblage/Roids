@@ -19,33 +19,22 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #pragma once
-#ifndef SHIP_CONTROLLER_H
-#define SHIP_CONTROLLER_H
-#pragma message("ShipController is included")
+#ifndef LIGHTS_H
+#define LIGHTS_H
+#pragma message("Lights is included")
 
-#include "cg/cg.h"
+#include <cg/cg.h>
 
 namespace asteroids {
-	class SpaceShip;
 
-	class ShipController : public cg::Entity,
-		public cg::IKeyboardEventListener
+    class Lights : public cg::Entity
 	{
-	public:
-		ShipController(SpaceShip* ship);
-		~ShipController();
-		void init();
-        void onKeyPressed(unsigned char key);
-        void onKeyReleased(unsigned char key);
-        void onSpecialKeyPressed(int key);
-        void onSpecialKeyReleased(int key);
-
-	private:
-		SpaceShip * _ship;
-		int _controlsScheme;
+    public:
+        Lights();
+        virtual ~Lights();
+        void init();
+  
 	};
-
-
 }
 
 #endif

@@ -23,7 +23,7 @@
 #define SPACE_SHIP_ENGINE_H
 #pragma message("SpaceShipEngine is included")
 
-#include "cg/cg.h"
+#include <cg/cg.h>
 
 
 namespace asteroids {

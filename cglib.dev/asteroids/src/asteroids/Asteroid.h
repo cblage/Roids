@@ -19,39 +19,48 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #pragma once
-#ifndef EXPLOSIONDEBRIS_H
-#define EXPLOSIONDEBRIS_H
-#pragma message("ExplosionDebris is included")
-
+#ifndef ASTEROID_H
+#define ASTEROID_H
+#pragma message("Asteroid is included")
 #include <string>
 #include <vector>
-#include "cg/cg.h"
+#include <cg/cg.h>
 #include <cmath>
-#include "Particle.h"
+#include "GameEntity.h"
+
 
 
 namespace asteroids {
-	class ExplosionManager;
-	class PhysicsObject;
+	class GameManager;
+	class Particle;
+	class SpaceShip;
 
-	class ExplosionDebris : public cg::IDrawListener,
+	class Asteroid : public cg::IDrawListener,
 		public cg::IUpdateListener,
 		public cg::IReshapeEventListener,
-		public Particle
+		public GameEntity
 	{
 	private:
-		double _maxSecondsToLive, _secondsToLive, _radius, _alpha;
-		cg::Vector3d _color;
+		std::vector<cg::Vector3d> _asteroid_vector, _asteroid_vector2;
+		cg::Vector2d _size;
+		double _scaleFactor, _radius, _invulSeconds, _baseAsteroidSize, _baseAsteroidMass;
+		double _radarSize, _radarAdvanced;
+
+
 		
 	public:
-		ExplosionDebris(std::string id, ExplosionManager * explosionManager, cg::Vector3d color = cg::Vector3d(0.7, 0.7, 0.7));
-		~ExplosionDebris();
+		Asteroid(std::string id, GameManager * gameManager);
+		Asteroid(std::string id, double scaleFactor, GameManager * gameManager);
+		~Asteroid();
 		void init();
 		void update(unsigned long elapsed_millis);
 		void draw();
 		void onReshape(int width, int height);
-		bool collidesWith(PhysicsObject *pobject);
 		double randomBetween(double min, double max);
+		bool collidesWith(PhysicsObject *pobject);
+		void checkCollisions(double long elapsed_millis);
+		void destroy(void);
+		void drawOverlay(void);
 	};
 }
 

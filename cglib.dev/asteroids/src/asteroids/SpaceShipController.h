@@ -18,33 +18,29 @@
  along with Roids!; if not, write to the Free Software
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
-#pragma once
-#ifndef APP_CONTROLLER_H
-#define APP_CONTROLLER_H
-#pragma message("ApplicationController is included")
+#ifndef SPACESHIP_CONTROLLER_H
+#define SPACESHIP_CONTROLLER_H
 
-#include "cg/cg.h"
+#include <cg/cg.h>
 
 namespace asteroids {
-	class MyApp;
-
-	class ApplicationController : public cg::Entity,
+	class SpaceShip;
+	
+	class SpaceShipController : public cg::Entity,
 		public cg::IKeyboardEventListener
 	{
 	public:
-		ApplicationController(MyApp* application);
-		~ApplicationController();
+		SpaceShipController(SpaceShip* ship);
+		~SpaceShipController();
 		void init();
-		void onKeyPressed(unsigned char key);
-		void onKeyReleased(unsigned char key);
-		void onSpecialKeyPressed(int key);
-		void onSpecialKeyReleased(int key);
+        void onKeyPressed(unsigned char key);
+        void onKeyReleased(unsigned char key);
+        void onSpecialKeyPressed(int key);
+        void onSpecialKeyReleased(int key);
 
 	private:
-		MyApp * _application;
+		SpaceShip * _ship;
 	};
-
-
 }
 
 #endif

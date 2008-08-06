@@ -18,29 +18,31 @@
  along with Roids!; if not, write to the Free Software
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
-#ifndef SPACESHIP_CONTROLLER_H
-#define SPACESHIP_CONTROLLER_H
+#include <stdlib.h>
+#include <ctime>
+#include <cg/cg.h>
+#include "MyApp.h"
 
-#include "cg/cg.h"
-
-namespace asteroids {
-	class SpaceShip;
-	
-	class SpaceShipController : public cg::Entity,
-		public cg::IKeyboardEventListener
-	{
-	public:
-		SpaceShipController(SpaceShip* ship);
-		~SpaceShipController();
-		void init();
-        void onKeyPressed(unsigned char key);
-        void onKeyReleased(unsigned char key);
-        void onSpecialKeyPressed(int key);
-        void onSpecialKeyReleased(int key);
-
-	private:
-		SpaceShip * _ship;
-	};
-}
-
+#if defined ( __APPLE__ )
+	#include <TargetConditionals.h>
 #endif
+#if TARGET_OS_MAC
+	#include <CoreFoundation/CoreFoundation.h>
+#endif
+
+
+int main(int argc, char** argv) {
+#if TARGET_OS_MAC
+	CFBundleRef mainBundle = CFBundleGetMainBundle();
+	CFURLRef resourcesURL = CFBundleCopyResourcesDirectoryURL(mainBundle);
+	char path[PATH_MAX];
+	if (!CFURLGetFileSystemRepresentation(resourcesURL, TRUE, (UInt8 *)path, PATH_MAX))	{
+		// error!
+	}
+	CFRelease(resourcesURL);
+	chdir(path);
+#endif
+	srand(time(0));
+	cg::Manager::instance()->runApp(new asteroids::MyApp(), 60,argc,argv);
+	return 0;
+}

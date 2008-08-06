@@ -18,31 +18,37 @@
  along with Roids!; if not, write to the Free Software
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
-#include <stdlib.h>
-#include <ctime>
-#include "cg/cg.h"
-#include "MyApp.h"
+#pragma once
+#ifndef SCREEN_H
+#define SCREEN_H
+#pragma message("Screen is included")
 
-#if defined ( __APPLE__ )
-	#include <TargetConditionals.h>
-#endif
-#if TARGET_OS_MAC
-	#include <CoreFoundation/CoreFoundation.h>
-#endif
+#include <string>
+#include <cg/cg.h>
 
-
-int main(int argc, char** argv) {
-#if TARGET_OS_MAC
-	CFBundleRef mainBundle = CFBundleGetMainBundle();
-	CFURLRef resourcesURL = CFBundleCopyResourcesDirectoryURL(mainBundle);
-	char path[PATH_MAX];
-	if (!CFURLGetFileSystemRepresentation(resourcesURL, TRUE, (UInt8 *)path, PATH_MAX))	{
-		// error!
-	}
-	CFRelease(resourcesURL);
-	chdir(path);
-#endif
-	srand(time(0));
-	cg::Manager::instance()->runApp(new asteroids::MyApp(), 60,argc,argv);
-	return 0;
+namespace asteroids {
+	
+	class Screen : public cg::Entity,
+		public cg::IDrawOverlayListener,
+		public cg::IDrawListener,
+		public cg::IReshapeEventListener
+	{
+	protected:
+		std::string _message;
+		double _winWidth, _winHeight;
+		double _messageX, _messageY;
+	public:
+		Screen(std::string id);
+		~Screen();
+		void init();
+		void onReshape(int width, int height);
+		std::string getMessage();
+		void setMessage(std::string message);
+		virtual void drawOverlay();
+		virtual void draw();
+		virtual cg::Vector2d getMessagePosition();
+		virtual void setMessagePosition(double x, double y);
+	};
 }
+
+#endif

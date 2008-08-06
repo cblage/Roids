@@ -23,7 +23,7 @@
 #define GAME_ENTITY_H
 #pragma message("GameEntity is included")
 #include "Particle.h"
-#include "cg/cg.h"
+#include <cg/cg.h>
 
 
 namespace asteroids {

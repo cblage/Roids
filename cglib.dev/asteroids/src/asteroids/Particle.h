@@ -23,7 +23,7 @@
 #define PARTICLE_H
 #pragma message("Particle is included")
 #include "PhysicsObject.h"
-#include "cg/cg.h"
+#include <cg/cg.h>
 
 
 namespace asteroids {

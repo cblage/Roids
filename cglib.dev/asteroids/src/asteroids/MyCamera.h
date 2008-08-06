@@ -24,7 +24,7 @@
 #pragma message("MyCamera is included")
 #include <string>
 #include <cmath>
-#include "cg/cg.h"
+#include <cg/cg.h>
 
 
 namespace asteroids {

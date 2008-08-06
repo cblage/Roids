@@ -185,127 +185,127 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\src\ApplicationController.cpp"
+				RelativePath="..\src\asteroids\ApplicationController.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\ApplicationState.cpp"
+				RelativePath="..\src\asteroids\ApplicationState.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\Asteroid.cpp"
+				RelativePath="..\src\asteroids\Asteroid.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\BeforeGameState.cpp"
+				RelativePath="..\src\asteroids\BeforeGameState.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\BeforeLevelState.cpp"
+				RelativePath="..\src\asteroids\BeforeLevelState.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\DuringLevelState.cpp"
+				RelativePath="..\src\asteroids\DuringLevelState.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\EndOfLevelState.cpp"
+				RelativePath="..\src\asteroids\EndOfLevelState.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\ExplosionDebris.cpp"
+				RelativePath="..\src\asteroids\ExplosionDebris.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\ExplosionManager.cpp"
+				RelativePath="..\src\asteroids\ExplosionManager.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\GameEntity.cpp"
+				RelativePath="..\src\asteroids\GameEntity.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\GameManager.cpp"
+				RelativePath="..\src\asteroids\GameManager.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\GameOverScreen.cpp"
+				RelativePath="..\src\asteroids\GameOverScreen.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\GameOverState.cpp"
+				RelativePath="..\src\asteroids\GameOverState.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\LaserShot.cpp"
+				RelativePath="..\src\asteroids\LaserShot.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\Lights.cpp"
+				RelativePath="..\src\asteroids\Lights.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\main.cpp"
+				RelativePath="..\src\asteroids\main.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\MyApp.cpp"
+				RelativePath="..\src\asteroids\MyApp.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\MyCamera.cpp"
+				RelativePath="..\src\asteroids\MyCamera.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\MyCameraController.cpp"
+				RelativePath="..\src\asteroids\MyCameraController.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\Particle.cpp"
+				RelativePath="..\src\asteroids\Particle.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\ParticleManager.cpp"
+				RelativePath="..\src\asteroids\ParticleManager.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\PausedState.cpp"
+				RelativePath="..\src\asteroids\PausedState.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\PhysicsEngine.cpp"
+				RelativePath="..\src\asteroids\PhysicsEngine.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\PhysicsObject.cpp"
+				RelativePath="..\src\asteroids\PhysicsObject.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\QuitConfirmState.cpp"
+				RelativePath="..\src\asteroids\QuitConfirmState.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\Screen.cpp"
+				RelativePath="..\src\asteroids\Screen.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\ScreenManager.cpp"
+				RelativePath="..\src\asteroids\ScreenManager.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\ShipController.cpp"
+				RelativePath="..\src\asteroids\ShipController.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\SpaceShip.cpp"
+				RelativePath="..\src\asteroids\SpaceShip.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\SpaceShipHyperAccelerator.cpp"
+				RelativePath="..\src\asteroids\SpaceShipHyperAccelerator.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\StarSphere.cpp"
+				RelativePath="..\src\asteroids\StarSphere.cpp"
 				>
 			</File>
 		</Filter>
@@ -315,127 +315,127 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\src\ApplicationController.h"
+				RelativePath="..\src\asteroids\ApplicationController.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\ApplicationState.h"
+				RelativePath="..\src\asteroids\ApplicationState.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\Asteroid.h"
+				RelativePath="..\src\asteroids\Asteroid.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\BeforeGameState.h"
+				RelativePath="..\src\asteroids\BeforeGameState.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\BeforeLevelState.h"
+				RelativePath="..\src\asteroids\BeforeLevelState.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\DuringLevelState.h"
+				RelativePath="..\src\asteroids\DuringLevelState.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\EndOfLevelState.h"
+				RelativePath="..\src\asteroids\EndOfLevelState.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\ExplosionDebris.h"
+				RelativePath="..\src\asteroids\ExplosionDebris.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\ExplosionManager.h"
+				RelativePath="..\src\asteroids\ExplosionManager.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\GameEntity.h"
+				RelativePath="..\src\asteroids\GameEntity.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\GameManager.h"
+				RelativePath="..\src\asteroids\GameManager.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\GameOverScreen.h"
+				RelativePath="..\src\asteroids\GameOverScreen.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\GameOverState.h"
+				RelativePath="..\src\asteroids\GameOverState.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\LaserShot.h"
+				RelativePath="..\src\asteroids\LaserShot.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\Lights.h"
+				RelativePath="..\src\asteroids\Lights.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\MyApp.h"
+				RelativePath="..\src\asteroids\MyApp.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\MyCamera.h"
+				RelativePath="..\src\asteroids\MyCamera.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\MyCameraController.h"
+				RelativePath="..\src\asteroids\MyCameraController.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\Particle.h"
+				RelativePath="..\src\asteroids\Particle.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\ParticleManager.h"
+				RelativePath="..\src\asteroids\ParticleManager.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\PausedState.h"
+				RelativePath="..\src\asteroids\PausedState.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\PhysicsEngine.h"
+				RelativePath="..\src\asteroids\PhysicsEngine.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\PhysicsObject.h"
+				RelativePath="..\src\asteroids\PhysicsObject.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\QuitConfirmState.h"
+				RelativePath="..\src\asteroids\QuitConfirmState.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\Screen.h"
+				RelativePath="..\src\asteroids\Screen.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\ScreenManager.h"
+				RelativePath="..\src\asteroids\ScreenManager.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\ShipController.h"
+				RelativePath="..\src\asteroids\ShipController.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\SpaceShip.h"
+				RelativePath="..\src\asteroids\SpaceShip.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\SpaceShipEngine.h"
+				RelativePath="..\src\asteroids\SpaceShipEngine.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\SpaceShipHyperAccelerator.h"
+				RelativePath="..\src\asteroids\SpaceShipHyperAccelerator.h"
 				>
 			</File>
 			<File
-				RelativePath="..\src\StarSphere.h"
+				RelativePath="..\src\asteroids\StarSphere.h"
 				>
 			</File>
 		</Filter>

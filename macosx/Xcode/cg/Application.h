@@ -21,7 +21,17 @@
 
 #include <string>
 #include <sys/timeb.h>
+
+#if defined (_WIN32) || defined (__linux__) 
+#include <GL/glut.h>
+#elif defined (__APPLE__)
 #include <GLUT/glut.h>
+#else
+#include <GL/glut.h>
+#endif /*#if defined (_WIN32) || defined (__linux__) */
+
+
+
 #include "DebugFile.h"
 #include "DebugNotifier.h"
 #include "DrawNotifier.h"

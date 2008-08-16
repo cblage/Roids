@@ -39,3 +39,4 @@ namespace cg {
 }
 
 #endif // DEBUG_NOTIFIER_H
+

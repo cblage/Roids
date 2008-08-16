@@ -35,3 +35,4 @@ namespace cg {
 		FOR_EACH_LISTENER(onSpecialKeyReleased(key))
     }
 }
+

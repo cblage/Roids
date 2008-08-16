@@ -48,11 +48,13 @@ namespace cg {
 
     public:
         Application* getApp();
-	    void Manager::runApp(Application *app, int fps, int glut_argc, char** glut_argv);
-		void shutdownApp();
+	void runApp(Application *app, int fps, int glut_argc, char** glut_argv);
+	void shutdownApp();
         int getIntervalMillis() const;
     };
 
 }
 
 #endif // MANAGER_H
+
+

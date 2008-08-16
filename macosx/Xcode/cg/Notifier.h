@@ -212,3 +212,4 @@ namespace cg {
 }
 
 #endif // NOTIFIER_H
+

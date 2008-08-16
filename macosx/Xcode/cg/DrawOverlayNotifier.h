@@ -41,3 +41,4 @@ namespace cg {
 }
 
 #endif // DRAW_OVERLAY_NOTIFIER_H
+

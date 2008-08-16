@@ -141,3 +141,5 @@ namespace cg {
 			 && projectionDistance(bottomleft0[1],topright0[1],bottomleft1[1],topright1[1]) <= 0 );
 	}
 }
+
+

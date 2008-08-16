@@ -114,3 +114,5 @@ namespace asteroids {
 		return (rand() / (double)RAND_MAX * (max - min)) + min;
 	}
 }
+
+

@@ -44,3 +44,4 @@
 	void CLASSNAME::cleanup() { if (_instance != 0) { delete _instance; } }
 
 #endif // SINGLETON_MACRO_H
+

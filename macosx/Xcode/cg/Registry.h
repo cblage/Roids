@@ -86,3 +86,4 @@ namespace cg {
 }
 
 #endif // REGISTRY_H
+

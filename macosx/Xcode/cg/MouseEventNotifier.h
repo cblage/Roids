@@ -43,3 +43,4 @@ namespace cg {
 }
 
 #endif // MOUSE_EVENT_NOTIFIER_H
+

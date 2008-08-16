@@ -53,3 +53,4 @@ namespace cg {
 		_file << "(EXCEPTION) " << e.what() << std::endl;
 	}
 }
+

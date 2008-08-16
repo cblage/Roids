@@ -98,3 +98,5 @@ namespace cg {
 }
 
 #endif // GROUP_H
+
+

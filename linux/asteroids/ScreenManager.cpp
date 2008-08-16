@@ -39,3 +39,4 @@ namespace asteroids {
 		remove(s->getId());
 	}
 }
+

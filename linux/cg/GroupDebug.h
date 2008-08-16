@@ -45,3 +45,5 @@ namespace cg {
 }
 
 #endif // GROUP_DEBUG_H
+
+

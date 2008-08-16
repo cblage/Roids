@@ -44,3 +44,4 @@ namespace asteroids {
 }
 
 #endif
+

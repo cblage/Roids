@@ -56,3 +56,5 @@ namespace cg {
 }
 
 #endif // MANAGER_H
+
+

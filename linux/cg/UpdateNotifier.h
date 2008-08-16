@@ -40,3 +40,4 @@ namespace cg {
 }
 
 #endif // UPDATE_NOTIFIER_H
+

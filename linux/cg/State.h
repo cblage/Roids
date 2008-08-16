@@ -46,3 +46,4 @@ namespace cg {
 }
 
 #endif // STATE_H
+

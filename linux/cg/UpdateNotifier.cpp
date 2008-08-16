@@ -26,3 +26,4 @@ namespace cg {
 		FOR_EACH_LISTENER(update(elapsed_millis))
 	}
 }
+

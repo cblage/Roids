@@ -44,3 +44,5 @@ namespace cg {
 }
 
 #endif // GROUP_DRAW_H
+
+

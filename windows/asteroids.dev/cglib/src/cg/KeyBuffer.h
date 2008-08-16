@@ -19,7 +19,14 @@
 #ifndef KEYBUFFER_H
 #define KEYBUFFER_H
 
+#if defined (_WIN32) || defined (__linux__) 
+#include <GL/glut.h>
+#elif defined (__APPLE__)
 #include <GLUT/glut.h>
+#else
+#include <GL/glut.h>
+#endif /*#if defined (_WIN32) || defined (__linux__) */
+
 #include "Singleton.h"
 
 namespace cg {
@@ -55,3 +62,5 @@ namespace cg {
 }
 
 #endif // KEYBUFFER_H
+
+

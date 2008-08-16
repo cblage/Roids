@@ -102,3 +102,4 @@ namespace asteroids {
 		_state->update(_time.elapsed);
 	}
 }
+

@@ -41,3 +41,4 @@ namespace cg {
 }
 
 #endif // RESHAPE_EVENT_NOTIFIER_H
+

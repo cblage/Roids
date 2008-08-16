@@ -40,3 +40,4 @@ namespace cg {
 }
 
 #endif // DRAW_NOTIFIER_H
+

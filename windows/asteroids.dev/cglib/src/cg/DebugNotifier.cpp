@@ -27,3 +27,4 @@ namespace cg {
 		FOR_EACH_LISTENER(debug(file))
 	}
 }
+

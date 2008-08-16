@@ -163,3 +163,4 @@ namespace cg {
 		_entities.clear();
 	}
 }
+

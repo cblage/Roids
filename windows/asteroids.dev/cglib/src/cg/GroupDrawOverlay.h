@@ -45,3 +45,5 @@ namespace cg {
 }
 
 #endif // GROUP_DRAW_OVERLAY_H
+
+

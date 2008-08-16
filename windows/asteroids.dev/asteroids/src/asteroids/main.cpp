@@ -46,3 +46,4 @@ int main(int argc, char** argv) {
 	cg::Manager::instance()->runApp(new asteroids::MyApp(), 60,argc,argv);
 	return 0;
 }
+

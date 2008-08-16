@@ -45,3 +45,5 @@ namespace cg {
 }
 
 #endif // GROUP_RESHAPE_EVENT_H
+
+

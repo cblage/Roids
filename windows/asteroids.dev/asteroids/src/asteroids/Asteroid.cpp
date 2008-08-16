@@ -304,3 +304,5 @@ namespace asteroids {
 		glPopAttrib();
 	}
 }
+
+

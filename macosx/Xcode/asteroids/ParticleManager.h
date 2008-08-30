@@ -35,15 +35,31 @@ namespace asteroids {
 		public cg::GroupDraw,
 		public cg::GroupUpdate
 	{
+	private:
+		void shutdown();		
 	protected:
 		std::string _numParticlesMessage;
 		std::vector<std::string> _deletedParticles;
-		std::vector<Particle *> _newParticles;
+		std::vector<Particle *> _newParticles; 
+		std::vector<Particle *> _particles; 
+		std::map<std::string,Particle*> _particleMap;
+		typedef std::map<std::string,Particle*>::iterator pMapIterator;
+		typedef std::vector<Particle *>::iterator particleIterator;
+		
 
 		unsigned int _currIdNum;
-
+		
+		void add(Particle* particle);
 		virtual void createEntities();
 		virtual void postInit();
+		virtual unsigned int size();
+		virtual bool exists(const std::string& id);
+		virtual Particle *get(const std::string& id);
+		virtual void remove(const std::string& id);
+		virtual void removeAll();
+		virtual void destroy(const std::string& id);
+		virtual void destroyAll();
+			
 	public:
 		ParticleManager(std::string id);
 		~ParticleManager();
@@ -51,9 +67,11 @@ namespace asteroids {
 		virtual void preUpdate(unsigned long elapsed_millis);
 		virtual void postUpdate(unsigned long elapsed_millis);
 		virtual double randomBetween(double min, double max);
-		virtual std::vector<Particle*> getParticles();
 		virtual void addParticle(Particle * p);
 		virtual Particle * getParticle(std::string id);
+		virtual std::vector<Particle*> * getParticles();
+		virtual std::vector<Particle*>::iterator beginp();
+		virtual std::vector<Particle*>::iterator endp();
 	};
 }
 

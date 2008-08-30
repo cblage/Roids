@@ -69,11 +69,11 @@ namespace asteroids {
 		_newParticles.clear();
 		_deletedParticles.clear();
 		
-		std::vector<Particle *> particles = getParticles();
-		for(std::vector<Particle*>::size_type i = 0; i < particles.size(); i++) {
+		std::vector<Particle *>* particles = getParticles();
+		for(std::vector<Particle*>::size_type i = 0; i < particles->size(); i++) {
 			//cant use this because asteroids would generate new ones
 			//particles[i]->destroy();
-			destroyParticle(particles[i]->getId());
+			destroyParticle((*particles)[i]->getId());
 		}
 		_application->getExplosionManager()->clearExplosions();
 		changeLevel(0);
@@ -343,11 +343,11 @@ namespace asteroids {
 		_newParticles.clear();
 		_deletedParticles.clear();
 		
-		std::vector<Particle *> particles = getParticles();
-		for(std::vector<Particle*>::size_type i = 0; i < particles.size(); i++) {
+		std::vector<Particle *>* particles = getParticles();
+		for(std::vector<Particle*>::size_type i = 0; i < particles->size(); i++) {
 			//cant use this because asteroids would generate new ones
 			//particles[i]->destroy();
-			destroyParticle(particles[i]->getId());
+			destroyParticle((*particles)[i]->getId());
 		}
 		_asteroidsLeft = 0; //lets just make sure
 		_application->getExplosionManager()->clearExplosions();

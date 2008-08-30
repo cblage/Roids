@@ -26,11 +26,7 @@ namespace asteroids {
 	ParticleManager::ParticleManager(std::string id) : cg::Group(id), _currIdNum(0) {
 	}
 	ParticleManager::~ParticleManager() {
-		_newParticles.clear();
-		for (std::vector<std::string>::iterator p = _deletedParticles.begin( ); p != _deletedParticles.end(); ++p) {
-			destroy(*p);
-		}
-		_deletedParticles.clear();
+		shutdown();
 	}
 	void ParticleManager::createEntities() {
 	}
@@ -59,18 +55,9 @@ namespace asteroids {
 		os << size() << " particles on screen.";
 		_numParticlesMessage = os.str();
 	}
-
-	std::vector<Particle*> ParticleManager::getParticles() {
-		//ODEIO-TE ENTITIES!!!!!!!!!!!!!!
-		std::vector<Particle*> particles;
-		for (std::vector<Entity*>::iterator p = cg::Group::begin(); p != cg::Group::end( ); p++) {
-			particles.push_back(dynamic_cast<Particle*>(*p));
-		}
-		return particles;
-	}
 	
 	Particle * ParticleManager::getParticle(std::string id) {
-		return dynamic_cast<Particle *>(get(id));
+		return get(id);
 	}
 	
 	void ParticleManager::addParticle(Particle * p) {
@@ -81,10 +68,83 @@ namespace asteroids {
 
 	}
 
+	unsigned int ParticleManager::size() {
+		return (unsigned int)_particles.size();
+	}
+	
+	
+	bool ParticleManager::exists(const std::string& id) {
+		return (_particleMap.count(id) != 0);
+	}
+	
+	Particle* ParticleManager::get(const std::string& id) {
+		pMapIterator i = _particleMap.find(id);
+		if(i != _particleMap.end()) {
+			return i->second;
+		}
+		return 0;
+	}
+	void ParticleManager::add(Particle* particle) {
+		std::string id = particle->getId();
+		std::pair<pMapIterator,bool> result = _particleMap.insert(std::make_pair(id, particle));
+		if(result.second == false) {
+			throw std::runtime_error("[ParticleManager::Particle] entity '" + id + "' already exists.");
+		} else {
+			_particles.push_back(particle);
+		}
+		cg::Group::add((Entity *)particle);
+	}
+	void ParticleManager::remove(const std::string& id) {
+		pMapIterator i = _particleMap.find(id);
+		if(i != _particleMap.end()) {
+			particleIterator j = find(_particles.begin(),_particles.end(),i->second);
+			_particles.erase(j);
+			_particleMap.erase(id);
+		}
+		cg::Group::remove(id);
+	}
 
+	void ParticleManager::removeAll() {
+		_particleMap.clear();
+		_particles.clear();
+		cg::Group::removeAll();
+	}
+	
+	void ParticleManager::destroy(const std::string& id) {
+		remove(id); //can'd delete the object yet, it's being referenced from the "Group" part
+		cg::Group::destroy(id);
+	}
+	void ParticleManager::destroyAll() {
+		removeAll(); //can't delete them yet, they're being referenced from the "Group" part
+		cg::Group::destroyAll();
+	}
+
+	void ParticleManager::shutdown() {
+		_newParticles.clear();
+		for (std::vector<std::string>::iterator p = _deletedParticles.begin( ); p != _deletedParticles.end(); ++p) {
+			destroy(*p);
+		}
+		_deletedParticles.clear();		
+		destroyAll();
+	}
+
+	std::vector<Particle*>* ParticleManager::getParticles() {
+		return &_particles; 
+	}
+	std::vector<Particle*>::iterator ParticleManager::beginp() { 
+		return _particles.begin(); 
+	}
+	std::vector<Particle*>::iterator ParticleManager::endp() { 
+		return _particles.end(); 
+	}
+	
+	
 	double ParticleManager::randomBetween(double min, double max) {
 		return (rand() / (double)RAND_MAX * (max - min)) + min;
 	}
 
+	
+	
+	
 }
 

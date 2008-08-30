@@ -72,14 +72,14 @@ namespace cg {
 		std::vector<Entity*> _entities;
 		typedef std::vector<Entity*>::iterator tEntityIterator;
 
-		unsigned int size();
-		bool exists(const std::string& id);
+		virtual unsigned int size();
+		virtual bool exists(const std::string& id);
 		Entity *get(const std::string& id);
 		void add(Entity* entity);
-		void remove(const std::string& id);
-		void removeAll();
-		void destroy(const std::string& id);
-		void destroyAll();
+		virtual void remove(const std::string& id);
+		virtual void removeAll();
+		virtual void destroy(const std::string& id);
+		virtual void destroyAll();
 
 		virtual void createEntities() = 0;
 		virtual void preInit() {}
@@ -89,7 +89,7 @@ namespace cg {
 		Group(const std::string& id);
 		virtual ~Group();
 		void init();
-		virtual void dump(std::ofstream& file);
+		void dump(std::ofstream& file);
 		// IGetEntities
 		std::vector<Entity*>* getEntities();
 		std::vector<Entity*>::iterator begin();

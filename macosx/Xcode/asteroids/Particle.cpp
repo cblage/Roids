@@ -131,14 +131,14 @@ namespace asteroids {
 			return;
 		}
 
-		std::vector<Particle*> particles = getParticleManager()->getParticles();
-		for(std::vector<Particle*>::size_type i = 0; i < particles.size(); i++) {
-			if(particles[i]->getId() == _id)
+		std::vector<Particle*>* particles = getParticleManager()->getParticles();
+		for(std::vector<Particle*>::size_type i = 0; i < particles->size(); i++) {
+			if((*particles)[i]->getId() == _id)
 				continue;
-			processParticleCollision(particles[i]);
+			processParticleCollision((*particles)[i]);
 			if(isDestroyed() == true)
 				return;
-			if(penetrates(particles[i])) {
+			if(penetrates((*particles)[i])) {
 				_penetrationTime += elapsed_millis / 1000.0;
 			} 
 		}

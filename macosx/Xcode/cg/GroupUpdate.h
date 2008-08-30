@@ -37,17 +37,7 @@ namespace cg {
 		IGETENTITIES_IMPLEMENTATION
 		virtual void update(unsigned long elapsed_millis) {
 			preUpdate(elapsed_millis);
-			
-			std::vector<Entity*>::iterator iend = end();
-			for (std::vector<Entity*>::iterator i = begin(); i != iend; i++) {
-				if((*i)->state.isEnabled()) {
-					IUpdateListener* obj = dynamic_cast<IUpdateListener*>(*i);
-					obj->update(elapsed_millis); 
-				}
-			}
-			
-			
-			//FOR_EACH_ENTITY(update(elapsed_millis),IUpdateListener)
+			FOR_EACH_ENTITY(update(elapsed_millis),IUpdateListener)
 			postUpdate(elapsed_millis);
 		}
     };

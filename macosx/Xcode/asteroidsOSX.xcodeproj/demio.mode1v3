@@ -216,15 +216,14 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>579D95ED0E69A17000D7A3FB</string>
+						<string>57984ED70E6E999200495393</string>
 						<key>history</key>
 						<array>
 							<string>57C596100E699DDC0017B02A</string>
 							<string>57C596120E699DDC0017B02A</string>
-							<string>57C596130E699DDC0017B02A</string>
 							<string>579D95E00E699FEA00D7A3FB</string>
 							<string>579D95E10E699FEA00D7A3FB</string>
-							<string>57C5960F0E699DDC0017B02A</string>
+							<string>579D95ED0E69A17000D7A3FB</string>
 						</array>
 						<key>prevStack</key>
 						<array>
@@ -232,10 +231,7 @@
 							<string>57C596150E699DDC0017B02A</string>
 							<string>57C596160E699DDC0017B02A</string>
 							<string>57C596190E699DDC0017B02A</string>
-							<string>57C5961A0E699DDC0017B02A</string>
 							<string>579D95D20E699E2400D7A3FB</string>
-							<string>579D95E20E699FEA00D7A3FB</string>
-							<string>579D95E30E699FEA00D7A3FB</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -327,8 +323,6 @@
 							<array>
 								<string>20286C29FDCF999611CA2CEA</string>
 								<string>20286C2AFDCF999611CA2CEA</string>
-								<string>57401B800E2B9FEA00188F38</string>
-								<string>571EC96B0DECB98B007AE794</string>
 								<string>20286C2CFDCF999611CA2CEA</string>
 								<string>20286C32FDCF999611CA2CEA</string>
 								<string>195DF8CFFE9D517E11CA2CBB</string>
@@ -339,14 +333,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>90</integer>
-									<integer>68</integer>
-									<integer>2</integer>
+									<integer>7</integer>
+									<integer>5</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 1016}, {392, 684}}</string>
+							<string>{{0, 0}, {392, 684}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -381,7 +374,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>GameManager.h</string>
+								<string>GroupUpdate.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -389,19 +382,21 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>GameManager.h</string>
+										<string>GroupUpdate.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>579D95EC0E69A17000D7A3FB</string>
+										<string>57984ED40E6E999200495393</string>
 										<key>history</key>
 										<array>
 											<string>57C5960B0E699DDC0017B02A</string>
-											<string>57C5960E0E699DDC0017B02A</string>
+											<string>57984ED10E6E999200495393</string>
+											<string>57984ED20E6E999200495393</string>
 										</array>
 										<key>prevStack</key>
 										<array>
 											<string>57C5960D0E699DDC0017B02A</string>
+											<string>57984ED30E6E999200495393</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -459,9 +454,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>579D95CF0E699E2400D7A3FB</string>
+				<string>57984ED50E6E999200495393</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>579D95D00E699E2400D7A3FB</string>
+				<string>57984ED60E6E999200495393</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -609,10 +604,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>571ECB050DECBBE5007AE794</string>
-		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>57C595D20E6996C30017B02A</string>
 		<string>/Users/demio/Documents/Projects/Current/Roids!/trunk/macosx/Xcode/asteroidsOSX.xcodeproj</string>
 	</array>
@@ -694,7 +686,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>571ECB050DECBBE5007AE794</string>
-				<string>579D95DB0E699F2D00D7A3FB</string>
+				<string>57984ED80E6E999200495393</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

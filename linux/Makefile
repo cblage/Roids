@@ -24,7 +24,7 @@ cg: $(CG_OBJS)
 asteroids: $(AST_OBJS)
 
 $(GAME) : cg asteroids $(CONFIG_FILE)
-	if test ! -d $(OUT_DIR); then mkdir $(OUT_DIR); fi
+	mkdir -p $(OUT_DIR)
 	$(CXX) -o $(OUT_DIR)/$@ $(CG_OBJS) $(AST_OBJS) $(LDFLAGS)
 	cp $(CONFIG_FILE) $(OUT_DIR)
 clean:

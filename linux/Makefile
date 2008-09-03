@@ -8,6 +8,8 @@ AST_OBJS = $(AST_CPP:%.cpp=%.o)
 GAME = roids
 CXXFLAGS  = -ggdb -I.
 LDFLAGS = -lglut -lGL
+OUT_DIR = build
+CONFIG_FILE = resources/config.ini
 
 ###############
 #TARGETS
@@ -21,8 +23,9 @@ cg: $(CG_OBJS)
 
 asteroids: $(AST_OBJS)
 
-$(GAME) : cg asteroids
-	$(CXX) -o $@ $(CG_OBJS) $(AST_OBJS) $(LDFLAGS)
-
+$(GAME) : cg asteroids $(CONFIG_FILE)
+	if test ! -d $(OUT_DIR); then mkdir $(OUT_DIR); fi
+	$(CXX) -o $(OUT_DIR)/$@ $(CG_OBJS) $(AST_OBJS) $(LDFLAGS)
+	cp $(CONFIG_FILE) $(OUT_DIR)
 clean:
 	$(RM)  $(CG_OBJS) $(AST_OBJS)

@@ -25,6 +25,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
+				CommandLine="copy &quot;$(ProjectDir)resources\config.ini&quot;  &quot;$(OutDir).&quot;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -107,6 +108,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
+				CommandLine="copy &quot;$(ProjectDir)resources\config.ini&quot;  &quot;$(OutDir).&quot;"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -445,7 +447,7 @@
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 			<File
-				RelativePath=".\config.ini"
+				RelativePath=".\resources\config.ini"
 				>
 			</File>
 		</Filter>

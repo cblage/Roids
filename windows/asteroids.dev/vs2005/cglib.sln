@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 9.00
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cglib", "..\cglib\vs2005\cglib.vcproj", "{DF90B1DD-38F9-4C30-9EF5-F03F3AFCE047}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "asteroids", "..\asteroids\vs2005\asteroids.vcproj", "{CA2D7400-9B91-42D5-920A-0F0EE22B7090}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DF90B1DD-38F9-4C30-9EF5-F03F3AFCE047} = {DF90B1DD-38F9-4C30-9EF5-F03F3AFCE047}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

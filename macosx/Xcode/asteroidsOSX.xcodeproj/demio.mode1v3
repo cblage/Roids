@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>579D95E40E699FEA00D7A3FB</string>
+						<string>579D95ED0E69A17000D7A3FB</string>
 						<key>history</key>
 						<array>
 							<string>57C596100E699DDC0017B02A</string>
@@ -393,7 +393,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>579D95DF0E699FEA00D7A3FB</string>
+										<string>579D95EC0E69A17000D7A3FB</string>
 										<key>history</key>
 										<array>
 											<string>57C5960B0E699DDC0017B02A</string>
@@ -613,8 +613,8 @@
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>571ECB050DECBBE5007AE794</string>
 		<string>1C530D57069F1CE1000CFCEE</string>
-		<string>/Users/demio/Documents/Projects/Current/Roids!/trunk/macosx/Xcode/asteroidsOSX.xcodeproj</string>
 		<string>57C595D20E6996C30017B02A</string>
+		<string>/Users/demio/Documents/Projects/Current/Roids!/trunk/macosx/Xcode/asteroidsOSX.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>107 137 1271 743 0 0 1680 1028 </string>

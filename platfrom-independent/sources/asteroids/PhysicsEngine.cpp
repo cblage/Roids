@@ -225,9 +225,7 @@ namespace asteroids {
 				accelerate(_acelFactor*elapsed_seconds, _withRotation);
 			}
 		}
-		// update dos objectos
-		_position += _velocity * elapsed_seconds;
-		_position = constrainVector(_position);
+		_position = constrainVector(_position + _velocity * elapsed_seconds);
 		setCollisionCenter(getPosition());
 	}
 	

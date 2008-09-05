@@ -49,6 +49,7 @@ namespace  asteroids{
 		cg::Vector2d _collisionCenter, _previousCollisionCenter;
 		double _previousElapsedMillis;
 		bool _hasUpdated;
+		double _restitutionFactor;
 	public:
 		PhysicsEngine();
 		PhysicsEngine(double mass);
@@ -88,7 +89,7 @@ namespace  asteroids{
 		void setCollisionCenter(cg::Vector2d collisionCenter);
 		bool collidesWith(PhysicsObject *pobject);
 		void calculateCollision(PhysicsObject *pobject);
-		void stepBack(void);
+		bool stepBack(void);
 		bool penetrates(PhysicsObject *pobject);
 		cg::Vector2d constrainVector(cg::Vector2d vector);
 		double getDistance(cg::Vector2d vectorA, cg::Vector2d vectorB);

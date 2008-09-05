@@ -47,6 +47,7 @@ namespace asteroids {
 		_universeHeight = 0;
 		_mass = 1;
 		_hasUpdated = false;
+		_restitutionFactor =  cg::Properties::instance()->getDouble("COLLISION_RESTITUTION_FACTOR");
 	}
 	
 	PhysicsEngine::PhysicsEngine(double mass) {
@@ -73,6 +74,7 @@ namespace asteroids {
 		_universeHeight = 0;
 		_mass = mass;
 		_hasUpdated = false;
+		_restitutionFactor =  cg::Properties::instance()->getDouble("COLLISION_RESTITUTION_FACTOR");
 	}
 	
 
@@ -100,6 +102,7 @@ namespace asteroids {
 		_universeHeight = 0;
 		_hasUpdated = false;
 		_mass = 1;	
+		_restitutionFactor =  cg::Properties::instance()->getDouble("COLLISION_RESTITUTION_FACTOR");
 	}
 	PhysicsEngine::PhysicsEngine(cg::Vector2d velocity,cg::Vector2d position, double mass) {
 		_previousVelocity = cg::Vector2d(0, 0);
@@ -125,6 +128,7 @@ namespace asteroids {
 		_universeHeight = 0;
 		_mass = mass;	
 		_hasUpdated = false;
+		_restitutionFactor =  cg::Properties::instance()->getDouble("COLLISION_RESTITUTION_FACTOR");
 	}
 
 	PhysicsEngine::~PhysicsEngine(){
@@ -227,15 +231,16 @@ namespace asteroids {
 		setCollisionCenter(getPosition());
 	}
 	
-	void PhysicsEngine::stepBack(void) {
+	bool PhysicsEngine::stepBack(void) {
 		if(_hasUpdated == false)
-			return;
+			return false;
 
 		setPosition(_previousPosition);
 		//setRotation(_previousRotationRad);
 		setVelocity(_previousVelocity);
 		setAcceleration(_previousAcceleration);
 		setCollisionCenter(_previousCollisionCenter);
+		return true;
 	}
 
 	void PhysicsEngine::accelerate(double factor, bool withRotation) {
@@ -350,20 +355,20 @@ namespace asteroids {
 		bool steppedBack = false;
 
 		while(newElapsedMillis > 0 && penetrates(pobject)) {
-			stepBack();
+			steppedBack = stepBack();
 			update(newElapsedMillis);
 			newElapsedMillis /=2; 
-			steppedBack = true;
 		}
 
 		cg::Vector2d normalVelocity = normalize(constrainVector(getCollisionCenter() - pobject->getCollisionCenter()));
 		cg::Vector2d relativeVelocity = getVelocity() - pobject->getVelocity();
-		double restitutionFactor = 1;
 		
-		double j = (-(1+restitutionFactor) * dot(relativeVelocity,normalVelocity))/(dot(normalVelocity, normalVelocity)*(1/getMass() + 1/pobject->getMass()));
+		double j = (-(1+_restitutionFactor) * dot(relativeVelocity,normalVelocity))/(dot(normalVelocity, normalVelocity)*(1/getMass() + 1/pobject->getMass()));
 		setVelocity(getVelocity() + (j*normalVelocity)/getMass());
 		pobject->setVelocity(pobject->getVelocity() + (-j*normalVelocity)/pobject->getMass());
-		update(originalElapsedMillis - newElapsedMillis);
+		if(steppedBack) {		   
+		   update(originalElapsedMillis - newElapsedMillis);
+		}
 	}
 }
 

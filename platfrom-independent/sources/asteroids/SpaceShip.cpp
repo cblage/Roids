@@ -65,7 +65,7 @@ namespace asteroids {
 	void SpaceShip::update(unsigned long elapsed_millis) {
 		PhysicsObject::update(elapsed_millis);
 		double elapsed_seconds = elapsed_millis / 1000.0;	
-		accelerate(-50*elapsed_seconds, false, cg::Vector2d(0, 0));
+		//accelerate(-50*elapsed_seconds, false, cg::Vector2d(0, 0));
 		_hyperAccelerator->update(elapsed_seconds);
 		cg::Vector2d position = getPosition();
 		_charlesBronsonKilledSecondsAgo = _charlesBronsonKilledSecondsAgo + elapsed_seconds;

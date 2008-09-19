@@ -55,7 +55,7 @@ namespace asteroids {
 			BeforeGameState::instance()->changeTo(_application);
 			return true;
 		} else if(key =='n' || key == 27) {
-			_application->quit();
+			cg::Manager::instance()->shutdownApp();
 			return true;
 		}
 		return false;

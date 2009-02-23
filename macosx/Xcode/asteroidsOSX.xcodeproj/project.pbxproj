@@ -55,7 +55,6 @@
 		57401BDB0E2B9FEA00188F38 /* ScreenManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401BB40E2B9FEA00188F38 /* ScreenManager.cpp */; };
 		57401BDC0E2B9FEA00188F38 /* ShipController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401BB60E2B9FEA00188F38 /* ShipController.cpp */; };
 		57401BDD0E2B9FEA00188F38 /* SpaceShip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401BB80E2B9FEA00188F38 /* SpaceShip.cpp */; };
-		57401BDE0E2B9FEA00188F38 /* SpaceShipController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401BBA0E2B9FEA00188F38 /* SpaceShipController.cpp */; };
 		57401BDF0E2B9FEA00188F38 /* SpaceShipHyperAccelerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401BBD0E2B9FEA00188F38 /* SpaceShipHyperAccelerator.cpp */; };
 		57401BE00E2B9FEA00188F38 /* StarSphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401BBF0E2B9FEA00188F38 /* StarSphere.cpp */; };
 		57D3747F0DED15F7002C0837 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D3747E0DED15F7002C0837 /* CoreFoundation.framework */; };
@@ -183,8 +182,6 @@
 		57401BB70E2B9FEA00188F38 /* ShipController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipController.h; sourceTree = "<group>"; };
 		57401BB80E2B9FEA00188F38 /* SpaceShip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpaceShip.cpp; sourceTree = "<group>"; };
 		57401BB90E2B9FEA00188F38 /* SpaceShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceShip.h; sourceTree = "<group>"; };
-		57401BBA0E2B9FEA00188F38 /* SpaceShipController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpaceShipController.cpp; sourceTree = "<group>"; };
-		57401BBB0E2B9FEA00188F38 /* SpaceShipController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceShipController.h; sourceTree = "<group>"; };
 		57401BBC0E2B9FEA00188F38 /* SpaceShipEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceShipEngine.h; sourceTree = "<group>"; };
 		57401BBD0E2B9FEA00188F38 /* SpaceShipHyperAccelerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpaceShipHyperAccelerator.cpp; sourceTree = "<group>"; };
 		57401BBE0E2B9FEA00188F38 /* SpaceShipHyperAccelerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceShipHyperAccelerator.h; sourceTree = "<group>"; };
@@ -388,8 +385,6 @@
 				57401BB70E2B9FEA00188F38 /* ShipController.h */,
 				57401BB80E2B9FEA00188F38 /* SpaceShip.cpp */,
 				57401BB90E2B9FEA00188F38 /* SpaceShip.h */,
-				57401BBA0E2B9FEA00188F38 /* SpaceShipController.cpp */,
-				57401BBB0E2B9FEA00188F38 /* SpaceShipController.h */,
 				57401BBC0E2B9FEA00188F38 /* SpaceShipEngine.h */,
 				57401BBD0E2B9FEA00188F38 /* SpaceShipHyperAccelerator.cpp */,
 				57401BBE0E2B9FEA00188F38 /* SpaceShipHyperAccelerator.h */,
@@ -500,7 +495,6 @@
 				57401BDB0E2B9FEA00188F38 /* ScreenManager.cpp in Sources */,
 				57401BDC0E2B9FEA00188F38 /* ShipController.cpp in Sources */,
 				57401BDD0E2B9FEA00188F38 /* SpaceShip.cpp in Sources */,
-				57401BDE0E2B9FEA00188F38 /* SpaceShipController.cpp in Sources */,
 				57401BDF0E2B9FEA00188F38 /* SpaceShipHyperAccelerator.cpp in Sources */,
 				57401BE00E2B9FEA00188F38 /* StarSphere.cpp in Sources */,
 			);

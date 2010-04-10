@@ -54,7 +54,7 @@ namespace cg {
 	public:
 		void load(const std::string& filename);
 		bool exists(const std::string& name);
-
+		bool getBool(const std::string& name);
 		int getInt(const std::string& name);
 		float getFloat(const std::string& name);
 		double getDouble(const std::string& name);

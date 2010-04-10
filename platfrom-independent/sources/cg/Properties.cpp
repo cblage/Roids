@@ -62,6 +62,16 @@ namespace cg {
 		tPropertyIterator i = _properties.find(name);
 		return (i != _properties.end());
 	}
+	bool Properties::getBool(const std::string& name) {
+		std::string s = getString(name);
+		if(s == "true") {
+			return true;
+		} else if(s == "false") {
+			return false;
+		} else {
+			throw std::runtime_error("[cg::Properties] Cannot convert property '" + name + "' to <bool> (value '"+ s +"').");
+		}
+	}
 	int Properties::getInt(const std::string& name) {
 		std::string s = getString(name);
 		std::istringstream iss(s);

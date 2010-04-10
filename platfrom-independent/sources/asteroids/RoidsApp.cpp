@@ -18,8 +18,8 @@
  along with Roids!; if not, write to the Free Software
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
-#include "MyApp.h"
-#include "MyCamera.h"
+#include "RoidsApp.h"
+#include "Camera.h"
 #include "StarSphere.h"
 #include "GameManager.h"
 #include "Lights.h"
@@ -32,7 +32,7 @@
 
 namespace asteroids {
 
-	MyApp::MyApp() : cg::Application("config.ini") {
+	RoidsApp::RoidsApp() : cg::Application("config.ini") {
 		_window.caption = "Roids! (Alpha Version)";
 		_window.width = 800;
 		_window.height = 600;
@@ -41,15 +41,15 @@ namespace asteroids {
 		_screenManager = NULL;
 		_explosionManager = NULL;
 	}
-	MyApp::~MyApp() {
+	RoidsApp::~RoidsApp() {
 	}
-	void MyApp::createEntities() {
+	void RoidsApp::createEntities() {
 		_screenManager = new ScreenManager();
 		_gameManager = new GameManager("GameManager", this);
 		_explosionManager = new ExplosionManager("ExplosionManager", this);
 		BeforeGameState::instance()->changeTo(this);
 		addEntity(new ApplicationController(this));
-		addEntity (new MyCamera());
+		addEntity (new Camera());
 		addEntity(new StarSphere());
 		addEntity(_explosionManager);
 		addEntity(_gameManager);
@@ -57,47 +57,51 @@ namespace asteroids {
 		addEntity(_screenManager);
 	}
 
-	void MyApp::changeState(ApplicationState * state) {
+	void RoidsApp::changeState(ApplicationState * state) {
 		if(state != _state) {
 			_state = state;
 		}
 	}
-	ApplicationState * MyApp::getState() {
+	
+	ApplicationState * RoidsApp::getState() {
 		return _state;
 	}
 
-	void MyApp::onUpdate() {
+	void RoidsApp::onUpdate() {
 		_state->onUpdate();
 		_state->update(_time.elapsed);
 	}
-	void MyApp::onDisplay() {
+	
+	void RoidsApp::onDisplay() {
 		_state->onDisplay();
 	}
 
-	void MyApp::onKeyPressed(unsigned char key) {
+	void RoidsApp::onKeyPressed(unsigned char key) {
 		_state->onKeyPressed(key);
 	}
-	void MyApp::pause() {
+	void RoidsApp::pause() {
 		_state->pause();
 	}
-	void MyApp::quit() {
+	void RoidsApp::quit() {
 		_state->quit();
 	}
-	void MyApp::addScreen(Screen * s) {
+	void RoidsApp::addScreen(Screen * s) {
 		_screenManager->addScreen(s);
 	}
 	
-	void MyApp::removeScreen(Screen * s) {
+	void RoidsApp::removeScreen(Screen * s) {
 		_screenManager->removeScreen(s);
 	}
 
-	GameManager * MyApp::getGameManager() {
+	GameManager * RoidsApp::getGameManager() {
 		return _gameManager;
 	}
-	ExplosionManager * MyApp::getExplosionManager() {
+	
+	ExplosionManager * RoidsApp::getExplosionManager() {
 		return _explosionManager;
 	}
-	void MyApp::resetTime() {
+	
+	void RoidsApp::resetTime() {
 		updateFrameTime();
 		_state->update(_time.elapsed);
 	}

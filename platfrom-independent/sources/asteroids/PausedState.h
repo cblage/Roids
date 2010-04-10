@@ -37,7 +37,7 @@ namespace asteroids {
 		Screen * _screen;
 
 	public:
-		void changeState(MyApp * application, ApplicationState * state);
+		void changeState(RoidsApp * application, ApplicationState * state);
 		void onUpdate();
 		void pause();
 		void enter();

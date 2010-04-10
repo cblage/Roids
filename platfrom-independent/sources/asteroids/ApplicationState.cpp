@@ -20,7 +20,7 @@
 */
 #include "ApplicationState.h"
 #include "GameManager.h"
-#include "MyApp.h"
+#include "RoidsApp.h"
 #include "QuitConfirmState.h"
 #include "PausedState.h"
 
@@ -30,11 +30,11 @@ namespace asteroids {
 	void ApplicationState::changeFrom() {
 		leave();
 	}
-	void ApplicationState::changeTo(MyApp * application) {
+	void ApplicationState::changeTo(RoidsApp * application) {
 		changeState(application, this);
 		enter();
 	}
-	void ApplicationState::changeState(MyApp * application, ApplicationState * state) {
+	void ApplicationState::changeState(RoidsApp * application, ApplicationState * state) {
 		_application = application;
 		ApplicationState * s = _application->getState();
 		if(s != NULL) {
@@ -63,7 +63,7 @@ namespace asteroids {
 		}
 	}
 
-	void ApplicationState::resume(MyApp *application) {
+	void ApplicationState::resume(RoidsApp *application) {
 		ApplicationState * s = getPreviousState();
 		changeTo(application);
 		setPreviousState(s);

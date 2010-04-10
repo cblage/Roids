@@ -28,16 +28,16 @@
 #include <cmath>
 
 namespace asteroids {
-	class MyApp;
+	class RoidsApp;
 	class ApplicationState {
 	protected:
-		MyApp * _application;
+		RoidsApp * _application;
 		ApplicationState * _previousState;
 
 	public:
 		virtual void changeFrom();
-		virtual void changeTo(MyApp * application);
-		virtual void changeState(MyApp * application, ApplicationState * state);
+		virtual void changeTo(RoidsApp * application);
+		virtual void changeState(RoidsApp * application, ApplicationState * state);
 		virtual std::string getName(void) = 0;
 		virtual void onUpdate();
 		virtual void onDisplay();
@@ -46,7 +46,7 @@ namespace asteroids {
 		virtual void quit();
 		virtual void enter();
 		virtual void leave();
-		virtual void resume(MyApp * application);
+		virtual void resume(RoidsApp * application);
 		virtual void suspend();
 		virtual void setPreviousState(ApplicationState * s);
 		virtual ApplicationState * getPreviousState();

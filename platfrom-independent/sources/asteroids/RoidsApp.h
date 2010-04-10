@@ -19,31 +19,31 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #pragma once
-#ifndef MY_APP_H
-#define MY_APP_H
-#pragma message("MyApp is included")
+#ifndef ROIDS_APP_H
+#define ROIDS_APP_H
+#pragma message("RoidsApp is included")
 
 #include <cg/cg.h>
 
 
 namespace asteroids {
 	class StarSphere;
-	class MyCamera;
+	class Camera;
 	class GameManager;
 	class ExplosionManager;
 	class ScreenManager;
 	class ApplicationState;
 	class Screen;
 
-	class MyApp : public cg::Application {
+	class RoidsApp : public cg::Application {
 	private:
 		ApplicationState * _state;
 		ScreenManager * _screenManager;
 		GameManager * _gameManager;
 		ExplosionManager * _explosionManager;
 	public:
-		MyApp();
-		~MyApp();
+		RoidsApp();
+		~RoidsApp();
 		void createEntities();
 		void onUpdate();
 		void onDisplay();

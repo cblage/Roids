@@ -40,7 +40,7 @@ namespace asteroids {
 	public:
 		void enter();
 		void suspend();
-		void resume(MyApp * application);
+		void resume(RoidsApp * application);
 		void leave();
 		std::string getName(void);
 		std::string getMessage() ;

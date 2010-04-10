@@ -19,21 +19,21 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #pragma once
-#ifndef MYCAMERA_CONTROLLER_H
-#define MYCAMERA_CONTROLLER_H
-#pragma message("MyCameraController is included")
+#ifndef CAMERA_CONTROLLER_H
+#define CAMERA_CONTROLLER_H
+#pragma message("CameraController is included")
 
 #include <cg/cg.h>
 
 namespace asteroids {
-	class MyCamera;
+	class Camera;
 
-	class MyCameraController : public cg::Entity,
+	class CameraController : public cg::Entity,
 		public cg::IKeyboardEventListener
 	{
 	public:
-		MyCameraController(MyCamera* camera);
-		~MyCameraController();
+		CameraController(Camera* camera);
+		~CameraController();
 		void init();
         void onKeyPressed(unsigned char key);
         void onKeyReleased(unsigned char key);
@@ -41,7 +41,7 @@ namespace asteroids {
         void onSpecialKeyReleased(int key);
 
 	private:
-		MyCamera * _camera;
+		Camera * _camera;
 	};
 
 

@@ -22,7 +22,7 @@
 #include "ExplosionDebris.h"
 
 namespace asteroids {
-	ExplosionManager::ExplosionManager(std::string id, MyApp *application) : ParticleManager(id), _application(application) {
+	ExplosionManager::ExplosionManager(std::string id, RoidsApp *application) : ParticleManager(id), _application(application) {
 		_massDivider = cg::Properties::instance()->getDouble("DEBRIS_MASS_DIVIDER");
 	}
 	ExplosionManager::~ExplosionManager() {

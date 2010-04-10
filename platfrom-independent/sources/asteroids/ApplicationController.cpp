@@ -19,11 +19,11 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #include "ApplicationController.h"
-#include "MyApp.h"
+#include "RoidsApp.h"
 
 namespace asteroids {
 
-	ApplicationController::ApplicationController(MyApp* application) : cg::Entity("AppController"), _application(application) {
+	ApplicationController::ApplicationController(RoidsApp* application) : cg::Entity("AppController"), _application(application) {
 	}
 	ApplicationController::~ApplicationController() {
 	}

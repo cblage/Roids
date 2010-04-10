@@ -23,14 +23,14 @@
 #include "EndOfLevelState.h"
 #include "GameOverState.h"
 #include "ExplosionManager.h"
-#include "MyApp.h"
+#include "RoidsApp.h"
 #include "Asteroid.h"
 #include "SpaceShip.h"
 #include "LaserShot.h"
 
 
 namespace asteroids {
-	GameManager::GameManager(std::string id, MyApp *application) : ParticleManager(id), _application(application) {
+	GameManager::GameManager(std::string id, RoidsApp *application) : ParticleManager(id), _application(application) {
 		_shipsLeft = cg::Properties::instance()->getInt("SHIP_LIFES");
 		_asteroidsLeft = 0;
 		_currentScore = 0;

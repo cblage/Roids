@@ -19,7 +19,7 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #include "PausedState.h"
-#include "MyApp.h"
+#include "RoidsApp.h"
 #include "Screen.h"
 #include "GameManager.h"
 
@@ -40,7 +40,7 @@ namespace asteroids {
 		delete(_screen);
 	}
 
-	void PausedState::changeState(MyApp * application, ApplicationState * state) {
+	void PausedState::changeState(RoidsApp * application, ApplicationState * state) {
 		_application = application;
 		ApplicationState * s = _application->getState();
 		if(s != NULL) {

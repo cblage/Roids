@@ -37,7 +37,7 @@ namespace asteroids {
 		Screen * _screen;
 
 	public:
-		void changeState(MyApp * application, ApplicationState * state);
+		void changeState(RoidsApp * application, ApplicationState * state);
 		bool onKeyPressed(unsigned char key);
 		void onUpdate();
 		void pause();

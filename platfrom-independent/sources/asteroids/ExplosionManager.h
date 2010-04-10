@@ -30,16 +30,16 @@
 
 
 namespace asteroids {
-	class MyApp;
+	class RoidsApp;
 
 	class ExplosionManager : public ParticleManager
 	{
 	private:
-		MyApp * _application;
+		RoidsApp * _application;
 		double _massDivider;
 
 	public:
-		ExplosionManager(std::string id, MyApp *application);
+		ExplosionManager(std::string id, RoidsApp *application);
 		~ExplosionManager();
 		void createEntities();
 		void generateExplosion(Particle * p);
@@ -49,25 +49,25 @@ namespace asteroids {
 	};
 
 
-#ifndef MY_APP_H
-#define MY_APP_H
+#ifndef ROIDS_APP_H
+#define ROIDS_APP_H
 	class StarSphere;
-	class MyCamera;
+	class Camera;
 	class GameManager;
 	class ExplosionManager;
 	class ScreenManager;
 	class ApplicationState;
 	class Screen;
 
-	class MyApp : public cg::Application {
+	class RoidsApp : public cg::Application {
 	private:
 		ApplicationState * _state;
 		ScreenManager * _screenManager;
 		GameManager * _gameManager;
 		ExplosionManager * _explosionManager;
 	public:
-		MyApp();
-		~MyApp();
+		RoidsApp();
+		~RoidsApp();
 		void createEntities();
 		void onUpdate();
 		void onDisplay();

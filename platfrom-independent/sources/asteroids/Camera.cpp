@@ -18,17 +18,17 @@
  along with Roids!; if not, write to the Free Software
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
-#include "MyCamera.h"
-#include "MyCameraController.h"
+#include "Camera.h"
+#include "CameraController.h"
 
 namespace asteroids { 
 
-    MyCamera::MyCamera() : Entity("MyCamera") {
-		_controller = new MyCameraController(this);
+    Camera::Camera() : Entity("Camera") {
+		_controller = new CameraController(this);
 	}
-    MyCamera::~MyCamera() {
+    Camera::~Camera() {
 	}
-    void MyCamera::init() {
+    void Camera::init() {
 		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
 		_winWidth = win.width;
 		_winHeight = win.height;
@@ -47,12 +47,12 @@ namespace asteroids {
 		_rotateR = false;
     }
 	
-	void MyCamera::update(unsigned long elapsed_millis) {
+	void Camera::update(unsigned long elapsed_millis) {
 		double elapsed_seconds = elapsed_millis / 1000.0;	
 		rotate(elapsed_seconds);
 	}
 	
-	void MyCamera::rotate(double secs){
+	void Camera::rotate(double secs){
 		if (_rotateU == true) {
 				//_ang1 += 20*secs;
 				_rotLy += 80.0f*secs;
@@ -71,7 +71,7 @@ namespace asteroids {
 		}
 	}
 
-	void MyCamera::draw() {
+	void Camera::draw() {
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		//glRotatef(_ang1,1.0,0,0);
@@ -85,7 +85,7 @@ namespace asteroids {
 		gluLookAt (_rotLx, _rotLy, 200.0 + _rotLz, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
 	}
 
-	void MyCamera::startRotate(int dir){
+	void Camera::startRotate(int dir){
 		if(!_debugCamera)
 			return;
 		
@@ -107,7 +107,7 @@ namespace asteroids {
 		}
 	}
 
-	void MyCamera::stopRotate(int dir){
+	void Camera::stopRotate(int dir){
 		if(!_debugCamera)
 			return;
 		
@@ -125,22 +125,22 @@ namespace asteroids {
 		}
 	}
 
-	void MyCamera::onKeyPressed(unsigned char key) {
+	void Camera::onKeyPressed(unsigned char key) {
 		_controller->onKeyPressed(key);
 	}
 	
-	void MyCamera::onKeyReleased(unsigned char key) {
+	void Camera::onKeyReleased(unsigned char key) {
 		_controller->onKeyReleased(key);
 	}
 
-	void MyCamera::onSpecialKeyPressed(int key) {
+	void Camera::onSpecialKeyPressed(int key) {
 		_controller->onSpecialKeyPressed(key);
 	}
 	
-	void MyCamera::onSpecialKeyReleased(int key) {
+	void Camera::onSpecialKeyReleased(int key) {
 		_controller->onSpecialKeyReleased(key);
 	}
-	void MyCamera::onReshape(int width, int height) {
+	void Camera::onReshape(int width, int height) {
 		_winWidth = width;
 		_winHeight = height;
 	}

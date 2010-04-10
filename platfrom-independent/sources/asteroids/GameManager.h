@@ -31,7 +31,7 @@
 
 
 namespace asteroids {
-	class MyApp;
+	class RoidsApp;
 	class Particle;
 	
 	class GameManager : public ParticleManager,
@@ -42,7 +42,7 @@ namespace asteroids {
 	private:
 		int _currentScore;
 		unsigned int _currentLevel, _asteroidsLeft, _shipsLeft;
-		MyApp * _application;
+		RoidsApp * _application;
 		bool _levelRunning, _cooldownPeriod, _gamePaused;
 		double _radarSize;
 		double _cooldownTime, _cooldownLeft;
@@ -52,7 +52,7 @@ namespace asteroids {
 		double _frameRateAccul, _maxFrameRateAccul, _frameRateAcculDivider;
 
 	public:
-		GameManager(std::string id, MyApp *application);
+		GameManager(std::string id, RoidsApp *application);
 		~GameManager();
 		void preUpdate(unsigned long elapsed_millis);
 		void postInit();

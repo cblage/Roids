@@ -19,7 +19,7 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #include "DuringLevelState.h"
-#include "MyApp.h"
+#include "RoidsApp.h"
 #include "GameManager.h"
 
 namespace asteroids {
@@ -29,7 +29,7 @@ namespace asteroids {
 	void DuringLevelState::enter() {
 		_application->getGameManager()->beginLevel();
 	}
-	void DuringLevelState::resume(MyApp * application) {
+	void DuringLevelState::resume(RoidsApp * application) {
 		changeState(application, this);
 	}
 

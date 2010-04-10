@@ -19,25 +19,25 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #pragma once
-#ifndef MY_CAMERA_H
-#define MY_CAMERA_H
-#pragma message("MyCamera is included")
+#ifndef CAMERA_H
+#define CAMERA_H
+#pragma message("Camera is included")
 #include <string>
 #include <cmath>
 #include <cg/cg.h>
 
 
 namespace asteroids {
-	class MyCameraController;
+	class CameraController;
 
-    class MyCamera : public cg::Entity, 
+    class Camera : public cg::Entity, 
 		public cg::IDrawListener,
 		public cg::IKeyboardEventListener,
 		public cg::IUpdateListener,
 		public cg::IReshapeEventListener
 	{
     private:
-		MyCameraController * _controller;
+		CameraController * _controller;
 		double _winWidth, _winHeight;
 		float _ang1, _ang2;
 		GLfloat _rotLx, _rotLy, _rotLz;
@@ -46,8 +46,8 @@ namespace asteroids {
 
     public:
 		void update(unsigned long elapsed_millis);
-        MyCamera();
-        virtual ~MyCamera();
+        Camera();
+        virtual ~Camera();
         void init();
         void draw();
         void onReshape(int width, int height);

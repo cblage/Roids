@@ -18,20 +18,20 @@
  along with Roids!; if not, write to the Free Software
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
-#include "MyCameraController.h"
-#include "MyCamera.h"
+#include "CameraController.h"
+#include "Camera.h"
 
 namespace asteroids {
 
-	MyCameraController::MyCameraController(MyCamera* camera) : cg::Entity("MyCameraController") {
+	CameraController::CameraController(Camera* camera) : cg::Entity("CameraController") {
 		_camera = camera;
 	}
-	MyCameraController::~MyCameraController() {
+	CameraController::~CameraController() {
 	}
-	void MyCameraController::init() {
+	void CameraController::init() {
 	}
 	
-	void MyCameraController::onKeyPressed(unsigned char key) {
+	void CameraController::onKeyPressed(unsigned char key) {
 		switch (key)
 		{
 			case 'j':
@@ -51,7 +51,7 @@ namespace asteroids {
 				break;
 		}
 	}
-	void MyCameraController::onKeyReleased(unsigned char key) {
+	void CameraController::onKeyReleased(unsigned char key) {
 		switch (key)
 		{
 			case 'j':
@@ -68,7 +68,7 @@ namespace asteroids {
 				break;
 		}
 	}
-	void MyCameraController::onSpecialKeyPressed(int key) {
+	void CameraController::onSpecialKeyPressed(int key) {
 		/*switch (key)
 		{
 		case GLUT_KEY_LEFT:
@@ -90,7 +90,7 @@ namespace asteroids {
 			return;
 		}*/
 	}	
-	void MyCameraController::onSpecialKeyReleased(int key) {
+	void CameraController::onSpecialKeyReleased(int key) {
 		/*switch (key)
 		{
 		case GLUT_KEY_LEFT:

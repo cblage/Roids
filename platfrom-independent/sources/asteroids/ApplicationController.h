@@ -26,13 +26,13 @@
 #include <cg/cg.h>
 
 namespace asteroids {
-	class MyApp;
+	class RoidsApp;
 
 	class ApplicationController : public cg::Entity,
 		public cg::IKeyboardEventListener
 	{
 	public:
-		ApplicationController(MyApp* application);
+		ApplicationController(RoidsApp* application);
 		~ApplicationController();
 		void init();
 		void onKeyPressed(unsigned char key);
@@ -41,7 +41,7 @@ namespace asteroids {
 		void onSpecialKeyReleased(int key);
 
 	private:
-		MyApp * _application;
+		RoidsApp * _application;
 	};
 
 

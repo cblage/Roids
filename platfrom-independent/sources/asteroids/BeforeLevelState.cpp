@@ -19,7 +19,7 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #include "BeforeLevelState.h"
-#include "MyApp.h"
+#include "RoidsApp.h"
 #include "Screen.h"
 #include "DuringLevelState.h"
 #include "GameManager.h"
@@ -38,7 +38,7 @@ namespace asteroids {
 		_application->addScreen(_screen);
 	}
 
-	void BeforeLevelState::resume(MyApp * application) {
+	void BeforeLevelState::resume(RoidsApp * application) {
 		ApplicationState * s = getPreviousState();
 		changeState(application, this);
 		setPreviousState(s);

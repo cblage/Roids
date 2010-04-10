@@ -106,7 +106,7 @@ namespace cg {
         virtual void onInit();
         virtual void onUpdate();
         virtual void onDisplay();
-        void onReshape(int w, int h);
+        virtual void onReshape(int w, int h);
 		void shutdown();
 
         virtual void createEntities() = 0;

@@ -34,8 +34,11 @@ namespace asteroids {
 
 	RoidsApp::RoidsApp() : cg::Application("config.ini") {
 		_window.caption = "Roids! (Alpha Version)";
-		_window.width = 800;
-		_window.height = 600;
+		_initialWindowWidth = cg::Properties::instance()->getInt("WINDOW_WIDTH");
+		_initialWindowHeight = cg::Properties::instance()->getInt("WINDOW_HEIGHT");
+		_forceInitialWindowSize = cg::Properties::instance()->getBool("WINDOW_FORCE_INITIAL_SIZE");
+		_window.width = _initialWindowWidth;
+		_window.height = _initialWindowHeight;
 		_state = NULL;
 		_gameManager = NULL;
 		_screenManager = NULL;
@@ -100,6 +103,15 @@ namespace asteroids {
 	ExplosionManager * RoidsApp::getExplosionManager() {
 		return _explosionManager;
 	}
+
+    void RoidsApp::onReshape(int w, int h) {
+		if (_forceInitialWindowSize) {
+			glutReshapeWindow(_initialWindowWidth, _initialWindowHeight);
+		} else {
+			cg::Application::onReshape(w, h);
+		}
+    }
+	
 	
 	void RoidsApp::resetTime() {
 		updateFrameTime();

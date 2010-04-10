@@ -41,6 +41,9 @@ namespace asteroids {
 		ScreenManager * _screenManager;
 		GameManager * _gameManager;
 		ExplosionManager * _explosionManager;
+		bool _forceInitialWindowSize;
+		int _initialWindowWidth;
+		int _initialWindowHeight;
 	public:
 		RoidsApp();
 		~RoidsApp();
@@ -57,7 +60,7 @@ namespace asteroids {
 		void addScreen(Screen * s);
 		void removeScreen(Screen * s);
 		void resetTime();
-
+		void onReshape(int w, int h);
 	};
 }
 

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 44;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -42,9 +42,9 @@
 		57401BCE0E2B9FEA00188F38 /* LaserShot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401B9B0E2B9FEA00188F38 /* LaserShot.cpp */; };
 		57401BCF0E2B9FEA00188F38 /* Lights.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401B9D0E2B9FEA00188F38 /* Lights.cpp */; };
 		57401BD00E2B9FEA00188F38 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401B9F0E2B9FEA00188F38 /* main.cpp */; };
-		57401BD10E2B9FEA00188F38 /* MyApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401BA00E2B9FEA00188F38 /* MyApp.cpp */; };
-		57401BD20E2B9FEA00188F38 /* MyCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401BA20E2B9FEA00188F38 /* MyCamera.cpp */; };
-		57401BD30E2B9FEA00188F38 /* MyCameraController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401BA40E2B9FEA00188F38 /* MyCameraController.cpp */; };
+		57401BD10E2B9FEA00188F38 /* RoidsApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401BA00E2B9FEA00188F38 /* RoidsApp.cpp */; };
+		57401BD20E2B9FEA00188F38 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401BA20E2B9FEA00188F38 /* Camera.cpp */; };
+		57401BD30E2B9FEA00188F38 /* CameraController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401BA40E2B9FEA00188F38 /* CameraController.cpp */; };
 		57401BD40E2B9FEA00188F38 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401BA60E2B9FEA00188F38 /* Particle.cpp */; };
 		57401BD50E2B9FEA00188F38 /* ParticleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401BA80E2B9FEA00188F38 /* ParticleManager.cpp */; };
 		57401BD60E2B9FEA00188F38 /* PausedState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401BAA0E2B9FEA00188F38 /* PausedState.cpp */; };
@@ -156,12 +156,12 @@
 		57401B9D0E2B9FEA00188F38 /* Lights.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lights.cpp; sourceTree = "<group>"; };
 		57401B9E0E2B9FEA00188F38 /* Lights.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lights.h; sourceTree = "<group>"; };
 		57401B9F0E2B9FEA00188F38 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		57401BA00E2B9FEA00188F38 /* MyApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyApp.cpp; sourceTree = "<group>"; };
-		57401BA10E2B9FEA00188F38 /* MyApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyApp.h; sourceTree = "<group>"; };
-		57401BA20E2B9FEA00188F38 /* MyCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyCamera.cpp; sourceTree = "<group>"; };
-		57401BA30E2B9FEA00188F38 /* MyCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCamera.h; sourceTree = "<group>"; };
-		57401BA40E2B9FEA00188F38 /* MyCameraController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyCameraController.cpp; sourceTree = "<group>"; };
-		57401BA50E2B9FEA00188F38 /* MyCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCameraController.h; sourceTree = "<group>"; };
+		57401BA00E2B9FEA00188F38 /* RoidsApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RoidsApp.cpp; sourceTree = "<group>"; };
+		57401BA10E2B9FEA00188F38 /* RoidsApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoidsApp.h; sourceTree = "<group>"; };
+		57401BA20E2B9FEA00188F38 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		57401BA30E2B9FEA00188F38 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
+		57401BA40E2B9FEA00188F38 /* CameraController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraController.cpp; sourceTree = "<group>"; };
+		57401BA50E2B9FEA00188F38 /* CameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraController.h; sourceTree = "<group>"; };
 		57401BA60E2B9FEA00188F38 /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Particle.cpp; sourceTree = "<group>"; };
 		57401BA70E2B9FEA00188F38 /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
 		57401BA80E2B9FEA00188F38 /* ParticleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleManager.cpp; sourceTree = "<group>"; };
@@ -359,12 +359,12 @@
 				57401B9D0E2B9FEA00188F38 /* Lights.cpp */,
 				57401B9E0E2B9FEA00188F38 /* Lights.h */,
 				57401B9F0E2B9FEA00188F38 /* main.cpp */,
-				57401BA00E2B9FEA00188F38 /* MyApp.cpp */,
-				57401BA10E2B9FEA00188F38 /* MyApp.h */,
-				57401BA20E2B9FEA00188F38 /* MyCamera.cpp */,
-				57401BA30E2B9FEA00188F38 /* MyCamera.h */,
-				57401BA40E2B9FEA00188F38 /* MyCameraController.cpp */,
-				57401BA50E2B9FEA00188F38 /* MyCameraController.h */,
+				57401BA00E2B9FEA00188F38 /* RoidsApp.cpp */,
+				57401BA10E2B9FEA00188F38 /* RoidsApp.h */,
+				57401BA20E2B9FEA00188F38 /* Camera.cpp */,
+				57401BA30E2B9FEA00188F38 /* Camera.h */,
+				57401BA40E2B9FEA00188F38 /* CameraController.cpp */,
+				57401BA50E2B9FEA00188F38 /* CameraController.h */,
 				57401BA60E2B9FEA00188F38 /* Particle.cpp */,
 				57401BA70E2B9FEA00188F38 /* Particle.h */,
 				57401BA80E2B9FEA00188F38 /* ParticleManager.cpp */,
@@ -421,7 +421,7 @@
 		20286C28FDCF999611CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = C0E91AC908A95435008D54AB /* Build configuration list for PBXProject "asteroidsOSX" */;
-			compatibilityVersion = "Xcode 3.0";
+			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 1;
 			mainGroup = 20286C29FDCF999611CA2CEA /* asteroidsOSX */;
 			projectDirPath = "";
@@ -482,9 +482,9 @@
 				57401BCE0E2B9FEA00188F38 /* LaserShot.cpp in Sources */,
 				57401BCF0E2B9FEA00188F38 /* Lights.cpp in Sources */,
 				57401BD00E2B9FEA00188F38 /* main.cpp in Sources */,
-				57401BD10E2B9FEA00188F38 /* MyApp.cpp in Sources */,
-				57401BD20E2B9FEA00188F38 /* MyCamera.cpp in Sources */,
-				57401BD30E2B9FEA00188F38 /* MyCameraController.cpp in Sources */,
+				57401BD10E2B9FEA00188F38 /* RoidsApp.cpp in Sources */,
+				57401BD20E2B9FEA00188F38 /* Camera.cpp in Sources */,
+				57401BD30E2B9FEA00188F38 /* CameraController.cpp in Sources */,
 				57401BD40E2B9FEA00188F38 /* Particle.cpp in Sources */,
 				57401BD50E2B9FEA00188F38 /* ParticleManager.cpp in Sources */,
 				57401BD60E2B9FEA00188F38 /* PausedState.cpp in Sources */,
@@ -566,7 +566,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/";
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				SDKROOT = macosx10.5;
 				ZERO_LINK = NO;
 			};
 			name = Debug;
@@ -583,7 +583,7 @@
 				GCC_ENABLE_SYMBOL_SEPARATION = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/";
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				SDKROOT = macosx10.5;
 				SEPARATE_STRIP = YES;
 			};
 			name = Release;

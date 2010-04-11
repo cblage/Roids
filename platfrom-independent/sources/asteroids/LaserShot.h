@@ -38,11 +38,10 @@ namespace asteroids {
 
 	class LaserShot : public cg::IDrawListener,
 		public cg::IUpdateListener,
-		public cg::IReshapeEventListener,
 		public GameEntity
 	{
 	private:
-		double _secondsToLive, _radius;
+		double _secondsToLive, _secondsToLiveMax, _radius;
 		
 	public:
 		LaserShot(std::string id, GameManager * gameManager);
@@ -50,7 +49,6 @@ namespace asteroids {
 		void init();
 		void update(unsigned long elapsed_millis);
 		void draw();
-		void onReshape(int width, int height);
 		bool collidesWith(PhysicsObject *pobject);
 	};
 }

@@ -36,7 +36,6 @@ namespace asteroids {
 
 	class ExplosionDebris : public cg::IDrawListener,
 		public cg::IUpdateListener,
-		public cg::IReshapeEventListener,
 		public Particle
 	{
 	private:
@@ -49,7 +48,6 @@ namespace asteroids {
 		void init();
 		void update(unsigned long elapsed_millis);
 		void draw();
-		void onReshape(int width, int height);
 		bool collidesWith(PhysicsObject *pobject);
 	};
 }

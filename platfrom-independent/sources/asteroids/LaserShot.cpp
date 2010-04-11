@@ -37,7 +37,8 @@ namespace asteroids {
 		setStrength(cg::Properties::instance()->getDouble("LASER_STRENGHT"));
 		setMass(cg::Properties::instance()->getDouble("LASER_MASS"));
 		setHealth(cg::Properties::instance()->getDouble("LASER_HEALTH"));
-		_secondsToLive = cg::Properties::instance()->getDouble("LASER_SECONDS_TO_LIVE");
+		_secondsToLiveMax = cg::Properties::instance()->getDouble("LASER_SECONDS_TO_LIVE");
+		_secondsToLive = _secondsToLiveMax;
 		_radius = cg::Properties::instance()->getDouble("LASER_RADIUS");
 		setCollisionRadius(_radius*2);
 	}
@@ -63,26 +64,24 @@ namespace asteroids {
 		
 
 		cg::Vector2d position = getPosition();
-		glPushMatrix(); 
-		{
-			GLboolean blendEnabled, depthTestEnabled;
-			blendEnabled = glIsEnabled(GL_BLEND);
-			depthTestEnabled = glIsEnabled(GL_DEPTH_TEST);
-			if(blendEnabled != GL_TRUE) glEnable(GL_BLEND);
-			if(depthTestEnabled == GL_TRUE) glDisable(GL_DEPTH_TEST);
-			glBlendFunc(GL_SRC_ALPHA,GL_ONE);
-
-			glTranslated(position[0], position[1], 0);
-			glColor4d(1, 0, 0, 0.3);
-			glutSolidSphere(_radius*0.8, 10, 10);
-			glRotated(getRotation(true), 0, 0, 1);
 		
-			if(blendEnabled != GL_TRUE) glDisable(GL_BLEND);
-			if(depthTestEnabled == GL_TRUE) glEnable(GL_DEPTH_TEST);
+		
+		if(_secondsToLive > 0) {
+			glPushMatrix();
+			{
+				glPushAttrib(GL_COLOR_BUFFER_BIT);			
+				glEnable(GL_BLEND);
+				glBlendFunc(GL_SRC_ALPHA,GL_ONE);				
+				glTranslated(position[0], position[1], 0);
+				glColor4d(1, 0.2, 0.2, _secondsToLive/_secondsToLiveMax*0.8);
+				glutSolidSphere(_radius*0.8, 35, 35);
+				glPopAttrib();
+				
+			}
+			glPopMatrix();		
 		}
-		glPopMatrix();
-
-		//glFlush();
+		
+		
 
 		/*cg::Vector2d position = getPosition();
 		glPushMatrix();
@@ -95,12 +94,6 @@ namespace asteroids {
 		glPopMatrix();
 		glFlush();*/
 		
-	}
-
-	void LaserShot::onReshape(int width, int height) {
-		if(width > 100 && height > 100) {
-			setUniverseDimensions(width,height);
-		}
 	}
 
 	bool LaserShot::collidesWith(PhysicsObject *pobject) {

@@ -107,8 +107,8 @@ namespace asteroids {
 		return _health;
 	}
 	
-	double Particle::getHealth(bool per) {
-		if (per == false) 
+	double Particle::getHealth(bool percentage) {
+		if (percentage == false) 
 			return getHealth();
 		
 		return 100 * getHealth()/getMaxHealth();
@@ -169,9 +169,17 @@ namespace asteroids {
 	char Particle::getParticleType() {
 		return _particleType;
 	}
+	
 	void Particle::setParticleType(char particleType) {
 		_particleType = particleType;
 	}
+		
+	void Particle::onReshape(int width, int height) {
+		if(width > 100 && height > 100) {
+			setUniverseDimensions(width,height);
+		}
+	}	
+	
 }
 
 

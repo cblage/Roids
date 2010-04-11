@@ -37,7 +37,6 @@ namespace asteroids {
 
 	class Asteroid : public cg::IDrawListener,
 		public cg::IUpdateListener,
-		public cg::IReshapeEventListener,
 		public GameEntity
 	{
 	private:
@@ -55,7 +54,6 @@ namespace asteroids {
 		void init();
 		void update(unsigned long elapsed_millis);
 		void draw();
-		void onReshape(int width, int height);
 		bool collidesWith(PhysicsObject *pobject);
 		void checkCollisions(double long elapsed_millis);
 		void destroy(void);

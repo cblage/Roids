@@ -37,13 +37,12 @@ namespace asteroids {
 
 	class SpaceShip : public cg::IDrawListener,
 		public cg::IUpdateListener, 
-		public cg::IReshapeEventListener,
 		public GameEntity
 	{
 	private:
 		std::string _message;
 		cg::Vector2d _size;
-		double _winWidth, _winHeight, _charlesBronsonKilledSecondsAgo;		
+		double _charlesBronsonKilledSecondsAgo;		
 		SpaceShipHyperAccelerator * _hyperAccelerator;
 		int _charlesBronsonStyle, _maxCharlesBronsonStyle;
 		ShipController * _controller;
@@ -57,7 +56,6 @@ namespace asteroids {
 		void init();
 		void update(unsigned long elapsed_millis);
 		void draw();
-		void onReshape(int width, int height);
 		void hyperAccelerate(void);
 		void shootLaser(void);
 		void onKeyPressed(unsigned char key);

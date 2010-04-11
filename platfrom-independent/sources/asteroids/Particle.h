@@ -30,6 +30,7 @@ namespace asteroids {
 	class ParticleManager;
 
 	class Particle : public cg::Entity,
+		public cg::IReshapeEventListener,
 		public PhysicsObject
 	{
 	protected:
@@ -65,7 +66,7 @@ namespace asteroids {
 		virtual void initHealth(double health);
 		virtual char getParticleType();
 		virtual void setParticleType(char particleType);
-
+		virtual void onReshape(int width, int height);
 	};
 
 }

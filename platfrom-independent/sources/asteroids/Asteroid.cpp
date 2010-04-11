@@ -219,12 +219,6 @@ namespace asteroids {
 		glFlush();*/
 	}
 
-	void Asteroid::onReshape(int width, int height) {
-		if(width > 100 && height > 100) {
-			setUniverseDimensions(width,height);
-		}
-	}
-
 	bool Asteroid::collidesWith(PhysicsObject *pobject) {
 		if(isDestroyed() == true || _invulSeconds > 0)
 			return false;

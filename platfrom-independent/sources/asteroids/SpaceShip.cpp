@@ -308,7 +308,6 @@ namespace asteroids {
 		if(_invulTime > 0) {
 			glPushMatrix();
 			{
-			
 				glPushAttrib(GL_COLOR_BUFFER_BIT);			
 				glEnable(GL_BLEND);
 				glBlendFunc(GL_SRC_ALPHA,GL_ONE);				
@@ -337,13 +336,6 @@ namespace asteroids {
 		return Particle::getCollisionDamage(target);	
 	}
 	
-	
-	void SpaceShip::onReshape(int width, int height) {
-		if(width > 100 && height > 100) {
-			setUniverseDimensions(width,height);
-		}
-	}
-
 	void SpaceShip::hyperAccelerate(void) {
 		_hyperAccelerator->hyperAccelerate();
 	}

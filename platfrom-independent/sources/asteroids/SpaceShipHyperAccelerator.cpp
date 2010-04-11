@@ -20,6 +20,7 @@
 */
 #include "SpaceShipHyperAccelerator.h"
 #include "SpaceShip.h"
+#include "Math.h"
 
 namespace asteroids {
 
@@ -39,9 +40,6 @@ namespace asteroids {
 	}
 	void SpaceShipHyperAccelerator::hyperAccelerate(void) { 
 		_hyperAccelerating = true;
-	}
-	double SpaceShipHyperAccelerator::randomBetween(double min, double max) {
-		return (rand() / (double)RAND_MAX * (max - min)) + min;
 	}
 }
 

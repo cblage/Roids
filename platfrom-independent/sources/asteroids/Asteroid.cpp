@@ -20,6 +20,7 @@
 */
 #include "Asteroid.h"
 #include "GameManager.h"
+#include "Math.h"
 
 namespace asteroids {
 
@@ -222,10 +223,6 @@ namespace asteroids {
 		if(width > 100 && height > 100) {
 			setUniverseDimensions(width,height);
 		}
-	}
-
-	double Asteroid::randomBetween(double min, double max) {
-		return (rand() / (double)RAND_MAX * (max - min)) + min;
 	}
 
 	bool Asteroid::collidesWith(PhysicsObject *pobject) {

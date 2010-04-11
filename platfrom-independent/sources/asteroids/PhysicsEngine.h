@@ -82,7 +82,6 @@ namespace  asteroids{
 		void rotate(double factor);
 		void update(unsigned long elapsed_millis);
 		cg::Vector2d getUniverseDimensions(void);
-		double randomBetween(double min, double max);
 		double getCollisionRadius();
 		cg::Vector2d getCollisionCenter();
 		void setCollisionRadius(double collisionRadius);
@@ -93,7 +92,6 @@ namespace  asteroids{
 		bool penetrates(PhysicsObject *pobject);
 		cg::Vector2d constrainVector(cg::Vector2d vector);
 		double getDistance(cg::Vector2d vectorA, cg::Vector2d vectorB);
-		double realMod(double x, double y); 
 		void setRotationFactor(double factor);
 		double getRotationFactor(void);
 	};

@@ -44,7 +44,6 @@ namespace asteroids {
         void init();
         void draw();
 		cg::Vector3d getRandomStar();
-		double randomBetween(double min, double max);
 		void onReshape(int width, int height);
 	};
 }

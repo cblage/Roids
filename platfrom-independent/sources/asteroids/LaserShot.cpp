@@ -109,10 +109,6 @@ namespace asteroids {
 		//else
 		return PhysicsObject::collidesWith(pobject);
 	}
-
-	double LaserShot::randomBetween(double min, double max) {
-		return (rand() / (double)RAND_MAX * (max - min)) + min;
-	}
 }
 
 

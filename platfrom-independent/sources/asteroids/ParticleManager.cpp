@@ -137,14 +137,5 @@ namespace asteroids {
 	std::vector<Particle*>::iterator ParticleManager::endp() { 
 		return _particles.end(); 
 	}
-	
-	
-	double ParticleManager::randomBetween(double min, double max) {
-		return (rand() / (double)RAND_MAX * (max - min)) + min;
-	}
-
-	
-	
-	
 }
 

@@ -66,7 +66,6 @@ namespace asteroids {
 		virtual void destroyParticle(std::string id);
 		virtual void preUpdate(unsigned long elapsed_millis);
 		virtual void postUpdate(unsigned long elapsed_millis);
-		virtual double randomBetween(double min, double max);
 		virtual void addParticle(Particle * p);
 		virtual Particle * getParticle(std::string id);
 		virtual std::vector<Particle*> * getParticles();

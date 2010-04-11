@@ -52,7 +52,6 @@ namespace asteroids {
 		void draw();
 		void onReshape(int width, int height);
 		bool collidesWith(PhysicsObject *pobject);
-		double randomBetween(double min, double max);
 	};
 }
 

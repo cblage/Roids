@@ -20,6 +20,7 @@
 */
 #include "PhysicsEngine.h"
 #include "PhysicsObject.h"
+#include "Math.h"
 
 namespace asteroids {
 
@@ -185,10 +186,6 @@ namespace asteroids {
 
 	void PhysicsEngine::stopAcceleration() {
 		_accelerating = false;
-	}
-
-	double PhysicsEngine::realMod(double x, double y) {
-		return x - y * floor(x / y);
 	}
 
 	cg::Vector2d PhysicsEngine::constrainVector(cg::Vector2d vector) {

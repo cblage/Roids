@@ -56,7 +56,6 @@ namespace asteroids {
 		void update(unsigned long elapsed_millis);
 		void draw();
 		void onReshape(int width, int height);
-		double randomBetween(double min, double max);
 		bool collidesWith(PhysicsObject *pobject);
 		void checkCollisions(double long elapsed_millis);
 		void destroy(void);

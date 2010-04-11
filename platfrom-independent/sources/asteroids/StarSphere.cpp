@@ -19,6 +19,7 @@
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 #include "StarSphere.h"
+#include "Math.h"
 
 namespace asteroids {
 
@@ -100,9 +101,6 @@ namespace asteroids {
 		glDisableClientState(GL_VERTEX_ARRAY);
 		glPopAttrib();
     }
-	double StarSphere::randomBetween(double min, double max) {
-		return (rand() / (double)RAND_MAX * (max - min)) + min;
-	}
 }
 
 

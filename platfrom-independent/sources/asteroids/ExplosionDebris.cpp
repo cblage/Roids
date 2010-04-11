@@ -115,9 +115,6 @@ namespace asteroids {
 		return false;
 	}
 
-	double ExplosionDebris::randomBetween(double min, double max) {
-		return (rand() / (double)RAND_MAX * (max - min)) + min;
-	}
 }
 
 

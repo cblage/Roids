@@ -37,9 +37,8 @@ namespace asteroids {
 	}
 	
 	void Screen::drawOverlay() {
-		GLboolean lightingEnabled;
-		lightingEnabled = glIsEnabled(GL_LIGHTING);
-		if(lightingEnabled == GL_TRUE) glDisable(GL_LIGHTING);
+		glPushAttrib(GL_LIGHTING_BIT);
+		glDisable(GL_LIGHTING);
 		//cg::Util::instance()->drawStrokeString(_message, _winWidth/2, _winHeight/2, 0.4, true, 1, 0, 0, 1);
 		glPushMatrix();
 		{
@@ -57,7 +56,7 @@ namespace asteroids {
 		
 		//cg::Util::instance()->drawStrokeString(_message, _winWidth/2, _winHeight/2, 0.4, true, 2, 0, 0.5, 0, 1);
 		cg::Util::instance()->drawStrokeString(_message, _messageX*_winWidth, _messageY*_winHeight, 0.4, true, 2, 0, 0.25, 0.5, 1);
-		if(lightingEnabled == GL_TRUE) glEnable(GL_LIGHTING);	
+		glPopAttrib();
 	}
 	
 	void Screen::draw() {

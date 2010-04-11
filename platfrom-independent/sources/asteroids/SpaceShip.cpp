@@ -141,6 +141,52 @@ namespace asteroids {
 		if(isDestroyed() == true)
 			return;		
 
+		cg::Vector2d position = getPosition();
+		cg::Vector2d tip = cg::Vector2d(_size[0], 0)/2.0;
+		cg::Vector2d leftCorner = cg::Vector2d(-_size[0], -_size[1])/2.0;
+		cg::Vector2d rightCorner = cg::Vector2d(-_size[0], _size[1])/2.0;
+		GLfloat positionLight[]={tip[0],tip[1], 0,0.8};
+		GLfloat directionLight[]={1,0,0};
+		cg::Vector2d normal = cg::Vector2d(0,0);
+		glPushMatrix();
+		{
+			glTranslated(position[0], position[1], 0);
+			glRotated(getRotation(true), 0, 0, 1);
+			glLightfv(GL_LIGHT1, GL_POSITION,positionLight);
+			glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION,directionLight);
+
+			glColor3d(1-getHealth(true)*0.9/100,getHealth(true)/100-0.1,0.1);
+			glBegin(GL_POLYGON);
+			{
+				normal = normalize(tip);
+				glNormal3d(normal[0], normal[1], 0);
+				glVertex3d(tip[0], tip[1], 0);
+
+				normal = normalize(leftCorner);
+				glNormal3d(normal[0], normal[1], 0);
+				glVertex3d(leftCorner[0], leftCorner[1], 0);
+				
+				normal = normalize(leftCorner);
+				glNormal3d(normal[0], normal[1], 0);
+				glVertex3d(rightCorner[0], rightCorner[1], 0);
+			}
+			glEnd();
+			
+			
+			
+			glColor3d(1-getHealth(true)*0.8/100,getHealth(true)*1.1/100,0.1);
+			glLineWidth(2.5);
+			glBegin(GL_LINE_LOOP);
+			{
+				glVertex3d(tip[0],tip[1], 0);
+				glVertex3d(leftCorner[0],leftCorner[1], 0);
+				glVertex3d(rightCorner[0],rightCorner[1], 0);
+				glVertex3d(tip[0],tip[1], 0);
+			}
+			glEnd();
+		}
+		glPopMatrix();
+	/*	
 		cg::Vector3d tip = cg::Vector3d(_size[0], 0, 0)/2.0;
 		cg::Vector3d backTip = cg::Vector3d(-_size[0], 0, 0) / 1.5;
 		cg::Vector3d topLeftCorner = cg::Vector3d(-_size[0], -_size[1], _size[1])/2.0;
@@ -258,7 +304,7 @@ namespace asteroids {
 		}
 		glPopMatrix();
 		//glFlush();
-
+	*/
 		if(_invulTime > 0) {
 			glPushMatrix();
 			{

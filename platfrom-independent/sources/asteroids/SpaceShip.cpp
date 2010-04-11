@@ -141,20 +141,19 @@ namespace asteroids {
 		if(isDestroyed() == true)
 			return;		
 
-		cg::Vector2d position = getPosition();
-		cg::Vector2d tip = cg::Vector2d(_size[0], 0)/2.0;
+		//		cg::Vector2d position = getPosition();
+		//cg::Vector2d tip = cg::Vector2d(_size[0], 0)/2.0;
+
+
+		
+/*		
 		cg::Vector2d leftCorner = cg::Vector2d(-_size[0], -_size[1])/2.0;
 		cg::Vector2d rightCorner = cg::Vector2d(-_size[0], _size[1])/2.0;
-		GLfloat positionLight[]={tip[0],tip[1], 0,0.8};
-		GLfloat directionLight[]={1,0,0};
 		cg::Vector2d normal = cg::Vector2d(0,0);
 		glPushMatrix();
 		{
 			glTranslated(position[0], position[1], 0);
 			glRotated(getRotation(true), 0, 0, 1);
-			glLightfv(GL_LIGHT1, GL_POSITION,positionLight);
-			glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION,directionLight);
-
 			glColor3d(1-getHealth(true)*0.9/100,getHealth(true)/100-0.1,0.1);
 			glBegin(GL_POLYGON);
 			{
@@ -186,26 +185,50 @@ namespace asteroids {
 			glEnd();
 		}
 		glPopMatrix();
-	/*	
+*/	
+
 		cg::Vector3d tip = cg::Vector3d(_size[0], 0, 0)/2.0;
 		cg::Vector3d backTip = cg::Vector3d(-_size[0], 0, 0) / 1.5;
 		cg::Vector3d topLeftCorner = cg::Vector3d(-_size[0], -_size[1], _size[1])/2.0;
 		cg::Vector3d topRightCorner = cg::Vector3d(-_size[0], _size[1], _size[1])/2.0;
 		cg::Vector3d bottomLeftCorner = cg::Vector3d(-_size[0], -_size[1], -_size[1])/2.0;
 		cg::Vector3d bottomRightCorner = cg::Vector3d(-_size[0], _size[1], -_size[1])/2.0;
-		
-		GLfloat positionLight[]={tip[0],tip[1],tip[2],0.8};
-		GLfloat directionLight[]={1,0,0};
 		cg::Vector2d position = getPosition();
+		
 		
 		glPushMatrix();
 		{
 			glTranslated(position[0], position[1], 0);
 			glRotated(getRotation(true), 0, 0, 1);
-			glLightfv(GL_LIGHT1, GL_POSITION,positionLight);
-			glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION,directionLight);
+
+			GLfloat spotlightPosition[]={tip[0],tip[1], 0,0.8};
+			GLfloat spotlightDirection[]={1,0,0};
+			
+			glEnable(GL_LIGHT1);
+			GLfloat spotlightDiffuse[] = { 1, 1, 1, 0.4 };
+			GLfloat spotlightSpecular[] = { 1, 1, 1, 1.0 };
+			GLfloat spotlightAngle=45;
+			
+			
+			//the ships frontal light
+			glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, spotlightAngle);
+			glLightfv(GL_LIGHT1, GL_DIFFUSE, spotlightDiffuse);
+			glLightfv(GL_LIGHT1, GL_SPECULAR, spotlightSpecular);			
+			
+			glLightfv(GL_LIGHT1, GL_POSITION, spotlightPosition);
+			glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, spotlightDirection);
+			
+			
 			
 			glColor3d(1-getHealth(true)/100,getHealth(true)/100-0.1,0.2);
+			
+
+			GLfloat shipSpecReflection[] = { 1-getHealth(true)/100, getHealth(true)/100-0.1, .2f, 1.0f};
+			GLfloat shipEmission[] = { (1-getHealth(true)/100)*0.1, (getHealth(true)/100-0.1)*0.1, .02f, 0.0f};
+			glMaterialfv(GL_FRONT, GL_SPECULAR, shipSpecReflection);		
+			glMaterialfv(GL_FRONT, GL_EMISSION, shipEmission);		
+			glMateriali(GL_FRONT, GL_SHININESS, 110);				
+			
 			cg::Vector3d normal = cg::Vector3d(0,0,0);
 
 			//top face
@@ -304,7 +327,7 @@ namespace asteroids {
 		}
 		glPopMatrix();
 		//glFlush();
-	*/
+
 		if(_invulTime > 0) {
 			glPushMatrix();
 			{
@@ -313,6 +336,12 @@ namespace asteroids {
 				glBlendFunc(GL_SRC_ALPHA,GL_ONE);				
 				glTranslated(position[0], position[1], 0);
 				glColor4d(0.17, 0.67, 1, _invulTime/_invulTimeMax*0.6);
+				GLfloat shieldSpecReflection[] = { 0.17f, 0.67f, 1.0f, _invulTime/_invulTimeMax*0.8f};
+				GLfloat shieldEmission[] = { 0.17f, 0.67f, 1.0f, _invulTime/_invulTimeMax*.9f};
+				glMaterialfv(GL_FRONT, GL_SPECULAR, shieldSpecReflection);		
+				glMaterialfv(GL_FRONT, GL_EMISSION, shieldEmission);		
+				glMateriali(GL_FRONT, GL_SHININESS, 100);				
+				
 				glutSolidSphere(_size[1]*1.1, 35, 35);
 				glPopAttrib();
 			

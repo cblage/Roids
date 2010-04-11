@@ -68,12 +68,20 @@ namespace asteroids {
 		{
 			glPushAttrib(GL_COLOR_BUFFER_BIT|GL_ENABLE_BIT|GL_LIGHTING_BIT);			
 			glEnable(GL_BLEND);
-			glDisable(GL_DEPTH_TEST);
-			glDisable(GL_LIGHTING);
-			glBlendFunc(GL_SRC_ALPHA,GL_ONE);
+			//glDisable(GL_DEPTH_TEST);
+			//glDisable(GL_LIGHTING);
+			glBlendFunc(GL_SRC_ALPHA,GL_ONE); 
 
 			glTranslated(position[0], position[1], 0);
 			glColor4d(_color[0], _color[1], _color[2], _alpha);
+
+			GLfloat debrisSpecReflection[] = { 0, 0, 0, 1.0f};
+			GLfloat debrisEmission[] = { 0, 0, 0, 0.0f};
+			glMaterialfv(GL_FRONT, GL_SPECULAR, debrisSpecReflection);		
+			glMaterialfv(GL_FRONT, GL_EMISSION, debrisEmission);		
+			glMateriali(GL_FRONT, GL_SHININESS, 110);				
+			
+			
 			glutSolidSphere(_radius*0.5, 3, 3);
 			//glRotated(getRotation(true), 0, 0, 1);
 			

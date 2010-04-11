@@ -74,7 +74,11 @@ namespace asteroids {
 				glBlendFunc(GL_SRC_ALPHA,GL_ONE);				
 				glTranslated(position[0], position[1], 0);
 				glColor4d(1, 0.2, 0.2, _secondsToLive/_secondsToLiveMax*0.8);
-				glutSolidSphere(_radius*0.8, 35, 35);
+				GLfloat laserEmission[] = { 0.5*_secondsToLive/_secondsToLiveMax, 0.1*_secondsToLive/_secondsToLiveMax, 0.1*_secondsToLive/_secondsToLiveMax, 0.0f};
+				glMaterialfv(GL_FRONT, GL_EMISSION, laserEmission);		
+				glMateriali(GL_FRONT, GL_SHININESS, 128*_secondsToLive/_secondsToLiveMax);								
+				
+				glutSolidSphere(_radius*0.8, 10, 10);
 				glPopAttrib();
 				
 			}

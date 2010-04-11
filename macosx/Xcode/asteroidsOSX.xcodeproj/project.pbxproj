@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		152C007A11715659003A031C /* Math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 152C007911715659003A031C /* Math.cpp */; };
 		571784CD0E24D7AA00C2B42B /* gpl.txt in Resources */ = {isa = PBXBuildFile; fileRef = 571784CC0E24D7AA00C2B42B /* gpl.txt */; };
 		571EC9DC0DECB98B007AE794 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 571EC96C0DECB98B007AE794 /* Application.cpp */; };
 		571EC9DD0DECB98B007AE794 /* DebugFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 571EC9700DECB98B007AE794 /* DebugFile.cpp */; };
@@ -64,6 +65,8 @@
 
 /* Begin PBXFileReference section */
 		0867D6ABFE840B52C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		152C007811715659003A031C /* Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Math.h; sourceTree = "<group>"; };
+		152C007911715659003A031C /* Math.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Math.cpp; sourceTree = "<group>"; };
 		1870340FFE93FCAF11CA0CD7 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/main.nib; sourceTree = "<group>"; };
 		5048396D09E3307300765E4B /* asteroidsOSXProj.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = asteroidsOSXProj.xcconfig; sourceTree = "<group>"; };
 		5048396E09E3307300765E4B /* asteroidsOSXTarget.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = asteroidsOSXTarget.xcconfig; sourceTree = "<group>"; };
@@ -205,6 +208,150 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		152C003F117152C8003A031C /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				57401B9F0E2B9FEA00188F38 /* main.cpp */,
+				57401BA00E2B9FEA00188F38 /* RoidsApp.cpp */,
+				57401BA10E2B9FEA00188F38 /* RoidsApp.h */,
+				152C00581171532D003A031C /* Screens */,
+				152C005711715314003A031C /* States */,
+				57401B810E2B9FEA00188F38 /* ApplicationController.cpp */,
+				57401B820E2B9FEA00188F38 /* ApplicationController.h */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		152C005711715314003A031C /* States */ = {
+			isa = PBXGroup;
+			children = (
+				57401B830E2B9FEA00188F38 /* ApplicationState.cpp */,
+				57401B840E2B9FEA00188F38 /* ApplicationState.h */,
+				57401B870E2B9FEA00188F38 /* BeforeGameState.cpp */,
+				57401B880E2B9FEA00188F38 /* BeforeGameState.h */,
+				57401B890E2B9FEA00188F38 /* BeforeLevelState.cpp */,
+				57401B8A0E2B9FEA00188F38 /* BeforeLevelState.h */,
+				57401B8B0E2B9FEA00188F38 /* DuringLevelState.cpp */,
+				57401B8C0E2B9FEA00188F38 /* DuringLevelState.h */,
+				57401B8D0E2B9FEA00188F38 /* EndOfLevelState.cpp */,
+				57401B8E0E2B9FEA00188F38 /* EndOfLevelState.h */,
+				57401B990E2B9FEA00188F38 /* GameOverState.cpp */,
+				57401B9A0E2B9FEA00188F38 /* GameOverState.h */,
+				57401BAA0E2B9FEA00188F38 /* PausedState.cpp */,
+				57401BAB0E2B9FEA00188F38 /* PausedState.h */,
+				57401BB00E2B9FEA00188F38 /* QuitConfirmState.cpp */,
+				57401BB10E2B9FEA00188F38 /* QuitConfirmState.h */,
+			);
+			name = States;
+			sourceTree = "<group>";
+		};
+		152C00581171532D003A031C /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				57401B970E2B9FEA00188F38 /* GameOverScreen.cpp */,
+				57401B980E2B9FEA00188F38 /* GameOverScreen.h */,
+				57401BB40E2B9FEA00188F38 /* ScreenManager.cpp */,
+				57401BB50E2B9FEA00188F38 /* ScreenManager.h */,
+				57401BB20E2B9FEA00188F38 /* Screen.cpp */,
+				57401BB30E2B9FEA00188F38 /* Screen.h */,
+			);
+			name = Screens;
+			sourceTree = "<group>";
+		};
+		152C005C117153CC003A031C /* Camera & Lights */ = {
+			isa = PBXGroup;
+			children = (
+				57401BA20E2B9FEA00188F38 /* Camera.cpp */,
+				57401BA30E2B9FEA00188F38 /* Camera.h */,
+				57401BA40E2B9FEA00188F38 /* CameraController.cpp */,
+				57401BA50E2B9FEA00188F38 /* CameraController.h */,
+				57401B9D0E2B9FEA00188F38 /* Lights.cpp */,
+				57401B9E0E2B9FEA00188F38 /* Lights.h */,
+			);
+			name = "Camera & Lights";
+			sourceTree = "<group>";
+		};
+		152C006D117153F4003A031C /* Game Entities */ = {
+			isa = PBXGroup;
+			children = (
+				57401B950E2B9FEA00188F38 /* GameManager.cpp */,
+				57401B960E2B9FEA00188F38 /* GameManager.h */,
+				57401B850E2B9FEA00188F38 /* Asteroid.cpp */,
+				57401B860E2B9FEA00188F38 /* Asteroid.h */,
+				57401B930E2B9FEA00188F38 /* GameEntity.cpp */,
+				57401B940E2B9FEA00188F38 /* GameEntity.h */,
+				57401B9B0E2B9FEA00188F38 /* LaserShot.cpp */,
+				57401B9C0E2B9FEA00188F38 /* LaserShot.h */,
+				152C006E11715414003A031C /* Ship */,
+			);
+			name = "Game Entities";
+			sourceTree = "<group>";
+		};
+		152C006E11715414003A031C /* Ship */ = {
+			isa = PBXGroup;
+			children = (
+				57401BB60E2B9FEA00188F38 /* ShipController.cpp */,
+				57401BB70E2B9FEA00188F38 /* ShipController.h */,
+				57401BB80E2B9FEA00188F38 /* SpaceShip.cpp */,
+				57401BB90E2B9FEA00188F38 /* SpaceShip.h */,
+				57401BBC0E2B9FEA00188F38 /* SpaceShipEngine.h */,
+				57401BBD0E2B9FEA00188F38 /* SpaceShipHyperAccelerator.cpp */,
+				57401BBE0E2B9FEA00188F38 /* SpaceShipHyperAccelerator.h */,
+			);
+			name = Ship;
+			sourceTree = "<group>";
+		};
+		152C006F1171542E003A031C /* Particle System */ = {
+			isa = PBXGroup;
+			children = (
+				57401BA60E2B9FEA00188F38 /* Particle.cpp */,
+				57401BA70E2B9FEA00188F38 /* Particle.h */,
+				57401BA80E2B9FEA00188F38 /* ParticleManager.cpp */,
+				57401BA90E2B9FEA00188F38 /* ParticleManager.h */,
+			);
+			name = "Particle System";
+			sourceTree = "<group>";
+		};
+		152C00701171545B003A031C /* Physics */ = {
+			isa = PBXGroup;
+			children = (
+				57401BAC0E2B9FEA00188F38 /* PhysicsEngine.cpp */,
+				57401BAD0E2B9FEA00188F38 /* PhysicsEngine.h */,
+				57401BAE0E2B9FEA00188F38 /* PhysicsObject.cpp */,
+				57401BAF0E2B9FEA00188F38 /* PhysicsObject.h */,
+			);
+			name = Physics;
+			sourceTree = "<group>";
+		};
+		152C00711171549A003A031C /* Explosions System */ = {
+			isa = PBXGroup;
+			children = (
+				57401B8F0E2B9FEA00188F38 /* ExplosionDebris.cpp */,
+				57401B900E2B9FEA00188F38 /* ExplosionDebris.h */,
+				57401B910E2B9FEA00188F38 /* ExplosionManager.cpp */,
+				57401B920E2B9FEA00188F38 /* ExplosionManager.h */,
+			);
+			name = "Explosions System";
+			sourceTree = "<group>";
+		};
+		152C0072117154C9003A031C /* Stars */ = {
+			isa = PBXGroup;
+			children = (
+				57401BBF0E2B9FEA00188F38 /* StarSphere.cpp */,
+				57401BC00E2B9FEA00188F38 /* StarSphere.h */,
+			);
+			name = Stars;
+			sourceTree = "<group>";
+		};
+		152C00771171563E003A031C /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				152C007811715659003A031C /* Math.h */,
+				152C007911715659003A031C /* Math.cpp */,
+			);
+			name = Math;
+			sourceTree = "<group>";
+		};
 		195DF8CFFE9D517E11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,68 +475,14 @@
 		57401B800E2B9FEA00188F38 /* asteroids */ = {
 			isa = PBXGroup;
 			children = (
-				57401B810E2B9FEA00188F38 /* ApplicationController.cpp */,
-				57401B820E2B9FEA00188F38 /* ApplicationController.h */,
-				57401B830E2B9FEA00188F38 /* ApplicationState.cpp */,
-				57401B840E2B9FEA00188F38 /* ApplicationState.h */,
-				57401B850E2B9FEA00188F38 /* Asteroid.cpp */,
-				57401B860E2B9FEA00188F38 /* Asteroid.h */,
-				57401B870E2B9FEA00188F38 /* BeforeGameState.cpp */,
-				57401B880E2B9FEA00188F38 /* BeforeGameState.h */,
-				57401B890E2B9FEA00188F38 /* BeforeLevelState.cpp */,
-				57401B8A0E2B9FEA00188F38 /* BeforeLevelState.h */,
-				57401B8B0E2B9FEA00188F38 /* DuringLevelState.cpp */,
-				57401B8C0E2B9FEA00188F38 /* DuringLevelState.h */,
-				57401B8D0E2B9FEA00188F38 /* EndOfLevelState.cpp */,
-				57401B8E0E2B9FEA00188F38 /* EndOfLevelState.h */,
-				57401B8F0E2B9FEA00188F38 /* ExplosionDebris.cpp */,
-				57401B900E2B9FEA00188F38 /* ExplosionDebris.h */,
-				57401B910E2B9FEA00188F38 /* ExplosionManager.cpp */,
-				57401B920E2B9FEA00188F38 /* ExplosionManager.h */,
-				57401B930E2B9FEA00188F38 /* GameEntity.cpp */,
-				57401B940E2B9FEA00188F38 /* GameEntity.h */,
-				57401B950E2B9FEA00188F38 /* GameManager.cpp */,
-				57401B960E2B9FEA00188F38 /* GameManager.h */,
-				57401B970E2B9FEA00188F38 /* GameOverScreen.cpp */,
-				57401B980E2B9FEA00188F38 /* GameOverScreen.h */,
-				57401B990E2B9FEA00188F38 /* GameOverState.cpp */,
-				57401B9A0E2B9FEA00188F38 /* GameOverState.h */,
-				57401B9B0E2B9FEA00188F38 /* LaserShot.cpp */,
-				57401B9C0E2B9FEA00188F38 /* LaserShot.h */,
-				57401B9D0E2B9FEA00188F38 /* Lights.cpp */,
-				57401B9E0E2B9FEA00188F38 /* Lights.h */,
-				57401B9F0E2B9FEA00188F38 /* main.cpp */,
-				57401BA00E2B9FEA00188F38 /* RoidsApp.cpp */,
-				57401BA10E2B9FEA00188F38 /* RoidsApp.h */,
-				57401BA20E2B9FEA00188F38 /* Camera.cpp */,
-				57401BA30E2B9FEA00188F38 /* Camera.h */,
-				57401BA40E2B9FEA00188F38 /* CameraController.cpp */,
-				57401BA50E2B9FEA00188F38 /* CameraController.h */,
-				57401BA60E2B9FEA00188F38 /* Particle.cpp */,
-				57401BA70E2B9FEA00188F38 /* Particle.h */,
-				57401BA80E2B9FEA00188F38 /* ParticleManager.cpp */,
-				57401BA90E2B9FEA00188F38 /* ParticleManager.h */,
-				57401BAA0E2B9FEA00188F38 /* PausedState.cpp */,
-				57401BAB0E2B9FEA00188F38 /* PausedState.h */,
-				57401BAC0E2B9FEA00188F38 /* PhysicsEngine.cpp */,
-				57401BAD0E2B9FEA00188F38 /* PhysicsEngine.h */,
-				57401BAE0E2B9FEA00188F38 /* PhysicsObject.cpp */,
-				57401BAF0E2B9FEA00188F38 /* PhysicsObject.h */,
-				57401BB00E2B9FEA00188F38 /* QuitConfirmState.cpp */,
-				57401BB10E2B9FEA00188F38 /* QuitConfirmState.h */,
-				57401BB20E2B9FEA00188F38 /* Screen.cpp */,
-				57401BB30E2B9FEA00188F38 /* Screen.h */,
-				57401BB40E2B9FEA00188F38 /* ScreenManager.cpp */,
-				57401BB50E2B9FEA00188F38 /* ScreenManager.h */,
-				57401BB60E2B9FEA00188F38 /* ShipController.cpp */,
-				57401BB70E2B9FEA00188F38 /* ShipController.h */,
-				57401BB80E2B9FEA00188F38 /* SpaceShip.cpp */,
-				57401BB90E2B9FEA00188F38 /* SpaceShip.h */,
-				57401BBC0E2B9FEA00188F38 /* SpaceShipEngine.h */,
-				57401BBD0E2B9FEA00188F38 /* SpaceShipHyperAccelerator.cpp */,
-				57401BBE0E2B9FEA00188F38 /* SpaceShipHyperAccelerator.h */,
-				57401BBF0E2B9FEA00188F38 /* StarSphere.cpp */,
-				57401BC00E2B9FEA00188F38 /* StarSphere.h */,
+				152C003F117152C8003A031C /* Application */,
+				152C005C117153CC003A031C /* Camera & Lights */,
+				152C006D117153F4003A031C /* Game Entities */,
+				152C00711171549A003A031C /* Explosions System */,
+				152C006F1171542E003A031C /* Particle System */,
+				152C00771171563E003A031C /* Math */,
+				152C00701171545B003A031C /* Physics */,
+				152C0072117154C9003A031C /* Stars */,
 			);
 			path = asteroids;
 			sourceTree = "<group>";
@@ -497,6 +590,7 @@
 				57401BDD0E2B9FEA00188F38 /* SpaceShip.cpp in Sources */,
 				57401BDF0E2B9FEA00188F38 /* SpaceShipHyperAccelerator.cpp in Sources */,
 				57401BE00E2B9FEA00188F38 /* StarSphere.cpp in Sources */,
+				152C007A11715659003A031C /* Math.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

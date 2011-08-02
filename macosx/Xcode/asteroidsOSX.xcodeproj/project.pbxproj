@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		152C007A11715659003A031C /* Math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 152C007911715659003A031C /* Math.cpp */; };
+		152C007A11715659003A031C /* Maths.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 152C007911715659003A031C /* Maths.cpp */; };
 		571784CD0E24D7AA00C2B42B /* gpl.txt in Resources */ = {isa = PBXBuildFile; fileRef = 571784CC0E24D7AA00C2B42B /* gpl.txt */; };
 		571EC9DC0DECB98B007AE794 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 571EC96C0DECB98B007AE794 /* Application.cpp */; };
 		571EC9DD0DECB98B007AE794 /* DebugFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 571EC9700DECB98B007AE794 /* DebugFile.cpp */; };
@@ -60,21 +60,19 @@
 		57401BE00E2B9FEA00188F38 /* StarSphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401BBF0E2B9FEA00188F38 /* StarSphere.cpp */; };
 		57D3747F0DED15F7002C0837 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D3747E0DED15F7002C0837 /* CoreFoundation.framework */; };
 		8D0C4E8D0486CD37000505A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0867D6AAFE840B52C02AAC07 /* InfoPlist.strings */; };
-		8D0C4E8E0486CD37000505A6 /* main.nib in Resources */ = {isa = PBXBuildFile; fileRef = 02345980000FD03B11CA0E72 /* main.nib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0867D6ABFE840B52C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		152C007811715659003A031C /* Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Math.h; sourceTree = "<group>"; };
-		152C007911715659003A031C /* Math.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Math.cpp; sourceTree = "<group>"; };
-		1870340FFE93FCAF11CA0CD7 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/main.nib; sourceTree = "<group>"; };
+		152C007811715659003A031C /* Maths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Maths.h; sourceTree = "<group>"; };
+		152C007911715659003A031C /* Maths.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Maths.cpp; sourceTree = "<group>"; };
 		5048396D09E3307300765E4B /* asteroidsOSXProj.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = asteroidsOSXProj.xcconfig; sourceTree = "<group>"; };
 		5048396E09E3307300765E4B /* asteroidsOSXTarget.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = asteroidsOSXTarget.xcconfig; sourceTree = "<group>"; };
 		508344B209E5C41E0093A071 /* asteroidsOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = asteroidsOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		571784CC0E24D7AA00C2B42B /* gpl.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gpl.txt; sourceTree = "<group>"; };
 		571EC96C0DECB98B007AE794 /* Application.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Application.cpp; sourceTree = "<group>"; };
 		571EC96D0DECB98B007AE794 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
-		571EC96E0DECB98B007AE794 /* cg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cg.h; sourceTree = "<group>"; };
+		571EC96E0DECB98B007AE794 /* cg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cg.h; path = cg/cg.h; sourceTree = SOURCE_ROOT; };
 		571EC96F0DECB98B007AE794 /* CommandQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandQueue.h; sourceTree = "<group>"; };
 		571EC9700DECB98B007AE794 /* DebugFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DebugFile.cpp; sourceTree = "<group>"; };
 		571EC9710DECB98B007AE794 /* DebugFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugFile.h; sourceTree = "<group>"; };
@@ -129,11 +127,11 @@
 		571ECACA0DECBAF9007AE794 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = /System/Library/Frameworks/GLUT.framework; sourceTree = "<absolute>"; };
 		571ECBAB0DECC382007AE794 /* config.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = config.ini; path = resources/config.ini; sourceTree = "<group>"; };
 		57401B810E2B9FEA00188F38 /* ApplicationController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ApplicationController.cpp; sourceTree = "<group>"; };
-		57401B820E2B9FEA00188F38 /* ApplicationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationController.h; sourceTree = "<group>"; };
+		57401B820E2B9FEA00188F38 /* ApplicationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ApplicationController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		57401B830E2B9FEA00188F38 /* ApplicationState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ApplicationState.cpp; sourceTree = "<group>"; };
-		57401B840E2B9FEA00188F38 /* ApplicationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationState.h; sourceTree = "<group>"; };
+		57401B840E2B9FEA00188F38 /* ApplicationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ApplicationState.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		57401B850E2B9FEA00188F38 /* Asteroid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Asteroid.cpp; sourceTree = "<group>"; };
-		57401B860E2B9FEA00188F38 /* Asteroid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asteroid.h; sourceTree = "<group>"; };
+		57401B860E2B9FEA00188F38 /* Asteroid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Asteroid.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		57401B870E2B9FEA00188F38 /* BeforeGameState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BeforeGameState.cpp; sourceTree = "<group>"; };
 		57401B880E2B9FEA00188F38 /* BeforeGameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeforeGameState.h; sourceTree = "<group>"; };
 		57401B890E2B9FEA00188F38 /* BeforeLevelState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BeforeLevelState.cpp; sourceTree = "<group>"; };
@@ -143,13 +141,13 @@
 		57401B8D0E2B9FEA00188F38 /* EndOfLevelState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EndOfLevelState.cpp; sourceTree = "<group>"; };
 		57401B8E0E2B9FEA00188F38 /* EndOfLevelState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndOfLevelState.h; sourceTree = "<group>"; };
 		57401B8F0E2B9FEA00188F38 /* ExplosionDebris.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExplosionDebris.cpp; sourceTree = "<group>"; };
-		57401B900E2B9FEA00188F38 /* ExplosionDebris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExplosionDebris.h; sourceTree = "<group>"; };
+		57401B900E2B9FEA00188F38 /* ExplosionDebris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ExplosionDebris.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		57401B910E2B9FEA00188F38 /* ExplosionManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExplosionManager.cpp; sourceTree = "<group>"; };
-		57401B920E2B9FEA00188F38 /* ExplosionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExplosionManager.h; sourceTree = "<group>"; };
+		57401B920E2B9FEA00188F38 /* ExplosionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ExplosionManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		57401B930E2B9FEA00188F38 /* GameEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameEntity.cpp; sourceTree = "<group>"; };
-		57401B940E2B9FEA00188F38 /* GameEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEntity.h; sourceTree = "<group>"; };
+		57401B940E2B9FEA00188F38 /* GameEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = GameEntity.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		57401B950E2B9FEA00188F38 /* GameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameManager.cpp; sourceTree = "<group>"; };
-		57401B960E2B9FEA00188F38 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
+		57401B960E2B9FEA00188F38 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = GameManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		57401B970E2B9FEA00188F38 /* GameOverScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverScreen.cpp; sourceTree = "<group>"; };
 		57401B980E2B9FEA00188F38 /* GameOverScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScreen.h; sourceTree = "<group>"; };
 		57401B990E2B9FEA00188F38 /* GameOverState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverState.cpp; sourceTree = "<group>"; };
@@ -159,12 +157,12 @@
 		57401B9D0E2B9FEA00188F38 /* Lights.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lights.cpp; sourceTree = "<group>"; };
 		57401B9E0E2B9FEA00188F38 /* Lights.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lights.h; sourceTree = "<group>"; };
 		57401B9F0E2B9FEA00188F38 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		57401BA00E2B9FEA00188F38 /* RoidsApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RoidsApp.cpp; sourceTree = "<group>"; };
+		57401BA00E2B9FEA00188F38 /* RoidsApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RoidsApp.cpp; path = asteroids/RoidsApp.cpp; sourceTree = SOURCE_ROOT; };
 		57401BA10E2B9FEA00188F38 /* RoidsApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoidsApp.h; sourceTree = "<group>"; };
 		57401BA20E2B9FEA00188F38 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
-		57401BA30E2B9FEA00188F38 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
+		57401BA30E2B9FEA00188F38 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Camera.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		57401BA40E2B9FEA00188F38 /* CameraController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraController.cpp; sourceTree = "<group>"; };
-		57401BA50E2B9FEA00188F38 /* CameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraController.h; sourceTree = "<group>"; };
+		57401BA50E2B9FEA00188F38 /* CameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CameraController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		57401BA60E2B9FEA00188F38 /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Particle.cpp; sourceTree = "<group>"; };
 		57401BA70E2B9FEA00188F38 /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
 		57401BA80E2B9FEA00188F38 /* ParticleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleManager.cpp; sourceTree = "<group>"; };
@@ -346,8 +344,8 @@
 		152C00771171563E003A031C /* Math */ = {
 			isa = PBXGroup;
 			children = (
-				152C007811715659003A031C /* Math.h */,
-				152C007911715659003A031C /* Math.cpp */,
+				152C007811715659003A031C /* Maths.h */,
+				152C007911715659003A031C /* Maths.cpp */,
 			);
 			name = Math;
 			sourceTree = "<group>";
@@ -388,7 +386,6 @@
 				571ECBAB0DECC382007AE794 /* config.ini */,
 				8D0C4E960486CD37000505A6 /* Info.plist */,
 				0867D6AAFE840B52C02AAC07 /* InfoPlist.strings */,
-				02345980000FD03B11CA0E72 /* main.nib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -490,9 +487,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D0C4E890486CD37000505A6 /* asteroidsOSX */ = {
+		8D0C4E890486CD37000505A6 /* Open Roids! */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C0E91AC508A95435008D54AB /* Build configuration list for PBXNativeTarget "asteroidsOSX" */;
+			buildConfigurationList = C0E91AC508A95435008D54AB /* Build configuration list for PBXNativeTarget "Open Roids!" */;
 			buildPhases = (
 				8D0C4E8C0486CD37000505A6 /* Resources */,
 				8D0C4E8F0486CD37000505A6 /* Sources */,
@@ -502,7 +499,7 @@
 			);
 			dependencies = (
 			);
-			name = asteroidsOSX;
+			name = "Open Roids!";
 			productInstallPath = "$(HOME)/Applications";
 			productName = asteroidsOSX;
 			productReference = 508344B209E5C41E0093A071 /* asteroidsOSX.app */;
@@ -513,14 +510,21 @@
 /* Begin PBXProject section */
 		20286C28FDCF999611CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0410;
+			};
 			buildConfigurationList = C0E91AC908A95435008D54AB /* Build configuration list for PBXProject "asteroidsOSX" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 20286C29FDCF999611CA2CEA /* asteroidsOSX */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D0C4E890486CD37000505A6 /* asteroidsOSX */,
+				8D0C4E890486CD37000505A6 /* Open Roids! */,
 			);
 		};
 /* End PBXProject section */
@@ -531,7 +535,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D0C4E8D0486CD37000505A6 /* InfoPlist.strings in Resources */,
-				8D0C4E8E0486CD37000505A6 /* main.nib in Resources */,
 				571ECBAC0DECC382007AE794 /* config.ini in Resources */,
 				571784CD0E24D7AA00C2B42B /* gpl.txt in Resources */,
 			);
@@ -590,21 +593,13 @@
 				57401BDD0E2B9FEA00188F38 /* SpaceShip.cpp in Sources */,
 				57401BDF0E2B9FEA00188F38 /* SpaceShipHyperAccelerator.cpp in Sources */,
 				57401BE00E2B9FEA00188F38 /* StarSphere.cpp in Sources */,
-				152C007A11715659003A031C /* Math.cpp in Sources */,
+				152C007A11715659003A031C /* Maths.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		02345980000FD03B11CA0E72 /* main.nib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1870340FFE93FCAF11CA0CD7 /* English */,
-			);
-			name = main.nib;
-			sourceTree = "<group>";
-		};
 		0867D6AAFE840B52C02AAC07 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -620,16 +615,24 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5048396E09E3307300765E4B /* asteroidsOSXTarget.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(NATIVE_ARCH)";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/**";
 				GCC_MODEL_TUNING = "";
 				GCC_PREFIX_HEADER = "";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"_GLIBCXX_DEBUG=1",
-					"_GLIBCXX_DEBUG_PEDANTIC=1",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_VERSION = "";
 				GCC_WARN_PEDANTIC = NO;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				"PRODUCT NAME" = "";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/cg/** $(SRCROOT)/**";
 			};
 			name = Debug;
 		};
@@ -637,16 +640,27 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5048396E09E3307300765E4B /* asteroidsOSXTarget.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = (
 					ppc,
 					i386,
 				);
+				CODE_SIGN_IDENTITY = "";
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/**";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PREFIX_HEADER = "";
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/cg/** $(SRCROOT)/**";
 			};
 			name = Release;
 		};
@@ -654,13 +668,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5048396D09E3307300765E4B /* asteroidsOSXProj.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				GCC_ENABLE_SYMBOL_SEPARATION = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/";
-				MACOSX_DEPLOYMENT_TARGET = 10.4;
-				SDKROOT = macosx10.5;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				ZERO_LINK = NO;
 			};
 			name = Debug;
@@ -669,23 +684,25 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5048396D09E3307300765E4B /* asteroidsOSXProj.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = (
 					i386,
 					ppc,
 				);
 				GCC_ENABLE_SYMBOL_SEPARATION = NO;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/";
-				MACOSX_DEPLOYMENT_TARGET = 10.4;
-				SDKROOT = macosx10.5;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
+				SDKROOT = macosx;
 				SEPARATE_STRIP = YES;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C0E91AC508A95435008D54AB /* Build configuration list for PBXNativeTarget "asteroidsOSX" */ = {
+		C0E91AC508A95435008D54AB /* Build configuration list for PBXNativeTarget "Open Roids!" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C0E91AC608A95435008D54AB /* Debug */,

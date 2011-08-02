@@ -20,5 +20,7 @@
 	<string>Alpha</string>
 	<key>CSResourcesFileMapped</key>
 	<true/>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.arcade-games</string>
 </dict>
 </plist>

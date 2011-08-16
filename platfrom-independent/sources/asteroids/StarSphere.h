@@ -26,7 +26,7 @@
 #include <string>
 #include <vector>
 #include <cmath>
-#include <cg/cg.h>
+#include "cg.h"
 
 namespace asteroids {
 	const double PI3  = 4.0*atan(1.0);

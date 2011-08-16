@@ -23,7 +23,7 @@
 #define CAMERA_CONTROLLER_H
 #pragma message("CameraController is included")
 
-#include <cg/cg.h>
+#include "cg.h"
 
 namespace asteroids {
 	class Camera;

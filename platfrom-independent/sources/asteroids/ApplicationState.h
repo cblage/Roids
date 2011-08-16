@@ -23,7 +23,7 @@
 #define APPLICATION_STATE_H
 #pragma message("ApplicationState is included")
 
-#include <cg/cg.h>
+#include "cg.h"
 #include <string>
 #include <cmath>
 

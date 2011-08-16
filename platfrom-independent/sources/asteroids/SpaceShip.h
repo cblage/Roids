@@ -24,7 +24,7 @@
 #pragma message("SpaceShip is included")
 
 #include <string>
-#include <cg/cg.h>
+#include "cg.h"
 #include <cmath>
 #include <sstream>
 #include <string>

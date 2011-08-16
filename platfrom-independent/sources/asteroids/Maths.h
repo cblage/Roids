@@ -18,13 +18,19 @@
  along with Roids!; if not, write to the Free Software
  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
+#pragma once
+#ifndef MATH_H
+#define MATH_H
+#pragma message("Maths included")
 
-#include "Math.h"
+#include <string>
+#include <vector>
+#include "cg.h"
+#include <cmath>
 
-double randomBetween(double min, double max) {
-	return (rand() / (double)RAND_MAX * (max - min)) + min;
-}
 
-double realMod(double x, double y) {
-	return x - y * floor(x / y);
-}
+
+double randomBetween(double min, double max);
+double realMod(double x, double y);
+
+#endif

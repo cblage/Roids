@@ -27,7 +27,7 @@
 #include "Asteroid.h"
 #include "SpaceShip.h"
 #include "LaserShot.h"
-#include "Math.h"
+#include "Maths.h"
 
 namespace asteroids {
 	GameManager::GameManager(std::string id, RoidsApp *application) : ParticleManager(id), _application(application) {

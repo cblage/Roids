@@ -25,7 +25,7 @@
 
 #include <string>
 #include <vector>
-#include <cg/cg.h>
+#include "cg.h"
 #include <cmath>
 #include "Particle.h"
 

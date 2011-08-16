@@ -22,7 +22,7 @@
 #ifndef PHYSICS_OBJ_H
 #define PHYSICS_OBJ_H
 #pragma message("PhysicsObject is included")
-#include <cg/cg.h>
+#include "cg.h"
 
 
 

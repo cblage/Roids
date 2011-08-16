@@ -20,7 +20,7 @@
 */
 #include "SpaceShipHyperAccelerator.h"
 #include "SpaceShip.h"
-#include "Math.h"
+#include "Maths.h"
 
 namespace asteroids {
 

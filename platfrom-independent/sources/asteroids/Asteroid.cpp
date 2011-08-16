@@ -20,7 +20,7 @@
 */
 #include "Asteroid.h"
 #include "GameManager.h"
-#include "Math.h"
+#include "Maths.h"
 
 namespace asteroids {
 

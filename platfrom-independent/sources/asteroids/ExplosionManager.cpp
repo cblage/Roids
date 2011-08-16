@@ -20,7 +20,7 @@
 */
 #include "ExplosionManager.h"
 #include "ExplosionDebris.h"
-#include "Math.h"
+#include "Maths.h"
 
 namespace asteroids {
 	ExplosionManager::ExplosionManager(std::string id, RoidsApp *application) : ParticleManager(id), _application(application) {

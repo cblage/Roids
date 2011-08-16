@@ -23,7 +23,7 @@
 #define ROIDS_APP_H
 #pragma message("RoidsApp is included")
 
-#include <cg/cg.h>
+#include "cg.h"
 
 
 namespace asteroids {

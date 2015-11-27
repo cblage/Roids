@@ -37,6 +37,7 @@ int main(int argc, char** argv) {
 	CFURLRef resourcesURL = CFBundleCopyResourcesDirectoryURL(mainBundle);
 	char path[PATH_MAX];
 	if (!CFURLGetFileSystemRepresentation(resourcesURL, TRUE, (UInt8 *)path, PATH_MAX))	{
+      	CFRelease(resourcesURL);
 		return 1;
 	}
 	CFRelease(resourcesURL);

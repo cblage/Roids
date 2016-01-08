@@ -37,7 +37,10 @@ namespace asteroids {
 			case ' ':
 				_ship->shootLaser();
 				break;
-			case 'h':
+            case 'z':
+                _ship->temporaryShield();
+                break;
+            case 'h':
 				_ship->hyperAccelerate();
 				break;
 			case 'x':

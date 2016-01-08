@@ -209,9 +209,9 @@ namespace asteroids {
 		}
 		glPopMatrix();
 		//glFlush();
-
-		//cg::Vector2d position = getPosition();
-		/*glPushMatrix();
+        
+        /*
+        glPushMatrix();
 		{
 			glTranslated(position[0], position[1], 0);
 			//glRotated(getRotation(true), 0, 0, 1);
@@ -223,7 +223,8 @@ namespace asteroids {
 			glutWireSphere(getCollisionRadius()-5, 30, 30);
 		}
 		glPopMatrix();
-		glFlush();*/
+		glFlush();
+        */
 	}
 
 	bool Asteroid::collidesWith(PhysicsObject *pobject) {

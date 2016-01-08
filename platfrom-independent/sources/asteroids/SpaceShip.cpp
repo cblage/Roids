@@ -30,8 +30,6 @@ namespace asteroids {
 		_controller = new ShipController(this);
 		setMass(cg::Properties::instance()->getDouble("SHIP_MASS"));
 		initHealth(cg::Properties::instance()->getDouble("SHIP_HEALTH"));
-		
-		
 	}
 
 	SpaceShip::~SpaceShip() {
@@ -374,6 +372,13 @@ namespace asteroids {
 			_charlesBronsonStyle--;			
 		}
 	}
+    
+    void SpaceShip::temporaryShield(void) {
+        if (_invulTime == 0) {
+            _invulTime = _invulTimeMax;
+        }
+    }
+    
 	void SpaceShip::onKeyPressed(unsigned char key) {
 		_controller->onKeyPressed(key);
 	}

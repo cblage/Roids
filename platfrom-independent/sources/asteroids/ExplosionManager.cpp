@@ -41,7 +41,7 @@ namespace asteroids {
 		cg::Vector2d newPosition, velocity;
 		double rand, rand2;
 		rand = randomBetween(0, 3.14);
-		unsigned int numDebris = ceil(p->getMass()/_massDivider);
+		unsigned int numDebris = ceil(p->getMass()/_massDivider)*.6;
 		for(unsigned int i = 0; i < numDebris; i++) {
 			rand2 = randomBetween(0.1,7.0)/5.0;
  			angle = 2*(3.14)*i/numDebris+ rand + rand2;

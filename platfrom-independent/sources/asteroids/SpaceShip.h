@@ -57,7 +57,8 @@ namespace asteroids {
 		void update(unsigned long elapsed_millis);
 		void draw();
 		void hyperAccelerate(void);
-		void shootLaser(void);
+		void temporaryShield(void);
+        void shootLaser(void);
 		void onKeyPressed(unsigned char key);
 		void onKeyReleased(unsigned char key);
 		void onSpecialKeyPressed(int key);

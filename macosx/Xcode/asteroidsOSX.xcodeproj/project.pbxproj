@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		152C007A11715659003A031C /* Maths.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 152C007911715659003A031C /* Maths.cpp */; };
+		15D27770259BA850005C1081 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571ECAC60DECBAEA007AE794 /* OpenGL.framework */; };
+		15D27771259BA850005C1081 /* OpenGL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 571ECAC60DECBAEA007AE794 /* OpenGL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		15D27773259BA852005C1081 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571ECACA0DECBAF9007AE794 /* GLUT.framework */; };
+		15D27774259BA852005C1081 /* GLUT.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 571ECACA0DECBAF9007AE794 /* GLUT.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		15D27775259BA853005C1081 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D3747E0DED15F7002C0837 /* CoreFoundation.framework */; };
+		15D27776259BA853005C1081 /* CoreFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57D3747E0DED15F7002C0837 /* CoreFoundation.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		571784CD0E24D7AA00C2B42B /* gpl.txt in Resources */ = {isa = PBXBuildFile; fileRef = 571784CC0E24D7AA00C2B42B /* gpl.txt */; };
 		571EC9DC0DECB98B007AE794 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 571EC96C0DECB98B007AE794 /* Application.cpp */; };
 		571EC9DD0DECB98B007AE794 /* DebugFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 571EC9700DECB98B007AE794 /* DebugFile.cpp */; };
@@ -24,8 +30,6 @@
 		571EC9E80DECB98B007AE794 /* ReshapeEventNotifier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 571EC9960DECB98B007AE794 /* ReshapeEventNotifier.cpp */; };
 		571EC9E90DECB98B007AE794 /* UpdateNotifier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 571EC99C0DECB98B007AE794 /* UpdateNotifier.cpp */; };
 		571EC9EA0DECB98B007AE794 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 571EC99E0DECB98B007AE794 /* Util.cpp */; };
-		571ECAC70DECBAEA007AE794 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571ECAC60DECBAEA007AE794 /* OpenGL.framework */; };
-		571ECACB0DECBAF9007AE794 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571ECACA0DECBAF9007AE794 /* GLUT.framework */; };
 		571ECBAC0DECC382007AE794 /* config.ini in Resources */ = {isa = PBXBuildFile; fileRef = 571ECBAB0DECC382007AE794 /* config.ini */; };
 		57401BC10E2B9FEA00188F38 /* ApplicationController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401B810E2B9FEA00188F38 /* ApplicationController.cpp */; };
 		57401BC20E2B9FEA00188F38 /* ApplicationState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401B830E2B9FEA00188F38 /* ApplicationState.cpp */; };
@@ -58,9 +62,24 @@
 		57401BDD0E2B9FEA00188F38 /* SpaceShip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401BB80E2B9FEA00188F38 /* SpaceShip.cpp */; };
 		57401BDF0E2B9FEA00188F38 /* SpaceShipHyperAccelerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401BBD0E2B9FEA00188F38 /* SpaceShipHyperAccelerator.cpp */; };
 		57401BE00E2B9FEA00188F38 /* StarSphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57401BBF0E2B9FEA00188F38 /* StarSphere.cpp */; };
-		57D3747F0DED15F7002C0837 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D3747E0DED15F7002C0837 /* CoreFoundation.framework */; };
 		8D0C4E8D0486CD37000505A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0867D6AAFE840B52C02AAC07 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		15D27772259BA850005C1081 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				15D27774259BA852005C1081 /* GLUT.framework in Embed Frameworks */,
+				15D27771259BA850005C1081 /* OpenGL.framework in Embed Frameworks */,
+				15D27776259BA853005C1081 /* CoreFoundation.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0867D6ABFE840B52C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -197,9 +216,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				571ECAC70DECBAEA007AE794 /* OpenGL.framework in Frameworks */,
-				571ECACB0DECBAF9007AE794 /* GLUT.framework in Frameworks */,
-				57D3747F0DED15F7002C0837 /* CoreFoundation.framework in Frameworks */,
+				15D27770259BA850005C1081 /* OpenGL.framework in Frameworks */,
+				15D27773259BA852005C1081 /* GLUT.framework in Frameworks */,
+				15D27775259BA853005C1081 /* CoreFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +513,7 @@
 				8D0C4E8C0486CD37000505A6 /* Resources */,
 				8D0C4E8F0486CD37000505A6 /* Sources */,
 				8D0C4E910486CD37000505A6 /* Frameworks */,
+				15D27772259BA850005C1081 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -518,6 +538,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 20286C29FDCF999611CA2CEA /* asteroidsOSX */;
@@ -626,8 +647,9 @@
 				GCC_VERSION = "";
 				GCC_WARN_PEDANTIC = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				"PRODUCT NAME" = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.googlecode.roids;
@@ -652,8 +674,9 @@
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/**";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.googlecode.roids;

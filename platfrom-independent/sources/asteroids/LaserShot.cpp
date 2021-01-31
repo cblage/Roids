@@ -21,18 +21,20 @@
 #include "LaserShot.h"
 #include "GameManager.h"
 
-namespace asteroids {
+namespace asteroids
+{
 
-	LaserShot::LaserShot(std::string id, GameManager * gameManager) : 
-		GameEntity(id, gameManager, 'l') {}
+	LaserShot::LaserShot(std::string id, GameManager *gameManager) : GameEntity(id, gameManager, 'l') {}
 
-	LaserShot::~LaserShot() {
+	LaserShot::~LaserShot()
+	{
 	}
-	
-	void LaserShot::init() {
+
+	void LaserShot::init()
+	{
 		// Read from property file
 		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
-		setUniverseDimensions(win.width, win.height); 
+		setUniverseDimensions(win.width, win.height);
 		setCollisionCenter(getPosition());
 		setStrength(cg::Properties::instance()->getDouble("LASER_STRENGHT"));
 		setMass(cg::Properties::instance()->getDouble("LASER_MASS"));
@@ -40,16 +42,18 @@ namespace asteroids {
 		_secondsToLiveMax = cg::Properties::instance()->getDouble("LASER_SECONDS_TO_LIVE");
 		_secondsToLive = _secondsToLiveMax;
 		_radius = cg::Properties::instance()->getDouble("LASER_RADIUS");
-		setCollisionRadius(_radius*2);
+		setCollisionRadius(_radius * 2);
 	}
 
-	void LaserShot::update(unsigned long elapsed_millis) {
-		//return; 
-		if(isDestroyed() == true)
-			return;		
+	void LaserShot::update(unsigned long elapsed_millis)
+	{
+		//return;
+		if (isDestroyed() == true)
+			return;
 
 		_secondsToLive -= elapsed_millis / 1000.0;
-		if(_secondsToLive <= 0) {
+		if (_secondsToLive <= 0)
+		{
 			setDestroyed(true);
 			getGameManager()->destroyParticle(_id);
 			return;
@@ -58,34 +62,31 @@ namespace asteroids {
 		PhysicsObject::update(elapsed_millis);
 	}
 
-	void LaserShot::draw() {
-		if(isDestroyed() == true)
-			return;		
-		
+	void LaserShot::draw()
+	{
+		if (isDestroyed() == true)
+			return;
 
 		cg::Vector2d position = getPosition();
-		
-		
-		if(_secondsToLive > 0) {
+
+		if (_secondsToLive > 0)
+		{
 			glPushMatrix();
 			{
-				glPushAttrib(GL_COLOR_BUFFER_BIT);			
+				glPushAttrib(GL_COLOR_BUFFER_BIT);
 				glEnable(GL_BLEND);
-				glBlendFunc(GL_SRC_ALPHA,GL_ONE);				
+				glBlendFunc(GL_SRC_ALPHA, GL_ONE);
 				glTranslated(position[0], position[1], 0);
-				glColor4d(1, 0.2, 0.2, _secondsToLive/_secondsToLiveMax*0.8);
-				GLfloat laserEmission[] = { 0.5*_secondsToLive/_secondsToLiveMax, 0.1*_secondsToLive/_secondsToLiveMax, 0.1*_secondsToLive/_secondsToLiveMax, 0.0f};
-				glMaterialfv(GL_FRONT, GL_EMISSION, laserEmission);		
-				glMateriali(GL_FRONT, GL_SHININESS, 128*_secondsToLive/_secondsToLiveMax);								
-				
-				glutSolidSphere(_radius*0.8, 10, 10);
+				glColor4d(1, 0.2, 0.2, _secondsToLive / _secondsToLiveMax * 0.8);
+				GLfloat laserEmission[] = {0.5 * _secondsToLive / _secondsToLiveMax, 0.1 * _secondsToLive / _secondsToLiveMax, 0.1 * _secondsToLive / _secondsToLiveMax, 0.0f};
+				glMaterialfv(GL_FRONT, GL_EMISSION, laserEmission);
+				glMateriali(GL_FRONT, GL_SHININESS, 128 * _secondsToLive / _secondsToLiveMax);
+
+				glutSolidSphere(_radius * 0.8, 10, 10);
 				glPopAttrib();
-				
 			}
-			glPopMatrix();		
+			glPopMatrix();
 		}
-		
-		
 
 		/*cg::Vector2d position = getPosition();
 		glPushMatrix();
@@ -97,15 +98,13 @@ namespace asteroids {
 		}
 		glPopMatrix();
 		glFlush();*/
-		
 	}
 
-	bool LaserShot::collidesWith(PhysicsObject *pobject) {
-		if(isDestroyed() == true)
+	bool LaserShot::collidesWith(PhysicsObject *pobject)
+	{
+		if (isDestroyed() == true)
 			return false;
 		//else
 		return PhysicsObject::collidesWith(pobject);
 	}
-}
-
-
+} // namespace asteroids

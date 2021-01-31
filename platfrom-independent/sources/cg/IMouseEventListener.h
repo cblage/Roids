@@ -19,19 +19,19 @@
 #ifndef IMOUSE_EVENT_LISTENER_H
 #define IMOUSE_EVENT_LISTENER_H
 
-namespace cg {
+namespace cg
+{
 
-	/** cg::IMouseEVentListener is the callback interface for mouse events.
+    /** cg::IMouseEVentListener is the callback interface for mouse events.
 	 */
-	class IMouseEventListener {
+    class IMouseEventListener
+    {
     public:
         virtual void onMouse(int button, int state, int x, int y) = 0;
         virtual void onMouseMotion(int x, int y) = 0;
         virtual void onMousePassiveMotion(int x, int y) = 0;
     };
 
-}
+} // namespace cg
 
 #endif // IMOUSE_EVENT_LISTENER_H
-
-

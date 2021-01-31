@@ -19,17 +19,17 @@
 #ifndef IUPDATE_LISTENER_H
 #define IUPDATE_LISTENER_H
 
-namespace cg {
+namespace cg
+{
 
-	/** cg::IUpdateListener is the callback interface for update step.
+    /** cg::IUpdateListener is the callback interface for update step.
 	 */
-	class IUpdateListener {
+    class IUpdateListener
+    {
     public:
         virtual void update(unsigned long elapsed_millis) = 0;
     };
 
-}
+} // namespace cg
 
 #endif // IUPDATE_LISTENER_H
-
-

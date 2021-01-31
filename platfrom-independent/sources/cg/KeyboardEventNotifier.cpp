@@ -18,21 +18,25 @@
 
 #include "KeyboardEventNotifier.h"
 
-namespace cg {
+namespace cg
+{
 
-	SINGLETON_IMPLEMENTATION(KeyboardEventNotifier)
+  SINGLETON_IMPLEMENTATION(KeyboardEventNotifier)
 
-    void KeyboardEventNotifier::handleKeyPressed(unsigned char key) {
-		FOR_EACH_LISTENER(onKeyPressed(key))
-    }
-    void KeyboardEventNotifier::handleKeyReleased(unsigned char key) {
-		FOR_EACH_LISTENER(onKeyReleased(key))
-    }
-    void KeyboardEventNotifier::handleSpecialKeyPressed(int key) {
-		FOR_EACH_LISTENER(onSpecialKeyPressed(key))
-    }
-    void KeyboardEventNotifier::handleSpecialKeyReleased(int key) {
-		FOR_EACH_LISTENER(onSpecialKeyReleased(key))
-    }
-}
-
+  void KeyboardEventNotifier::handleKeyPressed(unsigned char key)
+  {
+    FOR_EACH_LISTENER(onKeyPressed(key))
+  }
+  void KeyboardEventNotifier::handleKeyReleased(unsigned char key)
+  {
+    FOR_EACH_LISTENER(onKeyReleased(key))
+  }
+  void KeyboardEventNotifier::handleSpecialKeyPressed(int key)
+  {
+    FOR_EACH_LISTENER(onSpecialKeyPressed(key))
+  }
+  void KeyboardEventNotifier::handleSpecialKeyReleased(int key)
+  {
+    FOR_EACH_LISTENER(onSpecialKeyReleased(key))
+  }
+} // namespace cg

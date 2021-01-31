@@ -18,18 +18,21 @@
 
 #include "MouseEventNotifier.h"
 
-namespace cg {
+namespace cg
+{
 
-	SINGLETON_IMPLEMENTATION(MouseEventNotifier)
+  SINGLETON_IMPLEMENTATION(MouseEventNotifier)
 
-    void MouseEventNotifier::handleMouse(int button, int button_state, int x, int y) {
-		FOR_EACH_LISTENER(onMouse(button,button_state,x,y))
-    }
-    void MouseEventNotifier::handleMouseMotion(int x, int y) {
-		FOR_EACH_LISTENER(onMouseMotion(x,y))
-    }
-    void MouseEventNotifier::handleMousePassiveMotion(int x, int y) {
-		FOR_EACH_LISTENER(onMousePassiveMotion(x,y))
-    }
-}
-
+  void MouseEventNotifier::handleMouse(int button, int button_state, int x, int y)
+  {
+    FOR_EACH_LISTENER(onMouse(button, button_state, x, y))
+  }
+  void MouseEventNotifier::handleMouseMotion(int x, int y)
+  {
+    FOR_EACH_LISTENER(onMouseMotion(x, y))
+  }
+  void MouseEventNotifier::handleMousePassiveMotion(int x, int y)
+  {
+    FOR_EACH_LISTENER(onMousePassiveMotion(x, y))
+  }
+} // namespace cg

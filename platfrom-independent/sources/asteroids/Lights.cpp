@@ -20,30 +20,33 @@
 */
 #include "Lights.h"
 
-namespace asteroids {
+namespace asteroids
+{
 
-    Lights::Lights() : Entity("Lights") {
+	Lights::Lights() : Entity("Lights")
+	{
 	}
-    Lights::~Lights() {
+	Lights::~Lights()
+	{
 	}
-    void Lights::init() {
-		GLfloat ambientLight[] = { .0f, .0f, .0f, 1.0f };
-		GLfloat diffuseLight[] = { 1.0f, .8f, .4f, 0.6f };
-		GLfloat specularReflection[] = { 1.0f, .8f, .4f, 0.8f };
-		GLfloat lightpos[] = { -100.5f, 100.0f, -40.0f, .0f };
-	
+	void Lights::init()
+	{
+		GLfloat ambientLight[] = {.0f, .0f, .0f, 1.0f};
+		GLfloat diffuseLight[] = {1.0f, .8f, .4f, 0.6f};
+		GLfloat specularReflection[] = {1.0f, .8f, .4f, 0.8f};
+		GLfloat lightpos[] = {-100.5f, 100.0f, -40.0f, .0f};
+
 		glEnable(GL_LIGHTING);
 		glEnable(GL_LIGHT0);
 
 		glLightfv(GL_LIGHT0, GL_AMBIENT, ambientLight);
 		glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuseLight);
 		glLightfv(GL_LIGHT0, GL_SPECULAR, specularReflection);
-		glLightfv(GL_LIGHT0, GL_POSITION, lightpos);		
+		glLightfv(GL_LIGHT0, GL_POSITION, lightpos);
 
 		glEnable(GL_COLOR_MATERIAL);
 		glColorMaterial(GL_FRONT, GL_AMBIENT_AND_DIFFUSE);
 
 		glShadeModel(GL_SMOOTH);
 	}
-}
-
+} // namespace asteroids

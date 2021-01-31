@@ -18,12 +18,13 @@
 
 #include "DrawNotifier.h"
 
-namespace cg {
+namespace cg
+{
 
 	SINGLETON_IMPLEMENTATION(DrawNotifier)
 
-	void DrawNotifier::draw() {
+	void DrawNotifier::draw()
+	{
 		FOR_EACH_LISTENER(draw())
 	}
-}
-
+} // namespace cg

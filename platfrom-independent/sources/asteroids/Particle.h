@@ -25,16 +25,16 @@
 #include "PhysicsObject.h"
 #include "cg.h"
 
-
-namespace asteroids {
+namespace asteroids
+{
 	class ParticleManager;
 
 	class Particle : public cg::Entity,
-		public cg::IReshapeEventListener,
-		public PhysicsObject
+					 public cg::IReshapeEventListener,
+					 public PhysicsObject
 	{
 	protected:
-		ParticleManager * _particleManager;
+		ParticleManager *_particleManager;
 		bool _destroyed;
 		double _strength;
 		double _penetrationTime;
@@ -44,22 +44,22 @@ namespace asteroids {
 		char _particleType;
 
 	public:
-		Particle(std::string id, ParticleManager * particleManager, char particleType='p');
-		Particle(std::string id, double strength, ParticleManager * particleManager, char particleType='p');
-		Particle(std::string id, ParticleManager * particleManager, double mass, char particleType='p');
-		Particle(std::string id, double strength, ParticleManager * particleManager, double mass, char particleType='p');
+		Particle(std::string id, ParticleManager *particleManager, char particleType = 'p');
+		Particle(std::string id, double strength, ParticleManager *particleManager, char particleType = 'p');
+		Particle(std::string id, ParticleManager *particleManager, double mass, char particleType = 'p');
+		Particle(std::string id, double strength, ParticleManager *particleManager, double mass, char particleType = 'p');
 		virtual ~Particle();
 		virtual void setDestroyed(bool destroyed);
 		virtual bool isDestroyed(void);
-		virtual ParticleManager * getParticleManager(void);
+		virtual ParticleManager *getParticleManager(void);
 		virtual void setStrength(double strength);
 		virtual double getStrength(void);
 		virtual void checkCollisions(double long elapsed_millis);
 		virtual void destroy(void);
 		virtual double getHealth(void);
 		virtual void setHealth(double health);
-		virtual void processParticleCollision(Particle * p);
-		virtual double getCollisionDamage(Particle * target);
+		virtual void processParticleCollision(Particle *p);
+		virtual double getCollisionDamage(Particle *target);
 		virtual void dealDamage(double damage);
 		virtual double getMaxHealth(void);
 		virtual double getHealth(bool per);
@@ -69,7 +69,6 @@ namespace asteroids {
 		virtual void onReshape(int width, int height);
 	};
 
-}
+} // namespace asteroids
 
 #endif
-

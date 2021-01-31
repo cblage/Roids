@@ -26,18 +26,19 @@
 #include <string>
 #include "ApplicationState.h"
 
-
-namespace asteroids {
+namespace asteroids
+{
 	class Screen;
-	
-	class PausedState : public ApplicationState{
-	SINGLETON_HEADER(PausedState);
-	
+
+	class PausedState : public ApplicationState
+	{
+		SINGLETON_HEADER(PausedState);
+
 	private:
-		Screen * _screen;
+		Screen *_screen;
 
 	public:
-		void changeState(RoidsApp * application, ApplicationState * state);
+		void changeState(RoidsApp *application, ApplicationState *state);
 		void onUpdate();
 		void pause();
 		void enter();
@@ -45,8 +46,6 @@ namespace asteroids {
 		std::string getName(void);
 	};
 
-}
+} // namespace asteroids
 
 #endif
-
-

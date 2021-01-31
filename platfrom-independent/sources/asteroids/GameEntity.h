@@ -25,16 +25,16 @@
 #include "Particle.h"
 #include "cg.h"
 
-
-namespace asteroids {
+namespace asteroids
+{
 	class GameManager;
-	
+
 	class GameEntity : public Particle,
-		public cg::IKeyboardEventListener,
-		public cg::IDrawOverlayListener
+					   public cg::IKeyboardEventListener,
+					   public cg::IDrawOverlayListener
 	{
 	private:
-		GameManager * _gameManager;
+		GameManager *_gameManager;
 		bool _destroyed;
 		double _strength;
 		double _penetrationTime;
@@ -42,20 +42,19 @@ namespace asteroids {
 		double _health;
 		double _initHealth;
 		char _particleType;
-		
+
 	public:
-		GameEntity(std::string id, GameManager * GameManager, char particleType='g');
-		GameEntity(std::string id, double strength, GameManager * GameManager, char particleType='g');
-		GameEntity(std::string id, GameManager * GameManager, double mass, char particleType='g');
-		GameEntity(std::string id, double strength, GameManager * GameManager, double mass, char particleType='g');
+		GameEntity(std::string id, GameManager *GameManager, char particleType = 'g');
+		GameEntity(std::string id, double strength, GameManager *GameManager, char particleType = 'g');
+		GameEntity(std::string id, GameManager *GameManager, double mass, char particleType = 'g');
+		GameEntity(std::string id, double strength, GameManager *GameManager, double mass, char particleType = 'g');
 		virtual ~GameEntity();
-		virtual GameManager * getGameManager(void);
+		virtual GameManager *getGameManager(void);
 		virtual void onKeyPressed(unsigned char key) {}
 		virtual void onKeyReleased(unsigned char key) {}
-		virtual void onSpecialKeyPressed(int key){}
+		virtual void onSpecialKeyPressed(int key) {}
 		virtual void onSpecialKeyReleased(int key) {}
-		virtual void drawOverlay() {}		
+		virtual void drawOverlay() {}
 	};
-}	
+} // namespace asteroids
 #endif
-

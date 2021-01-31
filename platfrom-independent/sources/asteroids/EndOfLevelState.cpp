@@ -24,11 +24,13 @@
 #include "BeforeLevelState.h"
 #include "GameManager.h"
 
-namespace asteroids {
+namespace asteroids
+{
 
 	SINGLETON_IMPLEMENTATION(EndOfLevelState)
-	
-	void EndOfLevelState::enter() {
+
+	void EndOfLevelState::enter()
+	{
 		_timeLeft = cg::Properties::instance()->getDouble("POS_COOLDOWN_TIME");
 		_screen = new Screen("EndOfLevelScreen");
 		_screen->init();
@@ -37,45 +39,51 @@ namespace asteroids {
 		_screen->setMessage(os.str());
 		_application->addScreen(_screen);
 	}
-	
-	void EndOfLevelState::leave() {
+
+	void EndOfLevelState::leave()
+	{
 		_application->removeScreen(_screen);
-		delete(_screen);
+		delete (_screen);
 		_application->getGameManager()->advanceLevel();
 	}
 
-	void EndOfLevelState::suspend() {
+	void EndOfLevelState::suspend()
+	{
 		_application->removeScreen(_screen);
-		delete(_screen);
+		delete (_screen);
 	}
 
-	bool EndOfLevelState::onKeyPressed(unsigned char key) {
-		if(!ApplicationState::onKeyPressed(key) && key == 13) {
+	bool EndOfLevelState::onKeyPressed(unsigned char key)
+	{
+		if (!ApplicationState::onKeyPressed(key) && key == 13)
+		{
 			BeforeLevelState::instance()->changeTo(_application);
 			return true;
 		}
 		return false;
 	}
-	
-	void EndOfLevelState::pause() {
-		
+
+	void EndOfLevelState::pause()
+	{
 	}
 
-	void EndOfLevelState::onUpdate() {
+	void EndOfLevelState::onUpdate()
+	{
 		_application->resetTime();
 	}
-	
-	void EndOfLevelState::update(unsigned long elapsed_millis) {
-		_timeLeft -= elapsed_millis/1000.0;
-		if(_timeLeft < 0) {
+
+	void EndOfLevelState::update(unsigned long elapsed_millis)
+	{
+		_timeLeft -= elapsed_millis / 1000.0;
+		if (_timeLeft < 0)
+		{
 			BeforeLevelState::instance()->changeTo(_application);
 		}
 	}
 
-	std::string EndOfLevelState::getName(void) {
+	std::string EndOfLevelState::getName(void)
+	{
 		return "EndOfLevelState";
 	}
 
-}
-
-
+} // namespace asteroids

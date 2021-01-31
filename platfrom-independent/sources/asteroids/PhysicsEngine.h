@@ -28,13 +28,13 @@
 #include "cg.h"
 #include <cmath>
 
-
-
-namespace  asteroids{
-	const double PI4  = 4.0*atan(1.0);
+namespace asteroids
+{
+	const double PI4 = 4.0 * atan(1.0);
 	class PhysicsObject;
 
-	class PhysicsEngine{
+	class PhysicsEngine
+	{
 	private:
 		cg::Vector2d _position, _previousPosition;
 		cg::Vector2d _velocity, _previousVelocity;
@@ -50,12 +50,12 @@ namespace  asteroids{
 		double _previousElapsedMillis;
 		bool _hasUpdated;
 		double _restitutionFactor;
+
 	public:
 		PhysicsEngine();
 		PhysicsEngine(double mass);
-		PhysicsEngine(cg::Vector2d velocity,cg::Vector2d position);
-		PhysicsEngine(cg::Vector2d velocity,cg::Vector2d position, double mass);
-
+		PhysicsEngine(cg::Vector2d velocity, cg::Vector2d position);
+		PhysicsEngine(cg::Vector2d velocity, cg::Vector2d position, double mass);
 
 		virtual ~PhysicsEngine();
 
@@ -95,8 +95,6 @@ namespace  asteroids{
 		void setRotationFactor(double factor);
 		double getRotationFactor(void);
 	};
-}
+} // namespace asteroids
 
 #endif
-
-

@@ -23,24 +23,25 @@
 #include "Notifier.h"
 #include "Singleton.h"
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::KeyboardEventNotifier is a singleton notifier that maintains a list
 	 *  of cg::IKeyboardListener and controls the distribution of keyboard events. 
 	 *  When a keyboard event reaches cg::KeyboardEventNotifier, it is dispatched 
 	 *  to all previously registered and currently enabled cg::IKeyboardListener's.
 	 */
-	class KeyboardEventNotifier : public Notifier<IKeyboardEventListener> {
+	class KeyboardEventNotifier : public Notifier<IKeyboardEventListener>
+	{
 
-	SINGLETON_HEADER(KeyboardEventNotifier)
+		SINGLETON_HEADER(KeyboardEventNotifier)
 	public:
-        void handleKeyPressed(unsigned char key);
-        void handleKeyReleased(unsigned char key);
-        void handleSpecialKeyPressed(int key);
-        void handleSpecialKeyReleased(int key);
+		void handleKeyPressed(unsigned char key);
+		void handleKeyReleased(unsigned char key);
+		void handleSpecialKeyPressed(int key);
+		void handleSpecialKeyReleased(int key);
 		DUMP_METHOD(KeyboardEventNotifier)
 	};
-}
+} // namespace cg
 
 #endif // KEYBOARD_EVENT_NOTIFIER_H
-

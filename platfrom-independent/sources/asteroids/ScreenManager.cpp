@@ -21,22 +21,27 @@
 #include "ScreenManager.h"
 #include "Screen.h"
 
-namespace asteroids {
+namespace asteroids
+{
 
-	ScreenManager::ScreenManager() : cg::Group("ScreenManager") {
+	ScreenManager::ScreenManager() : cg::Group("ScreenManager")
+	{
 	}
-	ScreenManager::~ScreenManager() {
+	ScreenManager::~ScreenManager()
+	{
 	}
-	void ScreenManager::createEntities() {
+	void ScreenManager::createEntities()
+	{
 		//add(new Screen("InitScreen"));
 	}
 
-	void ScreenManager::addScreen(Screen * s) {
+	void ScreenManager::addScreen(Screen *s)
+	{
 		add(s);
 	}
-	
-	void ScreenManager::removeScreen(Screen * s) {
+
+	void ScreenManager::removeScreen(Screen *s)
+	{
 		remove(s->getId());
 	}
-}
-
+} // namespace asteroids

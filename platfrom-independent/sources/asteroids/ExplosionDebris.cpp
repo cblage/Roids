@@ -21,33 +21,41 @@
 #include "ExplosionDebris.h"
 #include "ExplosionManager.h"
 
-namespace asteroids {
+namespace asteroids
+{
 
-	ExplosionDebris::ExplosionDebris(std::string id, ExplosionManager * explosionManager, cg::Vector3d color) : 
-		Particle(id, explosionManager, 'd'), _color(color) { setHealth(1); setMass(1); }
-
-	ExplosionDebris::~ExplosionDebris() {
+	ExplosionDebris::ExplosionDebris(std::string id, ExplosionManager *explosionManager, cg::Vector3d color) : Particle(id, explosionManager, 'd'), _color(color)
+	{
+		setHealth(1);
+		setMass(1);
 	}
-	
-	void ExplosionDebris::init() {
+
+	ExplosionDebris::~ExplosionDebris()
+	{
+	}
+
+	void ExplosionDebris::init()
+	{
 		// Read from property file
 		cg::tWindow win = cg::Manager::instance()->getApp()->getWindow();
-		setUniverseDimensions(win.width, win.height); 
+		setUniverseDimensions(win.width, win.height);
 		setCollisionCenter(getPosition());
 
 		_maxSecondsToLive = cg::Properties::instance()->getDouble("DEBRIS_SECONDS_TO_LIVE");
 		_secondsToLive = _maxSecondsToLive;
 		_radius = cg::Properties::instance()->getDouble("DEBRIS_RADIUS");
-		setCollisionRadius(_radius*2);
+		setCollisionRadius(_radius * 2);
 	}
 
-	void ExplosionDebris::update(unsigned long elapsed_millis) {
-		//return; 
-		if(isDestroyed() == true)
-			return;		
+	void ExplosionDebris::update(unsigned long elapsed_millis)
+	{
+		//return;
+		if (isDestroyed() == true)
+			return;
 
 		_secondsToLive -= elapsed_millis / 1000.0;
-		if(_secondsToLive <= 0) {
+		if (_secondsToLive <= 0)
+		{
 			setDestroyed(true);
 			getParticleManager()->destroyParticle(_id);
 			return;
@@ -58,34 +66,32 @@ namespace asteroids {
 		PhysicsObject::update(elapsed_millis);
 	}
 
-	void ExplosionDebris::draw() {
-		if(isDestroyed() == true)
+	void ExplosionDebris::draw()
+	{
+		if (isDestroyed() == true)
 			return;
-		
 
 		cg::Vector2d position = getPosition();
-		glPushMatrix(); 
+		glPushMatrix();
 		{
-			glPushAttrib(GL_COLOR_BUFFER_BIT|GL_ENABLE_BIT|GL_LIGHTING_BIT);			
+			glPushAttrib(GL_COLOR_BUFFER_BIT | GL_ENABLE_BIT | GL_LIGHTING_BIT);
 			glEnable(GL_BLEND);
 			//glDisable(GL_DEPTH_TEST);
 			//glDisable(GL_LIGHTING);
-			glBlendFunc(GL_SRC_ALPHA,GL_ONE); 
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE);
 
 			glTranslated(position[0], position[1], 0);
 			glColor4d(_color[0], _color[1], _color[2], _alpha);
 
-			GLfloat debrisSpecReflection[] = { 0, 0, 0, 1.0f};
-			GLfloat debrisEmission[] = { 0, 0, 0, 0.0f};
-			glMaterialfv(GL_FRONT, GL_SPECULAR, debrisSpecReflection);		
-			glMaterialfv(GL_FRONT, GL_EMISSION, debrisEmission);		
-			glMateriali(GL_FRONT, GL_SHININESS, 110);				
-			
-			
-			glutSolidSphere(_radius*0.5, 3, 3);
+			GLfloat debrisSpecReflection[] = {0, 0, 0, 1.0f};
+			GLfloat debrisEmission[] = {0, 0, 0, 0.0f};
+			glMaterialfv(GL_FRONT, GL_SPECULAR, debrisSpecReflection);
+			glMaterialfv(GL_FRONT, GL_EMISSION, debrisEmission);
+			glMateriali(GL_FRONT, GL_SHININESS, 110);
+
+			glutSolidSphere(_radius * 0.5, 3, 3);
 			//glRotated(getRotation(true), 0, 0, 1);
-			
-			
+
 			glPopAttrib();
 		}
 		glPopMatrix();
@@ -102,13 +108,11 @@ namespace asteroids {
 		}
 		glPopMatrix();
 		glFlush();*/
-		
 	}
 
-	bool ExplosionDebris::collidesWith(PhysicsObject *pobject) {
+	bool ExplosionDebris::collidesWith(PhysicsObject *pobject)
+	{
 		return false;
 	}
 
-}
-
-
+} // namespace asteroids

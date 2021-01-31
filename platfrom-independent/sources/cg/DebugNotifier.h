@@ -23,20 +23,21 @@
 #include "Notifier.h"
 #include "Singleton.h"
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::DebugNotifier controls the debug step of the application, by
 	 *  calling the cg::IDebugListener::debug method of all the previously 
 	 *  registered and currently enabled cg::IDebugListener's.
 	 */
-	class DebugNotifier : public Notifier<IDebugListener> {
+	class DebugNotifier : public Notifier<IDebugListener>
+	{
 
-	SINGLETON_HEADER(DebugNotifier)
-	public: 
+		SINGLETON_HEADER(DebugNotifier)
+	public:
 		void debug();
 		DUMP_METHOD(DebugNotifier)
 	};
-}
+} // namespace cg
 
 #endif // DEBUG_NOTIFIER_H
-

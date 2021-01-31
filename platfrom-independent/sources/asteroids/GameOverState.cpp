@@ -24,52 +24,59 @@
 #include "BeforeGameState.h"
 #include "GameManager.h"
 
-namespace asteroids {
+namespace asteroids
+{
 
 	SINGLETON_IMPLEMENTATION(GameOverState)
-	
-	void GameOverState::enter() {
+
+	void GameOverState::enter()
+	{
 		_screen = new GameOverScreen("GameOverScreen", _application->getGameManager()->getCurrentScore(), _application->getGameManager()->getCurrentLevel());
 		_screen->init();
 		_application->addScreen(_screen);
 	}
-	void GameOverState::leave() {
+	void GameOverState::leave()
+	{
 		_application->removeScreen(_screen);
-		delete(_screen);
+		delete (_screen);
 		_application->getGameManager()->resetGame();
 		_application->getGameManager()->beginLevel();
 	}
 
-	void GameOverState::suspend() {
+	void GameOverState::suspend()
+	{
 		_application->removeScreen(_screen);
-		delete(_screen);
+		delete (_screen);
 	}
 
-	void GameOverState::onUpdate() {
+	void GameOverState::onUpdate()
+	{
 		//pause the game
 		_application->resetTime();
 	}
 
-	bool GameOverState::onKeyPressed(unsigned char key) {
-		if(key == 'y') {
+	bool GameOverState::onKeyPressed(unsigned char key)
+	{
+		if (key == 'y')
+		{
 			BeforeGameState::instance()->changeTo(_application);
 			return true;
-		} else if(key =='n' || key == 27) {
+		}
+		else if (key == 'n' || key == 27)
+		{
 			cg::Manager::instance()->shutdownApp();
 			return true;
 		}
 		return false;
 	}
-	
 
-	void GameOverState::pause() {
+	void GameOverState::pause()
+	{
 	}
 
-	
-	std::string GameOverState::getName(void) {
+	std::string GameOverState::getName(void)
+	{
 		return "GameOverState";
 	}
 
-}
-
-
+} // namespace asteroids

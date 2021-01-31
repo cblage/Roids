@@ -26,41 +26,39 @@
 #include <cmath>
 #include "cg.h"
 
-
-namespace asteroids {
+namespace asteroids
+{
 	class CameraController;
 
-    class Camera : public cg::Entity, 
-		public cg::IDrawListener,
-		public cg::IKeyboardEventListener,
-		public cg::IUpdateListener,
-		public cg::IReshapeEventListener
+	class Camera : public cg::Entity,
+				   public cg::IDrawListener,
+				   public cg::IKeyboardEventListener,
+				   public cg::IUpdateListener,
+				   public cg::IReshapeEventListener
 	{
-    private:
-		CameraController * _controller;
+	private:
+		CameraController *_controller;
 		double _winWidth, _winHeight;
 		float _ang1, _ang2;
 		GLfloat _rotLx, _rotLy, _rotLz;
-		bool _rotateU,_rotateD, _rotateL, _rotateR;
+		bool _rotateU, _rotateD, _rotateL, _rotateR;
 		bool _debugCamera;
 
-    public:
+	public:
 		void update(unsigned long elapsed_millis);
-        Camera();
-        virtual ~Camera();
-        void init();
-        void draw();
-        void onReshape(int width, int height);
+		Camera();
+		virtual ~Camera();
+		void init();
+		void draw();
+		void onReshape(int width, int height);
 		void startRotate(int dir);
 		void stopRotate(int dir);
 		void rotate(double secs);
 		void onKeyPressed(unsigned char key);
 		void onKeyReleased(unsigned char key);
 		void onSpecialKeyPressed(int key);
-        void onSpecialKeyReleased(int key);
+		void onSpecialKeyReleased(int key);
 	};
-}
+} // namespace asteroids
 
 #endif
-
-

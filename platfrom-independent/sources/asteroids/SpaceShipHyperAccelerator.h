@@ -26,20 +26,19 @@
 #include "cg.h"
 #include "SpaceShipEngine.h"
 
-
-namespace asteroids {
+namespace asteroids
+{
 	class SpaceShip;
 	class SpaceShipHyperAccelerator : public SpaceShipEngine
 	{
 	public:
-		SpaceShipHyperAccelerator(SpaceShip * ship);
+		SpaceShipHyperAccelerator(SpaceShip *ship);
 		virtual ~SpaceShipHyperAccelerator(void);
 		void update(double elapsed_seconds);
 		void hyperAccelerate(void);
+
 	private:
 		bool _hyperAccelerating;
-	};	
-}
+	};
+} // namespace asteroids
 #endif
-
-

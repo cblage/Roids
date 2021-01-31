@@ -23,7 +23,8 @@
 #include <fstream>
 #include "State.h"
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::Entity is the base class of all simulation objects.
 	 *  A cg::Entity has a string identifier and can be turned on or off.
@@ -31,7 +32,8 @@ namespace cg {
 	 *  All initialization of the object should be performed in the init() 
 	 *  method: only by then, OpenGL commands are ready to be used.
 	 */
-	class Entity {
+	class Entity
+	{
 
 	protected:
 		std::string _id;
@@ -39,18 +41,17 @@ namespace cg {
 	public:
 		State state;
 
-		Entity(const std::string& id) : _id(id) {}
+		Entity(const std::string &id) : _id(id) {}
 		virtual ~Entity() {}
 
-		const std::string& getId() const { return _id; }
+		const std::string &getId() const { return _id; }
 		virtual void init() = 0;
 
-		virtual void dump(std::ofstream& file) {
+		virtual void dump(std::ofstream &file)
+		{
 			file << state << " " << _id;
 		}
 	};
-}
+} // namespace cg
 
 #endif // ENTITY_H
-
-

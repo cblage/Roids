@@ -23,22 +23,23 @@
 #include "Notifier.h"
 #include "Singleton.h"
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::ReshapeEventNotifier is a singleton notifier that maintains a list
 	 *  of cg::IReshapeListener and controls the distribution of reshape events. 
 	 *  When a reshape event reaches cg::ReshapeEventNotifier, it is dispatched 
 	 *  to all previously registered and currently enabled cg::IReshapeListener's.
 	 */
-	class ReshapeEventNotifier : public Notifier<IReshapeEventListener> {
+	class ReshapeEventNotifier : public Notifier<IReshapeEventListener>
+	{
 
-	SINGLETON_HEADER(ReshapeEventNotifier)
-	
+		SINGLETON_HEADER(ReshapeEventNotifier)
+
 	public:
 		void handleReshape(int width, int height);
 		DUMP_METHOD(ReshapeEventNotifier)
 	};
-}
+} // namespace cg
 
 #endif // RESHAPE_EVENT_NOTIFIER_H
-

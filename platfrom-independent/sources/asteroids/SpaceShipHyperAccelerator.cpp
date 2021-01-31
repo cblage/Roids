@@ -22,25 +22,27 @@
 #include "SpaceShip.h"
 #include "Maths.h"
 
-namespace asteroids {
+namespace asteroids
+{
 
-	SpaceShipHyperAccelerator::SpaceShipHyperAccelerator(SpaceShip * ship) : SpaceShipEngine(ship)
+	SpaceShipHyperAccelerator::SpaceShipHyperAccelerator(SpaceShip *ship) : SpaceShipEngine(ship)
 	{
 		_hyperAccelerating = false;
 	}
-	SpaceShipHyperAccelerator::~SpaceShipHyperAccelerator(void) {
+	SpaceShipHyperAccelerator::~SpaceShipHyperAccelerator(void)
+	{
 	}
-	void SpaceShipHyperAccelerator::update(double elapsed_seconds) {
-		if(_hyperAccelerating == false)
+	void SpaceShipHyperAccelerator::update(double elapsed_seconds)
+	{
+		if (_hyperAccelerating == false)
 			return;
 
 		cg::Vector2d universeDimensions = _ship->getUniverseDimensions();
 		_ship->setPosition(cg::Vector2d(randomBetween(0, universeDimensions[0]), randomBetween(0, universeDimensions[1])));
 		_hyperAccelerating = false;
 	}
-	void SpaceShipHyperAccelerator::hyperAccelerate(void) { 
+	void SpaceShipHyperAccelerator::hyperAccelerate(void)
+	{
 		_hyperAccelerating = true;
 	}
-}
-
-
+} // namespace asteroids

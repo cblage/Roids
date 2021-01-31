@@ -21,10 +21,12 @@
 
 #include "Maths.h"
 
-double randomBetween(double min, double max) {
+double randomBetween(double min, double max)
+{
 	return (rand() / (double)RAND_MAX * (max - min)) + min;
 }
 
-double realMod(double x, double y) {
+double realMod(double x, double y)
+{
 	return x - y * floor(x / y);
 }

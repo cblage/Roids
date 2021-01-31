@@ -28,8 +28,6 @@
 #include "cg.h"
 #include <cmath>
 
-
-
 double randomBetween(double min, double max);
 double realMod(double x, double y);
 

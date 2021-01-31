@@ -18,18 +18,22 @@
 
 #include "Util.h"
 
-namespace cg {
+namespace cg
+{
 
-    SINGLETON_IMPLEMENTATION(Util)
+	SINGLETON_IMPLEMENTATION(Util)
 
-    void Util::drawBitmapString(std::string s, GLdouble x, GLdouble y) {
-        glRasterPos2d(x, y);
-        for (int i = 0; s[i] != '\0'; i++) {
-            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_10, s[i]);
-        }
-    }
+	void Util::drawBitmapString(std::string s, GLdouble x, GLdouble y)
+	{
+		glRasterPos2d(x, y);
+		for (int i = 0; s[i] != '\0'; i++)
+		{
+			glutBitmapCharacter(GLUT_BITMAP_HELVETICA_10, s[i]);
+		}
+	}
 
-    void Util::drawStrokeString(std::string s, GLdouble x, GLdouble y, GLdouble scale, bool centered, double lineWidth, GLdouble red, GLdouble green, GLdouble blue, GLdouble alpha, GLdouble rotation) {
+	void Util::drawStrokeString(std::string s, GLdouble x, GLdouble y, GLdouble scale, bool centered, double lineWidth, GLdouble red, GLdouble green, GLdouble blue, GLdouble alpha, GLdouble rotation)
+	{
 		glPushMatrix();
 		{
 			glPushAttrib(GL_ENABLE_BIT);
@@ -39,102 +43,112 @@ namespace cg {
 			glColor4d(red, green, blue, alpha);
 
 			glTranslatef(x, y, 0);
-			
+
 			int length = 0;
-			
-			for (int i = 0; s[i] != '\0'; i++) {
+
+			for (int i = 0; s[i] != '\0'; i++)
+			{
 				length += glutStrokeWidth(GLUT_STROKE_ROMAN, s[i]);
 			}
-			
-			if(centered) {
-				glTranslatef(-length*scale/2, 0, 0);
+
+			if (centered)
+			{
+				glTranslatef(-length * scale / 2, 0, 0);
 			}
-			
-	/*		if(!centered) {
+
+			/*		if(!centered) {
 				glTranslatef(-length*scale/2, 0, 0);
 				glTranslatef(, 0, 0);
 				glRotated(rotation, 0, 0, 1);
 			}
-	*/		
+	*/
 			glScaled(scale, scale, 0);
-			
 
 			glRotated(rotation, 0, 0, 1);
-			for (int i = 0; s[i] != '\0'; i++) {
+			for (int i = 0; s[i] != '\0'; i++)
+			{
 				glutStrokeCharacter(GLUT_STROKE_ROMAN, s[i]);
 			}
 
 			glPopAttrib();
 		}
 		glPopMatrix();
-    }
+	}
 
-    void Util::drawBitmapStringVector(std::vector<std::string> s, GLdouble x, GLdouble y, GLdouble delta) {
-        std::vector<std::string>::iterator iend = s.end();
-        for(std::vector<std::string>::iterator i = s.begin(); i != iend; i++) {
-            drawBitmapString((*i),x,y);
-            y += delta;
-        }
-    }
-    unsigned long Util::getSystemTime() {
-        struct timeb current_time;
-        ftime(&current_time);
-        return (current_time.time * 1000) + current_time.millitm;
-    }
-    void Util::worldToScreenCoordinates(GLdouble wx, GLdouble wy,GLdouble wz, GLdouble *sx, GLdouble *sy, GLdouble *sz) {
+	void Util::drawBitmapStringVector(std::vector<std::string> s, GLdouble x, GLdouble y, GLdouble delta)
+	{
+		std::vector<std::string>::iterator iend = s.end();
+		for (std::vector<std::string>::iterator i = s.begin(); i != iend; i++)
+		{
+			drawBitmapString((*i), x, y);
+			y += delta;
+		}
+	}
+	unsigned long Util::getSystemTime()
+	{
+		struct timeb current_time;
+		ftime(&current_time);
+		return (current_time.time * 1000) + current_time.millitm;
+	}
+	void Util::worldToScreenCoordinates(GLdouble wx, GLdouble wy, GLdouble wz, GLdouble *sx, GLdouble *sy, GLdouble *sz)
+	{
 		GLint viewport[4];
 		GLdouble modelview[16], projection[16];
 		glGetDoublev(GL_MODELVIEW_MATRIX, modelview);
 		glGetDoublev(GL_PROJECTION_MATRIX, projection);
 		glGetIntegerv(GL_VIEWPORT, viewport);
 		gluProject(wx, wy, wz, modelview, projection, viewport, sx, sy, sz);
-    }
-    void Util::screenToWorldCoordinates(GLdouble sx, GLdouble sy, GLdouble sz, GLdouble *wx, GLdouble *wy,GLdouble *wz) {
-        GLdouble modelview[16], projection[16];
-        GLint viewport[4];
-        glGetDoublev(GL_MODELVIEW_MATRIX, modelview);
-        glGetDoublev(GL_PROJECTION_MATRIX, projection);
-        glGetIntegerv(GL_VIEWPORT, viewport);
-        gluUnProject(sx, sy, sz, modelview, projection, viewport, wx, wy, wz);
-    }
-	bool Util::isPointInPolygon(const Vector2d& point, std::vector<Vector2d>& polygon) {
+	}
+	void Util::screenToWorldCoordinates(GLdouble sx, GLdouble sy, GLdouble sz, GLdouble *wx, GLdouble *wy, GLdouble *wz)
+	{
+		GLdouble modelview[16], projection[16];
+		GLint viewport[4];
+		glGetDoublev(GL_MODELVIEW_MATRIX, modelview);
+		glGetDoublev(GL_PROJECTION_MATRIX, projection);
+		glGetIntegerv(GL_VIEWPORT, viewport);
+		gluUnProject(sx, sy, sz, modelview, projection, viewport, wx, wy, wz);
+	}
+	bool Util::isPointInPolygon(const Vector2d &point, std::vector<Vector2d> &polygon)
+	{
 		bool inside = false;
 		double x = point[0];
 		double y = point[1];
 		std::vector<Vector2d>::iterator i, j;
 		i = polygon.begin();
 		j = --polygon.end();
-		while(i != polygon.end()) {
+		while (i != polygon.end())
+		{
 			Vector2d vi = (*i);
 			double xi = vi[0];
 			double yi = vi[1];
 			Vector2d vj = (*j);
 			double xj = vj[0];
 			double yj = vj[1];
-			if (   ( ((yi <= y) && (y < yj)) || ((yj <= y) && (y < yi)) ) 
-				&& (x < ((xj - xi) * (y - yi) / (yj - yi) + xi)) ) {
+			if ((((yi <= y) && (y < yj)) || ((yj <= y) && (y < yi))) && (x < ((xj - xi) * (y - yi) / (yj - yi) + xi)))
+			{
 				inside = !inside;
 			}
 			j = i;
 			i++;
 		}
 		return inside;
-    }
-	// Calcula a distância entre as projecções [minA, maxA] e [minB, maxB]
-	// A distância será negativa caso os intervalos se intersectem.
-	inline
-	double Util::projectionDistance(double minA, double maxA, double minB, double maxB) {
-		if (minA < minB) {
+	}
+	// Calcula a distï¿½ncia entre as projecï¿½ï¿½es [minA, maxA] e [minB, maxB]
+	// A distï¿½ncia serï¿½ negativa caso os intervalos se intersectem.
+	inline double Util::projectionDistance(double minA, double maxA, double minB, double maxB)
+	{
+		if (minA < minB)
+		{
 			return minB - maxA;
-		} else {
+		}
+		else
+		{
 			return minA - maxB;
 		}
 	}
-	bool Util::isAABBoxCollision(const Vector2d& bottomleft0, const Vector2d& topright0, 
-								 const Vector2d& bottomleft1, const Vector2d& topright1) {
-		return( projectionDistance(bottomleft0[0],topright0[0],bottomleft1[0],topright1[0]) <= 0
-			 && projectionDistance(bottomleft0[1],topright0[1],bottomleft1[1],topright1[1]) <= 0 );
+	bool Util::isAABBoxCollision(const Vector2d &bottomleft0, const Vector2d &topright0,
+								 const Vector2d &bottomleft1, const Vector2d &topright1)
+	{
+		return (projectionDistance(bottomleft0[0], topright0[0], bottomleft1[0], topright1[0]) <= 0 && projectionDistance(bottomleft0[1], topright0[1], bottomleft1[1], topright1[1]) <= 0);
 	}
-}
-
-
+} // namespace cg

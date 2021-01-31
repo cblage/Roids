@@ -23,21 +23,22 @@
 #include "Notifier.h"
 #include "Singleton.h"
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::UpdateNotifier controls the update step of the application, by
 	 *  calling the cg::IUpdateListener::update method of all the previously 
 	 *  registered and currently enabled cg::IUpdateListener's.
 	 */
-	class UpdateNotifier : public Notifier<IUpdateListener> {
+	class UpdateNotifier : public Notifier<IUpdateListener>
+	{
 
-	SINGLETON_HEADER(UpdateNotifier)
+		SINGLETON_HEADER(UpdateNotifier)
 
 	public:
 		void update(unsigned long elapsed_millis);
 		DUMP_METHOD(UpdateNotifier)
 	};
-}
+} // namespace cg
 
 #endif // UPDATE_NOTIFIER_H
-

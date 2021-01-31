@@ -19,11 +19,13 @@
 #ifndef IKEYBOARD_EVENT_LISTENER_H
 #define IKEYBOARD_EVENT_LISTENER_H
 
-namespace cg {
+namespace cg
+{
 
-	/** cg::IKeyboardEventListener is the callback interface for keyboard events.
+    /** cg::IKeyboardEventListener is the callback interface for keyboard events.
 	 */
-	class IKeyboardEventListener {
+    class IKeyboardEventListener
+    {
     public:
         virtual void onKeyPressed(unsigned char key) = 0;
         virtual void onKeyReleased(unsigned char key) = 0;
@@ -31,8 +33,6 @@ namespace cg {
         virtual void onSpecialKeyReleased(int key) = 0;
     };
 
-}
+} // namespace cg
 
 #endif // IKEYBOARD_EVENT_LISTENER_H
-
-

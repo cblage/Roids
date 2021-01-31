@@ -28,26 +28,25 @@
 #include "cg.h"
 #include "ParticleManager.h"
 
-
-namespace asteroids {
+namespace asteroids
+{
 	class RoidsApp;
 
 	class ExplosionManager : public ParticleManager
 	{
 	private:
-		RoidsApp * _application;
+		RoidsApp *_application;
 		double _massDivider;
 
 	public:
 		ExplosionManager(std::string id, RoidsApp *application);
 		~ExplosionManager();
 		void createEntities();
-		void generateExplosion(Particle * p);
+		void generateExplosion(Particle *p);
 		void createExplosionDebris(cg::Vector2d position, cg::Vector2d velocity, cg::Vector3d color = cg::Vector3d(0.7, 0.7, 0.7));
 		void preDrawOverlay();
 		void clearExplosions();
 	};
-
 
 #ifndef ROIDS_APP_H
 #define ROIDS_APP_H
@@ -59,35 +58,34 @@ namespace asteroids {
 	class ApplicationState;
 	class Screen;
 
-	class RoidsApp : public cg::Application {
+	class RoidsApp : public cg::Application
+	{
 	private:
-		ApplicationState * _state;
-		ScreenManager * _screenManager;
-		GameManager * _gameManager;
-		ExplosionManager * _explosionManager;
+		ApplicationState *_state;
+		ScreenManager *_screenManager;
+		GameManager *_gameManager;
+		ExplosionManager *_explosionManager;
+
 	public:
 		RoidsApp();
 		~RoidsApp();
 		void createEntities();
 		void onUpdate();
 		void onDisplay();
-		void changeState(ApplicationState * state);
-		ApplicationState * getState();
+		void changeState(ApplicationState *state);
+		ApplicationState *getState();
 		void onKeyPressed(unsigned char key);
 		void pause();
 		void quit();
-		GameManager * getGameManager();
-		ExplosionManager * getExplosionManager();
-		void addScreen(Screen * s);
-		void removeScreen(Screen * s);
+		GameManager *getGameManager();
+		ExplosionManager *getExplosionManager();
+		void addScreen(Screen *s);
+		void removeScreen(Screen *s);
 		void resetTime();
-
 	};
 
 #endif
 
-}
+} // namespace asteroids
 
 #endif
-
-

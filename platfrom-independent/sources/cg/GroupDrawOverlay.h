@@ -22,28 +22,30 @@
 #include "Group.h"
 #include "IDrawOverlayListener.h"
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::GroupDrawOverlay is a Group that automatically invokes the 
 	 *  drawOverlay method of all its inner entities. The preDrawOverlay 
 	 *  method is called before invoking the children methods, while the 
 	 *  postDrawOverlay is called after.
 	 */
-	class GroupDrawOverlay : public IGetEntities, public IDrawOverlayListener {
+	class GroupDrawOverlay : public IGetEntities, public IDrawOverlayListener
+	{
 	protected:
 		virtual void preDrawOverlay() {}
 		virtual void postDrawOverlay() {}
-    public:
+
+	public:
 		IGETENTITIES_IMPLEMENTATION
-		virtual void drawOverlay() {
+		virtual void drawOverlay()
+		{
 			preDrawOverlay();
-			FOR_EACH_ENTITY(drawOverlay(),IDrawOverlayListener)
+			FOR_EACH_ENTITY(drawOverlay(), IDrawOverlayListener)
 			postDrawOverlay();
 		}
-    };
+	};
 
-}
+} // namespace cg
 
 #endif // GROUP_DRAW_OVERLAY_H
-
-

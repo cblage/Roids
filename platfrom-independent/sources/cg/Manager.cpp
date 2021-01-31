@@ -18,29 +18,34 @@
 
 #include "Manager.h"
 
-namespace cg {
+namespace cg
+{
 
-	SINGLETON_IMPLEMENTATION_NO_CONSTRUCTOR(Manager)
+    SINGLETON_IMPLEMENTATION_NO_CONSTRUCTOR(Manager)
 
-	Manager::Manager() {
+    Manager::Manager()
+    {
         _intervalMillis = 0;
     }
 
     //---<OpenGL callbacks>---
 
-    void appUpdateCallback(int value) {
-        glutTimerFunc(Manager::instance()->getIntervalMillis(),appUpdateCallback,0);
+    void appUpdateCallback(int value)
+    {
+        glutTimerFunc(Manager::instance()->getIntervalMillis(), appUpdateCallback, 0);
         glutPostRedisplay();
         Manager::instance()->getApp()->onUpdate();
     }
-    void appDisplayCallback() {
+    void appDisplayCallback()
+    {
         Manager::instance()->getApp()->onDisplay();
         glutSwapBuffers();
     }
 
     // [RESHAPE]
 
-    void appReshapeCallback(int width, int height) {
+    void appReshapeCallback(int width, int height)
+    {
         Manager::instance()->getApp()->onReshape(width, height);
         ReshapeEventNotifier::instance()->handleReshape(width, height);
         glutPostRedisplay();
@@ -48,51 +53,60 @@ namespace cg {
 
     // [MOUSE]
 
-    void appMouseCallback(int button, int state, int x, int y) {
-        MouseEventNotifier::instance()->handleMouse(button,state,x,y);
+    void appMouseCallback(int button, int state, int x, int y)
+    {
+        MouseEventNotifier::instance()->handleMouse(button, state, x, y);
     }
-    void appMotionCallback(int x, int y) {
-        MouseEventNotifier::instance()->handleMouseMotion(x,y);
+    void appMotionCallback(int x, int y)
+    {
+        MouseEventNotifier::instance()->handleMouseMotion(x, y);
     }
-    void appPassiveMotionCallback(int x, int y) {
-        MouseEventNotifier::instance()->handleMousePassiveMotion(x,y);
+    void appPassiveMotionCallback(int x, int y)
+    {
+        MouseEventNotifier::instance()->handleMousePassiveMotion(x, y);
     }
 
     // [KEYBOARD]
 
-    void appKeyPressedCallback(unsigned char key, int x, int y) {
+    void appKeyPressedCallback(unsigned char key, int x, int y)
+    {
         KeyBuffer::instance()->pressKey(key);
         KeyboardEventNotifier::instance()->handleKeyPressed(key);
     }
-    void appKeyReleasedCallback(unsigned char key, int x, int y) {
+    void appKeyReleasedCallback(unsigned char key, int x, int y)
+    {
         KeyBuffer::instance()->releaseKey(key);
         KeyboardEventNotifier::instance()->handleKeyReleased(key);
     }
-    void appSpecialKeyPressedCallback(int key, int x, int y) {
+    void appSpecialKeyPressedCallback(int key, int x, int y)
+    {
         KeyBuffer::instance()->pressSpecialKey(key);
         KeyboardEventNotifier::instance()->handleSpecialKeyPressed(key);
     }
-    void appSpecialKeyReleasedCallback(int key, int x, int y) {
+    void appSpecialKeyReleasedCallback(int key, int x, int y)
+    {
         KeyBuffer::instance()->releaseSpecialKey(key);
         KeyboardEventNotifier::instance()->handleSpecialKeyReleased(key);
     }
 
     //---</OpenGL callbacks>---
 
-    Application* Manager::getApp() {
+    Application *Manager::getApp()
+    {
         return _app;
     }
-    void Manager::runApp(Application *app, int fps, int glut_argc, char** glut_argv) {
+    void Manager::runApp(Application *app, int fps, int glut_argc, char **glut_argv)
+    {
         _app = app;
         _intervalMillis = 1000 / fps;
         glutInit(&glut_argc, glut_argv);
-        const tWindow& win = _app->getWindow();
+        const tWindow &win = _app->getWindow();
         glutInitDisplayMode(win.display_mode);
-        glutInitWindowPosition(win.x,win.y);
-        glutInitWindowSize(win.width,win.height);
+        glutInitWindowPosition(win.x, win.y);
+        glutInitWindowSize(win.width, win.height);
         glutCreateWindow(win.caption.c_str());
         _app->onInit();
-        _app->onReshape(win.width,win.height);
+        _app->onReshape(win.width, win.height);
         glutDisplayFunc(appDisplayCallback);
         glutReshapeFunc(appReshapeCallback);
         glutMouseFunc(appMouseCallback);
@@ -103,18 +117,18 @@ namespace cg {
         glutKeyboardUpFunc(appKeyReleasedCallback);
         glutSpecialFunc(appSpecialKeyPressedCallback);
         glutSpecialUpFunc(appSpecialKeyReleasedCallback);
-        glutTimerFunc(_intervalMillis,appUpdateCallback,0);
+        glutTimerFunc(_intervalMillis, appUpdateCallback, 0);
         glutMainLoop();
     }
-	void Manager::shutdownApp() {
-		_app->shutdown();
-		delete _app;
-		cleanup();
-		exit(0);
-	}
-    int Manager::getIntervalMillis() const {
+    void Manager::shutdownApp()
+    {
+        _app->shutdown();
+        delete _app;
+        cleanup();
+        exit(0);
+    }
+    int Manager::getIntervalMillis() const
+    {
         return _intervalMillis;
     }
-}
-
-
+} // namespace cg

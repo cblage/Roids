@@ -23,49 +23,52 @@
 #include "Screen.h"
 #include "GameManager.h"
 
-namespace asteroids {
+namespace asteroids
+{
 
 	SINGLETON_IMPLEMENTATION(PausedState)
-	
-	void PausedState::enter() {
+
+	void PausedState::enter()
+	{
 		_screen = new Screen("PausedScreen");
 		_screen->init();
 		_screen->setMessage("Coffee break ^_^");
 		_application->addScreen(_screen);
 		_application->getGameManager()->pauseGame();
 	}
-	void PausedState::leave() {
+	void PausedState::leave()
+	{
 		_application->getGameManager()->resumeGame();
 		_application->removeScreen(_screen);
-		delete(_screen);
+		delete (_screen);
 	}
 
-	void PausedState::changeState(RoidsApp * application, ApplicationState * state) {
+	void PausedState::changeState(RoidsApp *application, ApplicationState *state)
+	{
 		_application = application;
-		ApplicationState * s = _application->getState();
-		if(s != NULL) {
+		ApplicationState *s = _application->getState();
+		if (s != NULL)
+		{
 			s->suspend();
 			setPreviousState(s);
 		}
 		_application->changeState(state);
 	}
 
-	void PausedState::onUpdate() {
+	void PausedState::onUpdate()
+	{
 		//pause the game
 		_application->resetTime();
 	}
 
-	
-
-	void PausedState::pause() {
+	void PausedState::pause()
+	{
 		getPreviousState()->resume(_application);
 	}
 
-	
-	std::string PausedState::getName(void) {
+	std::string PausedState::getName(void)
+	{
 		return "PausedState";
 	}
 
-}
-
-
+} // namespace asteroids

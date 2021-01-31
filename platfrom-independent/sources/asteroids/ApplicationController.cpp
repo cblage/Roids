@@ -21,26 +21,32 @@
 #include "ApplicationController.h"
 #include "RoidsApp.h"
 
-namespace asteroids {
+namespace asteroids
+{
 
-	ApplicationController::ApplicationController(RoidsApp* application) : cg::Entity("AppController"), _application(application) {
+	ApplicationController::ApplicationController(RoidsApp *application) : cg::Entity("AppController"), _application(application)
+	{
 	}
-	ApplicationController::~ApplicationController() {
+	ApplicationController::~ApplicationController()
+	{
 	}
-	
-	void ApplicationController::init() {
+
+	void ApplicationController::init()
+	{
 	}
-	
-	void ApplicationController::onKeyPressed(unsigned char key) {
+
+	void ApplicationController::onKeyPressed(unsigned char key)
+	{
 		_application->onKeyPressed(key);
 	}
-	void ApplicationController::onKeyReleased(unsigned char key) {
+	void ApplicationController::onKeyReleased(unsigned char key)
+	{
 	}
-	void ApplicationController::onSpecialKeyPressed(int key) {
+	void ApplicationController::onSpecialKeyPressed(int key)
+	{
 	}
-	void ApplicationController::onSpecialKeyReleased(int key) {
+	void ApplicationController::onSpecialKeyReleased(int key)
+	{
 	}
 
-}
-
-
+} // namespace asteroids

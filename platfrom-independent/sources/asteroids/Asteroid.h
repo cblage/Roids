@@ -28,31 +28,28 @@
 #include <cmath>
 #include "GameEntity.h"
 
-
-
-namespace asteroids {
+namespace asteroids
+{
 	class GameManager;
 	class Particle;
 	class SpaceShip;
 
 	class Asteroid : public cg::IDrawListener,
-		public cg::IUpdateListener,
-		public GameEntity
+					 public cg::IUpdateListener,
+					 public GameEntity
 	{
 	private:
 		std::vector<cg::Vector3d> _asteroid_vector, _asteroid_vector2;
 		cg::Vector2d _size;
 		double _scaleFactor, _radius, _invulSeconds, _baseAsteroidSize, _baseAsteroidMass;
 		double _radarSize, _radarAdvanced;
-        double _red, _green, _blue;
-        bool _skipColoring;
+		double _red, _green, _blue;
+		bool _skipColoring;
 
-
-		
 	public:
-		Asteroid(std::string id, GameManager * gameManager);
-		Asteroid(std::string id, double scaleFactor, GameManager * gameManager);
-        Asteroid(std::string id, double scaleFactor, GameManager * gameManager, double red, double green, double blue);
+		Asteroid(std::string id, GameManager *gameManager);
+		Asteroid(std::string id, double scaleFactor, GameManager *gameManager);
+		Asteroid(std::string id, double scaleFactor, GameManager *gameManager, double red, double green, double blue);
 		~Asteroid();
 		void init();
 		void update(unsigned long elapsed_millis);
@@ -62,8 +59,6 @@ namespace asteroids {
 		void destroy(void);
 		void drawOverlay(void);
 	};
-}
+} // namespace asteroids
 
 #endif
-
-

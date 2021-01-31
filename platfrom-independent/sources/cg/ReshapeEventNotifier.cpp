@@ -18,12 +18,13 @@
 
 #include "ReshapeEventNotifier.h"
 
-namespace cg {
+namespace cg
+{
 
-	SINGLETON_IMPLEMENTATION(ReshapeEventNotifier)
+  SINGLETON_IMPLEMENTATION(ReshapeEventNotifier)
 
-    void ReshapeEventNotifier::handleReshape(int width, int height) {
-		FOR_EACH_LISTENER(onReshape(width,height))
-    }
-}
-
+  void ReshapeEventNotifier::handleReshape(int width, int height)
+  {
+    FOR_EACH_LISTENER(onReshape(width, height))
+  }
+} // namespace cg

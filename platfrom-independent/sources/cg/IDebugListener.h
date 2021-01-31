@@ -21,17 +21,17 @@
 
 #include <fstream>
 
-namespace cg {
+namespace cg
+{
 
-	/** IDebugListener is the callback interface for debug step.
+    /** IDebugListener is the callback interface for debug step.
 	 */
-	class IDebugListener {
+    class IDebugListener
+    {
     public:
-        virtual void debug(std::ofstream& file) = 0;
+        virtual void debug(std::ofstream &file) = 0;
     };
 
-}
+} // namespace cg
 
 #endif // IDEBUG_LISTENER_H
-
-

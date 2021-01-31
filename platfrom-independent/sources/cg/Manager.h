@@ -26,7 +26,8 @@
 #include "ReshapeEventNotifier.h"
 #include "Singleton.h"
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::Manager is a singleton class that connects a cg::Application to 
 	 *  the OpenGL and GLUT callbacks.
@@ -38,23 +39,22 @@ namespace cg {
 	 *  cg::Application::update is called at the frame rate.
 	 *  cg::Application::display is called after each update.
 	 */
-    class Manager {
+	class Manager
+	{
 
-	SINGLETON_HEADER(Manager)
+		SINGLETON_HEADER(Manager)
 
-    private:
-        Application* _app;
-        int _intervalMillis;
+	private:
+		Application *_app;
+		int _intervalMillis;
 
-    public:
-        Application* getApp();
-	void runApp(Application *app, int fps, int glut_argc, char** glut_argv);
-	void shutdownApp();
-        int getIntervalMillis() const;
-    };
+	public:
+		Application *getApp();
+		void runApp(Application *app, int fps, int glut_argc, char **glut_argv);
+		void shutdownApp();
+		int getIntervalMillis() const;
+	};
 
-}
+} // namespace cg
 
 #endif // MANAGER_H
-
-

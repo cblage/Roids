@@ -25,17 +25,16 @@
 
 #include "cg.h"
 
-namespace asteroids {
+namespace asteroids
+{
 
     class Lights : public cg::Entity
-	{
+    {
     public:
         Lights();
         virtual ~Lights();
         void init();
-  
-	};
-}
+    };
+} // namespace asteroids
 
 #endif
-

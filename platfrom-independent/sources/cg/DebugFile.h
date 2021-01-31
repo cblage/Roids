@@ -23,7 +23,8 @@
 #include <fstream>
 #include <string>
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::DebugFile is singleton class that writes to a single text 
 	 *  file for debug purposes. Any class can write to this file using
@@ -32,24 +33,24 @@ namespace cg {
 	 *  direct output file stream handle through the method 
 	 *  cg::DebugFile::getOutputFileStream.
 	 */
-	class DebugFile  {
+	class DebugFile
+	{
 
-	private: 
-		static DebugFile* _instance; 
+	private:
+		static DebugFile *_instance;
 		DebugFile();
 		std::ofstream _file;
 
-	public: 
-		static DebugFile* instance(); 
+	public:
+		static DebugFile *instance();
 		virtual ~DebugFile();
 		void cleanup();
-		std::ofstream& getOutputFileStream();
-		void write(const std::string& s);
-		void writeLine(const std::string& s);
+		std::ofstream &getOutputFileStream();
+		void write(const std::string &s);
+		void writeLine(const std::string &s);
 		void newLine();
-		void writeException(std::runtime_error& e);
+		void writeException(std::runtime_error &e);
 	};
-}
+} // namespace cg
 
 #endif // DEBUG_FILE_H
-

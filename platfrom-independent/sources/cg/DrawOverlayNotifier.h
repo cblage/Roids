@@ -23,7 +23,8 @@
 #include "Notifier.h"
 #include "Singleton.h"
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::DrawOverlayNotifier controls the drawOverlay step of the 
 	 *  application, by calling the cg::IDrawOverlayListener::drawOverlay 
@@ -31,14 +32,14 @@ namespace cg {
 	 *  cg::IDrawOverlayListener's.
 	 */
 
-	class DrawOverlayNotifier : public Notifier<IDrawOverlayListener> {
+	class DrawOverlayNotifier : public Notifier<IDrawOverlayListener>
+	{
 
-	SINGLETON_HEADER(DrawOverlayNotifier)
+		SINGLETON_HEADER(DrawOverlayNotifier)
 	public:
 		void drawOverlay();
 		DUMP_METHOD(DrawOverlayNotifier)
 	};
-}
+} // namespace cg
 
 #endif // DRAW_OVERLAY_NOTIFIER_H
-

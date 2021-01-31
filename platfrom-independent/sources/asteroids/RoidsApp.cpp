@@ -30,9 +30,11 @@
 #include "ScreenManager.h"
 #include "ExplosionManager.h"
 
-namespace asteroids {
+namespace asteroids
+{
 
-	RoidsApp::RoidsApp() : cg::Application("config.ini") {
+	RoidsApp::RoidsApp() : cg::Application("config.ini")
+	{
 		_window.caption = "Roids! (Alpha Version)";
 		_initialWindowWidth = cg::Properties::instance()->getInt("WINDOW_WIDTH");
 		_initialWindowHeight = cg::Properties::instance()->getInt("WINDOW_HEIGHT");
@@ -44,15 +46,17 @@ namespace asteroids {
 		_screenManager = NULL;
 		_explosionManager = NULL;
 	}
-	RoidsApp::~RoidsApp() {
+	RoidsApp::~RoidsApp()
+	{
 	}
-	void RoidsApp::createEntities() {
+	void RoidsApp::createEntities()
+	{
 		_screenManager = new ScreenManager();
 		_gameManager = new GameManager("GameManager", this);
 		_explosionManager = new ExplosionManager("ExplosionManager", this);
 		BeforeGameState::instance()->changeTo(this);
 		addEntity(new ApplicationController(this));
-		addEntity (new Camera());
+		addEntity(new Camera());
 		addEntity(new StarSphere());
 		addEntity(_explosionManager);
 		addEntity(_gameManager);
@@ -60,62 +64,77 @@ namespace asteroids {
 		addEntity(_screenManager);
 	}
 
-	void RoidsApp::changeState(ApplicationState * state) {
-		if(state != _state) {
+	void RoidsApp::changeState(ApplicationState *state)
+	{
+		if (state != _state)
+		{
 			_state = state;
 		}
 	}
-	
-	ApplicationState * RoidsApp::getState() {
+
+	ApplicationState *RoidsApp::getState()
+	{
 		return _state;
 	}
 
-	void RoidsApp::onUpdate() {
+	void RoidsApp::onUpdate()
+	{
 		_state->onUpdate();
 		_state->update(_time.elapsed);
 	}
-	
-	void RoidsApp::onDisplay() {
+
+	void RoidsApp::onDisplay()
+	{
 		_state->onDisplay();
 	}
 
-	void RoidsApp::onKeyPressed(unsigned char key) {
+	void RoidsApp::onKeyPressed(unsigned char key)
+	{
 		_state->onKeyPressed(key);
 	}
-	void RoidsApp::pause() {
+	void RoidsApp::pause()
+	{
 		_state->pause();
 	}
-	void RoidsApp::quit() {
+	void RoidsApp::quit()
+	{
 		_state->quit();
 	}
-	void RoidsApp::addScreen(Screen * s) {
+	void RoidsApp::addScreen(Screen *s)
+	{
 		_screenManager->addScreen(s);
 	}
-	
-	void RoidsApp::removeScreen(Screen * s) {
+
+	void RoidsApp::removeScreen(Screen *s)
+	{
 		_screenManager->removeScreen(s);
 	}
 
-	GameManager * RoidsApp::getGameManager() {
+	GameManager *RoidsApp::getGameManager()
+	{
 		return _gameManager;
 	}
-	
-	ExplosionManager * RoidsApp::getExplosionManager() {
+
+	ExplosionManager *RoidsApp::getExplosionManager()
+	{
 		return _explosionManager;
 	}
 
-    void RoidsApp::onReshape(int w, int h) {
-		if (_forceInitialWindowSize) {
+	void RoidsApp::onReshape(int w, int h)
+	{
+		if (_forceInitialWindowSize)
+		{
 			glutReshapeWindow(_initialWindowWidth, _initialWindowHeight);
-		} else {
+		}
+		else
+		{
 			cg::Application::onReshape(w, h);
 		}
-    }
-	
-	
-	void RoidsApp::resetTime() {
+	}
+
+	void RoidsApp::resetTime()
+	{
 		updateFrameTime();
 		_state->update(_time.elapsed);
 	}
-}
-
+} // namespace asteroids

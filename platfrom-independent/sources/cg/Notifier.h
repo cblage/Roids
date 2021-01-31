@@ -28,45 +28,57 @@
 #include "Entity.h"
 #include "State.h"
 
-#define FOR_EACH_LISTENER(COMMAND)\
-	try {\
-		lock();\
-		if(state.isEnabled()) {\
-			for (tListenerIterator i = _listeners.begin(); i != _listeners.end(); i++) {\
-				if((*i)->entity->state.isEnabled()) {\
-					(*i)->listener->COMMAND;\
-				}\
-			}\
-		}\
-		unlock();\
-	} catch(std::runtime_error& e) {\
-		cg::DebugFile::instance()->writeException(e);\
-		throw e;\
+#define FOR_EACH_LISTENER(COMMAND)                                                     \
+	try                                                                                \
+	{                                                                                  \
+		lock();                                                                        \
+		if (state.isEnabled())                                                         \
+		{                                                                              \
+			for (tListenerIterator i = _listeners.begin(); i != _listeners.end(); i++) \
+			{                                                                          \
+				if ((*i)->entity->state.isEnabled())                                   \
+				{                                                                      \
+					(*i)->listener->COMMAND;                                           \
+				}                                                                      \
+			}                                                                          \
+		}                                                                              \
+		unlock();                                                                      \
+	}                                                                                  \
+	catch (std::runtime_error & e)                                                     \
+	{                                                                                  \
+		cg::DebugFile::instance()->writeException(e);                                  \
+		throw e;                                                                       \
 	}
 
-#define DUMP_METHOD(CLASS)\
-	void dump() {\
-		std::ofstream& file = DebugFile::instance()->getOutputFileStream();\
-		file << CLASS::instance()->state << " " << #CLASS << " (" << size() << ")" << std::endl;\
-		for (tListenerIterator i = _listeners.begin(); i != _listeners.end(); i++) {\
-			file << "    " << (*i)->entity->state << " " << (*i)->entity->getId() << std::endl;\
-		}\
+#define DUMP_METHOD(CLASS)                                                                       \
+	void dump()                                                                                  \
+	{                                                                                            \
+		std::ofstream &file = DebugFile::instance()->getOutputFileStream();                      \
+		file << CLASS::instance()->state << " " << #CLASS << " (" << size() << ")" << std::endl; \
+		for (tListenerIterator i = _listeners.begin(); i != _listeners.end(); i++)               \
+		{                                                                                        \
+			file << "    " << (*i)->entity->state << " " << (*i)->entity->getId() << std::endl;  \
+		}                                                                                        \
 	}
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::ListenerInfo<E> maintains information on a listener implementing interface E.
 	 */
-	template<class E>
-	struct ListenerInfo {
+	template <class E>
+	struct ListenerInfo
+	{
 	public:
-		E* listener;
-		Entity* entity;
-		ListenerInfo(E* _listener, Entity* _entity) {
+		E *listener;
+		Entity *entity;
+		ListenerInfo(E *_listener, Entity *_entity)
+		{
 			listener = _listener;
 			entity = _entity;
 		}
-		~ListenerInfo() {
+		~ListenerInfo()
+		{
 		}
 	};
 
@@ -82,16 +94,17 @@ namespace cg {
 	 *  registered instead of its inner classes, and be an entry point for them.
 	 */
 	template <class E>
-	class Notifier {
+	class Notifier
+	{
 	private:
 		void shutdown();
 
 	protected:
-		std::map<const std::string,ListenerInfo<E>*> _names;
-		typedef typename std::map<const std::string,ListenerInfo<E>*>::iterator tNameIterator;
+		std::map<const std::string, ListenerInfo<E> *> _names;
+		typedef typename std::map<const std::string, ListenerInfo<E> *>::iterator tNameIterator;
 
-		std::vector<ListenerInfo<E>*> _listeners;
-		typedef typename std::vector<ListenerInfo<E>*>::iterator tListenerIterator;
+		std::vector<ListenerInfo<E> *> _listeners;
+		typedef typename std::vector<ListenerInfo<E> *>::iterator tListenerIterator;
 
 		bool _isLocked;
 		CommandQueue<E> _commandQueue;
@@ -103,76 +116,102 @@ namespace cg {
 		State state;
 
 		unsigned int size() const;
-		bool exists(const std::string& id);
-		E* get(const std::string& id);
-		void addInfo(ListenerInfo<E>* info);
-		void add(E* listener);
-		void remove(const std::string& id);
+		bool exists(const std::string &id);
+		E *get(const std::string &id);
+		void addInfo(ListenerInfo<E> *info);
+		void add(E *listener);
+		void remove(const std::string &id);
 		void removeAll();
 
 		void lock();
 		void unlock();
 	};
 
-    template<class E>
-    unsigned int Notifier<E>::size() const{
+	template <class E>
+	unsigned int Notifier<E>::size() const
+	{
 		return (unsigned int)_names.size();
-    }
-    template<class E>
-    bool Notifier<E>::exists(const std::string& id) {
-		if(_names.count(id) == 0) {
+	}
+	template <class E>
+	bool Notifier<E>::exists(const std::string &id)
+	{
+		if (_names.count(id) == 0)
+		{
 			return _commandQueue.existsListenerInfo(id);
-		} else {
+		}
+		else
+		{
 			return true;
 		}
-    }
+	}
 	template <class E>
-	E* Notifier<E>::get(const std::string& id) {
+	E *Notifier<E>::get(const std::string &id)
+	{
 		tNameIterator i = _names.find(id);
-		if(i == _names.end()) {
-			ListenerInfo<E>* info = _commandQueue.getListenerInfo(id);
-			if(info) {
+		if (i == _names.end())
+		{
+			ListenerInfo<E> *info = _commandQueue.getListenerInfo(id);
+			if (info)
+			{
 				return info->listener;
-			} else {
+			}
+			else
+			{
 				return 0;
 			}
-		} else {
+		}
+		else
+		{
 			return i->second->listener;
 		}
 	}
 	template <class E>
-	void Notifier<E>::addInfo(ListenerInfo<E>* info) {
+	void Notifier<E>::addInfo(ListenerInfo<E> *info)
+	{
 		std::string id = info->entity->getId();
-		std::pair<tNameIterator,bool> result = _names.insert(std::make_pair(id, info));
-		if(result.second == false) {
+		std::pair<tNameIterator, bool> result = _names.insert(std::make_pair(id, info));
+		if (result.second == false)
+		{
 			delete info;
 			throw std::runtime_error("[cg::Notifier] listener '" + id + "' already exists.");
 		}
 		_listeners.push_back(info);
 	}
 	template <class E>
-	void Notifier<E>::add(E* listener) {
-		Entity* entity = dynamic_cast<Entity*>(listener);
-		if(entity == 0) {
+	void Notifier<E>::add(E *listener)
+	{
+		Entity *entity = dynamic_cast<Entity *>(listener);
+		if (entity == 0)
+		{
 			throw std::runtime_error("[cg::Notifier] listener is not subclass of cg::Entity.");
-		} else {
+		}
+		else
+		{
 			std::string id = entity->getId();
-			ListenerInfo<E>* info = new ListenerInfo<E>(listener, entity);
-			if(_isLocked) {
+			ListenerInfo<E> *info = new ListenerInfo<E>(listener, entity);
+			if (_isLocked)
+			{
 				_commandQueue.add(new AddCommand<E>(info));
 				_commandQueue.addListenerInfo(info);
-			} else {
+			}
+			else
+			{
 				addInfo(info);
 			}
 		}
 	}
 	template <class E>
-	void Notifier<E>::remove(const std::string& id) {
-		if(_isLocked) {
+	void Notifier<E>::remove(const std::string &id)
+	{
+		if (_isLocked)
+		{
 			_commandQueue.add(new RemoveCommand<E>(id));
-		} else {
+		}
+		else
+		{
 			tNameIterator i = _names.find(id);
-			if(i != _names.end()) {
+			if (i != _names.end())
+			{
 				tListenerIterator j = find(_listeners.begin(), _listeners.end(), i->second);
 				delete (*j);
 				_listeners.erase(j);
@@ -181,11 +220,16 @@ namespace cg {
 		}
 	}
 	template <class E>
-	void Notifier<E>::removeAll() {
-		if(_isLocked) {
+	void Notifier<E>::removeAll()
+	{
+		if (_isLocked)
+		{
 			_commandQueue.add(new RemoveAllCommand<E>());
-		} else {
-			for (tListenerIterator i = _listeners.begin(); i != _listeners.end(); i++) {
+		}
+		else
+		{
+			for (tListenerIterator i = _listeners.begin(); i != _listeners.end(); i++)
+			{
 				delete (*i);
 			}
 			_listeners.clear();
@@ -193,23 +237,26 @@ namespace cg {
 		}
 	}
 	template <class E>
-	void Notifier<E>::lock() {
+	void Notifier<E>::lock()
+	{
 		_isLocked = true;
 	}
 	template <class E>
-	void Notifier<E>::unlock() {
+	void Notifier<E>::unlock()
+	{
 		_isLocked = false;
 		_commandQueue.execute(this);
 	}
 	template <class E>
-	void Notifier<E>::shutdown() {
-		for (tListenerIterator i = _listeners.begin(); i != _listeners.end(); i++) {
+	void Notifier<E>::shutdown()
+	{
+		for (tListenerIterator i = _listeners.begin(); i != _listeners.end(); i++)
+		{
 			delete (*i);
 		}
 		_listeners.clear();
 		_names.clear();
 	}
-}
+} // namespace cg
 
 #endif // NOTIFIER_H
-

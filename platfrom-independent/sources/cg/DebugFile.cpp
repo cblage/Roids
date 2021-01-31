@@ -18,39 +18,49 @@
 
 #include "DebugFile.h"
 
-namespace cg {
+namespace cg
+{
 
-    DebugFile* DebugFile::_instance = 0;
+	DebugFile *DebugFile::_instance = 0;
 
-    DebugFile* DebugFile::instance() {
-        if (_instance == 0) { 
-			_instance = new DebugFile(); 
+	DebugFile *DebugFile::instance()
+	{
+		if (_instance == 0)
+		{
+			_instance = new DebugFile();
 		}
-        return _instance; 
+		return _instance;
 	}
-    DebugFile::DebugFile() {
+	DebugFile::DebugFile()
+	{
 		_file.open("log.txt");
 	}
-    DebugFile::~DebugFile() { 
+	DebugFile::~DebugFile()
+	{
 	}
-    void DebugFile::cleanup() { 
+	void DebugFile::cleanup()
+	{
 		_file.close();
 		delete _instance;
 	}
-	std::ofstream& DebugFile::getOutputFileStream() {
+	std::ofstream &DebugFile::getOutputFileStream()
+	{
 		return _file;
 	}
-	void DebugFile::write(const std::string& s) {
+	void DebugFile::write(const std::string &s)
+	{
 		_file << s;
 	}
-	void DebugFile::writeLine(const std::string& s) {
+	void DebugFile::writeLine(const std::string &s)
+	{
 		_file << s << std::endl;
 	}
-	void DebugFile::newLine() {
+	void DebugFile::newLine()
+	{
 		_file << std::endl;
 	}
-	void DebugFile::writeException(std::runtime_error& e) {
+	void DebugFile::writeException(std::runtime_error &e)
+	{
 		_file << "(EXCEPTION) " << e.what() << std::endl;
 	}
-}
-
+} // namespace cg

@@ -23,27 +23,29 @@
 #include "Group.h"
 #include "IDebugListener.h"
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::GroupDebug is a Group that automatically invokes the debug method
 	 *  of all its inner entities. The preDebug method is called before
 	 *  invoking the children methods, while the postDebug is called after.
 	 */
-	class GroupDebug : public IGetEntities, public IDebugListener {
+	class GroupDebug : public IGetEntities, public IDebugListener
+	{
 	protected:
-		virtual void preDebug(std::ofstream& file) {}
-		virtual void postDebug(std::ofstream& file) {}
-    public:
+		virtual void preDebug(std::ofstream &file) {}
+		virtual void postDebug(std::ofstream &file) {}
+
+	public:
 		IGETENTITIES_IMPLEMENTATION
-		virtual void debug(std::ofstream& file) {
+		virtual void debug(std::ofstream &file)
+		{
 			preDebug(file);
-			FOR_EACH_ENTITY(debug(file),IDebugListener)
+			FOR_EACH_ENTITY(debug(file), IDebugListener)
 			postDebug(file);
 		}
-    };
+	};
 
-}
+} // namespace cg
 
 #endif // GROUP_DEBUG_H
-
-

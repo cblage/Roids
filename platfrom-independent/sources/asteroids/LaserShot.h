@@ -29,30 +29,28 @@
 #include <cmath>
 #include "GameEntity.h"
 
-
-namespace asteroids {
+namespace asteroids
+{
 	class GameManager;
 	class SpaceShip;
 	class PhysicsObject;
 	class Particle;
 
 	class LaserShot : public cg::IDrawListener,
-		public cg::IUpdateListener,
-		public GameEntity
+					  public cg::IUpdateListener,
+					  public GameEntity
 	{
 	private:
 		double _secondsToLive, _secondsToLiveMax, _radius;
-		
+
 	public:
-		LaserShot(std::string id, GameManager * gameManager);
+		LaserShot(std::string id, GameManager *gameManager);
 		~LaserShot();
 		void init();
 		void update(unsigned long elapsed_millis);
 		void draw();
 		bool collidesWith(PhysicsObject *pobject);
 	};
-}
+} // namespace asteroids
 
 #endif
-
-

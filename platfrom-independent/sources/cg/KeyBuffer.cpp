@@ -18,58 +18,71 @@
 
 #include "KeyBuffer.h"
 
-namespace cg {
+namespace cg
+{
 
-	SINGLETON_IMPLEMENTATION_NO_CONSTRUCTOR(KeyBuffer)
+    SINGLETON_IMPLEMENTATION_NO_CONSTRUCTOR(KeyBuffer)
 
-	KeyBuffer::KeyBuffer() {
+    KeyBuffer::KeyBuffer()
+    {
         int i;
-        for (i = 0; i < KEY_MAX; i++) {
+        for (i = 0; i < KEY_MAX; i++)
+        {
             _key[i] = false;
         }
-        for (i = 0; i < SPECIAL_KEY_MAX; i++) {
+        for (i = 0; i < SPECIAL_KEY_MAX; i++)
+        {
             _specialKey[i] = false;
         }
     }
-    void KeyBuffer::pressKey(unsigned char key) {
+    void KeyBuffer::pressKey(unsigned char key)
+    {
         _key[key] = true;
     }
-    void KeyBuffer::releaseKey(unsigned char key) {
+    void KeyBuffer::releaseKey(unsigned char key)
+    {
         _key[key] = false;
     }
-    bool KeyBuffer::isKeyDown(unsigned char key) const {
+    bool KeyBuffer::isKeyDown(unsigned char key) const
+    {
         return _key[key];
     }
-    bool KeyBuffer::isKeyUp(unsigned char key) const {
+    bool KeyBuffer::isKeyUp(unsigned char key) const
+    {
         return !_key[key];
     }
 
-    inline
-    int KeyBuffer::adjustSpecialKey(int key) const {
-        if (key >= GLUT_KEY_LEFT) {
+    inline int KeyBuffer::adjustSpecialKey(int key) const
+    {
+        if (key >= GLUT_KEY_LEFT)
+        {
             return (key - GLUT_KEY_LEFT + 12);
-        } else {
+        }
+        else
+        {
             return (key - GLUT_KEY_F1);
         }
     }
 
-    void KeyBuffer::pressSpecialKey(int key) {
+    void KeyBuffer::pressSpecialKey(int key)
+    {
         key = adjustSpecialKey(key);
         _specialKey[key] = true;
     }
-    void KeyBuffer::releaseSpecialKey(int key) {
+    void KeyBuffer::releaseSpecialKey(int key)
+    {
         key = adjustSpecialKey(key);
         _specialKey[key] = false;
     }
-    bool KeyBuffer::isSpecialKeyDown(int key) const {
+    bool KeyBuffer::isSpecialKeyDown(int key) const
+    {
         key = adjustSpecialKey(key);
         return _specialKey[key];
     }
-    bool KeyBuffer::isSpecialKeyUp(int key) const {
+    bool KeyBuffer::isSpecialKeyUp(int key) const
+    {
         key = adjustSpecialKey(key);
         return !_specialKey[key];
     }
 
-}
-
-
+} // namespace cg

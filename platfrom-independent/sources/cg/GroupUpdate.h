@@ -22,28 +22,30 @@
 #include "Group.h"
 #include "IUpdateListener.h"
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::GroupUpdate is a Group that automatically invokes the update 
 	 *  method of all its inner entities. The preUpdate method is called 
 	 *  before invoking the children methods, while the postUpdate is 
 	 *  called after.
 	 */
-	class GroupUpdate : public IGetEntities, public IUpdateListener {
+	class GroupUpdate : public IGetEntities, public IUpdateListener
+	{
 	protected:
 		virtual void preUpdate(unsigned long elapsed_millis) {}
 		virtual void postUpdate(unsigned long elapsed_millis) {}
-    public:
+
+	public:
 		IGETENTITIES_IMPLEMENTATION
-		virtual void update(unsigned long elapsed_millis) {
+		virtual void update(unsigned long elapsed_millis)
+		{
 			preUpdate(elapsed_millis);
-			FOR_EACH_ENTITY(update(elapsed_millis),IUpdateListener)
+			FOR_EACH_ENTITY(update(elapsed_millis), IUpdateListener)
 			postUpdate(elapsed_millis);
 		}
-    };
+	};
 
-}
+} // namespace cg
 
 #endif // GROUP_UPDATE_H
-
-

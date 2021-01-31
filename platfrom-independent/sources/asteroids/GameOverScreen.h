@@ -25,20 +25,20 @@
 
 #include "Screen.h"
 
+namespace asteroids
+{
 
-namespace asteroids {
-	
 	class GameOverScreen : public Screen
 	{
 	private:
 		double _finalScore;
 		unsigned int _finalLevel;
+
 	public:
 		GameOverScreen(std::string id, double finalScore, unsigned int finalLevel);
 		~GameOverScreen();
 		void drawOverlay();
 	};
-}
+} // namespace asteroids
 
 #endif
-

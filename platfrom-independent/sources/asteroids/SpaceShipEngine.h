@@ -25,21 +25,20 @@
 
 #include "cg.h"
 
-
-namespace asteroids {
+namespace asteroids
+{
 	class SpaceShip;
-	
+
 	class SpaceShipEngine
 	{
 	public:
-		SpaceShipEngine(SpaceShip * ship) : _ship(ship) {}
+		SpaceShipEngine(SpaceShip *ship) : _ship(ship) {}
 		~SpaceShipEngine(void) {}
 		virtual void update(double elapsed_seconds) = 0;
 
 	protected:
-		SpaceShip * _ship;
+		SpaceShip *_ship;
 	};
-}
+} // namespace asteroids
 
 #endif
-

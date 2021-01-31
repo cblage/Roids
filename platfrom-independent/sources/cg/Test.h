@@ -24,16 +24,25 @@
 #include <string>
 #include <stdexcept>
 
-#define TEST_EXCEPTION(e,x)\
-	try{ x; assert(0); } catch(e&) {}
+#define TEST_EXCEPTION(e, x) \
+	try                      \
+	{                        \
+		x;                   \
+		assert(0);           \
+	}                        \
+	catch (e &)              \
+	{                        \
+	}
 
-#define TEST(x)\
-    x(); _testCount++;
+#define TEST(x) \
+	x();        \
+	_testCount++;
 
-#define CHECK(x)\
-	cg::Test::check(x,#x,__LINE__);
+#define CHECK(x) \
+	cg::Test::check(x, #x, __LINE__);
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::Test is an unit testing class.
 	 *  To create a new unit test, create a new subclass of cg::Test, and implement
@@ -43,39 +52,45 @@ namespace cg {
 	 *  an exception is thrown.
 	 *  Look at the cglib.test project for concrete examples of use.
 	 */
-	class Test {
+	class Test
+	{
 
 	protected:
 		std::string _name;
 		int _testCount;
 
 	public:
-		Test(std::string name) {
+		Test(std::string name)
+		{
 			_name = name;
 		}
 		virtual ~Test() {}
 
-		void do_test() {
+		void do_test()
+		{
 			std::cout << _name << std::endl;
 			_testCount = 0;
-			try {
+			try
+			{
 				test();
-			} catch(std::exception& e) {
+			}
+			catch (std::exception &e)
+			{
 				std::cout << e.what() << std::endl;
 			}
 			std::cout << "    " << _testCount << " tests.";
 		}
 		virtual void test() = 0;
 
-		static void check(bool condition, const std::string label, long line) {
-			if( condition == false ) {
+		static void check(bool condition, const std::string label, long line)
+		{
+			if (condition == false)
+			{
 				std::cout << "    fail [line " << line << "]: " << label << std::endl;
 			}
 		}
 	};
 
-}
+} // namespace cg
 
 #endif // TEST_H
-
-

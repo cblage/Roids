@@ -30,44 +30,45 @@
 #include <string>
 #include "GameEntity.h"
 
-namespace asteroids {
+namespace asteroids
+{
 	class GameManager;
 	class SpaceShipHyperAccelerator;
 	class ShipController;
 
 	class SpaceShip : public cg::IDrawListener,
-		public cg::IUpdateListener, 
-		public GameEntity
+					  public cg::IUpdateListener,
+					  public GameEntity
 	{
 	private:
 		std::string _message;
 		cg::Vector2d _size;
-		double _charlesBronsonKilledSecondsAgo;		
-		SpaceShipHyperAccelerator * _hyperAccelerator;
+		double _charlesBronsonKilledSecondsAgo;
+		SpaceShipHyperAccelerator *_hyperAccelerator;
 		int _charlesBronsonStyle, _maxCharlesBronsonStyle;
-		ShipController * _controller;
+		ShipController *_controller;
 		double _radarSize;
 		int _radarAdvanced;
 		double _invulTime, _invulTimeMax;
+
 	public:
-		SpaceShip(std::string id, GameManager *  gameManager);
-		SpaceShip(std::string id, GameManager *  gameManager, int lifes);
+		SpaceShip(std::string id, GameManager *gameManager);
+		SpaceShip(std::string id, GameManager *gameManager, int lifes);
 		~SpaceShip();
 		void init();
 		void update(unsigned long elapsed_millis);
 		void draw();
 		void hyperAccelerate(void);
 		void temporaryShield(void);
-        void shootLaser(void);
+		void shootLaser(void);
 		void onKeyPressed(unsigned char key);
 		void onKeyReleased(unsigned char key);
 		void onSpecialKeyPressed(int key);
-        void onSpecialKeyReleased(int key);
+		void onSpecialKeyReleased(int key);
 		void drawOverlay();
 		void dealDamage(double damage);
-		double getCollisionDamage(Particle * target);
+		double getCollisionDamage(Particle *target);
 	};
-}
+} // namespace asteroids
 
 #endif
-

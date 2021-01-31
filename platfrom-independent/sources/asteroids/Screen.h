@@ -26,17 +26,19 @@
 #include <string>
 #include "cg.h"
 
-namespace asteroids {
-	
+namespace asteroids
+{
+
 	class Screen : public cg::Entity,
-		public cg::IDrawOverlayListener,
-		public cg::IDrawListener,
-		public cg::IReshapeEventListener
+				   public cg::IDrawOverlayListener,
+				   public cg::IDrawListener,
+				   public cg::IReshapeEventListener
 	{
 	protected:
 		std::string _message;
 		double _winWidth, _winHeight;
 		double _messageX, _messageY;
+
 	public:
 		Screen(std::string id);
 		~Screen();
@@ -49,7 +51,6 @@ namespace asteroids {
 		virtual cg::Vector2d getMessagePosition();
 		virtual void setMessagePosition(double x, double y);
 	};
-}
+} // namespace asteroids
 
 #endif
-

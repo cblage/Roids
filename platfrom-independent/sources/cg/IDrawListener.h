@@ -19,17 +19,17 @@
 #ifndef IDRAW_LISTENER_H
 #define IDRAW_LISTENER_H
 
-namespace cg {
+namespace cg
+{
 
-	/** cg::IDrawListener is the callback interface for the draw step.
+    /** cg::IDrawListener is the callback interface for the draw step.
 	 */
-	class IDrawListener {
+    class IDrawListener
+    {
     public:
         virtual void draw() = 0;
     };
 
-}
+} // namespace cg
 
 #endif // IDRAW_LISTENER_H
-
-

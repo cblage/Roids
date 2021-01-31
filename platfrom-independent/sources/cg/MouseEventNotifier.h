@@ -23,24 +23,25 @@
 #include "Notifier.h"
 #include "Singleton.h"
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::MouseEventNotifier is a singleton notifier that maintains a list
 	 *  of cg::IMouseListener and controls the distribution of mouse events. 
 	 *  When a mouse event reaches cg::MouseEventNotifier, it is dispatched 
 	 *  to all previously registered and currently enabled cg::IMouseListener's.
 	 */
-	class MouseEventNotifier : public Notifier<IMouseEventListener> {
+	class MouseEventNotifier : public Notifier<IMouseEventListener>
+	{
 
-	SINGLETON_HEADER(MouseEventNotifier)
+		SINGLETON_HEADER(MouseEventNotifier)
 
 	public:
 		void handleMouse(int button, int state, int x, int y);
-        void handleMouseMotion(int x, int y);
-        void handleMousePassiveMotion(int x, int y);
+		void handleMouseMotion(int x, int y);
+		void handleMousePassiveMotion(int x, int y);
 		DUMP_METHOD(MouseEventNotifier)
 	};
-}
+} // namespace cg
 
 #endif // MOUSE_EVENT_NOTIFIER_H
-

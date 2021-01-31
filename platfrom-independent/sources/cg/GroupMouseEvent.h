@@ -22,14 +22,16 @@
 #include "Group.h"
 #include "IMouseEventListener.h"
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::GroupMouseEvent is a Group that automatically broadcasts
 	 *  mouse events to its inner entities. The 'pre' methods are 
 	 *  called before sending the event to the inner entities, while 
 	 *  the 'post' methods are called after.
 	 */
-	class GroupMouseEvent : public IGetEntities, public IMouseEventListener {
+	class GroupMouseEvent : public IGetEntities, public IMouseEventListener
+	{
 	protected:
 		virtual void preOnMouse(int button, int state, int x, int y) {}
 		virtual void postOnMouse(int button, int state, int x, int y) {}
@@ -37,27 +39,29 @@ namespace cg {
 		virtual void postOnMouseMotion(int x, int y) {}
 		virtual void preOnMousePassiveMotion(int x, int y) {}
 		virtual void postOnMousePassiveMotion(int x, int y) {}
-    public:
-		IGETENTITIES_IMPLEMENTATION
-		void onMouse(int button, int state, int x, int y) {
-			preOnMouse(button,state,x,y);
-			FOR_EACH_ENTITY(onMouse(button,state,x,y),IMouseEventListener)
-			postOnMouse(button,state,x,y);
-		}
-		void onMouseMotion(int x, int y) {
-			preOnMouseMotion(x,y);
-			FOR_EACH_ENTITY(onMouseMotion(x,y),IMouseEventListener)
-			postOnMouseMotion(x,y);
-		}
-		void onMousePassiveMotion(int x, int y) {
-			preOnMousePassiveMotion(x,y);
-			FOR_EACH_ENTITY(onMousePassiveMotion(x,y),IMouseEventListener)
-			postOnMousePassiveMotion(x,y);
-		}
-    };
 
-}
+	public:
+		IGETENTITIES_IMPLEMENTATION
+		void onMouse(int button, int state, int x, int y)
+		{
+			preOnMouse(button, state, x, y);
+			FOR_EACH_ENTITY(onMouse(button, state, x, y), IMouseEventListener)
+			postOnMouse(button, state, x, y);
+		}
+		void onMouseMotion(int x, int y)
+		{
+			preOnMouseMotion(x, y);
+			FOR_EACH_ENTITY(onMouseMotion(x, y), IMouseEventListener)
+			postOnMouseMotion(x, y);
+		}
+		void onMousePassiveMotion(int x, int y)
+		{
+			preOnMousePassiveMotion(x, y);
+			FOR_EACH_ENTITY(onMousePassiveMotion(x, y), IMouseEventListener)
+			postOnMousePassiveMotion(x, y);
+		}
+	};
+
+} // namespace cg
 
 #endif // GROUP_MOUSE_EVENT_H
-
-

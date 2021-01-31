@@ -25,28 +25,27 @@
 
 #include "cg.h"
 
-namespace asteroids {
+namespace asteroids
+{
 	class SpaceShip;
 
 	class ShipController : public cg::Entity,
-		public cg::IKeyboardEventListener
+						   public cg::IKeyboardEventListener
 	{
 	public:
-		ShipController(SpaceShip* ship);
+		ShipController(SpaceShip *ship);
 		~ShipController();
 		void init();
-        void onKeyPressed(unsigned char key);
-        void onKeyReleased(unsigned char key);
-        void onSpecialKeyPressed(int key);
-        void onSpecialKeyReleased(int key);
+		void onKeyPressed(unsigned char key);
+		void onKeyReleased(unsigned char key);
+		void onSpecialKeyPressed(int key);
+		void onSpecialKeyReleased(int key);
 
 	private:
-		SpaceShip * _ship;
+		SpaceShip *_ship;
 		int _controlsScheme;
 	};
 
-
-}
+} // namespace asteroids
 
 #endif
-

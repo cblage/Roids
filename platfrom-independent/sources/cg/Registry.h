@@ -45,7 +45,8 @@
 #include "ReshapeEventNotifier.h"
 #include "UpdateNotifier.h"
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::Registry is a singleton notifier that maintains a list
 	 *  of all cg::Entity of the application. When the cg::Registry::init 
@@ -53,37 +54,37 @@ namespace cg {
 	 *  the cg::Entity::init method, independently of being enabled or not.
 	 */
 
-	class Registry {
+	class Registry
+	{
 
 	private:
-		static Registry* _instance; 
+		static Registry *_instance;
 		Registry();
 
-		std::map<const std::string, Entity*> _entities;
-		typedef std::map<const std::string, Entity*>::iterator tEntityIterator;
+		std::map<const std::string, Entity *> _entities;
+		typedef std::map<const std::string, Entity *>::iterator tEntityIterator;
 
-		void connectEntity(Entity* entity);
-		void disconnectEntity(Entity* entity);
-		void dumpEntity(Entity* entity, std::ofstream& file);
+		void connectEntity(Entity *entity);
+		void disconnectEntity(Entity *entity);
+		void dumpEntity(Entity *entity, std::ofstream &file);
 		void shutdown();
 
 	public:
-		static Registry* instance(); 
+		static Registry *instance();
 		virtual ~Registry();
 		void cleanup();
 
 		void init();
 		unsigned int size() const;
-		bool exists(const std::string& id);
-		Entity* get(const std::string& id);
-		void add(Entity* entity);
-		void remove(const std::string& id);
+		bool exists(const std::string &id);
+		Entity *get(const std::string &id);
+		void add(Entity *entity);
+		void remove(const std::string &id);
 		void removeAll();
-		void destroy(const std::string& id);
+		void destroy(const std::string &id);
 		void destroyAll();
 		void dump();
 	};
-}
+} // namespace cg
 
 #endif // REGISTRY_H
-

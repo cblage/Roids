@@ -21,54 +21,61 @@
 #include "CameraController.h"
 #include "Camera.h"
 
-namespace asteroids {
+namespace asteroids
+{
 
-	CameraController::CameraController(Camera* camera) : cg::Entity("CameraController") {
+	CameraController::CameraController(Camera *camera) : cg::Entity("CameraController")
+	{
 		_camera = camera;
 	}
-	CameraController::~CameraController() {
+	CameraController::~CameraController()
+	{
 	}
-	void CameraController::init() {
+	void CameraController::init()
+	{
 	}
-	
-	void CameraController::onKeyPressed(unsigned char key) {
+
+	void CameraController::onKeyPressed(unsigned char key)
+	{
 		switch (key)
 		{
-			case 'j':
-				_camera->startRotate(0);
-				break;
-			case 'l':
-				_camera->startRotate(1);
-				break;
-			case 'i':
-				_camera->startRotate(2);
-				break;
-			case 'k':
-				_camera->startRotate(3);
-				break;
-			case 'u':
-				_camera->startRotate(4);
-				break;
+		case 'j':
+			_camera->startRotate(0);
+			break;
+		case 'l':
+			_camera->startRotate(1);
+			break;
+		case 'i':
+			_camera->startRotate(2);
+			break;
+		case 'k':
+			_camera->startRotate(3);
+			break;
+		case 'u':
+			_camera->startRotate(4);
+			break;
 		}
 	}
-	void CameraController::onKeyReleased(unsigned char key) {
+	void CameraController::onKeyReleased(unsigned char key)
+	{
 		switch (key)
 		{
-			case 'j':
-				_camera->stopRotate(0);
-				break;
-			case 'l':
-				_camera->stopRotate(1);
-				break;
-			case 'i':
-				_camera->stopRotate(2);
-				break;
-			case 'k':
-				_camera->stopRotate(3);
-				break;
+		case 'j':
+			_camera->stopRotate(0);
+			break;
+		case 'l':
+			_camera->stopRotate(1);
+			break;
+		case 'i':
+			_camera->stopRotate(2);
+			break;
+		case 'k':
+			_camera->stopRotate(3);
+			break;
 		}
 	}
-	void CameraController::onSpecialKeyPressed(int key) {
+	void CameraController::onSpecialKeyPressed(int key)
+	{
 		/*switch (key)
 		{
 		case GLUT_KEY_LEFT:
@@ -89,8 +96,9 @@ namespace asteroids {
 		default:
 			return;
 		}*/
-	}	
-	void CameraController::onSpecialKeyReleased(int key) {
+	}
+	void CameraController::onSpecialKeyReleased(int key)
+	{
 		/*switch (key)
 		{
 		case GLUT_KEY_LEFT:
@@ -110,5 +118,4 @@ namespace asteroids {
 		}*/
 	}
 
-}
-
+} // namespace asteroids

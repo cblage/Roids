@@ -22,28 +22,30 @@
 #include "Group.h"
 #include "IReshapeEventListener.h"
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::GroupReshapeEvent is a Group that automatically broadcasts
 	 *  reshape events to its inner entities. The 'pre' methods are 
 	 *  called before sending the event to the inner entities, while 
 	 *  the 'post' methods are called after.
 	 */
-	class GroupReshapeEvent : public IGetEntities, public IReshapeEventListener {
+	class GroupReshapeEvent : public IGetEntities, public IReshapeEventListener
+	{
 	protected:
 		virtual void preOnReshape(int width, int height) {}
 		virtual void postOnReshape(int width, int height) {}
-    public:
-		IGETENTITIES_IMPLEMENTATION
-		virtual void onReshape(int width, int height) {
-			preOnReshape(width,height);
-			FOR_EACH_ENTITY(onReshape(width,height),IReshapeEventListener)
-			postOnReshape(width,height);
-		}
-    };
 
-}
+	public:
+		IGETENTITIES_IMPLEMENTATION
+		virtual void onReshape(int width, int height)
+		{
+			preOnReshape(width, height);
+			FOR_EACH_ENTITY(onReshape(width, height), IReshapeEventListener)
+			postOnReshape(width, height);
+		}
+	};
+
+} // namespace cg
 
 #endif // GROUP_RESHAPE_EVENT_H
-
-

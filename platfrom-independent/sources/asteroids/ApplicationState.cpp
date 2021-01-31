@@ -24,77 +24,90 @@
 #include "QuitConfirmState.h"
 #include "PausedState.h"
 
+namespace asteroids
+{
 
-namespace asteroids {
-
-	void ApplicationState::changeFrom() {
+	void ApplicationState::changeFrom()
+	{
 		leave();
 	}
-	void ApplicationState::changeTo(RoidsApp * application) {
+	void ApplicationState::changeTo(RoidsApp *application)
+	{
 		changeState(application, this);
 		enter();
 	}
-	void ApplicationState::changeState(RoidsApp * application, ApplicationState * state) {
+	void ApplicationState::changeState(RoidsApp *application, ApplicationState *state)
+	{
 		_application = application;
-		ApplicationState * s = _application->getState();
-		if(s != NULL) {
+		ApplicationState *s = _application->getState();
+		if (s != NULL)
+		{
 			s->changeFrom();
 			setPreviousState(s);
 		}
 		_application->changeState(state);
 	}
-	void ApplicationState::onDisplay() {
+	void ApplicationState::onDisplay()
+	{
 		_application->cg::Application::onDisplay();
 	}
-	void ApplicationState::onUpdate() {
+	void ApplicationState::onUpdate()
+	{
 		_application->cg::Application::onUpdate();
 	}
-	bool ApplicationState::onKeyPressed(unsigned char key) {
-		switch(key) {
-			case 'p':
-			case 'P':
-				_application->pause();
-				return true;
-			case 27:
-				_application->quit();
-				return true;
-			default:
-				return false;
+	bool ApplicationState::onKeyPressed(unsigned char key)
+	{
+		switch (key)
+		{
+		case 'p':
+		case 'P':
+			_application->pause();
+			return true;
+		case 27:
+			_application->quit();
+			return true;
+		default:
+			return false;
 		}
 	}
 
-	void ApplicationState::resume(RoidsApp *application) {
-		ApplicationState * s = getPreviousState();
+	void ApplicationState::resume(RoidsApp *application)
+	{
+		ApplicationState *s = getPreviousState();
 		changeTo(application);
 		setPreviousState(s);
 	}
-	void ApplicationState::suspend() {
+	void ApplicationState::suspend()
+	{
 		changeFrom();
 	}
-	void ApplicationState::enter() {
-	
+	void ApplicationState::enter()
+	{
 	}
-	void ApplicationState::leave() {
+	void ApplicationState::leave()
+	{
 	}
 
-	void ApplicationState::pause() {
+	void ApplicationState::pause()
+	{
 		PausedState::instance()->changeTo(_application);
 	}
-	void ApplicationState::quit() {
+	void ApplicationState::quit()
+	{
 		QuitConfirmState::instance()->changeTo(_application);
 	}
-	
-	void ApplicationState::setPreviousState(ApplicationState * s) {
+
+	void ApplicationState::setPreviousState(ApplicationState *s)
+	{
 		_previousState = s;
 	}
 
-	ApplicationState * ApplicationState::getPreviousState() {
+	ApplicationState *ApplicationState::getPreviousState()
+	{
 		return _previousState;
 	}
 
-	void ApplicationState::update(unsigned long elapsed_millis) {
-	
+	void ApplicationState::update(unsigned long elapsed_millis)
+	{
 	}
-}
-
-
+} // namespace asteroids

@@ -28,24 +28,24 @@
 #include <vector>
 #include "cg.h"
 
-
-namespace asteroids {
+namespace asteroids
+{
 	class Screen;
-	
+
 	class ScreenManager : public cg::Group,
-		public cg::GroupReshapeEvent,
-		public cg::GroupDrawOverlay,
-		public cg::GroupDraw
+						  public cg::GroupReshapeEvent,
+						  public cg::GroupDrawOverlay,
+						  public cg::GroupDraw
 	{
 	protected:
 		void createEntities();
+
 	public:
 		ScreenManager();
 		~ScreenManager();
-		void addScreen(Screen * s);
-		void removeScreen(Screen * s);
+		void addScreen(Screen *s);
+		void removeScreen(Screen *s);
 	};
-}
+} // namespace asteroids
 
 #endif
-

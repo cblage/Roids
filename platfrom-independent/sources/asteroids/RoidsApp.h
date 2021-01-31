@@ -25,8 +25,8 @@
 
 #include "cg.h"
 
-
-namespace asteroids {
+namespace asteroids
+{
 	class StarSphere;
 	class Camera;
 	class GameManager;
@@ -35,35 +35,35 @@ namespace asteroids {
 	class ApplicationState;
 	class Screen;
 
-	class RoidsApp : public cg::Application {
+	class RoidsApp : public cg::Application
+	{
 	private:
-		ApplicationState * _state;
-		ScreenManager * _screenManager;
-		GameManager * _gameManager;
-		ExplosionManager * _explosionManager;
+		ApplicationState *_state;
+		ScreenManager *_screenManager;
+		GameManager *_gameManager;
+		ExplosionManager *_explosionManager;
 		bool _forceInitialWindowSize;
 		int _initialWindowWidth;
 		int _initialWindowHeight;
+
 	public:
 		RoidsApp();
 		~RoidsApp();
 		void createEntities();
 		void onUpdate();
 		void onDisplay();
-		void changeState(ApplicationState * state);
-		ApplicationState * getState();
+		void changeState(ApplicationState *state);
+		ApplicationState *getState();
 		void onKeyPressed(unsigned char key);
 		void pause();
 		void quit();
-		GameManager * getGameManager();
-		ExplosionManager * getExplosionManager();
-		void addScreen(Screen * s);
-		void removeScreen(Screen * s);
+		GameManager *getGameManager();
+		ExplosionManager *getExplosionManager();
+		void addScreen(Screen *s);
+		void removeScreen(Screen *s);
 		void resetTime();
 		void onReshape(int w, int h);
 	};
-}
+} // namespace asteroids
 
 #endif
-
-

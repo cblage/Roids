@@ -23,21 +23,22 @@
 #include "Notifier.h"
 #include "Singleton.h"
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::DrawNotifier controls the draw step of the application, by
 	 *  calling the cg::IDrawListener::draw method of all the previously 
 	 *  registered and currently enabled cg::IDrawListener's.
 	 */
-	class DrawNotifier : public Notifier<IDrawListener> {
+	class DrawNotifier : public Notifier<IDrawListener>
+	{
 
-	SINGLETON_HEADER(DrawNotifier)
+		SINGLETON_HEADER(DrawNotifier)
 	public:
 		void draw();
 		DUMP_METHOD(DrawNotifier)
 	};
 
-}
+} // namespace cg
 
 #endif // DRAW_NOTIFIER_H
-

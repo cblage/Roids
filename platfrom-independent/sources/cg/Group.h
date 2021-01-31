@@ -27,32 +27,44 @@
 #include <map>
 #include "Entity.h"
 
-#define FOR_EACH_ENTITY(COMMAND,INTERFACE)\
-	std::vector<Entity*>::iterator iend = end();\
-	for (std::vector<Entity*>::iterator i = begin(); i != iend; i++) {\
-		if((*i)->state.isEnabled()) {\
-			INTERFACE* obj = dynamic_cast<INTERFACE*>(*i);\
-			obj->COMMAND; }}
+#define FOR_EACH_ENTITY(COMMAND, INTERFACE)                           \
+	std::vector<Entity *>::iterator iend = end();                     \
+	for (std::vector<Entity *>::iterator i = begin(); i != iend; i++) \
+	{                                                                 \
+		if ((*i)->state.isEnabled())                                  \
+		{                                                             \
+			INTERFACE *obj = dynamic_cast<INTERFACE *>(*i);           \
+			obj->COMMAND;                                             \
+		}                                                             \
+	}
 
-#define IGETENTITIES_IMPLEMENTATION\
-	virtual std::vector<Entity*>* getEntities() {\
-		Group* group = (Group*)dynamic_cast<Group*>(this);\
-		return group->getEntities(); }\
-	virtual std::vector<Entity*>::iterator begin() {\
-		Group* group = (Group*)dynamic_cast<Group*>(this);\
-		return group->begin(); }\
-	virtual std::vector<Entity*>::iterator end() {\
-		Group* group = (Group*)dynamic_cast<Group*>(this);\
-		return group->end(); }
+#define IGETENTITIES_IMPLEMENTATION                          \
+	virtual std::vector<Entity *> *getEntities()             \
+	{                                                        \
+		Group *group = (Group *)dynamic_cast<Group *>(this); \
+		return group->getEntities();                         \
+	}                                                        \
+	virtual std::vector<Entity *>::iterator begin()          \
+	{                                                        \
+		Group *group = (Group *)dynamic_cast<Group *>(this); \
+		return group->begin();                               \
+	}                                                        \
+	virtual std::vector<Entity *>::iterator end()            \
+	{                                                        \
+		Group *group = (Group *)dynamic_cast<Group *>(this); \
+		return group->end();                                 \
+	}
 
-namespace cg {
+namespace cg
+{
 
-	class IGetEntities {
-    public:
-        virtual std::vector<Entity*>* getEntities() = 0;
-		virtual std::vector<Entity*>::iterator begin() = 0;
-		virtual std::vector<Entity*>::iterator end() = 0;
-    };
+	class IGetEntities
+	{
+	public:
+		virtual std::vector<Entity *> *getEntities() = 0;
+		virtual std::vector<Entity *>::iterator begin() = 0;
+		virtual std::vector<Entity *>::iterator end() = 0;
+	};
 
 	/** cg::Group is an entity that contains other entities.
 	 *  Group can implement the same interfaces as any entity plus the
@@ -61,24 +73,25 @@ namespace cg {
 	 *  Note that all methods dealing with the contained entites are
 	 *  protected, and can only be called from inside the subclass.
 	 */
-	class Group : public Entity, public IGetEntities {
+	class Group : public Entity, public IGetEntities
+	{
 	private:
 		void shutdown();
 
 	protected:
-		std::map<std::string,Entity*> _names;
-		typedef std::map<std::string,Entity*>::iterator tNameIterator;
+		std::map<std::string, Entity *> _names;
+		typedef std::map<std::string, Entity *>::iterator tNameIterator;
 
-		std::vector<Entity*> _entities;
-		typedef std::vector<Entity*>::iterator tEntityIterator;
+		std::vector<Entity *> _entities;
+		typedef std::vector<Entity *>::iterator tEntityIterator;
 
 		virtual unsigned int size();
-		virtual bool exists(const std::string& id);
-		Entity *get(const std::string& id);
-		void add(Entity* entity);
-		virtual void remove(const std::string& id);
+		virtual bool exists(const std::string &id);
+		Entity *get(const std::string &id);
+		void add(Entity *entity);
+		virtual void remove(const std::string &id);
 		virtual void removeAll();
-		virtual void destroy(const std::string& id);
+		virtual void destroy(const std::string &id);
 		virtual void destroyAll();
 
 		virtual void createEntities() = 0;
@@ -86,17 +99,15 @@ namespace cg {
 		virtual void postInit() {}
 
 	public:
-		Group(const std::string& id);
+		Group(const std::string &id);
 		virtual ~Group();
 		void init();
-		void dump(std::ofstream& file);
+		void dump(std::ofstream &file);
 		// IGetEntities
-		std::vector<Entity*>* getEntities();
-		std::vector<Entity*>::iterator begin();
-		std::vector<Entity*>::iterator end();
+		std::vector<Entity *> *getEntities();
+		std::vector<Entity *>::iterator begin();
+		std::vector<Entity *>::iterator end();
 	};
-}
+} // namespace cg
 
 #endif // GROUP_H
-
-

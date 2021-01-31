@@ -25,27 +25,26 @@
 
 #include "cg.h"
 
-namespace asteroids {
+namespace asteroids
+{
 	class Camera;
 
 	class CameraController : public cg::Entity,
-		public cg::IKeyboardEventListener
+							 public cg::IKeyboardEventListener
 	{
 	public:
-		CameraController(Camera* camera);
+		CameraController(Camera *camera);
 		~CameraController();
 		void init();
-        void onKeyPressed(unsigned char key);
-        void onKeyReleased(unsigned char key);
-        void onSpecialKeyPressed(int key);
-        void onSpecialKeyReleased(int key);
+		void onKeyPressed(unsigned char key);
+		void onKeyReleased(unsigned char key);
+		void onSpecialKeyPressed(int key);
+		void onSpecialKeyReleased(int key);
 
 	private:
-		Camera * _camera;
+		Camera *_camera;
 	};
 
-
-}
+} // namespace asteroids
 
 #endif
-

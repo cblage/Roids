@@ -24,46 +24,50 @@
 #include "Screen.h"
 #include "GameManager.h"
 
-namespace asteroids {
+namespace asteroids
+{
 
 	SINGLETON_IMPLEMENTATION(BeforeGameState)
-	
-	void BeforeGameState::enter() {
+
+	void BeforeGameState::enter()
+	{
 		_screen = new Screen("BeforeGameScreen");
 		_screen->init();
 		_screen->setMessage("Press any key to start!");
 		_application->addScreen(_screen);
 	}
-	void BeforeGameState::leave() {
+	void BeforeGameState::leave()
+	{
 		_application->removeScreen(_screen);
-		delete(_screen);
+		delete (_screen);
 		_application->getGameManager()->resetGame();
 		_application->getGameManager()->changeLevel(cg::Properties::instance()->getInt("INITIAL_LEVEL"));
 	}
 
-
-	void BeforeGameState::suspend() {
+	void BeforeGameState::suspend()
+	{
 		_application->removeScreen(_screen);
-		delete(_screen);
+		delete (_screen);
 	}
 
-	bool BeforeGameState::onKeyPressed(unsigned char key) {
-		if(!ApplicationState::onKeyPressed(key)) {
+	bool BeforeGameState::onKeyPressed(unsigned char key)
+	{
+		if (!ApplicationState::onKeyPressed(key))
+		{
 			BeforeLevelState::instance()->changeTo(_application);
 			return true;
 		}
 		return false;
 	}
-	
 
-	void BeforeGameState::pause() {
+	void BeforeGameState::pause()
+	{
 		BeforeLevelState::instance()->changeTo(_application);
 	}
-	
-	std::string BeforeGameState::getName(void) {
+
+	std::string BeforeGameState::getName(void)
+	{
 		return "BeforeGameState";
 	}
 
-}
-
-
+} // namespace asteroids

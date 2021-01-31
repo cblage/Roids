@@ -24,12 +24,11 @@
 #pragma message("PhysicsObject is included")
 #include "cg.h"
 
-
-
-namespace asteroids {
+namespace asteroids
+{
 	class PhysicsEngine;
 
-	class PhysicsObject 
+	class PhysicsObject
 	{
 	public:
 		PhysicsObject();
@@ -53,7 +52,7 @@ namespace asteroids {
 		virtual cg::Vector2d getUniverseDimensions(void);
 		virtual void setPosition(cg::Vector2d position);
 		virtual cg::Vector2d getPosition() const;
-		virtual cg::Vector2d getAcceleration() const; 	
+		virtual cg::Vector2d getAcceleration() const;
 		virtual bool collidesWith(PhysicsObject *pobject);
 		virtual double getCollisionRadius();
 		virtual cg::Vector2d getCollisionCenter();
@@ -68,12 +67,11 @@ namespace asteroids {
 		virtual bool penetrates(PhysicsObject *pobject);
 		virtual void setRotationFactor(double factor);
 		virtual double getRotationFactor(void);
-		
+
 	private:
-		PhysicsEngine * _physics;
+		PhysicsEngine *_physics;
 	};
 
-}
+} // namespace asteroids
 
 #endif
-

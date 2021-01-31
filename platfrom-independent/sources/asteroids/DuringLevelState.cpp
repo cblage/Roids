@@ -22,21 +22,23 @@
 #include "RoidsApp.h"
 #include "GameManager.h"
 
-namespace asteroids {
+namespace asteroids
+{
 
 	SINGLETON_IMPLEMENTATION(DuringLevelState)
-	
-	void DuringLevelState::enter() {
+
+	void DuringLevelState::enter()
+	{
 		_application->getGameManager()->beginLevel();
 	}
-	void DuringLevelState::resume(RoidsApp * application) {
+	void DuringLevelState::resume(RoidsApp *application)
+	{
 		changeState(application, this);
 	}
 
-	std::string DuringLevelState::getName(void) {
+	std::string DuringLevelState::getName(void)
+	{
 		return "DuringLevelState";
 	}
 
-}
-
-
+} // namespace asteroids

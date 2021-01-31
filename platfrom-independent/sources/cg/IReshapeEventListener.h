@@ -19,17 +19,17 @@
 #ifndef IRESHAPE_EVENT_LISTENER_H
 #define IRESHAPE_EVENT_LISTENER_H
 
-namespace cg {
+namespace cg
+{
 
-	/** cg::IReshapeEventListener is the callback interface for reshape events.
+    /** cg::IReshapeEventListener is the callback interface for reshape events.
 	 */
-	class IReshapeEventListener {
+    class IReshapeEventListener
+    {
     public:
         virtual void onReshape(int width, int height) = 0;
     };
 
-}
+} // namespace cg
 
 #endif // IRESHAPE_EVENT_LISTENER_H
-
-

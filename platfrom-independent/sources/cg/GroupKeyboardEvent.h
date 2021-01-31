@@ -22,14 +22,16 @@
 #include "Group.h"
 #include "IKeyboardEventListener.h"
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::GroupKeyboardEvent is a Group that automatically broadcasts
 	 *  keyboard events to its inner entities. The 'pre' methods are 
 	 *  called before sending the event to the inner entities, while the 
 	 *  'post' methods are called after.
 	 */
-	class GroupKeyboardEvent : public IGetEntities, public IKeyboardEventListener {
+	class GroupKeyboardEvent : public IGetEntities, public IKeyboardEventListener
+	{
 	protected:
 		virtual void preOnKeyPressed(unsigned char key) {}
 		virtual void postOnKeyPressed(unsigned char key) {}
@@ -39,32 +41,35 @@ namespace cg {
 		virtual void postOnSpecialKeyPressed(int key) {}
 		virtual void preOnSpecialKeyReleased(int key) {}
 		virtual void postOnSpecialKeyReleased(int key) {}
-    public:
+
+	public:
 		IGETENTITIES_IMPLEMENTATION
-		void onKeyPressed(unsigned char key) {
+		void onKeyPressed(unsigned char key)
+		{
 			preOnKeyPressed(key);
-			FOR_EACH_ENTITY(onKeyPressed(key),IKeyboardEventListener)
+			FOR_EACH_ENTITY(onKeyPressed(key), IKeyboardEventListener)
 			postOnKeyPressed(key);
 		}
-		void onKeyReleased(unsigned char key) {
+		void onKeyReleased(unsigned char key)
+		{
 			preOnKeyReleased(key);
-			FOR_EACH_ENTITY(onKeyReleased(key),IKeyboardEventListener)
+			FOR_EACH_ENTITY(onKeyReleased(key), IKeyboardEventListener)
 			postOnKeyReleased(key);
 		}
-		void onSpecialKeyPressed(int key) {
+		void onSpecialKeyPressed(int key)
+		{
 			preOnSpecialKeyPressed(key);
-			FOR_EACH_ENTITY(onSpecialKeyPressed(key),IKeyboardEventListener)
+			FOR_EACH_ENTITY(onSpecialKeyPressed(key), IKeyboardEventListener)
 			postOnSpecialKeyPressed(key);
 		}
-		void onSpecialKeyReleased(int key) {
+		void onSpecialKeyReleased(int key)
+		{
 			preOnSpecialKeyReleased(key);
-			FOR_EACH_ENTITY(onSpecialKeyReleased(key),IKeyboardEventListener)
+			FOR_EACH_ENTITY(onSpecialKeyReleased(key), IKeyboardEventListener)
 			postOnSpecialKeyReleased(key);
 		}
-    };
+	};
 
-}
+} // namespace cg
 
 #endif // GROUP_KEYBOARD_EVENT_H
-
-

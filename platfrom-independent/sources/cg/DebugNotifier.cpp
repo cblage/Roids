@@ -18,13 +18,14 @@
 
 #include "DebugNotifier.h"
 
-namespace cg {
+namespace cg
+{
 
 	SINGLETON_IMPLEMENTATION(DebugNotifier)
 
-	void DebugNotifier::debug() {
-		std::ofstream& file = DebugFile::instance()->getOutputFileStream();
+	void DebugNotifier::debug()
+	{
+		std::ofstream &file = DebugFile::instance()->getOutputFileStream();
 		FOR_EACH_LISTENER(debug(file))
 	}
-}
-
+} // namespace cg

@@ -19,9 +19,9 @@
 #ifndef KEYBUFFER_H
 #define KEYBUFFER_H
 
-#if defined (_WIN32) || defined (__linux__) 
+#if defined(_WIN32) || defined(__linux__)
 #include <GL/glut.h>
-#elif defined (__APPLE__)
+#elif defined(__APPLE__)
 #include <GLUT/glut.h>
 #else
 #include <GL/glut.h>
@@ -29,19 +29,21 @@
 
 #include "Singleton.h"
 
-namespace cg {
+namespace cg
+{
 
 #define KEY_MAX 256
 #define SPECIAL_KEY_MAX 22
 
-	/** cg::Keybuffer maintains the current status of all keys of the keyboard.
+    /** cg::Keybuffer maintains the current status of all keys of the keyboard.
 	 *  At any time, this singleton can be queried to check if a key is pressed 
 	 *  or released. This allows to detect multiple key combinations.
 	 *  Special keys are the GLUT special keys (e.g. cursor and function keys).
 	 */
-    class KeyBuffer {
+    class KeyBuffer
+    {
 
-	SINGLETON_HEADER(KeyBuffer)
+        SINGLETON_HEADER(KeyBuffer)
 
     private:
         bool _key[KEY_MAX];
@@ -59,8 +61,6 @@ namespace cg {
         bool isSpecialKeyDown(int key) const;
         bool isSpecialKeyUp(int key) const;
     };
-}
+} // namespace cg
 
 #endif // KEYBUFFER_H
-
-

@@ -18,12 +18,13 @@
 
 #include "DrawOverlayNotifier.h"
 
-namespace cg {
+namespace cg
+{
 
 	SINGLETON_IMPLEMENTATION(DrawOverlayNotifier)
 
-	void DrawOverlayNotifier::drawOverlay() {
+	void DrawOverlayNotifier::drawOverlay()
+	{
 		FOR_EACH_LISTENER(drawOverlay())
 	}
-}
-
+} // namespace cg

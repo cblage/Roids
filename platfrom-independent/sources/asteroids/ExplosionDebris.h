@@ -29,29 +29,27 @@
 #include <cmath>
 #include "Particle.h"
 
-
-namespace asteroids {
+namespace asteroids
+{
 	class ExplosionManager;
 	class PhysicsObject;
 
 	class ExplosionDebris : public cg::IDrawListener,
-		public cg::IUpdateListener,
-		public Particle
+							public cg::IUpdateListener,
+							public Particle
 	{
 	private:
 		double _maxSecondsToLive, _secondsToLive, _radius, _alpha;
 		cg::Vector3d _color;
-		
+
 	public:
-		ExplosionDebris(std::string id, ExplosionManager * explosionManager, cg::Vector3d color = cg::Vector3d(0.7, 0.7, 0.7));
+		ExplosionDebris(std::string id, ExplosionManager *explosionManager, cg::Vector3d color = cg::Vector3d(0.7, 0.7, 0.7));
 		~ExplosionDebris();
 		void init();
 		void update(unsigned long elapsed_millis);
 		void draw();
 		bool collidesWith(PhysicsObject *pobject);
 	};
-}
+} // namespace asteroids
 
 #endif
-
-

@@ -18,12 +18,13 @@
 
 #include "UpdateNotifier.h"
 
-namespace cg {
+namespace cg
+{
 
 	SINGLETON_IMPLEMENTATION(UpdateNotifier)
 
-	void UpdateNotifier::update(unsigned long elapsed_millis) {
+	void UpdateNotifier::update(unsigned long elapsed_millis)
+	{
 		FOR_EACH_LISTENER(update(elapsed_millis))
 	}
-}
-
+} // namespace cg

@@ -19,17 +19,17 @@
 #ifndef IDRAW_OVERLAY_LISTENER_H
 #define IDRAW_OVERLAY_LISTENER_H
 
-namespace cg {
+namespace cg
+{
 
-	/** cg::IDrawOverlayListener is the callback interface for the drawOverlay step.
+    /** cg::IDrawOverlayListener is the callback interface for the drawOverlay step.
 	 */
-	class IDrawOverlayListener {
+    class IDrawOverlayListener
+    {
     public:
         virtual void drawOverlay() = 0;
     };
 
-}
+} // namespace cg
 
 #endif // IDRAW_OVERLAY_LISTENER_H
-
-

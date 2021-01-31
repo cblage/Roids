@@ -28,7 +28,8 @@
 #include "Singleton.h"
 #include "Vector.h"
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::Properties is a singleton that maintains pairs (name, value) imported from 
 	 *  a text file. 
@@ -41,31 +42,31 @@ namespace cg {
 	 *  a string and parse it.
 	 *  Lines which first non-blank character is a '#' are comments.
 	 */
-	class Properties {
+	class Properties
+	{
 
-	SINGLETON_HEADER(Properties)
+		SINGLETON_HEADER(Properties)
 
 	private:
 		static const char COMMENT;
-		std::map<const std::string,const std::string> _properties;
-		typedef std::map<const std::string,const std::string>::iterator tPropertyIterator;
-		void parseLine(const std::string& line);
+		std::map<const std::string, const std::string> _properties;
+		typedef std::map<const std::string, const std::string>::iterator tPropertyIterator;
+		void parseLine(const std::string &line);
 
 	public:
-		void load(const std::string& filename);
-		bool exists(const std::string& name);
-		bool getBool(const std::string& name);
-		int getInt(const std::string& name);
-		float getFloat(const std::string& name);
-		double getDouble(const std::string& name);
-		std::string getString(const std::string& name);
-		
-		Vector2d getVector2d(const std::string& name);
-		Vector2i getVector2i(const std::string& name);
-		Vector3d getVector3d(const std::string& name);
-		Vector3i getVector3i(const std::string& name);
+		void load(const std::string &filename);
+		bool exists(const std::string &name);
+		bool getBool(const std::string &name);
+		int getInt(const std::string &name);
+		float getFloat(const std::string &name);
+		double getDouble(const std::string &name);
+		std::string getString(const std::string &name);
+
+		Vector2d getVector2d(const std::string &name);
+		Vector2i getVector2i(const std::string &name);
+		Vector3d getVector3d(const std::string &name);
+		Vector3i getVector3i(const std::string &name);
 	};
-}
+} // namespace cg
 
 #endif // PROPERTIES_H
-

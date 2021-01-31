@@ -24,7 +24,8 @@
 #include <queue>
 #include "Notifier.h"
 
-namespace cg {
+namespace cg
+{
 
 	//---<CommandQueue>---
 
@@ -35,61 +36,71 @@ namespace cg {
 	struct ListenerInfo;
 
 	template <class E>
-	class Command {
+	class Command
+	{
 	public:
 		Command() {}
 		virtual ~Command() {}
-		virtual void execute(Notifier<E>* notifier) = 0;
+		virtual void execute(Notifier<E> *notifier) = 0;
 	};
 
 	/** CommandQueue maintains a queue of the commands issued on the locked 
 	 *  notifier that will be executed (by the same order) when it unlocks.
 	 */
 	template <class E>
-	class CommandQueue {
+	class CommandQueue
+	{
 	private:
-		std::queue<Command<E>*> _commands;
-		std::map<const std::string,ListenerInfo<E>*> _newElements;
-        typedef typename std::map<const std::string,ListenerInfo<E>*>::iterator newElementItr;
+		std::queue<Command<E> *> _commands;
+		std::map<const std::string, ListenerInfo<E> *> _newElements;
+		typedef typename std::map<const std::string, ListenerInfo<E> *>::iterator newElementItr;
 
 	public:
 		CommandQueue() {}
 		~CommandQueue() {}
-		void add(Command<E>* command);
+		void add(Command<E> *command);
 		void addListenerInfo(ListenerInfo<E> *info);
-		bool existsListenerInfo(const std::string& id);
-		ListenerInfo<E>* getListenerInfo(const std::string& id);
-		void execute(Notifier<E>* notifier);
+		bool existsListenerInfo(const std::string &id);
+		ListenerInfo<E> *getListenerInfo(const std::string &id);
+		void execute(Notifier<E> *notifier);
 		void destroy();
 	};
 	template <class E>
-	void CommandQueue<E>::add(Command<E>* command) {
+	void CommandQueue<E>::add(Command<E> *command)
+	{
 		_commands.push(command);
 	}
 	template <class E>
-	void CommandQueue<E>::addListenerInfo(ListenerInfo<E> *info) {
+	void CommandQueue<E>::addListenerInfo(ListenerInfo<E> *info)
+	{
 		std::string id = info->entity->getId();
-		std::pair<newElementItr,bool> result = _newElements.insert( std::make_pair(id,info) );
-		if(result.second == false) {
+		std::pair<newElementItr, bool> result = _newElements.insert(std::make_pair(id, info));
+		if (result.second == false)
+		{
 			throw std::invalid_argument("[cg::CommandQueue] listener '" + id + "' already exists.");
 		}
 	}
 	template <class E>
-	bool CommandQueue<E>::existsListenerInfo(const std::string& id) {
+	bool CommandQueue<E>::existsListenerInfo(const std::string &id)
+	{
 		return (_newElements.count(id) != 0);
 	}
 	template <class E>
-	ListenerInfo<E>* CommandQueue<E>::getListenerInfo(const std::string& id) {
+	ListenerInfo<E> *CommandQueue<E>::getListenerInfo(const std::string &id)
+	{
 		newElementItr i = _newElements.find(id);
-		if(i == _newElements.end()) {
+		if (i == _newElements.end())
+		{
 			return 0;
 		}
 		return i->second;
 	}
 	template <class E>
-	void CommandQueue<E>::execute(Notifier<E>* notifier) {
-		while(_commands.empty() == false) {
-			Command<E>* c = _commands.front();
+	void CommandQueue<E>::execute(Notifier<E> *notifier)
+	{
+		while (_commands.empty() == false)
+		{
+			Command<E> *c = _commands.front();
 			c->execute(notifier);
 			_commands.pop();
 			delete c;
@@ -97,9 +108,11 @@ namespace cg {
 		_newElements.clear();
 	}
 	template <class E>
-	void CommandQueue<E>::destroy() {
-		while(_commands.empty() == false) {
-			Command<E>* c = _commands.front();
+	void CommandQueue<E>::destroy()
+	{
+		while (_commands.empty() == false)
+		{
+			Command<E> *c = _commands.front();
 			_commands.pop();
 			delete c;
 		}
@@ -109,74 +122,96 @@ namespace cg {
 	//---<Commands>---
 
 	template <class E>
-	class AddCommand : public Command<E> {
+	class AddCommand : public Command<E>
+	{
 	private:
-		ListenerInfo<E>* _info;
+		ListenerInfo<E> *_info;
+
 	public:
-		AddCommand(ListenerInfo<E>* info) {
+		AddCommand(ListenerInfo<E> *info)
+		{
 			_info = info;
 		}
-		~AddCommand() {
+		~AddCommand()
+		{
 		}
-		void execute(Notifier<E>* notifier) {
+		void execute(Notifier<E> *notifier)
+		{
 			notifier->addInfo(_info);
 		}
 	};
 
 	template <class E>
-	class RemoveCommand : public Command<E> {
+	class RemoveCommand : public Command<E>
+	{
 	private:
 		std::string _id;
+
 	public:
-		RemoveCommand(std::string id) {
+		RemoveCommand(std::string id)
+		{
 			_id = id;
 		}
-		~RemoveCommand() {
+		~RemoveCommand()
+		{
 		}
-		void execute(Notifier<E>* notifier) {
+		void execute(Notifier<E> *notifier)
+		{
 			notifier->remove(_id);
 		}
 	};
 
 	template <class E>
-	class RemoveAllCommand : public Command<E> {
+	class RemoveAllCommand : public Command<E>
+	{
 	public:
-		RemoveAllCommand() {
+		RemoveAllCommand()
+		{
 		}
-		~RemoveAllCommand() {
+		~RemoveAllCommand()
+		{
 		}
-		void execute(Notifier<E>* notifier) {
+		void execute(Notifier<E> *notifier)
+		{
 			notifier->removeAll();
 		}
 	};
 
 	template <class E>
-	class DestroyCommand : public Command<E> {
+	class DestroyCommand : public Command<E>
+	{
 	private:
 		std::string _id;
+
 	public:
-		DestroyCommand(std::string id) {
+		DestroyCommand(std::string id)
+		{
 			_id = id;
 		}
-		~DestroyCommand() {
+		~DestroyCommand()
+		{
 		}
-		void execute(Notifier<E>* notifier) {
+		void execute(Notifier<E> *notifier)
+		{
 			notifier->destroy(_id);
 		}
 	};
 
 	template <class E>
-	class DestroyAllCommand : public Command<E> {
+	class DestroyAllCommand : public Command<E>
+	{
 	public:
-		DestroyAllCommand() {
+		DestroyAllCommand()
+		{
 		}
-		~DestroyAllCommand() {
+		~DestroyAllCommand()
+		{
 		}
-		void execute(Notifier<E>* notifier) {
+		void execute(Notifier<E> *notifier)
+		{
 			notifier->destroyAll();
 		}
 	};
-}
+} // namespace cg
 
 #endif
-

@@ -22,27 +22,29 @@
 #include "Group.h"
 #include "IDrawListener.h"
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::GroupDraw is a Group that automatically invokes the draw method
 	 *  of all its inner entities. The preDraw method is called before
 	 *  invoking the children methods, while the postDraw is called after.
 	 */
-	class GroupDraw : public IGetEntities, public IDrawListener {
+	class GroupDraw : public IGetEntities, public IDrawListener
+	{
 	protected:
 		virtual void preDraw() {}
 		virtual void postDraw() {}
-    public:
+
+	public:
 		IGETENTITIES_IMPLEMENTATION
-		virtual void draw() {
+		virtual void draw()
+		{
 			preDraw();
-			FOR_EACH_ENTITY(draw(),IDrawListener)
+			FOR_EACH_ENTITY(draw(), IDrawListener)
 			postDraw();
 		}
-    };
+	};
 
-}
+} // namespace cg
 
 #endif // GROUP_DRAW_H
-
-

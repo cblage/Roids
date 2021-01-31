@@ -28,21 +28,20 @@
 #include "cg.h"
 #include "ParticleManager.h"
 
-
-
-namespace asteroids {
+namespace asteroids
+{
 	class RoidsApp;
 	class Particle;
-	
+
 	class GameManager : public ParticleManager,
-		public cg::GroupKeyboardEvent,
-		public cg::GroupReshapeEvent,
-		public cg::GroupDrawOverlay
+						public cg::GroupKeyboardEvent,
+						public cg::GroupReshapeEvent,
+						public cg::GroupDrawOverlay
 	{
 	private:
 		int _currentScore;
 		unsigned int _currentLevel, _asteroidsLeft, _shipsLeft;
-		RoidsApp * _application;
+		RoidsApp *_application;
 		bool _levelRunning, _cooldownPeriod, _gamePaused;
 		double _radarSize;
 		double _cooldownTime, _cooldownLeft;
@@ -83,9 +82,6 @@ namespace asteroids {
 		void resumeGame();
 	};
 
-
-}
+} // namespace asteroids
 
 #endif
-
-

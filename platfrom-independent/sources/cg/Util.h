@@ -23,9 +23,9 @@
 #include <sys/timeb.h>
 #include <vector>
 
-#if defined (_WIN32) || defined (__linux__) 
+#if defined(_WIN32) || defined(__linux__)
 #include <GL/glut.h>
-#elif defined (__APPLE__)
+#elif defined(__APPLE__)
 #include <GLUT/glut.h>
 #else
 #include <GL/glut.h>
@@ -34,31 +34,31 @@
 #include "Singleton.h"
 #include "Vector.h"
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::Util is a singleton providing a set of utility methods.
 	 */
-	class Util {
+	class Util
+	{
 
-	SINGLETON_HEADER(Util)
+		SINGLETON_HEADER(Util)
 
 	private:
 		double projectionDistance(double minA, double maxA, double minB, double maxB);
 
 	public:
 		void drawBitmapString(std::string s, GLdouble x, GLdouble y);
-		void drawStrokeString(std::string s, GLdouble x, GLdouble y, GLdouble scale = 1, bool centered = false, double lineWidth = 1,  GLdouble red=1, GLdouble green=1, GLdouble blue=1, GLdouble alpha=1, GLdouble rotation = 0);
+		void drawStrokeString(std::string s, GLdouble x, GLdouble y, GLdouble scale = 1, bool centered = false, double lineWidth = 1, GLdouble red = 1, GLdouble green = 1, GLdouble blue = 1, GLdouble alpha = 1, GLdouble rotation = 0);
 		void drawBitmapStringVector(std::vector<std::string> s, GLdouble x, GLdouble y, GLdouble delta = -10);
 		unsigned long getSystemTime();
 		void worldToScreenCoordinates(GLdouble wx, GLdouble wy, GLdouble wz, GLdouble *sx, GLdouble *sy, GLdouble *sz);
 		void screenToWorldCoordinates(GLdouble sx, GLdouble sy, GLdouble sz, GLdouble *wx, GLdouble *wy, GLdouble *wz);
-		bool isPointInPolygon(const Vector2d& point, std::vector<Vector2d>& polygon);
-		bool isAABBoxCollision(const Vector2d& bottomleft0, const Vector2d& topright0, 
-		const Vector2d& bottomleft1, const Vector2d& topright1);
+		bool isPointInPolygon(const Vector2d &point, std::vector<Vector2d> &polygon);
+		bool isAABBoxCollision(const Vector2d &bottomleft0, const Vector2d &topright0,
+							   const Vector2d &bottomleft1, const Vector2d &topright1);
 	};
 
-}
+} // namespace cg
 
 #endif // UTIL_H
-
-

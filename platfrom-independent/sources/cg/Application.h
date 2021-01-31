@@ -22,15 +22,13 @@
 #include <string>
 #include <sys/timeb.h>
 
-#if defined (_WIN32) || defined (__linux__) 
+#if defined(_WIN32) || defined(__linux__)
 #include <GL/glut.h>
-#elif defined (__APPLE__)
+#elif defined(__APPLE__)
 #include <GLUT/glut.h>
 #else
 #include <GL/glut.h>
 #endif /*#if defined (_WIN32) || defined (__linux__) */
-
-
 
 #include "DebugFile.h"
 #include "DebugNotifier.h"
@@ -46,17 +44,20 @@
 #include "UpdateNotifier.h"
 #include "Util.h"
 
-namespace cg {
+namespace cg
+{
 
-    typedef struct {
-        std::string caption;
-        unsigned int x, y, width, height;
-        int display_mode;
-    } tWindow;
+	typedef struct
+	{
+		std::string caption;
+		unsigned int x, y, width, height;
+		int display_mode;
+	} tWindow;
 
-    typedef struct {
-        unsigned long last, current, elapsed;
-    } tTime;
+	typedef struct
+	{
+		unsigned long last, current, elapsed;
+	} tTime;
 
 	/** cg::Application is an abstract class controlling the initialization, 
 	 *  update and display cycle of the application.
@@ -75,46 +76,46 @@ namespace cg {
 	 *  These methods can be redefined in the subclass if a finer control of
 	 *  the simulation cycle is needed.
 	 */
-    class Application {
+	class Application
+	{
 
-    protected:
-        tWindow _window;
+	protected:
+		tWindow _window;
 
-        tTime _time;
-        struct timeb _timeb;
-		inline void updateFrameTime() {
+		tTime _time;
+		struct timeb _timeb;
+		inline void updateFrameTime()
+		{
 			ftime(&_timeb);
 			_time.last = _time.current;
 			_time.current = (_timeb.time * 1000) + _timeb.millitm;
 			_time.elapsed = _time.current - _time.last;
 		}
-		
+
 		bool _isFirstUpdate;
 		void setup();
-		void addEntity(Entity* entity);
+		void addEntity(Entity *entity);
 		void onShutdown();
 		virtual void setOverlayProjection();
 
-    public:
+	public:
 		Application();
 		Application(const std::string property_file);
-        virtual ~Application();
+		virtual ~Application();
 
-        const tWindow& getWindow() const;
-        const tTime& getTime() const;
+		const tWindow &getWindow() const;
+		const tTime &getTime() const;
 
-        virtual void onInit();
-        virtual void onUpdate();
-        virtual void onDisplay();
-        virtual void onReshape(int w, int h);
+		virtual void onInit();
+		virtual void onUpdate();
+		virtual void onDisplay();
+		virtual void onReshape(int w, int h);
 		void shutdown();
 
-        virtual void createEntities() = 0;
+		virtual void createEntities() = 0;
 		void dump() const;
-    };
+	};
 
-}
+} // namespace cg
 
 #endif // APPLICATION_H
-
-

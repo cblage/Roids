@@ -21,30 +21,28 @@
 #include "GameEntity.h"
 #include "GameManager.h"
 
-namespace asteroids {
-	
-	GameEntity::GameEntity(std::string id, GameManager * gameManager, char particleType) : Particle(id, gameManager, particleType),
-	_gameManager(gameManager) {};
+namespace asteroids
+{
 
-	
-	GameEntity::GameEntity(std::string id, double strength, GameManager * gameManager, char particleType) : Particle(id, strength, gameManager, particleType),
-	_gameManager(gameManager) {};
+	GameEntity::GameEntity(std::string id, GameManager *gameManager, char particleType) : Particle(id, gameManager, particleType),
+																						  _gameManager(gameManager){};
 
-	GameEntity::GameEntity(std::string id, GameManager * gameManager, double mass, char particleType) : Particle(id, gameManager, mass, particleType),
-	_gameManager(gameManager) {};
-	
-	GameEntity::GameEntity(std::string id, double strength, GameManager * gameManager, double mass, char particleType) : Particle(id, strength, gameManager, mass, particleType),
-	_gameManager(gameManager) {};
+	GameEntity::GameEntity(std::string id, double strength, GameManager *gameManager, char particleType) : Particle(id, strength, gameManager, particleType),
+																										   _gameManager(gameManager){};
 
-		
-	GameEntity::~GameEntity() {
+	GameEntity::GameEntity(std::string id, GameManager *gameManager, double mass, char particleType) : Particle(id, gameManager, mass, particleType),
+																									   _gameManager(gameManager){};
+
+	GameEntity::GameEntity(std::string id, double strength, GameManager *gameManager, double mass, char particleType) : Particle(id, strength, gameManager, mass, particleType),
+																														_gameManager(gameManager){};
+
+	GameEntity::~GameEntity()
+	{
 	}
-	
 
-	GameManager * GameEntity::getGameManager(void) {
+	GameManager *GameEntity::getGameManager(void)
+	{
 		return _gameManager;
 	}
-	
-}
 
-
+} // namespace asteroids

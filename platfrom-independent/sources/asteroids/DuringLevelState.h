@@ -26,12 +26,12 @@
 #include <string>
 #include "ApplicationState.h"
 
+namespace asteroids
+{
 
-
-namespace asteroids {
-
-	class DuringLevelState : public ApplicationState{
-	SINGLETON_HEADER(DuringLevelState);
+	class DuringLevelState : public ApplicationState
+	{
+		SINGLETON_HEADER(DuringLevelState);
 
 	public:
 		void enter();
@@ -39,8 +39,6 @@ namespace asteroids {
 		std::string getName(void);
 	};
 
-}
+} // namespace asteroids
 
 #endif
-
-

@@ -26,14 +26,16 @@
 #include <string>
 #include "ApplicationState.h"
 
-namespace asteroids {
+namespace asteroids
+{
 	class Screen;
-	
-	class EndOfLevelState : public ApplicationState{
-	SINGLETON_HEADER(EndOfLevelState);
-	
+
+	class EndOfLevelState : public ApplicationState
+	{
+		SINGLETON_HEADER(EndOfLevelState);
+
 	private:
-		Screen * _screen;
+		Screen *_screen;
 		double _timeLeft;
 
 	public:
@@ -47,8 +49,6 @@ namespace asteroids {
 		void update(unsigned long elapsed_millis);
 	};
 
-}
+} // namespace asteroids
 
 #endif
-
-

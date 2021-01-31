@@ -28,26 +28,26 @@
 #include <cmath>
 #include "cg.h"
 
-namespace asteroids {
-	const double PI3  = 4.0*atan(1.0);
-    
-	class StarSphere : public cg::Entity, 
-		public cg::IDrawListener,
-		public cg::IReshapeEventListener
+namespace asteroids
+{
+	const double PI3 = 4.0 * atan(1.0);
+
+	class StarSphere : public cg::Entity,
+					   public cg::IDrawListener,
+					   public cg::IReshapeEventListener
 	{
-    private:
+	private:
 		std::vector<cg::Vector3d> _stars;
 		double _winWidth, _winHeight, _starDensity, _starSphereRadius;
-    public:
-        StarSphere();
-        virtual ~StarSphere();
-        void init();
-        void draw();
+
+	public:
+		StarSphere();
+		virtual ~StarSphere();
+		void init();
+		void draw();
 		cg::Vector3d getRandomStar();
 		void onReshape(int width, int height);
 	};
-}
+} // namespace asteroids
 
 #endif
-
-

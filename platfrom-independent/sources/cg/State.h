@@ -21,29 +21,38 @@
 #ifndef STATE_H
 #define STATE_H
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::State is a utility class maintaining an enabled/disabled status.
 	 */
-	struct State {
+	struct State
+	{
 	private:
 		bool _isEnabled;
 
 	public:
 		State(bool is_enabled = true) : _isEnabled(is_enabled) {}
 		virtual ~State() {}
-		void enable() {	_isEnabled = true; }
+		void enable() { _isEnabled = true; }
 		void disable() { _isEnabled = false; }
-		void toggle() {	_isEnabled = !_isEnabled; }
+		void toggle() { _isEnabled = !_isEnabled; }
 		bool isEnabled() const { return _isEnabled; }
 		void set(bool is_enabled) { _isEnabled = is_enabled; }
 
-		friend inline std::ostream& operator<<(std::ostream& os, const State& s) {
-			if(s._isEnabled) { os << "[+]"; } else { os << "[-]"; }
+		friend inline std::ostream &operator<<(std::ostream &os, const State &s)
+		{
+			if (s._isEnabled)
+			{
+				os << "[+]";
+			}
+			else
+			{
+				os << "[-]";
+			}
 			return os;
 		}
 	};
-}
+} // namespace cg
 
 #endif // STATE_H
-

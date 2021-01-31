@@ -26,29 +26,28 @@
 #include <string>
 #include "ApplicationState.h"
 
-
-namespace asteroids {
+namespace asteroids
+{
 	class Screen;
-	
-	class BeforeLevelState : public ApplicationState{
-	SINGLETON_HEADER(BeforeLevelState);
-	
+
+	class BeforeLevelState : public ApplicationState
+	{
+		SINGLETON_HEADER(BeforeLevelState);
+
 	private:
-		Screen * _screen;
+		Screen *_screen;
 		double _timeLeft, _warmupTime, _posWarmupTime;
 
 	public:
 		void enter();
 		void suspend();
-		void resume(RoidsApp * application);
+		void resume(RoidsApp *application);
 		void leave();
 		std::string getName(void);
-		std::string getMessage() ;
+		std::string getMessage();
 		void update(unsigned long elapsed_millis);
 	};
 
-}
+} // namespace asteroids
 
 #endif
-
-

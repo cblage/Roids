@@ -24,42 +24,49 @@
 #include <vector>
 #include "Test.h"
 
-namespace cg {
+namespace cg
+{
 
 	/** cg::TestSuite groups cg::Test's together to be run as a batch.
 	 *  Look at the cglib.test project for concrete examples of use.
 	 */
-	class TestSuite {
+	class TestSuite
+	{
 	protected:
 		std::string _name;
-		std::vector<Test*> _suite;
+		std::vector<Test *> _suite;
 
 	public:
-		TestSuite(std::string name) {
+		TestSuite(std::string name)
+		{
 			_name = name;
 		}
-		virtual ~TestSuite() {
+		virtual ~TestSuite()
+		{
 		}
 
-		void addTest(Test *test) {
+		void addTest(Test *test)
+		{
 			_suite.push_back(test);
 		}
-		void run() {
+		void run()
+		{
 			std::cout << "Running Suite: " << _name;
-			std::vector<Test*>::iterator iend = _suite.end();
-			for(std::vector<Test*>::iterator i = _suite.begin(); i != iend; i++) {
-				std::cout << std::endl << "  ";
+			std::vector<Test *>::iterator iend = _suite.end();
+			for (std::vector<Test *>::iterator i = _suite.begin(); i != iend; i++)
+			{
+				std::cout << std::endl
+						  << "  ";
 				(*i)->do_test();
 				delete (*i);
 			}
-			std::cout << std::endl << std::endl;
+			std::cout << std::endl
+					  << std::endl;
 			std::cout << "Press <return>.";
 			getchar();
 		}
 	};
 
-}
+} // namespace cg
 
 #endif // TESTSUITE_H
-
-

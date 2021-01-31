@@ -6,10 +6,10 @@ CG_OBJS = $(CG_CPP:%.cpp=%.o)
 AST_CPP  = $(wildcard asteroids/*.cpp)
 AST_OBJS = $(AST_CPP:%.cpp=%.o)
 GAME = roids
-CXXFLAGS  = -ggdb -I.
-LDFLAGS = -lglut -lGL
+CXXFLAGS  = -ggdb -I. -I./cg
+LDFLAGS = -lglut -lGL -lGLU
 OUT_DIR = build
-CONFIG_FILE = resources/config.ini
+CONFIG_FILE = ../platfrom-independent/resources/config.ini
 
 ###############
 #TARGETS
